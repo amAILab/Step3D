@@ -48,6 +48,7 @@
       <a href="#tech">Технологии</a>
       <a href="#about">О нас</a>
       <a href="#brief">Расчёт</a>
+      <a href="#request">Заявка</a>
       <a href="#contacts">Контакты</a>
     </nav>
   </header>
@@ -92,7 +93,7 @@
 
     <section id="cases" class="section cases">
       <div class="section-head">
-        <p class="eyebrow">Кейсы с канала X.Lab</p>
+        <p class="eyebrow">Кейсы и публичные проекты</p>
         <h2>Проекты, где 3D-печать решает реальную задачу.</h2>
       </div>
       <div class="case-list">
@@ -147,6 +148,10 @@
           <p>Авторский предметный проект на стыке дизайна, 3D-печати и визуальной идеи.</p>
           <a href="https://t.me/STEP_3D_Lab/504" target="_blank" rel="noopener">Пост в канале →</a>
         </article>
+      </div>
+      <div class="source-note">
+        <span>Проверенные источники</span>
+        <p>Часть кейсов ведёт на публикации X.Lab / STEP_3D Lab, инженерный кейс Kawasaki — на публичный материал RangeVision о проекте UMATEX.</p>
       </div>
     </section>
 
@@ -314,11 +319,11 @@
         <p>Форма не отправляет данные на сторонний сервер: она соберёт письмо в вашем почтовом приложении. Так заявка не потеряется, даже если Telegram временно недоступен.</p>
       </div>
       <form class="request-form" id="requestForm">
-        <label>Имя<input name="name" autocomplete="name" placeholder="Как к вам обращаться"></label>
-        <label>Контакт для ответа<input name="contact" autocomplete="email" placeholder="Email или телефон"></label>
-        <label>Что нужно сделать<textarea name="task" rows="5" placeholder="Опишите изделие, размеры, материал, срок и количество"></textarea></label>
+        <label>Имя<input name="name" autocomplete="name" placeholder="Как к вам обращаться" required></label>
+        <label>Контакт для ответа<input name="contact" autocomplete="email" placeholder="Email или телефон" required></label>
+        <label>Что нужно сделать<textarea name="task" rows="5" placeholder="Опишите изделие, размеры, материал, срок и количество" required></textarea></label>
         <button class="button" type="submit">Сформировать письмо</button>
-        <p class="form-note">Прямой контакт: <a href="mailto:stepgptai@gmail.com">stepgptai@gmail.com</a></p>
+        <p class="form-note">Откроется почтовое приложение. Если есть STL/STEP, фото или чертёж — приложите файл к письму. Прямой контакт: <a href="mailto:stepgptai@gmail.com">stepgptai@gmail.com</a></p>
       </form>
     </section>
 
