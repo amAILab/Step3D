@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://amailab.github.io/Step3D/sitemap.xml
