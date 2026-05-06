@@ -1,0 +1,17 @@
+{
+  "name": "STEP_3D",
+  "short_name": "STEP_3D",
+  "description": "3D-печать, промышленный дизайн, реверсивный инжиниринг и прототипирование.",
+  "start_url": "/Step3D/",
+  "display": "standalone",
+  "background_color": "#f7f4ee",
+  "theme_color": "#171615",
+  "icons": [
+    {
+      "src": "assets/logo.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
