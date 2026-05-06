@@ -5,7 +5,7 @@ if (requestForm) {
   requestForm.addEventListener('submit', (event) => {
     event.preventDefault();
     const data = new FormData(requestForm);
-    const body = `Заявка STEP_3D\n\nИмя: ${data.get('name') || ''}\nКонтакт: ${data.get('contact') || ''}\n\nЗадача:\n${data.get('task') || ''}\n\nИсточник: сайт STEP_3D`;
+    const body = `Заявка STEP_3D\n\nИмя: ${data.get('name') || ''}\nКонтакт: ${data.get('contact') || ''}\nТип проекта: ${data.get('projectType') || ''}\nСрок: ${data.get('deadline') || ''}\nКоличество: ${data.get('quantity') || ''}\nФайлы/исходники: ${data.get('files') || ''}\n\nЗадача:\n${data.get('task') || ''}\n\nИсточник: сайт STEP_3D`;
     window.location.href = `mailto:stepgptai@gmail.com?subject=${encodeURIComponent('Заявка STEP_3D')}&body=${encodeURIComponent(body)}`;
   });
 }

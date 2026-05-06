@@ -334,9 +334,30 @@
         <p>Форма не отправляет данные на сторонний сервер: она соберёт письмо в вашем почтовом приложении. Так заявка не потеряется, даже если Telegram временно недоступен.</p>
       </div>
       <form class="request-form" id="requestForm">
-        <label>Имя<input name="name" autocomplete="name" placeholder="Как к вам обращаться" required></label>
-        <label>Контакт для ответа<input name="contact" autocomplete="email" placeholder="Email или телефон" required></label>
-        <label>Что нужно сделать<textarea name="task" rows="5" placeholder="Опишите изделие, размеры, материал, срок и количество" required></textarea></label>
+        <div class="form-row">
+          <label>Имя<input name="name" autocomplete="name" placeholder="Как к вам обращаться" required></label>
+          <label>Контакт для ответа<input name="contact" autocomplete="email" placeholder="Email или телефон" required></label>
+        </div>
+        <div class="form-row">
+          <label>Тип проекта
+            <select name="projectType" required>
+              <option value="">Выберите вариант</option>
+              <option>3D-печать детали</option>
+              <option>3D-модель / промышленный дизайн</option>
+              <option>Реверсивный инжиниринг / сканирование</option>
+              <option>Объект для события / сцены</option>
+              <option>Малая серия</option>
+              <option>Мастер-класс / обучение</option>
+              <option>Другое</option>
+            </select>
+          </label>
+          <label>Срок<input name="deadline" placeholder="Например: к пятнице / 2 недели / не срочно"></label>
+        </div>
+        <div class="form-row">
+          <label>Количество<input name="quantity" inputmode="numeric" placeholder="1 шт / 10 шт / партия"></label>
+          <label>Есть файлы?<input name="files" placeholder="STL, STEP, фото, чертёж, эскиз"></label>
+        </div>
+        <label>Что нужно сделать<textarea name="task" rows="5" placeholder="Опишите изделие, размеры, материал, условия эксплуатации и важные ограничения" required></textarea></label>
         <button class="button" type="submit">Сформировать письмо</button>
         <p class="form-note">Откроется почтовое приложение. Если есть STL/STEP, фото или чертёж — приложите файл к письму. Прямой контакт: <a href="mailto:stepgptai@gmail.com">stepgptai@gmail.com</a></p>
       </form>
