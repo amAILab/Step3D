@@ -258,6 +258,32 @@ h3 { margin-bottom: 14px; font-size: 24px; letter-spacing: -0.035em; }
 .audience-grid p { color: var(--muted); font-size: 18px; }
 
 .brief { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.request { border-bottom: 1px solid var(--line); }
+.request p { color: var(--muted); font-size: 18px; }
+.request-form {
+  padding: 30px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--card);
+  display: grid;
+  gap: 16px;
+}
+.request-form label { display: grid; gap: 8px; color: var(--muted); font-size: 14px; letter-spacing: .08em; text-transform: uppercase; }
+.request-form input, .request-form textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #fffdf8;
+  color: var(--ink);
+  padding: 14px 16px;
+  font: inherit;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.request-form textarea { resize: vertical; min-height: 130px; }
+.request-form .button { width: max-content; cursor: pointer; font: inherit; }
+.form-note { margin: 0; font-size: 15px !important; }
+.form-note a { border-bottom: 1px solid currentColor; font-weight: 700; color: var(--ink); }
 .brief-box {
   padding: 30px;
   border-radius: var(--radius);
@@ -281,6 +307,8 @@ details p { max-width: 760px; margin: 14px 0 0; color: var(--muted); font-size: 
   align-items: center;
 }
 .contact p { max-width: 680px; }
+.contact-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 18px; margin: 12px 0 18px; color: var(--muted); }
+.contact-links a { border-bottom: 1px solid currentColor; font-weight: 700; color: var(--ink); }
 .contact-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 12px; }
 
 .footer {
@@ -395,9 +423,10 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px soli
 .brief-copy.is-copied { background: #22d3ee; color: #171615; border-color: #22d3ee; }
 
 .hero-gallery picture, .case-card picture { display: block; width: 100%; }
-.case-card:nth-child(2) .case-image { object-position: center 42%; }
-.case-card:nth-child(4) .case-image { object-position: center 55%; }
-.case-card:nth-child(5) .case-image { object-position: center 45%; }
+.case-card:nth-child(2) .case-image { object-position: center 50%; }
+.case-card:nth-child(3) .case-image { object-position: center 42%; }
+.case-card:nth-child(5) .case-image { object-position: center 55%; }
+.case-card:nth-child(6) .case-image { object-position: center 45%; }
 .hero-gallery picture:first-child img { object-position: center 42%; }
 .hero-gallery picture:nth-child(2) img { object-position: center 38%; }
 .hero-gallery picture:nth-child(3) img { object-position: center 52%; }

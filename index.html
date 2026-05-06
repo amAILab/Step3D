@@ -27,10 +27,12 @@
     "url": "https://amailab.github.io/Step3D/",
     "logo": "https://amailab.github.io/Step3D/assets/step3d-invader.svg",
     "sameAs": ["https://t.me/STEP_3D_Lab"],
+    "email": "stepgptai@gmail.com",
     "contactPoint": [{
       "@type": "ContactPoint",
       "contactType": "sales",
-      "url": "https://t.me/step_3d_mngr"
+      "url": "https://t.me/step_3d_mngr",
+      "email": "stepgptai@gmail.com"
     }],
     "description": "3D-печать, промышленный дизайн, реверсивный инжиниринг, прототипирование и образовательные проекты."
   }
@@ -102,6 +104,13 @@
           </div>
           <p>Полный цикл: идея, дизайн, производство и подготовка награды для премии СТД России.</p>
           <a href="https://t.me/STEP_3D_Lab/539" target="_blank" rel="noopener">Пост в канале →</a>
+        </article>
+        <article class="case-card">
+          <picture><source srcset="assets/case-kawasaki.webp" type="image/webp"><img class="case-image" src="assets/case-kawasaki.jpg" alt="3D-модель спортивного обвеса Kawasaki Puccetti Racing" loading="lazy"></picture>
+          <p class="case-type">РГСУ × UMATEX · Kawasaki · 3D-сканирование</p>
+          <h3>Спортивный обвес для Kawasaki Puccetti Racing</h3>
+          <p>Участие команды в инженерном цикле: 3D-сканирование, обратное проектирование, аэродинамическая доработка и оснастка под композитный обтекатель.</p>
+          <a href="https://rangevision.com/application/cases/879/" target="_blank" rel="noopener">Кейс RangeVision →</a>
         </article>
         <article class="case-card">
           <picture><source srcset="assets/case-theatre-lamps.webp" type="image/webp"><img class="case-image" src="assets/case-theatre-lamps.jpg" alt="Фальшсветильники для спектакля Последняя сказка" loading="lazy"></picture>
@@ -292,9 +301,25 @@
         </ul>
         <div class="brief-actions">
           <a class="button" href="https://t.me/step_3d_mngr" target="_blank" rel="noopener">Отправить задачу</a>
+          <a class="button button-ghost" href="mailto:stepgptai@gmail.com?subject=Заявка%20STEP_3D">Написать на почту</a>
           <button class="button button-ghost brief-copy" id="copyBrief" type="button">Скопировать шаблон</button>
         </div>
       </div>
+    </section>
+
+    <section id="request" class="section request split">
+      <div>
+        <p class="eyebrow">Форма заявки</p>
+        <h2>Если Telegram не открывается — оставьте заявку через почту.</h2>
+        <p>Форма не отправляет данные на сторонний сервер: она соберёт письмо в вашем почтовом приложении. Так заявка не потеряется, даже если Telegram временно недоступен.</p>
+      </div>
+      <form class="request-form" id="requestForm">
+        <label>Имя<input name="name" autocomplete="name" placeholder="Как к вам обращаться"></label>
+        <label>Контакт для ответа<input name="contact" autocomplete="email" placeholder="Email или телефон"></label>
+        <label>Что нужно сделать<textarea name="task" rows="5" placeholder="Опишите изделие, размеры, материал, срок и количество"></textarea></label>
+        <button class="button" type="submit">Сформировать письмо</button>
+        <p class="form-note">Прямой контакт: <a href="mailto:stepgptai@gmail.com">stepgptai@gmail.com</a></p>
+      </form>
     </section>
 
     <section class="section faq">
@@ -329,8 +354,12 @@
       <p class="eyebrow">Контакты</p>
       <h2>Есть деталь, идея или проект?</h2>
       <p>Напишите кратко: что нужно сделать, размеры, материал, срок, фото/эскиз и где будет использоваться изделие.</p>
+      <div class="contact-links">
+        <a href="mailto:stepgptai@gmail.com">stepgptai@gmail.com</a>
+      </div>
       <div class="contact-actions">
         <a class="button" href="https://t.me/step_3d_mngr" target="_blank" rel="noopener">Написать менеджеру</a>
+        <a class="button button-ghost" href="#request">Оставить заявку</a>
         <a class="button button-ghost" href="https://t.me/STEP_3D_Lab" target="_blank" rel="noopener">Открыть канал</a>
       </div>
     </section>

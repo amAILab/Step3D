@@ -1,5 +1,14 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
+const requestForm = document.getElementById('requestForm');
+if (requestForm) {
+  requestForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const data = new FormData(requestForm);
+    const body = `Заявка STEP_3D\n\nИмя: ${data.get('name') || ''}\nКонтакт: ${data.get('contact') || ''}\n\nЗадача:\n${data.get('task') || ''}`;
+    window.location.href = `mailto:stepgptai@gmail.com?subject=${encodeURIComponent('Заявка STEP_3D')}&body=${encodeURIComponent(body)}`;
+  });
+}
 
 const briefButton = document.getElementById('copyBrief');
 if (briefButton) {
