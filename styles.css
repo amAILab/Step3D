@@ -377,3 +377,15 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px soli
 .trust-strip span { color: var(--muted); font-size: 15px; }
 @media (max-width: 860px) { .trust-strip { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 520px) { .trust-strip { grid-template-columns: 1fr; } }
+
+.format-list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.format-list article {
+  min-height: 250px;
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+}
+.format-list span { display: block; margin-bottom: 48px; color: var(--muted); font-size: 14px; }
+.format-list p { color: var(--muted); font-size: 17px; }
+@media (max-width: 860px) { .format-list { grid-template-columns: 1fr; } }
