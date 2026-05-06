@@ -344,3 +344,18 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px soli
 }
 .floating-cta:hover { transform: translateY(-2px); }
 @media (min-width: 980px) { .floating-cta { display: none; } }
+
+.final-cta {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 28px;
+  align-items: end;
+  margin-top: 36px;
+  margin-bottom: 36px;
+  padding: 54px 36px;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, #fffaf2, #eefbfb);
+  border: 1px solid var(--line);
+}
+.final-cta h2 { margin-bottom: 0; }
+@media (max-width: 860px) { .final-cta { grid-template-columns: 1fr; padding: 38px 24px; } }
