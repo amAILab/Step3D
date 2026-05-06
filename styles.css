@@ -393,3 +393,11 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px soli
 .brief-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
 .brief-copy { background: transparent; color: var(--bg); border-color: rgba(247,244,238,.36); cursor: pointer; font: inherit; }
 .brief-copy.is-copied { background: #22d3ee; color: #171615; border-color: #22d3ee; }
+
+.hero-gallery picture, .case-card picture { display: block; width: 100%; }
+.case-card:nth-child(2) .case-image { object-position: center 42%; }
+.case-card:nth-child(4) .case-image { object-position: center 55%; }
+.case-card:nth-child(5) .case-image { object-position: center 45%; }
+.hero-gallery picture:first-child img { object-position: center 42%; }
+.hero-gallery picture:nth-child(2) img { object-position: center 38%; }
+.hero-gallery picture:nth-child(3) img { object-position: center 52%; }
