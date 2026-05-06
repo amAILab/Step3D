@@ -8,7 +8,7 @@
   "theme_color": "#171615",
   "icons": [
     {
-      "src": "assets/logo.svg",
+      "src": "assets/step3d-invader.svg",
       "sizes": "512x512",
       "type": "image/svg+xml",
       "purpose": "any maskable"

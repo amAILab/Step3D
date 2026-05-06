@@ -1,62 +1,51 @@
-<svg width="720" height="720" viewBox="0 0 720 720" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
-  <title id="title">STEP_3D animated cosmic invader</title>
-  <desc id="desc">Animated pixel-inspired cosmic invader logo for STEP_3D</desc>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">STEP_3D invader</title>
+  <desc id="desc">Simple animated pixel invader logo for STEP_3D on transparent background</desc>
   <style>
-    :root { --ink:#171615; --paper:#f7f4ee; --glow:#9df7ff; --hot:#ff6b3d; }
-    .float { animation: float 4.8s ease-in-out infinite; transform-origin: 360px 360px; }
-    .blink { animation: blink 3.2s steps(1) infinite; }
-    .pulse { animation: pulse 2.6s ease-in-out infinite; transform-origin: center; }
-    .ray { animation: ray 2.2s ease-in-out infinite; transform-origin: center; }
-    .ray.r2 { animation-delay: .25s; }
-    .ray.r3 { animation-delay: .5s; }
-    .spark { animation: spark 2.8s ease-in-out infinite; }
-    .spark.s2 { animation-delay: .7s; }
-    .spark.s3 { animation-delay: 1.2s; }
-    @keyframes float { 0%,100%{ transform: translateY(0) rotate(0deg); } 50%{ transform: translateY(-18px) rotate(-1.4deg); } }
+    .body { fill:#171615; }
+    .eye { fill:#f7f4ee; animation: blink 3.6s steps(1) infinite; }
+    .accent { fill:#22d3ee; animation: glow 2.4s ease-in-out infinite; }
+    .spark { fill:#ff6b3d; animation: glow 2.4s ease-in-out infinite reverse; }
+    .float { animation: float 4.6s ease-in-out infinite; transform-origin:256px 256px; }
+    @keyframes float { 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-10px); } }
     @keyframes blink { 0%,88%,100%{ opacity:1; } 90%,94%{ opacity:.12; } }
-    @keyframes pulse { 0%,100%{ opacity:.28; transform: scale(.96); } 50%{ opacity:.75; transform: scale(1.05); } }
-    @keyframes ray { 0%,100%{ opacity:.1; transform: scaleY(.75); } 50%{ opacity:.65; transform: scaleY(1.05); } }
-    @keyframes spark { 0%,100%{ opacity:.25; transform: translateY(0) scale(.9); } 50%{ opacity:1; transform: translateY(-10px) scale(1.1); } }
-    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+    @keyframes glow { 0%,100%{ opacity:.72; } 50%{ opacity:1; } }
+    @media (prefers-reduced-motion: reduce) { * { animation:none!important; } }
   </style>
 
-  <rect width="720" height="720" rx="144" fill="var(--ink)"/>
-  <circle class="pulse" cx="360" cy="360" r="250" fill="url(#halo)"/>
-
-  <g class="spark s1" fill="var(--paper)">
-    <rect x="112" y="166" width="14" height="14" rx="3"/>
-    <rect x="590" y="206" width="10" height="10" rx="2"/>
-  </g>
-  <g class="spark s2" fill="var(--glow)">
-    <rect x="162" y="520" width="10" height="10" rx="2"/>
-    <rect x="536" y="502" width="14" height="14" rx="3"/>
-  </g>
-  <g class="spark s3" fill="var(--hot)">
-    <rect x="214" y="118" width="8" height="8" rx="2"/>
-    <rect x="492" y="128" width="8" height="8" rx="2"/>
-  </g>
-
   <g class="float">
-    <path d="M222 272h54v-54h54v54h60v-54h54v54h54v54h48v102h-48v54h-54v54h-54v-54h-60v54h-54v-54h-54v-54h-48V326h48v-54Z" fill="var(--paper)"/>
-    <path d="M276 326h72v54h-72v-54Zm96 0h72v54h-72v-54Z" class="blink" fill="var(--ink)"/>
-    <path d="M252 428h54v27h-54v-27Zm81 0h54v27h-54v-27Zm81 0h54v27h-54v-27Z" fill="var(--ink)" opacity=".92"/>
-    <path d="M198 350h-48v54h48v-54Zm324 0h48v54h-48v-54Z" fill="var(--paper)"/>
-    <path d="M246 536h42v54h-42v-54Zm186 0h42v54h-42v-54Z" fill="var(--paper)"/>
-    <path d="M300 252h120v18H300v-18Z" fill="var(--glow)" opacity=".9"/>
-    <path d="M330 176h60v42h-60v-42Z" fill="var(--hot)"/>
-  </g>
+    <!-- antenna -->
+    <rect class="spark" x="236" y="52" width="40" height="40" rx="8"/>
+    <rect class="body" x="244" y="96" width="24" height="32" rx="6"/>
 
-  <g opacity=".9">
-    <rect class="ray" x="276" y="598" width="28" height="68" rx="14" fill="var(--glow)"/>
-    <rect class="ray r2" x="346" y="594" width="28" height="86" rx="14" fill="var(--paper)"/>
-    <rect class="ray r3" x="416" y="598" width="28" height="68" rx="14" fill="var(--hot)"/>
-  </g>
+    <!-- visor -->
+    <rect class="accent" x="176" y="132" width="160" height="24" rx="6"/>
 
-  <defs>
-    <radialGradient id="halo" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(360 360) rotate(90) scale(250)">
-      <stop stop-color="#9df7ff" stop-opacity=".55"/>
-      <stop offset=".55" stop-color="#ff6b3d" stop-opacity=".18"/>
-      <stop offset="1" stop-color="#171615" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
+    <!-- pixel body -->
+    <rect class="body" x="128" y="168" width="64" height="48" rx="8"/>
+    <rect class="body" x="208" y="168" width="96" height="48" rx="8"/>
+    <rect class="body" x="320" y="168" width="64" height="48" rx="8"/>
+
+    <rect class="body" x="96" y="216" width="320" height="64" rx="10"/>
+    <rect class="body" x="64" y="280" width="384" height="56" rx="10"/>
+    <rect class="body" x="112" y="336" width="288" height="48" rx="10"/>
+
+    <!-- eyes -->
+    <rect class="eye" x="160" y="236" width="56" height="44" rx="6"/>
+    <rect class="eye" x="296" y="236" width="56" height="44" rx="6"/>
+
+    <!-- mouth pixels -->
+    <rect class="eye" x="184" y="320" width="32" height="24" rx="5" opacity=".9"/>
+    <rect class="eye" x="240" y="320" width="32" height="24" rx="5" opacity=".9"/>
+    <rect class="eye" x="296" y="320" width="32" height="24" rx="5" opacity=".9"/>
+
+    <!-- arms -->
+    <rect class="body" x="48" y="248" width="48" height="64" rx="9"/>
+    <rect class="body" x="416" y="248" width="48" height="64" rx="9"/>
+
+    <!-- legs -->
+    <rect class="body" x="128" y="384" width="48" height="64" rx="9"/>
+    <rect class="body" x="232" y="384" width="48" height="64" rx="9"/>
+    <rect class="body" x="336" y="384" width="48" height="64" rx="9"/>
+  </g>
 </svg>
