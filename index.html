@@ -11,6 +11,7 @@
   <link rel="icon" href="assets/step3d-invader.svg" type="image/svg+xml" />
   <link rel="manifest" href="assets/site.webmanifest" />
   <link rel="sitemap" type="application/xml" href="sitemap.xml" />
+  <link rel="preload" as="image" href="assets/hero-learning.webp" type="image/webp" />
   <meta property="og:title" content="STEP_3D — 3D-печать и инженерные проекты" />
   <meta property="og:description" content="ООО СТЕП_3Д: прототипирование, промышленный дизайн, 3D-сканирование, мастер-классы и реальные кейсы." />
   <meta property="og:type" content="website" />
@@ -21,24 +22,66 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "ООО СТЕП_3Д",
-    "alternateName": "STEP_3D",
-    "url": "https://amailab.github.io/Step3D/",
-    "logo": "https://amailab.github.io/Step3D/assets/step3d-invader.svg",
-    "sameAs": ["https://t.me/STEP_3D_Lab"],
-    "email": "stepgptai@gmail.com",
-    "contactPoint": [{
-      "@type": "ContactPoint",
-      "contactType": "sales",
-      "url": "https://t.me/step_3d_mngr",
-      "email": "stepgptai@gmail.com"
-    }],
-    "description": "3D-печать, промышленный дизайн, реверсивный инжиниринг, прототипирование и образовательные проекты."
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "ООО СТЕП_3Д",
+        "alternateName": "STEP_3D",
+        "url": "https://amailab.github.io/Step3D/",
+        "logo": "https://amailab.github.io/Step3D/assets/step3d-invader.svg",
+        "sameAs": ["https://t.me/STEP_3D_Lab"],
+        "email": "stepgptai@gmail.com",
+        "contactPoint": [{
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "url": "https://t.me/step_3d_mngr",
+          "email": "stepgptai@gmail.com",
+          "availableLanguage": ["ru"]
+        }],
+        "description": "3D-печать, промышленный дизайн, реверсивный инжиниринг, прототипирование и образовательные проекты."
+      },
+      {
+        "@type": "WebSite",
+        "name": "STEP_3D",
+        "url": "https://amailab.github.io/Step3D/",
+        "inLanguage": "ru-RU"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Можно сделать изделие без готовой 3D-модели?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Да. Можно начать с фото, эскиза, размеров или описания задачи. Мы подскажем, какой файл или замер нужен дальше."}
+          },
+          {
+            "@type": "Question",
+            "name": "Вы делаете только печать или дизайн тоже?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Делаем оба этапа: проектирование, подготовку модели, печать, проверку и доработку."}
+          },
+          {
+            "@type": "Question",
+            "name": "Можно срочно?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Да, если понятна задача и есть доступный материал или оборудование. Для срочных проектов лучше сразу прислать размеры, фото и срок."}
+          },
+          {
+            "@type": "Question",
+            "name": "Какие файлы лучше прислать?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Для печати подойдут STL, 3MF или OBJ. Для инженерной доработки лучше STEP, чертёж PDF/DXF, фото детали и ключевые размеры."}
+          },
+          {
+            "@type": "Question",
+            "name": "Можно сделать малую серию?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Да. После прототипа можно подготовить повторяемый процесс: материал, настройки, постобработку и расчёт партии."}
+          }
+        ]
+      }
+    ]
   }
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#top">Перейти к содержанию</a>
   <header class="site-header">
     <a class="logo" href="#top" aria-label="STEP_3D home"><img src="assets/step3d-invader.svg" alt="" aria-hidden="true">STEP_3D</a>
     <nav class="nav" aria-label="Основная навигация">
@@ -53,7 +96,7 @@
     </nav>
   </header>
 
-  <main id="top">
+  <main id="top" tabindex="-1">
     <section class="hero section">
       <p class="eyebrow">ООО «СТЕП_3Д»</p>
       <h1>Инженерные идеи превращаем в физические объекты.</h1>
@@ -68,7 +111,7 @@
           <p>Лаборатория прототипов, объектов и инженерных экспериментов</p>
         </div>
         <div class="hero-gallery" aria-label="Фотографии проектов STEP_3D">
-          <picture><source srcset="assets/hero-learning.webp" type="image/webp"><img src="assets/hero-learning.jpg" alt="Мастер-класс STEP_3D и X.Lab" loading="lazy"></picture>
+          <picture><source srcset="assets/hero-learning.webp" type="image/webp"><img src="assets/hero-learning.jpg" alt="Мастер-класс STEP_3D и X.Lab" fetchpriority="high" decoding="async"></picture>
           <picture><source srcset="assets/hero-award-stage.webp" type="image/webp"><img src="assets/hero-award-stage.jpg" alt="Наградной проект STEP_3D" loading="lazy"></picture>
           <picture><source srcset="assets/hero-production.webp" type="image/webp"><img src="assets/hero-production.jpg" alt="Производственный процесс 3D-объекта" loading="lazy"></picture>
         </div>
@@ -357,6 +400,9 @@
           <li>Количество экземпляров и желаемый срок.</li>
           <li>Где объект будет использоваться: сцена, производство, обучение, интерьер.</li>
         </ul>
+        <div class="format-chips" aria-label="Подходящие форматы файлов">
+          <span>STL</span><span>STEP</span><span>OBJ</span><span>3MF</span><span>DXF</span><span>PDF</span><span>JPG/PNG</span>
+        </div>
         <div class="brief-actions">
           <a class="button" href="https://t.me/step_3d_mngr" target="_blank" rel="noopener">Отправить задачу</a>
           <a class="button button-ghost" href="mailto:stepgptai@gmail.com?subject=Заявка%20STEP_3D">Написать на почту</a>
@@ -398,6 +444,7 @@
         <label>Что нужно сделать<textarea name="task" rows="5" placeholder="Опишите изделие, размеры, материал, условия эксплуатации и важные ограничения" required></textarea></label>
         <button class="button" type="submit">Сформировать письмо</button>
         <p class="form-note">Откроется почтовое приложение. Если есть STL/STEP, фото или чертёж — приложите файл к письму. Прямой контакт: <a href="mailto:stepgptai@gmail.com">stepgptai@gmail.com</a></p>
+        <p class="privacy-note">Заявка не уходит на сервер сайта: данные остаются в письме, которое вы сами отправляете из почтового приложения.</p>
       </form>
     </section>
 
@@ -416,6 +463,14 @@
         <details>
           <summary>Можно срочно?</summary>
           <p>Да, если понятна задача и есть доступный материал/оборудование. Для срочных проектов лучше сразу прислать размеры, фото и срок.</p>
+        </details>
+        <details>
+          <summary>Какие файлы лучше прислать?</summary>
+          <p>Для печати подойдут STL, 3MF или OBJ. Для инженерной доработки лучше STEP, чертёж PDF/DXF, фото детали и ключевые размеры.</p>
+        </details>
+        <details>
+          <summary>Можно сделать малую серию?</summary>
+          <p>Да. После прототипа можно подготовить повторяемый процесс: материал, настройки, постобработку и расчёт партии.</p>
         </details>
       </div>
     </section>
@@ -444,7 +499,7 @@
     </section>
   </main>
 
-  <a class="floating-cta" href="https://t.me/step_3d_mngr" target="_blank" rel="noopener" aria-label="Написать менеджеру STEP_3D">Обсудить проект</a>
+  <a class="floating-cta" href="#request" aria-label="Оставить заявку STEP_3D">Оставить заявку</a>
 
   <footer class="footer">
     <span>© <span id="year"></span> ООО «СТЕП_3Д»</span>
