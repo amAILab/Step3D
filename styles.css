@@ -389,3 +389,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px soli
 .format-list span { display: block; margin-bottom: 48px; color: var(--muted); font-size: 14px; }
 .format-list p { color: var(--muted); font-size: 17px; }
 @media (max-width: 860px) { .format-list { grid-template-columns: 1fr; } }
+
+.brief-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.brief-copy { background: transparent; color: var(--bg); border-color: rgba(247,244,238,.36); cursor: pointer; font: inherit; }
+.brief-copy.is-copied { background: #22d3ee; color: #171615; border-color: #22d3ee; }
