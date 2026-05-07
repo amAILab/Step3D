@@ -156,6 +156,7 @@
   </script>
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgressBar"></span></div>
   <a class="skip-link" href="#top">Перейти к содержанию</a>
   <header class="site-header">
     <a class="logo" href="#top" aria-label="Step3D home"><img src="assets/step3d-invader.svg" alt="" aria-hidden="true">Step3D</a>
@@ -180,6 +181,11 @@
       <div class="hero-actions">
         <a class="button" href="#request">Оставить заявку</a>
         <a class="button button-ghost" href="#cases">Смотреть кейсы</a>
+      </div>
+      <div class="hero-assurance" aria-label="Быстрые преимущества Step3D">
+        <span><strong>15 минут</strong> на первичную оценку по фото/эскизу</span>
+        <span><strong>1–2 итерации</strong> обычно хватает для проверки прототипа</span>
+        <span><strong>без лишних файлов</strong> можно начать с описания задачи</span>
       </div>
       <div class="hero-showcase" aria-label="Визуальный стиль Step3D">
         <div class="invader-stage">
@@ -215,6 +221,7 @@
         <p class="eyebrow">Кейсы и публичные проекты</p>
         <h2>Проекты, где 3D-печать решает реальную задачу.</h2>
       </div>
+      <p class="story-help">Нажмите на обложку кейса — откроется короткая story-галерея с фото процесса и результата.</p>
       <div class="case-list">
         <article class="case-card featured">
           <button class="story-trigger" type="button" data-gallery-title="Награда для премии Союза театральных деятелей" data-gallery="assets/gallery-awards-01.webp,assets/gallery-awards-02.webp,assets/gallery-awards-03.webp,assets/gallery-awards-04.webp">
@@ -306,11 +313,11 @@
         <div><strong>90+</strong><span>фото из канала учтено</span></div>
         <div><strong>16</strong><span>постов с видео ведут в Telegram</span></div>
       </div>
-      <div class="proof-filter" aria-label="Направления компетенций Step3D">
-        <span>сценические объекты</span><span>промдизайн</span><span>роботы</span><span>3D-сканирование</span><span>арт-объекты</span><span>образование</span><span>макеты</span><span>прототипы</span>
+      <div class="proof-filter" aria-label="Фильтр направлений компетенций Step3D">
+        <button type="button" class="is-active" data-proof-filter="all">все</button><button type="button" data-proof-filter="scene">сценические объекты</button><button type="button" data-proof-filter="design">промдизайн</button><button type="button" data-proof-filter="robots">роботы</button><button type="button" data-proof-filter="scan">3D-сканирование</button><button type="button" data-proof-filter="art">арт-объекты</button><button type="button" data-proof-filter="education">образование</button><button type="button" data-proof-filter="models">макеты</button><button type="button" data-proof-filter="prototype">прототипы</button>
       </div>
       <div class="media-grid">
-        <article class="media-card featured">
+        <article class="media-card featured" data-proof="scene design prototype">
           <a href="https://t.me/STEP_3D_Lab/539" target="_blank" rel="noopener" aria-label="Открыть публикацию: Премия СТД">
             <img src="assets/media-proof-01.webp" alt="Премия СТД — награда за 10 дней" loading="lazy">
             <span class="media-kind">Видео · 4</span>
@@ -318,7 +325,7 @@
             <span class="media-open">Открыть пост →</span>
           </a>
         </article>
-        <article class="media-card featured">
+        <article class="media-card featured" data-proof="scene design">
           <a href="https://t.me/STEP_3D_Lab/530" target="_blank" rel="noopener" aria-label="Открыть публикацию: МДМ «Последняя сказка»">
             <img src="assets/media-proof-02.webp" alt="МДМ «Последняя сказка» — фальшсветильники для сцены" loading="lazy">
             <span class="media-kind">Фото · 8</span>
@@ -326,7 +333,7 @@
             <span class="media-open">Открыть пост →</span>
           </a>
         </article>
-        <article class="media-card">
+        <article class="media-card" data-proof="education">
           <a href="https://t.me/STEP_3D_Lab/525" target="_blank" rel="noopener" aria-label="Открыть публикацию: AI-мастер-классы">
             <img src="assets/media-proof-03.webp" alt="AI-мастер-классы — образовательные интенсивы" loading="lazy">
             <span class="media-kind">Фото · 4</span>
@@ -334,7 +341,7 @@
             <span class="media-open">Открыть пост →</span>
           </a>
         </article>
-        <article class="media-card">
+        <article class="media-card" data-proof="design art prototype">
           <a href="https://t.me/STEP_3D_Lab/504" target="_blank" rel="noopener" aria-label="Открыть публикацию: Морские шахматы">
             <img src="assets/media-proof-04.webp" alt="Морские шахматы — предметный дизайн" loading="lazy">
             <span class="media-kind">Фото · 4</span>
@@ -342,7 +349,7 @@
             <span class="media-open">Открыть пост →</span>
           </a>
         </article>
-        <article class="media-card">
+        <article class="media-card" data-proof="art prototype">
           <a href="https://t.me/STEP_3D_Lab/476" target="_blank" rel="noopener" aria-label="Открыть публикацию: Скульптура «Дева Мария»">
             <img src="assets/media-proof-05.webp" alt="Скульптура «Дева Мария» — аддитивное производство в искусстве" loading="lazy">
             <span class="media-kind">Фото · 1</span>
@@ -350,7 +357,7 @@
             <span class="media-open">Открыть пост →</span>
           </a>
         </article>
-        <article class="media-card featured">
+        <article class="media-card featured" data-proof="robots prototype">
           <a href="https://t.me/STEP_3D_Lab/395" target="_blank" rel="noopener" aria-label="Открыть публикацию: Дезинтегратор">
             <img src="assets/media-proof-06.webp" alt="Дезинтегратор — команда на «Битве роботов»" loading="lazy">
             <span class="media-kind">Фото · 1</span>
@@ -358,7 +365,7 @@
             <span class="media-open">Открыть пост →</span>
           </a>
         </article>
-        <article class="media-card">
+        <article class="media-card" data-proof="scan prototype">
           <a href="https://t.me/STEP_3D_Lab/357" target="_blank" rel="noopener" aria-label="Открыть публикацию: 3D-сканирование">
             <img src="assets/media-proof-07.webp" alt="3D-сканирование — цифровизация формы и деталей" loading="lazy">
             <span class="media-kind">Видео · 8</span>
@@ -366,7 +373,7 @@
             <span class="media-open">Открыть пост →</span>
           </a>
         </article>
-        <article class="media-card">
+        <article class="media-card" data-proof="art models">
           <a href="https://t.me/STEP_3D_Lab/340" target="_blank" rel="noopener" aria-label="Открыть публикацию: Памятник астроному">
             <img src="assets/media-proof-08.webp" alt="Памятник астроному — скульптура и полигональное моделирование" loading="lazy">
             <span class="media-kind">Фото · 5</span>
@@ -374,7 +381,7 @@
             <span class="media-open">Открыть пост →</span>
           </a>
         </article>
-        <article class="media-card">
+        <article class="media-card" data-proof="design education prototype">
           <a href="https://t.me/STEP_3D_Lab/182" target="_blank" rel="noopener" aria-label="Открыть публикацию: Лаборатория РГСУ">
             <img src="assets/media-proof-09.webp" alt="Лаборатория РГСУ — промдизайн и инжиниринг" loading="lazy">
             <span class="media-kind">Фото · 5</span>
@@ -382,7 +389,7 @@
             <span class="media-open">Открыть пост →</span>
           </a>
         </article>
-        <article class="media-card">
+        <article class="media-card" data-proof="models design">
           <a href="https://t.me/STEP_3D_Lab/172" target="_blank" rel="noopener" aria-label="Открыть публикацию: Макет мечети">
             <img src="assets/media-proof-10.webp" alt="Макет мечети — архитектурный макет" loading="lazy">
             <span class="media-kind">Фото · 5</span>
@@ -390,7 +397,7 @@
             <span class="media-open">Открыть пост →</span>
           </a>
         </article>
-        <article class="media-card">
+        <article class="media-card" data-proof="prototype design">
           <a href="https://t.me/STEP_3D_Lab/165" target="_blank" rel="noopener" aria-label="Открыть публикацию: Аддитивные кроссы">
             <img src="assets/media-proof-11.webp" alt="Аддитивные кроссы — экспериментальная обувь" loading="lazy">
             <span class="media-kind">Видео · 1</span>
@@ -398,7 +405,7 @@
             <span class="media-open">Открыть пост →</span>
           </a>
         </article>
-        <article class="media-card">
+        <article class="media-card" data-proof="design prototype">
           <a href="https://t.me/STEP_3D_Lab/148" target="_blank" rel="noopener" aria-label="Открыть публикацию: Детектор в стиле Star Wars">
             <img src="assets/media-proof-12.webp" alt="Детектор в стиле Star Wars — промышленный дизайн" loading="lazy">
             <span class="media-kind">Видео · 1</span>
@@ -716,6 +723,7 @@
           <label>Есть файлы?<input name="files" placeholder="STL, STEP, фото, чертёж, эскиз"></label>
         </div>
         <label>Что нужно сделать<textarea name="task" rows="5" placeholder="Опишите изделие, размеры, материал, условия эксплуатации и важные ограничения" required></textarea></label>
+        <p class="form-helper" id="taskHelper">Подсказка: добавьте размер, материал, количество и срок — так расчёт будет быстрее.</p>
         <p class="form-status" id="formStatus" aria-live="polite"></p>
         <button class="button" type="submit">Сформировать письмо</button>
         <p class="form-note">Откроется почтовое приложение. Если есть STL/STEP, фото или чертёж — приложите файл к письму. Прямой контакт: <a href="mailto:stepgptai@gmail.com">stepgptai@gmail.com</a></p>
@@ -727,7 +735,7 @@
       <p class="eyebrow">FAQ</p>
       <h2>Коротко о типовых вопросах.</h2>
       <div class="faq-list">
-        <details>
+        <details open>
           <summary>Можно сделать изделие без готовой 3D-модели?</summary>
           <p>Да. Можно начать с фото, эскиза, размеров или описания задачи. Мы подскажем, какой файл или замер нужен дальше.</p>
         </details>

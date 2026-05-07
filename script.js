@@ -163,3 +163,59 @@ document.addEventListener('keydown', (event) => {
     moveStory(1);
   }
 });
+
+const scrollProgressBar = document.getElementById('scrollProgressBar');
+const navLinks = [...document.querySelectorAll('.nav a[href^="#"]')];
+const navTargets = navLinks
+  .map((link) => document.querySelector(link.getAttribute('href')))
+  .filter(Boolean);
+
+const updateScrollUX = () => {
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = scrollable > 0 ? Math.min(1, Math.max(0, window.scrollY / scrollable)) : 0;
+  if (scrollProgressBar) scrollProgressBar.style.transform = `scaleX(${progress})`;
+
+  let activeId = navTargets[0]?.id;
+  navTargets.forEach((section) => {
+    if (section.getBoundingClientRect().top <= 130) activeId = section.id;
+  });
+  navLinks.forEach((link) => link.classList.toggle('is-active', link.getAttribute('href') === `#${activeId}`));
+};
+updateScrollUX();
+window.addEventListener('scroll', updateScrollUX, { passive: true });
+window.addEventListener('resize', updateScrollUX);
+
+const proofButtons = document.querySelectorAll('[data-proof-filter]');
+const proofCards = document.querySelectorAll('[data-proof]');
+proofButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const filter = button.dataset.proofFilter;
+    proofButtons.forEach((item) => {
+      item.classList.toggle('is-active', item === button);
+      item.setAttribute('aria-pressed', String(item === button));
+    });
+    proofCards.forEach((card) => {
+      const values = (card.dataset.proof || '').split(' ');
+      card.hidden = filter !== 'all' && !values.includes(filter);
+    });
+  });
+  button.setAttribute('aria-pressed', String(button.classList.contains('is-active')));
+});
+
+const taskTextarea = requestForm?.elements.task;
+const taskHelper = document.getElementById('taskHelper');
+const updateTaskHelper = () => {
+  if (!taskTextarea || !taskHelper) return;
+  const length = taskTextarea.value.trim().length;
+  if (!length) {
+    taskHelper.textContent = 'Подсказка: добавьте размер, материал, количество и срок — так расчёт будет быстрее.';
+    return;
+  }
+  if (length < 80) {
+    taskHelper.textContent = `Описание пока короткое: ${length} знаков. Добавьте размеры, материал и условия эксплуатации.`;
+    return;
+  }
+  taskHelper.textContent = `Хорошее описание: ${length} знаков. Можно отправлять или добавить фото/чертёж к письму.`;
+};
+taskTextarea?.addEventListener('input', updateTaskHelper);
+updateTaskHelper();
