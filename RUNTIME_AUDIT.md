@@ -115,3 +115,9 @@
 По скриншотам переработано отображение ключевых блоков: карточки кейсов переведены из узких вертикальных колонок в editorial/bento-layout 2×2 с крупной обложкой и читабельным текстовым блоком; Stories-категории сделаны как 2×2 editorial cards вместо длинной вертикальной ленты. На мобильной версии карточки складываются в аккуратный single-column с широкими 16:11 обложками. Цель — уровень современного IT/продуктового лендинга: меньше «плитки», больше воздуха, ясная иерархия, крупная типографика, меньше визуального шума.
 
 Проверка: 11 секций, 4 case-card, 4 story-category-card, 8 story triggers, HTML anchors/assets/JSON-LD, `node --check script.js`, `git diff --check`, локальная отдача.
+
+## Очистка CSS после оптимизации структуры
+
+Удалены устаревшие стили для блоков, которых больше нет в HTML: старые media-card/proof-filter/video-proof, deliverables, materials, process/result/audience/request-grid и связанные hover/responsive правила. CSS стал легче примерно на 17 KB без изменения текущей структуры и визуальной логики.
+
+Проверка: 11 секций, 4 case-card, 4 story-category-card, 8 story triggers, 4 preset buttons, HTML anchors/assets/JSON-LD, SVG parse, `node --check script.js`, `git diff --check`, локальная отдача.
