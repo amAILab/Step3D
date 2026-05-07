@@ -1398,3 +1398,89 @@ details[open] summary::after { content: "−"; }
   .media-story-trigger { min-height: 360px; }
   .media-story-copy { padding: 18px 12px 14px; }
 }
+
+/* Final publication pass: concise mobile menu and cleaner header */
+.menu-toggle { display: none; }
+.site-header {
+  border-radius: 0 0 24px 24px;
+  background: rgba(247,244,238,.76);
+}
+.logo img { border-radius: 0; }
+@media (max-width: 920px) {
+  body.menu-open { overflow: hidden; }
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1100;
+    padding: 16px 18px;
+  }
+  .menu-toggle {
+    width: 46px;
+    height: 40px;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 7px;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    margin: 0 auto;
+    border-radius: 999px;
+    background: currentColor;
+    transition: transform .18s ease, opacity .18s ease;
+  }
+  body.menu-open .menu-toggle span:first-child { transform: translateY(4.5px) rotate(45deg); }
+  body.menu-open .menu-toggle span:last-child { transform: translateY(-4.5px) rotate(-45deg); }
+  .nav {
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    top: 72px;
+    z-index: 1090;
+    display: grid;
+    gap: 0;
+    padding: 16px;
+    border: 1px solid rgba(23,22,21,.08);
+    border-radius: 28px;
+    background: rgba(255,250,242,.96);
+    box-shadow: 0 28px 90px rgba(23,22,21,.16);
+    backdrop-filter: blur(22px);
+    opacity: 0;
+    transform: translateY(-8px) scale(.98);
+    pointer-events: none;
+    transition: opacity .18s ease, transform .18s ease;
+  }
+  body.menu-open .nav {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+  .nav a {
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    border-bottom: 1px solid rgba(23,22,21,.08);
+    color: var(--ink);
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+  }
+  .nav a:last-child { border-bottom: 0; }
+  .nav a::after { display: none; }
+  .hero { padding-top: 76px; }
+  .hero-assurance { display: none; }
+}
+@media (min-width: 921px) {
+  .nav { gap: 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .menu-toggle span, .nav { transition: none; }
+}

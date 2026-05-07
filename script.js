@@ -169,6 +169,20 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
+
+const menuToggle = document.querySelector('.menu-toggle');
+const primaryNav = document.getElementById('primaryNav');
+const setMenuOpen = (isOpen) => {
+  document.body.classList.toggle('menu-open', isOpen);
+  menuToggle?.setAttribute('aria-expanded', String(isOpen));
+  menuToggle?.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
+};
+menuToggle?.addEventListener('click', () => setMenuOpen(!document.body.classList.contains('menu-open')));
+primaryNav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenuOpen(false)));
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') setMenuOpen(false);
+});
+
 const scrollProgressBar = document.getElementById('scrollProgressBar');
 const navLinks = [...document.querySelectorAll('.nav a[href^="#"]')];
 const navTargets = navLinks
@@ -189,23 +203,6 @@ const updateScrollUX = () => {
 updateScrollUX();
 window.addEventListener('scroll', updateScrollUX, { passive: true });
 window.addEventListener('resize', updateScrollUX);
-
-const proofButtons = document.querySelectorAll('[data-proof-filter]');
-const proofCards = document.querySelectorAll('[data-proof]');
-proofButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    const filter = button.dataset.proofFilter;
-    proofButtons.forEach((item) => {
-      item.classList.toggle('is-active', item === button);
-      item.setAttribute('aria-pressed', String(item === button));
-    });
-    proofCards.forEach((card) => {
-      const values = (card.dataset.proof || '').split(' ');
-      card.hidden = filter !== 'all' && !values.includes(filter);
-    });
-  });
-  button.setAttribute('aria-pressed', String(button.classList.contains('is-active')));
-});
 
 const taskTextarea = requestForm?.elements.task;
 const taskHelper = document.getElementById('taskHelper');

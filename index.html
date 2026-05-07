@@ -160,15 +160,12 @@
   <a class="skip-link" href="#top">Перейти к содержанию</a>
   <header class="site-header">
     <a class="logo" href="#top" aria-label="Step3D home"><img src="assets/step3d-invader.svg" alt="" aria-hidden="true">Step3D</a>
-    <nav class="nav" aria-label="Основная навигация">
+    <button class="menu-toggle" type="button" aria-controls="primaryNav" aria-expanded="false" aria-label="Открыть меню"><span></span><span></span></button>
+    <nav class="nav" id="primaryNav" aria-label="Основная навигация">
       <a href="#cases">Кейсы</a>
       <a href="#media">Медиа</a>
-      <a href="#projects">Проекты</a>
       <a href="#services">Услуги</a>
-      <a href="#tech">Технологии</a>
       <a href="#timeline">Сроки</a>
-      <a href="#about">О нас</a>
-      <a href="#brief">Расчёт</a>
       <a href="#request">Заявка</a>
       <a href="#contacts">Контакты</a>
     </nav>
@@ -177,8 +174,8 @@
   <main id="top" tabindex="-1">
     <section class="hero section">
       <p class="eyebrow">Step3D</p>
-      <h1>Инженерные идеи превращаем в физические объекты.</h1>
-      <p class="lead">3D-печать, промышленный дизайн, реверсивный инжиниринг, прототипирование и образовательные проекты — от эскиза до готовой детали.</p>
+      <h1>От идеи — к готовому изделию.</h1>
+      <p class="lead">3D-печать, моделирование, 3D-сканирование, прототипы и малые серии. Берём задачу от эскиза до физического результата.</p>
       <div class="hero-actions">
         <a class="button" href="#request">Оставить заявку</a>
         <a class="button button-ghost" href="#cases">Смотреть кейсы</a>
@@ -191,7 +188,7 @@
       <div class="hero-showcase" aria-label="Визуальный стиль Step3D">
         <div class="invader-stage">
           <img class="invader-logo" src="assets/step3d-invader.svg" alt="Анимированный космический захватчик Step3D">
-          <p>Лаборатория прототипов, объектов и инженерных экспериментов</p>
+          <p>Лаборатория прототипов и инженерных объектов</p>
         </div>
         <div class="hero-gallery" aria-label="Фотографии проектов Step3D">
           <picture><source srcset="assets/hero-learning.webp" type="image/webp"><img src="assets/hero-learning.jpg" alt="Мастер-класс Step3D и X.Lab" fetchpriority="high" decoding="async"></picture>
@@ -199,22 +196,6 @@
           <picture><source srcset="assets/hero-production.webp" type="image/webp"><img src="assets/hero-production.jpg" alt="Производственный процесс 3D-объекта" loading="lazy"></picture>
         </div>
       </div>
-    </section>
-
-    <section class="ticker" aria-label="Направления работы">
-      <span>3D-печать</span>
-      <span>CAD</span>
-      <span>3D-сканирование</span>
-      <span>прототипы</span>
-      <span>дизайн</span>
-      <span>образование</span>
-    </section>
-
-    <section class="section trust-strip" aria-label="Коротко об условиях работы Step3D">
-      <div><strong>от идеи</strong><span>можно начать с фото, эскиза или описания</span></div>
-      <div><strong>под сроки</strong><span>срочные задачи оцениваем отдельно</span></div>
-      <div><strong>под задачу</strong><span>подбираем материал, технологию и постобработку</span></div>
-      <div><strong>до серии</strong><span>делаем прототипы и малые партии</span></div>
     </section>
 
     <section id="cases" class="section cases">
@@ -306,8 +287,8 @@
     <section id="media" class="section media-proof media-story-section">
       <div class="section-head compact-head">
         <p class="eyebrow">Медиа из канала</p>
-        <h2>Один лёгкий story-архив для материалов, которые не дублируют кейсы.</h2>
-        <p class="media-lead">Кейсы выше показывают основные работы. Здесь — отдельная подборка из канала Step3D Lab: сканирование, лаборатория, экспериментальные прототипы и промдизайн. Без тяжёлой Telegram-ленты и повторов тех же объектов.</p>
+        <h2>Story-архив без дублей основных кейсов.</h2>
+        <p class="media-lead">Дополнительные материалы из канала: сканирование, лаборатория, экспериментальные прототипы и промдизайн. Без тяжёлой ленты и повторов.</p>
       </div>
       <div class="proof-stats" aria-label="Контент канала Step3D Lab">
         <div><strong>40+</strong><span>публикаций просмотрено при отборе</span></div>
@@ -534,12 +515,6 @@
       <p>Мы соединяем цифровое проектирование и реальное производство: анализируем задачу, выбираем технологию, делаем прототип, проверяем ограничения и доводим объект до рабочего состояния.</p>
     </section>
 
-    <section class="section stats" aria-label="Принципы работы">
-      <div><strong>быстро</strong><span>проверяем гипотезы прототипами</span></div>
-      <div><strong>точно</strong><span>учитываем геометрию и посадки</span></div>
-      <div><strong>практично</strong><span>делаем под реальную эксплуатацию</span></div>
-    </section>
-
     <section class="section audiences">
       <div class="section-head">
         <p class="eyebrow">Для кого</p>
@@ -558,16 +533,6 @@
           <h3>Образование</h3>
           <p>Мастер-классы, инженерные практикумы, проектные занятия и демонстрационные модели.</p>
         </article>
-      </div>
-    </section>
-
-    <section class="section formats">
-      <p class="eyebrow">Форматы работы</p>
-      <div class="format-list">
-        <article><span>01</span><h3>Разовая задача</h3><p>Напечатать, восстановить, смоделировать или доработать конкретную деталь.</p></article>
-        <article><span>02</span><h3>Срочный проект</h3><p>Когда нужен объект к событию, съёмке, спектаклю, защите или презентации.</p></article>
-        <article><span>03</span><h3>Малая серия</h3><p>Тираж изделий без запуска пресс-формы и долгого производственного цикла.</p></article>
-        <article><span>04</span><h3>Обучение</h3><p>Мастер-класс, интенсив или практикум по 3D-печати, CAD и инженерному мышлению.</p></article>
       </div>
     </section>
 
