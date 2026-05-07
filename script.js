@@ -89,7 +89,7 @@ const renderStory = () => {
   storyImage.src = item.src;
   storyImage.alt = `${item.title}: фото ${storyIndex + 1}`;
   storyTitle.textContent = item.title;
-  storyCounter.textContent = `${storyIndex + 1} / ${storyItems.length}`;
+  storyCounter.textContent = item.caption ? `${storyIndex + 1} / ${storyItems.length} · ${item.caption}` : `${storyIndex + 1} / ${storyItems.length}`;
   storyProgress.innerHTML = storyItems.map((_, index) => `<span class="${index <= storyIndex ? 'is-active' : ''}"></span>`).join('');
   preloadStoryImage(storyIndex + 1);
   preloadStoryImage(storyIndex - 1);
@@ -99,7 +99,12 @@ const openStory = (button) => {
   const images = (button.dataset.gallery || '').split(',').map((src) => src.trim()).filter(Boolean);
   if (!images.length || !storyModal) return;
   storyLastFocus = document.activeElement;
-  storyItems = images.map((src) => ({ src, title: button.dataset.galleryTitle || 'История проекта' }));
+  const captions = (button.dataset.galleryCaptions || '').split('|').map((text) => text.trim());
+  storyItems = images.map((src, index) => ({
+    src,
+    title: button.dataset.galleryTitle || 'История проекта',
+    caption: captions[index] || ''
+  }));
   storyIndex = 0;
   renderStory();
   storyModal.classList.add('is-open');
