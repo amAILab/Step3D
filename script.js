@@ -73,6 +73,15 @@ const storyProgress = document.getElementById('storyProgress');
 let storyItems = [];
 let storyIndex = 0;
 let storyLastFocus = null;
+let touchStartX = 0;
+let touchStartY = 0;
+
+const preloadStoryImage = (index) => {
+  if (!storyItems.length) return;
+  const item = storyItems[(index + storyItems.length) % storyItems.length];
+  const img = new Image();
+  img.src = item.src;
+};
 
 const renderStory = () => {
   if (!storyItems.length || !storyImage) return;
@@ -82,6 +91,8 @@ const renderStory = () => {
   storyTitle.textContent = item.title;
   storyCounter.textContent = `${storyIndex + 1} / ${storyItems.length}`;
   storyProgress.innerHTML = storyItems.map((_, index) => `<span class="${index <= storyIndex ? 'is-active' : ''}"></span>`).join('');
+  preloadStoryImage(storyIndex + 1);
+  preloadStoryImage(storyIndex - 1);
 };
 
 const openStory = (button) => {
@@ -103,6 +114,7 @@ const closeStory = () => {
   storyModal.setAttribute('aria-hidden', 'true');
   document.body.classList.remove('story-open');
   storyImage.removeAttribute('src');
+  storyItems = [];
   storyLastFocus?.focus();
 };
 
@@ -113,13 +125,34 @@ const moveStory = (direction) => {
 };
 
 document.querySelectorAll('.story-trigger').forEach((button) => {
+  const title = button.dataset.galleryTitle || 'История проекта';
+  button.setAttribute('aria-label', `Открыть галерею: ${title}`);
   button.addEventListener('click', () => openStory(button));
 });
 
 document.querySelectorAll('[data-story-close]').forEach((button) => button.addEventListener('click', closeStory));
 document.querySelector('[data-story-prev]')?.addEventListener('click', () => moveStory(-1));
 document.querySelector('[data-story-next]')?.addEventListener('click', () => moveStory(1));
-storyImage?.addEventListener('click', () => moveStory(1));
+storyImage?.addEventListener('click', (event) => {
+  const half = storyImage.getBoundingClientRect().width / 2;
+  moveStory(event.offsetX < half ? -1 : 1);
+});
+
+storyModal?.addEventListener('touchstart', (event) => {
+  touchStartX = event.changedTouches[0].clientX;
+  touchStartY = event.changedTouches[0].clientY;
+}, { passive: true });
+
+storyModal?.addEventListener('touchend', (event) => {
+  const dx = event.changedTouches[0].clientX - touchStartX;
+  const dy = event.changedTouches[0].clientY - touchStartY;
+  if (Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy)) {
+    moveStory(dx < 0 ? 1 : -1);
+  }
+  if (dy > 86 && Math.abs(dy) > Math.abs(dx)) {
+    closeStory();
+  }
+}, { passive: true });
 
 document.addEventListener('keydown', (event) => {
   if (!storyModal?.classList.contains('is-open')) return;
