@@ -5,8 +5,8 @@ if (requestForm) {
   requestForm.addEventListener('submit', (event) => {
     event.preventDefault();
     const data = new FormData(requestForm);
-    const body = `Заявка STEP_3D\n\nИмя: ${data.get('name') || ''}\nКонтакт: ${data.get('contact') || ''}\nТип проекта: ${data.get('projectType') || ''}\nСрок: ${data.get('deadline') || ''}\nКоличество: ${data.get('quantity') || ''}\nФайлы/исходники: ${data.get('files') || ''}\n\nЗадача:\n${data.get('task') || ''}\n\nИсточник: сайт STEP_3D`;
-    window.location.href = `mailto:stepgptai@gmail.com?subject=${encodeURIComponent('Заявка STEP_3D')}&body=${encodeURIComponent(body)}`;
+    const body = `Заявка Step3D\n\nИмя: ${data.get('name') || ''}\nКонтакт: ${data.get('contact') || ''}\nТип проекта: ${data.get('projectType') || ''}\nСрок: ${data.get('deadline') || ''}\nКоличество: ${data.get('quantity') || ''}\nФайлы/исходники: ${data.get('files') || ''}\n\nЗадача:\n${data.get('task') || ''}\n\nИсточник: сайт Step3D`;
+    window.location.href = `mailto:stepgptai@gmail.com?subject=${encodeURIComponent('Заявка Step3D')}&body=${encodeURIComponent(body)}`;
   });
 }
 const presetButtons = document.querySelectorAll('[data-task-preset]');
@@ -38,7 +38,7 @@ if (requestForm && presetButtons.length) {
 
 const briefButton = document.getElementById('copyBrief');
 if (briefButton) {
-  const briefText = `Задача для STEP_3D:
+  const briefText = `Задача для Step3D:
 
 1. Что нужно сделать:
 2. Размеры / примерные габариты:
@@ -63,3 +63,70 @@ if (briefButton) {
     }
   });
 }
+
+
+const storyModal = document.getElementById('storyModal');
+const storyImage = document.getElementById('storyImage');
+const storyTitle = document.getElementById('storyTitle');
+const storyCounter = document.getElementById('storyCounter');
+const storyProgress = document.getElementById('storyProgress');
+let storyItems = [];
+let storyIndex = 0;
+let storyLastFocus = null;
+
+const renderStory = () => {
+  if (!storyItems.length || !storyImage) return;
+  const item = storyItems[storyIndex];
+  storyImage.src = item.src;
+  storyImage.alt = `${item.title}: фото ${storyIndex + 1}`;
+  storyTitle.textContent = item.title;
+  storyCounter.textContent = `${storyIndex + 1} / ${storyItems.length}`;
+  storyProgress.innerHTML = storyItems.map((_, index) => `<span class="${index <= storyIndex ? 'is-active' : ''}"></span>`).join('');
+};
+
+const openStory = (button) => {
+  const images = (button.dataset.gallery || '').split(',').map((src) => src.trim()).filter(Boolean);
+  if (!images.length || !storyModal) return;
+  storyLastFocus = document.activeElement;
+  storyItems = images.map((src) => ({ src, title: button.dataset.galleryTitle || 'История проекта' }));
+  storyIndex = 0;
+  renderStory();
+  storyModal.classList.add('is-open');
+  storyModal.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('story-open');
+  storyModal.querySelector('.story-close')?.focus();
+};
+
+const closeStory = () => {
+  if (!storyModal) return;
+  storyModal.classList.remove('is-open');
+  storyModal.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('story-open');
+  storyImage.removeAttribute('src');
+  storyLastFocus?.focus();
+};
+
+const moveStory = (direction) => {
+  if (!storyItems.length) return;
+  storyIndex = (storyIndex + direction + storyItems.length) % storyItems.length;
+  renderStory();
+};
+
+document.querySelectorAll('.story-trigger').forEach((button) => {
+  button.addEventListener('click', () => openStory(button));
+});
+
+document.querySelectorAll('[data-story-close]').forEach((button) => button.addEventListener('click', closeStory));
+document.querySelector('[data-story-prev]')?.addEventListener('click', () => moveStory(-1));
+document.querySelector('[data-story-next]')?.addEventListener('click', () => moveStory(1));
+storyImage?.addEventListener('click', () => moveStory(1));
+
+document.addEventListener('keydown', (event) => {
+  if (!storyModal?.classList.contains('is-open')) return;
+  if (event.key === 'Escape') closeStory();
+  if (event.key === 'ArrowLeft') moveStory(-1);
+  if (event.key === 'ArrowRight' || event.key === ' ') {
+    event.preventDefault();
+    moveStory(1);
+  }
+});
