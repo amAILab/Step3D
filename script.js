@@ -219,3 +219,29 @@ const updateTaskHelper = () => {
 };
 taskTextarea?.addEventListener('input', updateTaskHelper);
 updateTaskHelper();
+
+const readinessScore = document.getElementById('readinessScore');
+const readinessBar = document.getElementById('readinessBar');
+const readinessItems = document.querySelectorAll('[data-readiness-item]');
+const updateReadiness = () => {
+  if (!requestForm || !readinessScore || !readinessBar || !readinessItems.length) return;
+  const data = new FormData(requestForm);
+  const checks = {
+    type: Boolean(data.get('projectType')),
+    task: String(data.get('task') || '').trim().length >= 80,
+    deadline: String(data.get('deadline') || '').trim().length >= 3,
+    quantity: String(data.get('quantity') || '').trim().length >= 1,
+    files: String(data.get('files') || '').trim().length >= 2,
+  };
+  const done = Object.values(checks).filter(Boolean).length;
+  const score = Math.round((done / Object.keys(checks).length) * 100);
+  readinessScore.textContent = `${score}%`;
+  readinessBar.style.transform = `scaleX(${score / 100})`;
+  readinessItems.forEach((item) => {
+    item.classList.toggle('is-done', Boolean(checks[item.dataset.readinessItem]));
+  });
+};
+requestForm?.addEventListener('input', updateReadiness);
+requestForm?.addEventListener('change', updateReadiness);
+presetButtons.forEach((button) => button.addEventListener('click', () => window.setTimeout(updateReadiness, 0)));
+updateReadiness();

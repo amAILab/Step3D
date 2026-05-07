@@ -166,6 +166,7 @@
       <a href="#projects">Проекты</a>
       <a href="#services">Услуги</a>
       <a href="#tech">Технологии</a>
+      <a href="#timeline">Сроки</a>
       <a href="#about">О нас</a>
       <a href="#brief">Расчёт</a>
       <a href="#request">Заявка</a>
@@ -612,6 +613,23 @@
       </div>
     </section>
 
+    <section id="timeline" class="section timeline">
+      <div class="section-head compact-head">
+        <p class="eyebrow">Ориентиры сроков</p>
+        <h2>Быстро показываем, когда задача реалистична.</h2>
+        <p class="timeline-lead">Это не прайс и не обещание без вводных — но помогает понять порядок: от срочного прототипа до серии с постобработкой.</p>
+      </div>
+      <div class="timeline-grid">
+        <article><span>1 день</span><h3>Экспресс-оценка</h3><p>По фото, эскизу, размерам или готовому STL/STEP можно понять технологию, риски и следующий шаг.</p></article>
+        <article><span>2–3 дня</span><h3>Простой прототип</h3><p>Небольшая деталь или тест формы без сложной постобработки, если исходники понятны.</p></article>
+        <article><span>3–7 дней</span><h3>Модель + печать</h3><p>Проектирование с нуля, первая версия изделия, проверка посадок и базовая доработка.</p></article>
+        <article><span>1–2 недели</span><h3>Объект или малая серия</h3><p>Сценический объект, награда, партия деталей, покраска, сборка или несколько итераций.</p></article>
+      </div>
+      <div class="timeline-note">
+        <strong>Ускоряет расчёт:</strong> размеры, фото/чертёж, материал, количество, срок и где изделие будет использоваться.
+      </div>
+    </section>
+
     <section class="section result-pack">
       <div class="section-head compact-head">
         <p class="eyebrow">Что остаётся после проекта</p>
@@ -724,6 +742,20 @@
         </div>
         <label>Что нужно сделать<textarea name="task" rows="5" placeholder="Опишите изделие, размеры, материал, условия эксплуатации и важные ограничения" required></textarea></label>
         <p class="form-helper" id="taskHelper">Подсказка: добавьте размер, материал, количество и срок — так расчёт будет быстрее.</p>
+        <div class="readiness-card" aria-live="polite">
+          <div class="readiness-head">
+            <span>Готовность заявки</span>
+            <strong id="readinessScore">0%</strong>
+          </div>
+          <div class="readiness-bar" aria-hidden="true"><span id="readinessBar"></span></div>
+          <ul class="readiness-list">
+            <li data-readiness-item="type">тип проекта выбран</li>
+            <li data-readiness-item="task">описание достаточно подробное</li>
+            <li data-readiness-item="deadline">срок указан</li>
+            <li data-readiness-item="quantity">количество понятно</li>
+            <li data-readiness-item="files">исходники/файлы описаны</li>
+          </ul>
+        </div>
         <p class="form-status" id="formStatus" aria-live="polite"></p>
         <button class="button" type="submit">Сформировать письмо</button>
         <p class="form-note">Откроется почтовое приложение. Если есть STL/STEP, фото или чертёж — приложите файл к письму. Прямой контакт: <a href="mailto:stepgptai@gmail.com">stepgptai@gmail.com</a></p>
