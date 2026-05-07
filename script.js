@@ -69,12 +69,19 @@ const storyModal = document.getElementById('storyModal');
 const storyImage = document.getElementById('storyImage');
 const storyTitle = document.getElementById('storyTitle');
 const storyCounter = document.getElementById('storyCounter');
+const storyMeta = document.getElementById('storyMeta');
+const storySource = document.getElementById('storySource');
+const storyPauseButton = document.querySelector('[data-story-pause]');
 const storyProgress = document.getElementById('storyProgress');
 let storyItems = [];
 let storyIndex = 0;
 let storyLastFocus = null;
 let touchStartX = 0;
 let touchStartY = 0;
+let storyTimer = null;
+let storyPaused = false;
+const storyDuration = 5600;
+const storyCanAutoplay = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const preloadStoryImage = (index) => {
   if (!storyItems.length) return;
@@ -83,16 +90,45 @@ const preloadStoryImage = (index) => {
   img.src = item.src;
 };
 
+const clearStoryTimer = () => {
+  if (storyTimer) window.clearTimeout(storyTimer);
+  storyTimer = null;
+};
+
+const scheduleStoryAdvance = () => {
+  clearStoryTimer();
+  if (!storyCanAutoplay || storyPaused || storyItems.length < 2) return;
+  storyTimer = window.setTimeout(() => moveStory(1), storyDuration);
+};
+
+const setStoryPaused = (isPaused) => {
+  storyPaused = isPaused;
+  storyModal?.classList.toggle('is-paused', storyPaused);
+  if (storyPauseButton) {
+    storyPauseButton.textContent = storyPaused ? 'Продолжить' : 'Пауза';
+    storyPauseButton.setAttribute('aria-label', storyPaused ? 'Продолжить story' : 'Поставить story на паузу');
+  }
+  scheduleStoryAdvance();
+};
+
 const renderStory = () => {
   if (!storyItems.length || !storyImage) return;
   const item = storyItems[storyIndex];
   storyImage.src = item.src;
   storyImage.alt = `${item.title}: фото ${storyIndex + 1}`;
   storyTitle.textContent = item.title;
-  storyCounter.textContent = item.caption ? `${storyIndex + 1} / ${storyItems.length} · ${item.caption}` : `${storyIndex + 1} / ${storyItems.length}`;
-  storyProgress.innerHTML = storyItems.map((_, index) => `<span class="${index <= storyIndex ? 'is-active' : ''}"></span>`).join('');
+  storyCounter.textContent = item.caption || 'Листайте фото, чтобы увидеть процесс и детали.';
+  if (storyMeta) storyMeta.textContent = `${storyIndex + 1} / ${storyItems.length}`;
+  if (storySource) storySource.href = item.sourceHref || 'https://t.me/STEP_3D_Lab';
+  if (storyProgress) {
+    storyProgress.innerHTML = storyItems.map((_, index) => {
+      const state = index < storyIndex ? 'is-done' : index === storyIndex ? 'is-current' : '';
+      return `<span class="${state}"><i></i></span>`;
+    }).join('');
+  }
   preloadStoryImage(storyIndex + 1);
   preloadStoryImage(storyIndex - 1);
+  scheduleStoryAdvance();
 };
 
 const openStory = (button) => {
@@ -100,14 +136,17 @@ const openStory = (button) => {
   if (!images.length || !storyModal) return;
   storyLastFocus = document.activeElement;
   const captions = (button.dataset.galleryCaptions || '').split('|').map((text) => text.trim());
+  const source = button.closest('article, .media-story-card')?.querySelector('a[href]');
   storyItems = images.map((src, index) => ({
     src,
     title: button.dataset.galleryTitle || 'История проекта',
-    caption: captions[index] || ''
+    caption: captions[index] || '',
+    sourceHref: source?.href || 'https://t.me/STEP_3D_Lab'
   }));
   storyIndex = 0;
-  renderStory();
+  storyPaused = false;
   storyModal.classList.add('is-open');
+  renderStory();
   storyModal.setAttribute('aria-hidden', 'false');
   document.body.classList.add('story-open');
   storyModal.querySelector('.story-close')?.focus();
@@ -118,6 +157,7 @@ const closeStory = () => {
   storyModal.classList.remove('is-open');
   storyModal.setAttribute('aria-hidden', 'true');
   document.body.classList.remove('story-open');
+  clearStoryTimer();
   storyImage.removeAttribute('src');
   storyItems = [];
   storyLastFocus?.focus();
@@ -136,8 +176,11 @@ document.querySelectorAll('.story-trigger').forEach((button) => {
 });
 
 document.querySelectorAll('[data-story-close]').forEach((button) => button.addEventListener('click', closeStory));
-document.querySelector('[data-story-prev]')?.addEventListener('click', () => moveStory(-1));
-document.querySelector('[data-story-next]')?.addEventListener('click', () => moveStory(1));
+document.querySelectorAll('[data-story-next]').forEach((button) => button.addEventListener('click', () => moveStory(1)));
+document.querySelectorAll('[data-story-prev]').forEach((button) => button.addEventListener('click', () => moveStory(-1)));
+storyPauseButton?.addEventListener('click', () => setStoryPaused(!storyPaused));
+storyModal?.querySelector('.story-viewer')?.addEventListener('mouseenter', () => setStoryPaused(true));
+storyModal?.querySelector('.story-viewer')?.addEventListener('mouseleave', () => setStoryPaused(false));
 storyImage?.addEventListener('click', (event) => {
   const half = storyImage.getBoundingClientRect().width / 2;
   moveStory(event.offsetX < half ? -1 : 1);
@@ -159,9 +202,14 @@ storyModal?.addEventListener('touchend', (event) => {
   }
 }, { passive: true });
 
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) setStoryPaused(true);
+});
+
 document.addEventListener('keydown', (event) => {
   if (!storyModal?.classList.contains('is-open')) return;
   if (event.key === 'Escape') closeStory();
+  if (event.key.toLowerCase() === 'p') setStoryPaused(!storyPaused);
   if (event.key === 'ArrowLeft') moveStory(-1);
   if (event.key === 'ArrowRight' || event.key === ' ') {
     event.preventDefault();

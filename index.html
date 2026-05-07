@@ -521,12 +521,19 @@
   <div class="story-modal" id="storyModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="storyTitle">
     <div class="story-backdrop" data-story-close></div>
     <div class="story-viewer">
-      <button class="story-close" type="button" data-story-close aria-label="Закрыть галерею">×</button>
       <div class="story-progress" id="storyProgress" aria-hidden="true"></div>
+      <div class="story-topbar">
+        <span id="storyMeta">1 / 1</span>
+        <button class="story-pause" type="button" data-story-pause aria-label="Пауза">Пауза</button>
+        <button class="story-close" type="button" data-story-close aria-label="Закрыть галерею">×</button>
+      </div>
       <img class="story-image" id="storyImage" alt="">
+      <button class="story-tap story-tap-prev" type="button" data-story-prev aria-label="Предыдущее фото"></button>
+      <button class="story-tap story-tap-next" type="button" data-story-next aria-label="Следующее фото"></button>
       <div class="story-caption">
         <h3 id="storyTitle"></h3>
         <p id="storyCounter"></p>
+        <a id="storySource" href="https://t.me/STEP_3D_Lab" target="_blank" rel="noopener">Открыть источник →</a>
       </div>
       <button class="story-nav story-prev" type="button" data-story-prev aria-label="Предыдущее фото">‹</button>
       <button class="story-nav story-next" type="button" data-story-next aria-label="Следующее фото">›</button>
