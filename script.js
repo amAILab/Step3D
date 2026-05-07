@@ -9,6 +9,32 @@ if (requestForm) {
     window.location.href = `mailto:stepgptai@gmail.com?subject=${encodeURIComponent('Заявка STEP_3D')}&body=${encodeURIComponent(body)}`;
   });
 }
+const presetButtons = document.querySelectorAll('[data-task-preset]');
+if (requestForm && presetButtons.length) {
+  const projectType = requestForm.elements.projectType;
+  const task = requestForm.elements.task;
+  const formStatus = document.getElementById('formStatus');
+
+  presetButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      if (projectType && button.dataset.projectType) {
+        projectType.value = button.dataset.projectType;
+      }
+
+      if (task && button.dataset.taskPreset) {
+        task.value = button.dataset.taskPreset;
+      }
+
+      if (formStatus) {
+        formStatus.textContent = 'Черновик заявки подставлен — добавьте детали, размеры и срок.';
+      }
+
+      requestForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      window.setTimeout(() => { task?.focus(); }, 420);
+    });
+  });
+}
+
 
 const briefButton = document.getElementById('copyBrief');
 if (briefButton) {
