@@ -20,64 +20,139 @@
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="stylesheet" href="styles.css" />
   <script type="application/ld+json">
-  {
+{
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": "Organization",
-        "name": "ООО СТЕП_3Д",
-        "alternateName": "Step3D",
-        "url": "https://amailab.github.io/Step3D/",
-        "logo": "https://amailab.github.io/Step3D/assets/step3d-invader.svg",
-        "sameAs": ["https://t.me/STEP_3D_Lab"],
-        "email": "stepgptai@gmail.com",
-        "contactPoint": [{
-          "@type": "ContactPoint",
-          "contactType": "sales",
-          "url": "https://t.me/step_3d_mngr",
-          "email": "stepgptai@gmail.com",
-          "availableLanguage": ["ru"]
-        }],
-        "description": "3D-печать, промышленный дизайн, реверсивный инжиниринг, прототипирование и образовательные проекты."
-      },
-      {
-        "@type": "WebSite",
-        "name": "Step3D",
-        "url": "https://amailab.github.io/Step3D/",
-        "inLanguage": "ru-RU"
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Можно сделать изделие без готовой 3D-модели?",
-            "acceptedAnswer": {"@type": "Answer", "text": "Да. Можно начать с фото, эскиза, размеров или описания задачи. Мы подскажем, какой файл или замер нужен дальше."}
-          },
-          {
-            "@type": "Question",
-            "name": "Вы делаете только печать или дизайн тоже?",
-            "acceptedAnswer": {"@type": "Answer", "text": "Делаем оба этапа: проектирование, подготовку модели, печать, проверку и доработку."}
-          },
-          {
-            "@type": "Question",
-            "name": "Можно срочно?",
-            "acceptedAnswer": {"@type": "Answer", "text": "Да, если понятна задача и есть доступный материал или оборудование. Для срочных проектов лучше сразу прислать размеры, фото и срок."}
-          },
-          {
-            "@type": "Question",
-            "name": "Какие файлы лучше прислать?",
-            "acceptedAnswer": {"@type": "Answer", "text": "Для печати подойдут STL, 3MF или OBJ. Для инженерной доработки лучше STEP, чертёж PDF/DXF, фото детали и ключевые размеры."}
-          },
-          {
-            "@type": "Question",
-            "name": "Можно сделать малую серию?",
-            "acceptedAnswer": {"@type": "Answer", "text": "Да. После прототипа можно подготовить повторяемый процесс: материал, настройки, постобработку и расчёт партии."}
-          }
-        ]
-      }
+        {
+            "@type": "Organization",
+            "name": "ООО СТЕП_3Д",
+            "alternateName": "Step3D",
+            "url": "https://amailab.github.io/Step3D/",
+            "logo": "https://amailab.github.io/Step3D/assets/step3d-invader.svg",
+            "sameAs": [
+                "https://t.me/STEP_3D_Lab"
+            ],
+            "email": "stepgptai@gmail.com",
+            "contactPoint": [
+                {
+                    "@type": "ContactPoint",
+                    "contactType": "sales",
+                    "url": "https://t.me/step_3d_mngr",
+                    "email": "stepgptai@gmail.com",
+                    "availableLanguage": [
+                        "ru"
+                    ]
+                }
+            ],
+            "description": "3D-печать, промышленный дизайн, реверсивный инжиниринг, прототипирование и образовательные проекты.",
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Услуги Step3D",
+                "itemListElement": [
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "3D-печать FDM/SLA",
+                            "description": "Изготовление прототипов, деталей, макетов и малых серий на 3D-принтерах."
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "3D-моделирование и промышленный дизайн",
+                            "description": "Проектирование изделий, корпусов, объектов и моделей под производство."
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Реверсивный инжиниринг и 3D-сканирование",
+                            "description": "Восстановление геометрии деталей, цифровизация формы и подготовка CAD-моделей."
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Прототипирование и малая серия",
+                            "description": "Проверка конструкции, посадок, внешнего вида и подготовка повторяемого производства."
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Объекты для сцены, событий и презентаций",
+                            "description": "Награды, декорации, арт-объекты, бутафория и демонстрационные модели под дедлайн."
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Мастер-классы и образовательные интенсивы",
+                            "description": "Практические занятия по 3D-печати, CAD, инженерному мышлению и AI-инструментам."
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "@type": "WebSite",
+            "name": "Step3D",
+            "url": "https://amailab.github.io/Step3D/",
+            "inLanguage": "ru-RU"
+        },
+        {
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Можно сделать изделие без готовой 3D-модели?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Да. Можно начать с фото, эскиза, размеров или описания задачи. Мы подскажем, какой файл или замер нужен дальше."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Вы делаете только печать или дизайн тоже?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Делаем оба этапа: проектирование, подготовку модели, печать, проверку и доработку."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Можно срочно?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Да, если понятна задача и есть доступный материал или оборудование. Для срочных проектов лучше сразу прислать размеры, фото и срок."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Какие файлы лучше прислать?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Для печати подойдут STL, 3MF или OBJ. Для инженерной доработки лучше STEP, чертёж PDF/DXF, фото детали и ключевые размеры."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Можно сделать малую серию?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Да. После прототипа можно подготовить повторяемый процесс: материал, настройки, постобработку и расчёт партии."
+                    }
+                }
+            ]
+        }
     ]
-  }
+}
   </script>
 </head>
 <body>
