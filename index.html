@@ -1588,10 +1588,35 @@
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "Step3D",
-    "description": "3D-печать, 3D-моделирование, 3D-сканирование, реверс-инжиниринг, прототипирование и малые серии.",
-    "areaServed": "Москва",
+    "description": "3D-печать, 3D-моделирование, 3D-сканирование, реверс-инжиниринг, прототипирование и малые серии в Москве.",
+    "areaServed": {
+      "@type": "City",
+      "name": "Москва"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Москва",
+      "addressCountry": "RU"
+    },
     "email": "stepgptai@gmail.com",
     "url": "https://amailab.github.io/Step3D/",
+    "image": "https://amailab.github.io/Step3D/assets/img/og-step3d.webp",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "email": "stepgptai@gmail.com",
+      "availableLanguage": ["ru"]
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Услуги Step3D",
+      "itemListElement": [
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "3D-печать деталей, макетов и малых серий"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "3D-моделирование по эскизу, фото или размерам"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "3D-сканирование и реверс-инжиниринг"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Мастер-классы и образовательные проекты по 3D-технологиям"}}
+      ]
+    },
     "sameAs": ["https://t.me/STEP_3D_Lab", "https://t.me/step_3d_mngr"]
   }
   </script>
@@ -1601,9 +1626,12 @@
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      {"@type": "Question", "name": "Можно ли начать без готовой 3D-модели?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Для первичной оценки подойдут фото, эскиз, размеры или описание задачи. Step3D подскажет, нужен ли STL/STEP-файл, 3D-моделирование или сканирование."}},
-      {"@type": "Question", "name": "Что нужно прислать для расчёта 3D-печати?", "acceptedAnswer": {"@type": "Answer", "text": "Лучше прислать STL, STEP, OBJ, 3MF или фото/эскиз, размеры, количество, срок и требования к прочности, поверхности или материалу."}},
-      {"@type": "Question", "name": "От чего зависит стоимость?", "acceptedAnswer": {"@type": "Answer", "text": "Цена зависит от размера, материала, сложности модели, количества, срочности, точности и уровня постобработки."}}
+      {"@type": "Question", "name": "Можно без готовой 3D-модели?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Можно начать с фото, эскиза, размеров или описания задачи. Step3D подскажет, какой файл или замер нужен дальше."}},
+      {"@type": "Question", "name": "Вы делаете только печать?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. Step3D делает проектирование, подготовку модели, 3D-печать, проверку и доработку изделия."}},
+      {"@type": "Question", "name": "Можно срочно?", "acceptedAnswer": {"@type": "Answer", "text": "Да, если понятна задача и есть доступный материал или оборудование. Для срочных задач лучше сразу прислать размеры, фото и срок."}},
+      {"@type": "Question", "name": "Какие файлы лучше прислать?", "acceptedAnswer": {"@type": "Answer", "text": "Для печати подойдут STL, 3MF или OBJ. Для инженерной доработки лучше STEP, PDF/DXF, фото детали и ключевые размеры."}},
+      {"@type": "Question", "name": "Можно сделать малую серию?", "acceptedAnswer": {"@type": "Answer", "text": "Да. После прототипа можно подготовить повторяемый процесс: материал, настройки, постобработку и расчёт партии."}},
+      {"@type": "Question", "name": "От чего зависит цена?", "acceptedAnswer": {"@type": "Answer", "text": "Цена зависит от размера, материала, сложности модели, количества, срочности, точности и уровня постобработки."}}
     ]
   }
   </script>
