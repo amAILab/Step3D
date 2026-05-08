@@ -1165,6 +1165,30 @@
       box-shadow: 0 0 0 3px rgba(16,16,16,.05);
     }
 
+    .lead-trust-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin: 18px 0 6px;
+    }
+
+    .lead-trust-item {
+      padding: 12px;
+      border-radius: 16px;
+      background: var(--surface-soft);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .lead-trust-item strong {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--ink);
+      font-size: 14px;
+    }
+
     .readiness {
       display: grid;
       gap: 10px;
@@ -1545,6 +1569,7 @@
       .price-row { grid-template-columns: 1fr; gap: 6px; }
       .price-row span { text-align: left; }
       .form-grid { grid-template-columns: 1fr; }
+      .lead-trust-strip { grid-template-columns: 1fr; }
       .quiz-wrap,
       .b2b-card,
       .article-teaser-grid { grid-template-columns: 1fr; }
@@ -2056,6 +2081,11 @@
 <section aria-label="Форма заявки" class="form-panel">
 <h2>Отправьте задачу на расчёт</h2>
 <p>Заполните короткую форму. Email обязателен: на него придёт предварительная оценка и список уточняющих вопросов; если есть STL, STEP, фото, чертёж или эскиз — отправьте файл следом в Telegram.</p>
+<div aria-label="Что будет после заявки" class="lead-trust-strip">
+<div class="lead-trust-item"><strong>Ответ по делу</strong>Сначала проверяем вводные, потом предлагаем технологию и следующий шаг.</div>
+<div class="lead-trust-item"><strong>Без лишней рассылки</strong>Контакты нужны только для расчёта и уточнений по проекту.</div>
+<div class="lead-trust-item"><strong>Файлы отдельно</strong>Сайт не грузит вложения: STL/STEP/фото безопаснее отправить менеджеру в Telegram.</div>
+</div>
 <form action="https://formsubmit.co/26b4f038fb3a1a0c655bdd1f674b6299" class="lead-form" id="leadForm" method="POST" novalidate="">
 <input name="_subject" type="hidden" value="Новая заявка Step3D"/>
 <input name="_template" type="hidden" value="table"/>
