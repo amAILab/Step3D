@@ -34,4 +34,16 @@
   <url>
     <loc>https://amailab.github.io/Step3D/thanks/</loc>
   </url>
+  <url>
+    <loc>https://amailab.github.io/Step3D/articles/</loc>
+  </url>
+  <url>
+    <loc>https://amailab.github.io/Step3D/articles/reverse-engineering.html</loc>
+  </url>
+  <url>
+    <loc>https://amailab.github.io/Step3D/articles/prepare-file.html</loc>
+  </url>
+  <url>
+    <loc>https://amailab.github.io/Step3D/articles/fdm-sla.html</loc>
+  </url>
 </urlset>
