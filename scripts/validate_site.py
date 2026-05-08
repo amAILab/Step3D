@@ -8,6 +8,7 @@ Checks:
 """
 from __future__ import annotations
 
+import re
 import subprocess
 import sys
 import tempfile
@@ -76,6 +77,27 @@ def validate_html_and_links() -> list[str]:
     return errors
 
 
+def validate_canonical_urls() -> list[str]:
+    errors: list[str] = []
+    canonical_tag_re = re.compile(r'<link[^>]+rel=["\']canonical["\'][^>]*>|<link[^>]+href=["\'][^"\']+["\'][^>]+rel=["\']canonical["\'][^>]*>', re.I)
+    href_re = re.compile(r'href=["\']([^"\']+)["\']', re.I)
+    for file in html_files():
+        text = file.read_text(encoding="utf-8")
+        tag_match = canonical_tag_re.search(text)
+        if not tag_match:
+            continue
+        href_match = href_re.search(tag_match.group(0))
+        if not href_match:
+            errors.append(f"Canonical tag without href: {file.relative_to(ROOT)}")
+            continue
+        canonical = href_match.group(1)
+        if canonical.endswith("/index.html"):
+            errors.append(
+                f"Canonical should use trailing slash, not /index.html: {file.relative_to(ROOT)} -> {canonical}"
+            )
+    return errors
+
+
 def validate_index_js() -> list[str]:
     index = ROOT / "index.html"
     if not index.exists():
@@ -99,7 +121,7 @@ def validate_index_js() -> list[str]:
 
 
 def main() -> int:
-    errors = validate_html_and_links() + validate_index_js()
+    errors = validate_html_and_links() + validate_canonical_urls() + validate_index_js()
     if errors:
         print("Step3D validation failed:\n")
         for error in errors:

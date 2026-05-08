@@ -120,7 +120,9 @@ def render_page(data):
 </html>'''
 
 for rel, data in PAGES.items():
-    data['canonical'] = rel
+    # Keep canonical URLs aligned with sitemap.xml: directory pages should use the
+    # clean trailing-slash URL, not /index.html, to avoid duplicate URL signals.
+    data['canonical'] = rel[:-10] if rel.endswith('/index.html') else rel
     out = ROOT / rel
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(render_page(data), encoding='utf-8')
