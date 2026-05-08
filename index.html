@@ -870,6 +870,46 @@
     }
 
 
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .process-card {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--surface);
+      padding: 22px;
+    }
+
+    .process-card strong {
+      display: block;
+      font-size: 2rem;
+      letter-spacing: -.07em;
+      margin-bottom: 10px;
+    }
+
+    .process-card h3 { margin: 0 0 8px; }
+    .process-card p { margin: 0; color: var(--muted); }
+
+    .b2b-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+      gap: 22px;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-2xl);
+      background: var(--ink);
+      color: #fff;
+      padding: 32px;
+    }
+
+    .b2b-card p { color: #d7d7d3; }
+    .b2b-card .check-list li { color: #ecece8; }
+    .b2b-card .check-list li::before { background: #fff; color: var(--ink); }
+
     .quiz-wrap {
       display: grid;
       grid-template-columns: minmax(0, .95fr) minmax(0, 1.35fr);
@@ -1425,11 +1465,14 @@
       .price-row { grid-template-columns: 1fr; gap: 6px; }
       .price-row span { text-align: left; }
       .form-grid { grid-template-columns: 1fr; }
-      .quiz-wrap { grid-template-columns: 1fr; }
+      .quiz-wrap,
+      .b2b-card { grid-template-columns: 1fr; }
+      .process-grid { grid-template-columns: 1fr 1fr; }
       .form-actions .btn { width: 100%; }
       .story-shell { grid-template-columns: 1fr; max-height: 92vh; }
       .story-image-wrap { min-height: 50vh; }
       .story-side { padding: 18px; }
+      .process-grid { grid-template-columns: 1fr; }
       .story-controls .btn { flex: 1; }
       .footer-inner { display: grid; }
       .mobile-cta {
@@ -1481,6 +1524,7 @@
         Step3D
       </a>
 <nav aria-label="Основная навигация" class="nav">
+<a href="#process">Процесс</a>
 <a href="#cases">Кейсы</a>
 <a href="#scenarios">Задачи</a>
 <a href="#services">Услуги</a>
@@ -1542,6 +1586,39 @@
 </div>
 </div>
 </section>
+
+<section aria-labelledby="process-title" class="section-tight" id="process">
+<div class="container">
+<div class="section-head">
+<div>
+<p class="eyebrow">Процесс</p>
+<h2 class="section-title" id="process-title">Как проходит работа</h2>
+</div>
+<p class="section-lead">Посетителю не нужно разбираться в технологиях заранее — мы переводим задачу в понятный производственный маршрут.</p>
+</div>
+<div class="process-grid">
+<article class="process-card"><strong>01</strong><h3>Входные данные</h3><p>Фото, эскиз, размеры, STL/STEP или короткое описание.</p></article>
+<article class="process-card"><strong>02</strong><h3>Оценка</h3><p>Подбираем технологию, материал, срок и предупреждаем о рисках.</p></article>
+<article class="process-card"><strong>03</strong><h3>Производство</h3><p>Моделирование, сканирование, печать, прототип или малая серия.</p></article>
+<article class="process-card"><strong>04</strong><h3>Передача</h3><p>Отдаём изделие, файлы, рекомендации и следующий шаг по проекту.</p></article>
+</div>
+</div>
+</section>
+<section aria-labelledby="b2b-title" class="section-tight" id="b2b">
+<div class="container b2b-card">
+<div>
+<p class="eyebrow">Для компаний и команд</p>
+<h2 id="b2b-title">B2B-задачи, прототипы и конфиденциальные проекты</h2>
+<p>Можем подключаться как производственная 3D-лаборатория: восстановить деталь, сделать прототип, подготовить мастер-модель, проверить форму или собрать образовательный формат.</p>
+</div>
+<ul class="check-list">
+<li>Работаем с техническими вводными, сроками и ограничениями.</li>
+<li>Можно начать с NDA/закрытого обсуждения задачи.</li>
+<li>Подскажем, когда печать подходит, а когда нужен другой способ производства.</li>
+</ul>
+</div>
+</section>
+
 <section aria-labelledby="cases-title" class="section" id="cases">
 <div class="container">
 <div class="section-head">
@@ -2225,6 +2302,7 @@
         const select = document.getElementById('projectType');
         select.value = link.dataset.prefill;
         updateFormReadiness();
+    applyProjectFromUrl();
       });
     });
 
@@ -2320,6 +2398,23 @@
       const percent = Math.round((checks.filter(Boolean).length / checks.length) * 100);
       readinessValue.textContent = `${percent}%`;
       readinessFill.style.width = `${percent}%`;
+    }
+
+
+
+    function applyProjectFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      const project = params.get('project');
+      if (!project) return;
+      const select = document.getElementById('projectType');
+      const description = document.getElementById('description');
+      if (select && [...select.options].some((option) => option.text === project)) {
+        select.value = project;
+      }
+      if (description && !description.value.trim()) {
+        description.value = `Интересует направление: ${project}. Нужно уточнить задачу, сроки и стоимость.`;
+      }
+      updateFormReadiness();
     }
 
     leadForm.addEventListener('input', updateFormReadiness);

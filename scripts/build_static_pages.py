@@ -1,13 +1,15 @@
 from pathlib import Path
+from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parents[1]
 
 BASE_CSS = """
-:root{--bg:#f5f5f2;--surface:#fff;--soft:#efefec;--ink:#101010;--muted:#5e5e59;--line:#ddd;--radius:28px;--max:1120px}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.55;letter-spacing:-.015em}a{color:inherit;text-decoration:none}.container{width:min(100% - 40px,var(--max));margin:0 auto}.header{position:sticky;top:0;background:rgba(245,245,242,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);z-index:10}.head{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{font-weight:900;font-size:1.25rem}.nav{display:flex;gap:10px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:12px 16px;border:1px solid var(--ink);font-weight:800}.btn.primary{background:var(--ink);color:white}.btn.ghost{background:transparent}.hero{padding:86px 0 52px}.eyebrow{text-transform:uppercase;font-weight:900;letter-spacing:.13em;font-size:.78rem;color:var(--muted);margin:0 0 10px}h1{font-size:clamp(2.4rem,6vw,5.6rem);line-height:.92;letter-spacing:-.075em;margin:0 0 22px;max-width:920px}h2{font-size:clamp(1.7rem,3vw,3.2rem);line-height:1;letter-spacing:-.055em;margin:0 0 16px}h3{font-size:1.25rem;margin:0 0 8px}.lead{font-size:clamp(1.08rem,2vw,1.35rem);color:var(--muted);max-width:790px;margin:0 0 28px}.section{padding:44px 0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px}.card p,.muted{color:var(--muted);margin:0}.list{padding:0;margin:14px 0 0;list-style:none;display:grid;gap:10px}.list li{display:flex;gap:9px;color:var(--muted)}.list li:before{content:'→';font-weight:900;color:var(--ink)}.split{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:start}.image{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:var(--soft)}.image img{width:100%;display:block}.cta{background:var(--ink);color:#fff;border-radius:34px;padding:32px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}.cta p{color:#ddd;margin:0}.footer{padding:34px 0 44px;color:var(--muted)}@media(max-width:860px){.grid,.split,.cta{grid-template-columns:1fr}.hero{padding-top:56px}.nav{display:none}h1{font-size:3rem}}
+:root{--bg:#f5f5f2;--surface:#fff;--soft:#efefec;--ink:#101010;--muted:#5e5e59;--line:#ddd;--radius:28px;--max:1120px}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.55;letter-spacing:-.015em}a{color:inherit;text-decoration:none}.container{width:min(100% - 40px,var(--max));margin:0 auto}.header{position:sticky;top:0;background:rgba(245,245,242,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);z-index:10}.head{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{font-weight:900;font-size:1.25rem}.nav{display:flex;gap:10px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:12px 16px;border:1px solid var(--ink);font-weight:800}.btn.primary{background:var(--ink);color:white}.btn.ghost{background:transparent}.hero{padding:86px 0 52px}.eyebrow{text-transform:uppercase;font-weight:900;letter-spacing:.13em;font-size:.78rem;color:var(--muted);margin:0 0 10px}h1{font-size:clamp(2.4rem,6vw,5.6rem);line-height:.92;letter-spacing:-.075em;margin:0 0 22px;max-width:920px}h2{font-size:clamp(1.7rem,3vw,3.2rem);line-height:1;letter-spacing:-.055em;margin:0 0 16px}h3{font-size:1.25rem;margin:0 0 8px}.lead{font-size:clamp(1.08rem,2vw,1.35rem);color:var(--muted);max-width:790px;margin:0 0 28px}.section{padding:44px 0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px}.card p,.muted{color:var(--muted);margin:0}.list{padding:0;margin:14px 0 0;list-style:none;display:grid;gap:10px}.list li{display:flex;gap:9px;color:var(--muted)}.list li:before{content:'→';font-weight:900;color:var(--ink)}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.step{background:var(--soft);border:1px solid var(--line);border-radius:22px;padding:18px}.step strong{display:block;font-size:1.7rem;letter-spacing:-.06em;margin-bottom:8px}@media(max-width:860px){.steps{grid-template-columns:1fr 1fr}}@media(max-width:560px){.steps{grid-template-columns:1fr}}.split{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:start}.image{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:var(--soft)}.image img{width:100%;display:block}.cta{background:var(--ink);color:#fff;border-radius:34px;padding:32px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}.cta p{color:#ddd;margin:0}.footer{padding:34px 0 44px;color:var(--muted)}@media(max-width:860px){.grid,.split,.cta{grid-template-columns:1fr}.hero{padding-top:56px}.nav{display:none}h1{font-size:3rem}}
 """
 
 PAGES = {
     'services/index.html': {
+        'project_param': '3D-модель / промышленный дизайн',
         'title': 'Услуги Step3D — 3D-печать, моделирование, сканирование и обучение',
         'description': 'Основные услуги Step3D: 3D-печать, CAD-моделирование, 3D-сканирование, реверс-инжиниринг, прототипирование, малые серии и образовательные проекты.',
         'h1': 'Услуги Step3D',
@@ -23,6 +25,7 @@ PAGES = {
         ]
     },
     'reverse-engineering/index.html': {
+        'project_param': 'Реверсивный инжиниринг / сканирование',
         'title': 'Реверс-инжиниринг и 3D-сканирование — Step3D',
         'description': '3D-сканирование и реверс-инжиниринг деталей: восстановление геометрии, подготовка CAD-модели и файлов для печати или производства.',
         'h1': 'Реверс-инжиниринг и 3D-сканирование',
@@ -35,6 +38,7 @@ PAGES = {
         ]
     },
     '3d-printing/index.html': {
+        'project_param': '3D-печать детали',
         'title': '3D-печать и прототипирование — Step3D',
         'description': '3D-печать деталей, макетов, корпусов, прототипов и малых серий. Подбор технологии, подготовка модели и базовая постобработка.',
         'h1': '3D-печать и прототипирование',
@@ -47,6 +51,7 @@ PAGES = {
         ]
     },
     'workshops/index.html': {
+        'project_param': 'Мастер-класс / обучение',
         'title': 'Мастер-классы и образовательные проекты — Step3D',
         'description': 'Практические занятия по 3D-печати, CAD, реверс-инжинирингу и цифровому производству для школ, вузов, технопарков и команд.',
         'h1': 'Мастер-классы и образовательные проекты',
@@ -59,6 +64,7 @@ PAGES = {
         ]
     },
     'cases/index.html': {
+        'project_param': 'Объект для события / сцены',
         'title': 'Кейсы Step3D — 3D-печать, сканирование, объекты и обучение',
         'description': 'Кейсы Step3D: награды, реверс-инжиниринг, сценические объекты, арт-прототипы, образовательные проекты и робототехника.',
         'h1': 'Кейсы Step3D',
@@ -75,6 +81,7 @@ PAGES = {
 
 
 def render_page(data):
+    project_query = quote(data.get('project_param', ''))
     cards = []
     for title, text, items in data['blocks']:
         lis = ''.join(f'<li>{item}</li>' for item in items)
@@ -95,11 +102,12 @@ def render_page(data):
 <style>{BASE_CSS}</style>
 </head>
 <body>
-<header class="header"><div class="container head"><a class="brand" href="../">Step3D</a><nav class="nav"><a href="../#cases">Кейсы</a><a href="../#services">Услуги</a><a href="../#project-quiz">Квиз</a><a href="../#brief">Заявка</a></nav><a class="btn primary" href="../#brief">Рассчитать</a></div></header>
+<header class="header"><div class="container head"><a class="brand" href="../">Step3D</a><nav class="nav"><a href="../#cases">Кейсы</a><a href="../#services">Услуги</a><a href="../#project-quiz">Квиз</a><a href="../#brief">Заявка</a></nav><a class="btn primary" href="../?project={project_query}#brief">Рассчитать</a></div></header>
 <main>
-<section class="hero"><div class="container split"><div><p class="eyebrow">Step3D</p><h1>{data['h1']}</h1><p class="lead">{data['lead']}</p><p><a class="btn primary" href="../#brief">Оставить заявку</a> <a class="btn ghost" href="../">На главную</a></p></div><div class="image"><img src="{data['image']}" alt="{data['h1']} Step3D" loading="eager"></div></div></section>
+<section class="hero"><div class="container split"><div><p class="eyebrow">Step3D</p><h1>{data['h1']}</h1><p class="lead">{data['lead']}</p><p><a class="btn primary" href="../?project={project_query}#brief">Оставить заявку</a> <a class="btn ghost" href="../">На главную</a></p></div><div class="image"><img src="{data['image']}" alt="{data['h1']} Step3D" loading="eager"></div></div></section>
 <section class="section"><div class="container grid">{''.join(cards)}</div></section>
-<section class="section"><div class="container cta"><div><h2>Хотите оценить похожую задачу?</h2><p>Пришлите фото, размеры, срок и короткое описание — подскажем технологию, риски и порядок бюджета.</p></div><a class="btn primary" href="../#brief">Заполнить заявку</a></div></section>
+<section class="section"><div class="container"><p class="eyebrow">Как работаем</p><h2>Понятный цикл без лишней бюрократии</h2><div class="steps"><div class="step"><strong>01</strong><p class="muted">Получаем фото, размеры, файл или описание задачи.</p></div><div class="step"><strong>02</strong><p class="muted">Оцениваем технологию, риски, срок и порядок бюджета.</p></div><div class="step"><strong>03</strong><p class="muted">Делаем модель, сканирование, прототип или печать.</p></div><div class="step"><strong>04</strong><p class="muted">Проверяем результат и готовим изделие или файлы к передаче.</p></div></div></div></section>
+<section class="section"><div class="container cta"><div><h2>Хотите оценить похожую задачу?</h2><p>Пришлите фото, размеры, срок и короткое описание — подскажем технологию, риски и порядок бюджета.</p></div><a class="btn primary" href="../?project={project_query}#brief">Заполнить заявку</a></div></section>
 </main>
 <footer class="footer"><div class="container">© Step3D · 3D-печать · моделирование · прототипирование</div></footer>
 </body>
