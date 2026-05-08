@@ -871,6 +871,40 @@
 
 
 
+
+    .article-teaser-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .article-teaser {
+      display: grid;
+      gap: 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background: var(--surface);
+      padding: 24px;
+      min-height: 250px;
+    }
+
+    .article-teaser small {
+      color: var(--muted-2);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+
+    .article-teaser h3 {
+      margin: 0;
+      font-size: 1.35rem;
+      letter-spacing: -.045em;
+    }
+
+    .article-teaser p { margin: 0; color: var(--muted); }
+
+    .article-teaser .btn { align-self: end; justify-self: start; }
+
     .process-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1512,13 +1546,15 @@
       .price-row span { text-align: left; }
       .form-grid { grid-template-columns: 1fr; }
       .quiz-wrap,
-      .b2b-card { grid-template-columns: 1fr; }
+      .b2b-card,
+      .article-teaser-grid { grid-template-columns: 1fr; }
       .process-grid { grid-template-columns: 1fr 1fr; }
       .form-actions .btn { width: 100%; }
       .story-shell { grid-template-columns: 1fr; max-height: 92vh; }
       .story-image-wrap { min-height: 50vh; }
       .story-side { padding: 18px; }
-      .process-grid { grid-template-columns: 1fr; }
+      .process-grid,
+      .article-teaser-grid { grid-template-columns: 1fr; }
       .footer-map { grid-template-columns: 1fr; }
       .footer-brand { grid-column: auto; }
       .story-controls .btn { flex: 1; }
@@ -1592,6 +1628,7 @@
 <a href="#services">Услуги</a>
 <a href="#prices">Стоимость</a>
 <a href="#project-quiz">Квиз</a>
+<a href="articles/">Статьи</a>
 <a href="#brief">Заявка</a>
 <a href="#contacts">Контакты</a>
 </nav>
@@ -2065,6 +2102,43 @@
 </section>
 </div>
 </section>
+
+<section aria-labelledby="articles-title" class="section" id="articles">
+<div class="container">
+<div class="section-head">
+<div>
+<p class="eyebrow">Библиотека знаний</p>
+<h2 class="section-title" id="articles-title">Короткие гайды для клиентов и инженеров</h2>
+</div>
+<p class="section-lead">Материалы помогают быстрее понять задачу, подготовить вводные и не переплачивать за неправильный производственный маршрут.</p>
+</div>
+<div class="article-teaser-grid">
+<article class="article-teaser">
+<small>Реверс-инжиниринг</small>
+<h3>Что такое реверс-инжиниринг детали</h3>
+<p>Когда есть физическая деталь, но нет чертежа или 3D-модели: чем скан отличается от инженерной модели.</p>
+<a class="btn btn-secondary" href="articles/reverse-engineering.html">Читать</a>
+</article>
+<article class="article-teaser">
+<small>Подготовка файлов</small>
+<h3>Как подготовить файл для 3D-печати</h3>
+<p>Какие форматы подходят, что проверить в STL/STEP и какие вводные нужны для быстрой оценки.</p>
+<a class="btn btn-secondary" href="articles/prepare-file.html">Читать</a>
+</article>
+<article class="article-teaser">
+<small>Технологии</small>
+<h3>FDM или SLA: какую печать выбрать</h3>
+<p>Простое сравнение технологий по прочности, детализации, размеру, поверхности и бюджету.</p>
+<a class="btn btn-secondary" href="articles/fdm-sla.html">Читать</a>
+</article>
+</div>
+<div class="service-links-row">
+<a class="btn btn-primary" href="articles/">Все статьи</a>
+<a class="btn btn-ghost" href="guide/">Как подготовить задачу</a>
+</div>
+</div>
+</section>
+
 <section aria-labelledby="faq-title" class="section-tight" id="faq">
 <div class="container">
 <div class="section-head">
@@ -2126,6 +2200,7 @@
 <li><a href="#project-quiz">Квиз подбора</a></li>
 <li><a href="#prices">Стоимость</a></li>
 <li><a href="#faq">FAQ</a></li>
+<li><a href="articles/">Статьи</a></li>
 </ul>
 </nav>
 <nav class="footer-col" aria-label="Материалы">
