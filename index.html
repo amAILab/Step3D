@@ -2604,6 +2604,17 @@
     const readinessFill = document.getElementById('readinessFill');
     const formError = document.getElementById('formError');
 
+    function collectLeadAttribution() {
+      const params = new URLSearchParams(window.location.search);
+      return {
+        utmSource: params.get('utm_source') || '',
+        utmMedium: params.get('utm_medium') || '',
+        utmCampaign: params.get('utm_campaign') || '',
+        utmContent: params.get('utm_content') || '',
+        referrer: document.referrer || ''
+      };
+    }
+
     // Собирает данные формы в единый объект заявки.
     // Позже этот объект можно отправлять в Google Apps Script, Telegram или CRM.
     function collectLeadData() {
@@ -2616,7 +2627,8 @@
         quantity: document.getElementById('quantity').value.trim(),
         dimensions: document.getElementById('dimensions').value.trim(),
         hasFiles: document.getElementById('hasFiles').value.trim(),
-        description: document.getElementById('description').value.trim()
+        description: document.getElementById('description').value.trim(),
+        attribution: collectLeadAttribution()
       };
     }
 
@@ -2644,7 +2656,12 @@
         `Файлы или фото: ${leadData.hasFiles || 'не указано'}`,
         '',
         'Описание задачи:',
-        leadData.description || 'не заполнено'
+        leadData.description || 'не заполнено',
+        '',
+        'Источник заявки:',
+        `Страница: ${window.location.href}`,
+        `UTM: ${[leadData.attribution.utmSource, leadData.attribution.utmMedium, leadData.attribution.utmCampaign, leadData.attribution.utmContent].filter(Boolean).join(' / ') || 'не указано'}`,
+        `Referrer: ${leadData.attribution.referrer || 'не указан'}`
       ].join('\n');
     }
 
@@ -2669,6 +2686,11 @@
       formData.set('description', leadData.description);
       formData.set('source', 'Step3D GitHub Pages');
       formData.set('page', window.location.href);
+      formData.set('utm_source', leadData.attribution.utmSource);
+      formData.set('utm_medium', leadData.attribution.utmMedium);
+      formData.set('utm_campaign', leadData.attribution.utmCampaign);
+      formData.set('utm_content', leadData.attribution.utmContent);
+      formData.set('referrer', leadData.attribution.referrer);
       formData.set('submittedAt', new Date().toISOString());
 
       const response = await fetch(leadForm.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
