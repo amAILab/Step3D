@@ -2485,14 +2485,22 @@
       button.addEventListener('click', () => applyQuiz(button.dataset.quiz));
     });
 
-    // Подстановка типа проекта из кнопок сценариев.
+    function prefillProject(project, sourceLabel = 'кнопки на сайте') {
+      if (!project) return;
+      const select = document.getElementById('projectType');
+      const description = document.getElementById('description');
+      if (select && [...select.options].some((option) => option.text === project)) {
+        select.value = project;
+      }
+      if (description && !description.value.trim()) {
+        description.value = `Интересует направление: ${project}. Пришёл с ${sourceLabel}. Нужно уточнить задачу, сроки и стоимость.`;
+      }
+      updateFormReadiness();
+    }
+
+    // Подстановка типа проекта из кнопок сценариев, квиза и карточек услуг.
     document.querySelectorAll('[data-prefill]').forEach((link) => {
-      link.addEventListener('click', () => {
-        const select = document.getElementById('projectType');
-        select.value = link.dataset.prefill;
-        updateFormReadiness();
-    applyProjectFromUrl();
-      });
+      link.addEventListener('click', () => prefillProject(link.dataset.prefill));
     });
 
     const leadForm = document.getElementById('leadForm');
@@ -2600,15 +2608,7 @@
       const params = new URLSearchParams(window.location.search);
       const project = params.get('project');
       if (!project) return;
-      const select = document.getElementById('projectType');
-      const description = document.getElementById('description');
-      if (select && [...select.options].some((option) => option.text === project)) {
-        select.value = project;
-      }
-      if (description && !description.value.trim()) {
-        description.value = `Интересует направление: ${project}. Нужно уточнить задачу, сроки и стоимость.`;
-      }
-      updateFormReadiness();
+      prefillProject(project, 'страницы услуги');
     }
 
     leadForm.addEventListener('input', updateFormReadiness);
@@ -2673,6 +2673,7 @@
       showToast.timer = window.setTimeout(() => toast.classList.remove('is-visible'), 2600);
     }
 
+    applyProjectFromUrl();
     updateFormReadiness();
   </script>
 </body>
