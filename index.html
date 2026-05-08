@@ -1244,18 +1244,64 @@
     }
 
     .site-footer {
-      padding: 28px 0 42px;
+      padding: 52px 0 36px;
       color: var(--muted-2);
       font-size: 14px;
+      background: #eeeeea;
+      border-top: 1px solid var(--line);
     }
 
-    .footer-inner {
+    .footer-map {
+      display: grid;
+      grid-template-columns: 1.35fr repeat(4, minmax(0, 1fr));
+      gap: 28px;
+      align-items: start;
+    }
+
+    .footer-brand strong {
+      display: block;
+      color: var(--ink);
+      font-size: 1.18rem;
+      margin-bottom: 8px;
+      letter-spacing: -.04em;
+    }
+
+    .footer-brand p {
+      margin: 0;
+      max-width: 300px;
+      color: var(--muted);
+    }
+
+    .footer-col h3 {
+      margin: 0 0 12px;
+      color: var(--ink);
+      font-size: .95rem;
+      letter-spacing: -.02em;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 9px;
+    }
+
+    .footer-col a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .footer-col a:hover { color: var(--ink); text-decoration: underline; }
+
+    .footer-bottom {
       display: flex;
       justify-content: space-between;
       gap: 16px;
       flex-wrap: wrap;
-      border-top: 1px solid var(--line);
-      padding-top: 22px;
+      border-top: 1px solid var(--line-strong);
+      margin-top: 32px;
+      padding-top: 20px;
     }
 
 
@@ -1473,8 +1519,12 @@
       .story-image-wrap { min-height: 50vh; }
       .story-side { padding: 18px; }
       .process-grid { grid-template-columns: 1fr; }
+      .footer-map { grid-template-columns: 1fr; }
+      .footer-brand { grid-column: auto; }
       .story-controls .btn { flex: 1; }
-      .footer-inner { display: grid; }
+      .footer-map { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-bottom { display: grid; }
       .mobile-cta {
         position: fixed;
         left: 14px;
@@ -2040,10 +2090,55 @@
 </div>
 </section>
 </main>
-<footer class="site-footer">
-<div class="container footer-inner">
+<footer class="site-footer" aria-label="Карта сайта Step3D">
+<div class="container">
+<div class="footer-map">
+<div class="footer-brand">
+<strong>Step3D</strong>
+<p>3D-печать, моделирование, сканирование, прототипирование и образовательные проекты. Все ключевые разделы сайта — в одном месте.</p>
+</div>
+<nav class="footer-col" aria-label="Услуги">
+<h3>Услуги</h3>
+<ul>
+<li><a href="services/">Все услуги</a></li>
+<li><a href="3d-printing/">3D-печать</a></li>
+<li><a href="reverse-engineering/">Реверс-инжиниринг</a></li>
+<li><a href="workshops/">Мастер-классы</a></li>
+</ul>
+</nav>
+<nav class="footer-col" aria-label="Разделы сайта">
+<h3>Разделы</h3>
+<ul>
+<li><a href="#process">Как работаем</a></li>
+<li><a href="#cases">Кейсы</a></li>
+<li><a href="#project-quiz">Квиз подбора</a></li>
+<li><a href="#prices">Стоимость</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ul>
+</nav>
+<nav class="footer-col" aria-label="Материалы">
+<h3>Материалы</h3>
+<ul>
+<li><a href="cases/">Страница кейсов</a></li>
+<li><a href="comics/reverse-engineering-part2-egor.pdf">Комикс про реверс</a></li>
+<li><a href="comics/ai-version/reverse-engineering-part2-ai-illustrated.pdf">AI-версия комикса</a></li>
+<li><a href="sitemap.xml">Sitemap.xml</a></li>
+</ul>
+</nav>
+<nav class="footer-col" aria-label="Контакты">
+<h3>Контакты</h3>
+<ul>
+<li><a href="#brief">Оставить заявку</a></li>
+<li><a href="https://t.me/step_3d_mngr" rel="noopener" target="_blank">Telegram-менеджер</a></li>
+<li><a href="https://t.me/STEP_3D_Lab" rel="noopener" target="_blank">Канал Step3D</a></li>
+<li><a href="mailto:stepgptai@gmail.com">stepgptai@gmail.com</a></li>
+</ul>
+</nav>
+</div>
+<div class="footer-bottom">
 <span>© Step3D. 3D-печать · дизайн · прототипирование</span>
-<span>Финальная MVP-структура для GitHub Pages</span>
+<span>GitHub Pages · Москва · быстрый расчёт по фото, эскизу или STL/STEP</span>
+</div>
 </div>
 </footer>
 <div aria-hidden="true" aria-labelledby="storyTitle" aria-modal="true" class="story-modal" id="storyModal" role="dialog">
