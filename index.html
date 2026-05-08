@@ -1083,7 +1083,27 @@
       font-weight: 700;
     }
 
-    .contact-card p { margin: 0; color: rgba(255,255,255,.74); }
+    .contact-card p { margin: 0; color: rgba(255,255,255,.82); }
+
+    .contact-card .eyebrow { color: rgba(255,255,255,.72); }
+
+    .contact-card .btn-primary,
+    .contact-card .btn-secondary {
+      background: #fff;
+      color: #111;
+      border-color: #fff;
+    }
+
+    .contact-card .btn-ghost {
+      color: #fff;
+      border-color: rgba(255,255,255,.32);
+      background: rgba(255,255,255,.08);
+    }
+
+    .contact-card .btn-ghost:hover {
+      background: rgba(255,255,255,.16);
+      border-color: rgba(255,255,255,.55);
+    }
 
     .contact-links {
       display: flex;
@@ -1696,8 +1716,13 @@
 </aside>
 <section aria-label="Форма заявки" class="form-panel">
 <h2>Отправьте задачу на расчёт</h2>
-<p>Заполните короткую форму. Сайт подготовит письмо с описанием задачи. Если есть STL, STEP, фото, чертёж или эскиз — приложите файл перед отправкой.</p>
-<form class="lead-form" id="leadForm" novalidate="">
+<p>Заполните короткую форму. Заявка сохранится и уйдёт на почту Step3D; если есть STL, STEP, фото, чертёж или эскиз — отправьте файл следом в Telegram.</p>
+<form action="https://formsubmit.co/26b4f038fb3a1a0c655bdd1f674b6299" class="lead-form" id="leadForm" method="POST" novalidate="">
+<input name="_subject" type="hidden" value="Новая заявка Step3D"/>
+<input name="_template" type="hidden" value="table"/>
+<input name="_captcha" type="hidden" value="false"/>
+<input name="_next" type="hidden" value="https://amailab.github.io/Step3D/#brief"/>
+<input name="_honey" type="text" tabindex="-1" autocomplete="off" class="visually-hidden" aria-hidden="true"/>
 <div class="form-grid">
 <div class="field">
 <label for="name">Имя</label>
@@ -1753,11 +1778,11 @@
 </div>
 <p aria-live="polite" class="form-error" id="formError"></p>
 <div class="form-actions">
-<button class="btn btn-primary" type="submit">Скопировать заявку и открыть Telegram</button>
-<a class="btn btn-secondary" href="mailto:stepgptai@gmail.com">Написать на email</a>
+<button class="btn btn-primary" type="submit">Отправить заявку</button>
+<a class="btn btn-secondary" href="https://t.me/step_3d_mngr" rel="noopener" target="_blank">Прикрепить файл в Telegram</a>
 </div>
-<p class="form-hint">Заявка не уходит на сервер сайта: сайт подготовит текст, а отправляете его вы — через Telegram или почту.</p>
-<p class="privacy-note">Нажимая кнопку, вы сами выбираете канал связи и передаёте только те данные, которые указали в заявке.</p>
+<p class="form-hint">Заявка сохраняется через бесплатную форму и приходит на почту Step3D. Файлы сайт не загружает — их лучше прислать в Telegram.</p>
+<p class="privacy-note">Нажимая кнопку, вы передаёте только данные из формы для расчёта задачи. Мы используем их, чтобы ответить по проекту.</p>
 </form>
 </section>
 </div>
@@ -2035,7 +2060,7 @@
 
     function formatLeadMessage(leadData) {
       return [
-        'Здравствуйте! Хочу рассчитать задачу для Step3D.',
+        'Новая заявка Step3D',
         '',
         `Имя: ${leadData.name || 'не указано'}`,
         `Контакт: ${leadData.contact || 'не указан'}`,
@@ -2046,23 +2071,40 @@
         `Файлы или фото: ${leadData.hasFiles || 'не указано'}`,
         '',
         'Описание задачи:',
-        leadData.description || 'не заполнено',
-        '',
-        'Файлы приложу отдельным сообщением, если они есть.'
+        leadData.description || 'не заполнено'
       ].join('\n');
     }
 
-    async function submitLeadToTelegram(leadData) {
-      const body = formatLeadMessage(leadData);
+    async function copyLeadToClipboard(leadData) {
       try {
-        await navigator.clipboard.writeText(body);
-        showToast('Заявка скопирована — вставьте её в Telegram');
+        await navigator.clipboard.writeText(formatLeadMessage(leadData));
       } catch (error) {
-        const subject = `Заявка Step3D: ${leadData.projectType || 'расчёт задачи'}`;
-        window.location.href = `mailto:${managerEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        return;
+        // Clipboard is a convenience only; form submission still works.
       }
-      window.open(managerTelegram, '_blank', 'noopener');
+    }
+
+    async function submitLeadToStorage(leadData) {
+      const formData = new FormData(leadForm);
+      formData.set('name', leadData.name);
+      formData.set('contact', leadData.contact);
+      formData.set('projectType', leadData.projectType);
+      formData.set('deadline', leadData.deadline);
+      formData.set('quantity', leadData.quantity);
+      formData.set('dimensions', leadData.dimensions);
+      formData.set('hasFiles', leadData.hasFiles);
+      formData.set('description', leadData.description);
+      formData.set('source', 'Step3D GitHub Pages');
+      formData.set('page', window.location.href);
+      formData.set('submittedAt', new Date().toISOString());
+
+      const response = await fetch(leadForm.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: formData
+      });
+
+      if (!response.ok) throw new Error('Form endpoint error');
+      return response.json().catch(() => ({}));
     }
 
     // Считает процент готовности заявки по заполненным ключевым полям.
@@ -2084,7 +2126,7 @@
     leadForm.addEventListener('input', updateFormReadiness);
     leadForm.addEventListener('change', updateFormReadiness);
 
-    leadForm.addEventListener('submit', (event) => {
+    leadForm.addEventListener('submit', async (event) => {
       event.preventDefault();
       const leadData = collectLeadData();
       const errors = validateLeadData(leadData);
@@ -2095,7 +2137,24 @@
         return;
       }
       formError.textContent = '';
-      submitLeadToTelegram(leadData);
+      const submitButton = leadForm.querySelector('button[type="submit"]');
+      submitButton.disabled = true;
+      submitButton.textContent = 'Отправляем...';
+      try {
+        await submitLeadToStorage(leadData);
+        await copyLeadToClipboard(leadData);
+        leadForm.reset();
+        updateFormReadiness();
+        showToast('Заявка отправлена. Если есть файл — пришлите его в Telegram.');
+        window.setTimeout(() => window.open(managerTelegram, '_blank', 'noopener'), 600);
+      } catch (error) {
+        await copyLeadToClipboard(leadData);
+        showToast('Не удалось отправить автоматически. Заявка скопирована — отправьте её в Telegram.');
+        window.open(managerTelegram, '_blank', 'noopener');
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Отправить заявку';
+      }
     });
 
     // Копирует короткий шаблон в буфер обмена, чтобы клиент мог отправить его в Telegram.
