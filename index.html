@@ -1928,7 +1928,7 @@
 </aside>
 <section aria-label="Форма заявки" class="form-panel">
 <h2>Отправьте задачу на расчёт</h2>
-<p>Заполните короткую форму. Заявка сохранится и уйдёт на почту Step3D; если есть STL, STEP, фото, чертёж или эскиз — отправьте файл следом в Telegram.</p>
+<p>Заполните короткую форму. Email обязателен: на него придёт предварительная оценка и список уточняющих вопросов; если есть STL, STEP, фото, чертёж или эскиз — отправьте файл следом в Telegram.</p>
 <form action="https://formsubmit.co/26b4f038fb3a1a0c655bdd1f674b6299" class="lead-form" id="leadForm" method="POST" novalidate="">
 <input name="_subject" type="hidden" value="Новая заявка Step3D"/>
 <input name="_template" type="hidden" value="table"/>
@@ -1941,8 +1941,12 @@
 <input autocomplete="name" id="name" name="name" placeholder="Как к вам обращаться"/>
 </div>
 <div class="field">
-<label for="contact">Контакт для ответа</label>
-<input autocomplete="email" id="contact" name="contact" placeholder="Телефон, Telegram или email"/>
+<label for="email">Электронная почта <span aria-hidden="true">*</span></label>
+<input autocomplete="email" id="email" name="email" placeholder="name@example.com" required type="email"/>
+</div>
+<div class="field">
+<label for="contact">Телефон или Telegram</label>
+<input autocomplete="tel" id="contact" name="contact" placeholder="Телефон или @username"/>
 </div>
 <div class="field">
 <label for="projectType">Тип проекта</label>
@@ -1993,7 +1997,7 @@
 <button class="btn btn-primary" type="submit">Отправить заявку</button>
 <a class="btn btn-secondary" href="https://t.me/step_3d_mngr" rel="noopener" target="_blank">Прикрепить файл в Telegram</a>
 </div>
-<p class="form-hint">Заявка сохраняется через бесплатную форму и приходит на почту Step3D. Файлы сайт не загружает — их лучше прислать в Telegram.</p>
+<p class="form-hint">Заявка сохраняется через бесплатную форму и приходит на почту Step3D. Предварительный ответ отправляется на указанный email. Файлы сайт не загружает — их лучше прислать в Telegram.</p>
 <p class="privacy-note">Нажимая кнопку, вы передаёте только данные из формы для расчёта задачи. Мы используем их, чтобы ответить по проекту.</p>
 </form>
 </section>
@@ -2316,6 +2320,7 @@
     function collectLeadData() {
       return {
         name: document.getElementById('name').value.trim(),
+        email: document.getElementById('email').value.trim(),
         contact: document.getElementById('contact').value.trim(),
         projectType: document.getElementById('projectType').value.trim(),
         deadline: document.getElementById('deadline').value.trim(),
@@ -2329,7 +2334,8 @@
     // Проверяет минимальную готовность заявки перед формированием письма.
     function validateLeadData(leadData) {
       const errors = [];
-      if (!leadData.contact) errors.push('укажите контакт для ответа');
+      if (!leadData.email) errors.push('укажите электронную почту');
+      if (leadData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(leadData.email)) errors.push('проверьте формат email');
       if (!leadData.projectType) errors.push('выберите тип проекта');
       if (leadData.description.length < 20) errors.push('добавьте описание задачи хотя бы в 1-2 предложения');
       return errors;
@@ -2340,7 +2346,8 @@
         'Новая заявка Step3D',
         '',
         `Имя: ${leadData.name || 'не указано'}`,
-        `Контакт: ${leadData.contact || 'не указан'}`,
+        `Email: ${leadData.email || 'не указан'}`,
+        `Телефон / Telegram: ${leadData.contact || 'не указан'}`,
         `Тип проекта: ${leadData.projectType || 'не выбран'}`,
         `Срок: ${leadData.deadline || 'не указан'}`,
         `Количество: ${leadData.quantity || 'не указано'}`,
@@ -2363,6 +2370,7 @@
     async function submitLeadToStorage(leadData) {
       const formData = new FormData(leadForm);
       formData.set('name', leadData.name);
+      formData.set('email', leadData.email);
       formData.set('contact', leadData.contact);
       formData.set('projectType', leadData.projectType);
       formData.set('deadline', leadData.deadline);
@@ -2388,6 +2396,7 @@
     function updateFormReadiness() {
       const leadData = collectLeadData();
       const checks = [
+        Boolean(leadData.email),
         Boolean(leadData.projectType),
         leadData.description.length >= 20,
         Boolean(leadData.deadline),
