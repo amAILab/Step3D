@@ -869,6 +869,97 @@
       font-weight: 700;
     }
 
+
+    .quiz-wrap {
+      display: grid;
+      grid-template-columns: minmax(0, .95fr) minmax(0, 1.35fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .quiz-panel,
+    .quiz-result {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-2xl);
+      background: var(--surface);
+      padding: 28px;
+    }
+
+    .quiz-panel h2,
+    .quiz-result h3 { margin: 0 0 12px; letter-spacing: -.04em; }
+
+    .quiz-panel p,
+    .quiz-result p { margin: 0; color: var(--muted); }
+
+    .quiz-options {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .quiz-option {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      width: 100%;
+      border: 1px solid var(--line);
+      background: var(--surface-soft);
+      border-radius: 18px;
+      padding: 15px;
+      text-align: left;
+      color: var(--ink);
+      cursor: pointer;
+      font: inherit;
+      transition: border-color .2s ease, background .2s ease, transform .2s ease;
+    }
+
+    .quiz-option:hover,
+    .quiz-option.is-active {
+      border-color: var(--ink);
+      background: #fff;
+      transform: translateY(-1px);
+    }
+
+    .quiz-option strong { display: block; margin-bottom: 2px; }
+    .quiz-option span { color: var(--muted); font-size: .94rem; }
+
+    .quiz-result {
+      display: grid;
+      gap: 16px;
+    }
+
+    .quiz-result-box {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: var(--surface-soft);
+      padding: 20px;
+    }
+
+    .quiz-result-box h3 { font-size: clamp(1.35rem, 2vw, 2rem); }
+
+    .quiz-list {
+      margin: 12px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 9px;
+    }
+
+    .quiz-list li {
+      display: flex;
+      gap: 8px;
+      color: var(--muted);
+    }
+
+    .quiz-list li::before { content: '→'; color: var(--ink); font-weight: 800; }
+
+    .service-links-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+    }
+
     .brief-section { padding-top: 0; }
 
     .brief-wrap {
@@ -1334,6 +1425,7 @@
       .price-row { grid-template-columns: 1fr; gap: 6px; }
       .price-row span { text-align: left; }
       .form-grid { grid-template-columns: 1fr; }
+      .quiz-wrap { grid-template-columns: 1fr; }
       .form-actions .btn { width: 100%; }
       .story-shell { grid-template-columns: 1fr; max-height: 92vh; }
       .story-image-wrap { min-height: 50vh; }
@@ -1393,6 +1485,7 @@
 <a href="#scenarios">Задачи</a>
 <a href="#services">Услуги</a>
 <a href="#prices">Стоимость</a>
+<a href="#project-quiz">Квиз</a>
 <a href="#brief">Заявка</a>
 <a href="#contacts">Контакты</a>
 </nav>
@@ -1413,6 +1506,7 @@
 <div class="hero-actions">
 <a class="btn btn-primary" href="#brief">Рассчитать задачу</a>
 <a class="btn btn-secondary" href="#cases">Смотреть кейсы</a>
+<a class="btn btn-ghost" href="services/">Страницы услуг</a>
 </div>
 <p class="hero-note">Можно начать без готовой 3D-модели: достаточно фото, размеров и короткого описания.</p>
 </div>
@@ -1655,6 +1749,12 @@
 <ul><li><strong>Что входит:</strong> практикумы, проектные занятия, инженерные интенсивы.</li><li><strong>Кому подходит:</strong> школам, вузам, технопаркам и командам мероприятий.</li></ul>
 </article>
 </div>
+<div class="service-links-row">
+<a class="btn btn-secondary" href="services/">Все услуги</a>
+<a class="btn btn-ghost" href="reverse-engineering/">Реверс-инжиниринг</a>
+<a class="btn btn-ghost" href="3d-printing/">3D-печать</a>
+<a class="btn btn-ghost" href="workshops/">Мастер-классы</a>
+</div>
 </div>
 </section>
 <section aria-labelledby="prices-title" class="section" id="prices">
@@ -1694,6 +1794,41 @@
 </div>
 </div>
 </section>
+
+<section aria-labelledby="quiz-title" class="section" id="project-quiz">
+<div class="container quiz-wrap">
+<aside class="quiz-panel">
+<p class="eyebrow">Быстрый подбор</p>
+<h2 id="quiz-title">Не знаете, с чего начать? Выберите ближайшую задачу</h2>
+<p>Квиз не заменяет расчёт, но помогает сразу сформулировать заявку: тип проекта, исходники и следующий шаг.</p>
+<div aria-label="Варианты задач Step3D" class="quiz-options">
+<button class="quiz-option is-active" data-quiz="broken" type="button"><strong>Сломалась или потерялась деталь</strong><span>Нужно повторить форму, посадки или крепления.</span></button>
+<button class="quiz-option" data-quiz="idea" type="button"><strong>Есть идея, но нет 3D-модели</strong><span>Есть эскиз, фото, размеры или пример.</span></button>
+<button class="quiz-option" data-quiz="event" type="button"><strong>Нужен объект для события</strong><span>Награда, декорация, арт-объект, макет или бутафория.</span></button>
+<button class="quiz-option" data-quiz="series" type="button"><strong>Нужен прототип или малая серия</strong><span>Нужно проверить изделие и сделать несколько экземпляров.</span></button>
+<button class="quiz-option" data-quiz="education" type="button"><strong>Нужен мастер-класс или проектное занятие</strong><span>3D-печать, CAD, реверс-инжиниринг и цифровое производство.</span></button>
+</div>
+</aside>
+<div class="quiz-result">
+<div class="quiz-result-box">
+<p class="eyebrow" id="quizCategory">Реверсивный инжиниринг</p>
+<h3 id="quizResultTitle">Начните с фото детали и ключевых размеров</h3>
+<p id="quizResultText">Мы оценим, достаточно ли фото и размеров, или лучше сделать 3D-сканирование. После этого можно восстановить модель и подготовить её к печати или производству.</p>
+<ul class="quiz-list" id="quizResultList">
+<li>Пришлите 3–5 фото с разных сторон.</li>
+<li>Укажите габариты и где деталь используется.</li>
+<li>Если важны посадки — отметьте критичные размеры.</li>
+</ul>
+</div>
+<div class="service-links-row">
+<a class="btn btn-primary" id="quizBriefLink" href="#brief" data-prefill="Реверсивный инжиниринг / сканирование">Заполнить заявку</a>
+<a class="btn btn-secondary" id="quizServiceLink" href="reverse-engineering/">Подробнее об услуге</a>
+<a class="btn btn-ghost" href="cases/">Смотреть кейсы</a>
+</div>
+</div>
+</div>
+</section>
+
 <section aria-labelledby="brief-title" class="section brief-section" id="brief">
 <div class="container brief-wrap">
 <aside class="brief-panel">
@@ -2018,6 +2153,70 @@
       if (event.key === 'Escape') closeStory();
       if (event.key === 'ArrowRight') nextStorySlide();
       if (event.key === 'ArrowLeft') prevStorySlide();
+    });
+
+
+
+    const quizData = {
+      broken: {
+        category: 'Реверсивный инжиниринг',
+        title: 'Начните с фото детали и ключевых размеров',
+        text: 'Мы оценим, достаточно ли фото и размеров, или лучше сделать 3D-сканирование. После этого можно восстановить модель и подготовить её к печати или производству.',
+        items: ['Пришлите 3–5 фото с разных сторон.', 'Укажите габариты и где деталь используется.', 'Если важны посадки — отметьте критичные размеры.'],
+        prefill: 'Реверсивный инжиниринг / сканирование',
+        service: 'reverse-engineering/'
+      },
+      idea: {
+        category: '3D-моделирование',
+        title: 'Опишите идею и приложите референсы',
+        text: 'Мы переведём идею, эскиз или фото в 3D-модель, подготовим её под печать и предупредим о технологических ограничениях.',
+        items: ['Приложите эскиз, фото или похожий пример.', 'Укажите примерный размер и назначение.', 'Напишите, важнее внешний вид, прочность или скорость.'],
+        prefill: '3D-модель / промышленный дизайн',
+        service: 'services/'
+      },
+      event: {
+        category: 'Объекты для события',
+        title: 'Нужны дата события и визуальная задача',
+        text: 'Для награды, декорации или арт-объекта важны срок, масштаб, видимость на сцене и уровень постобработки.',
+        items: ['Укажите дату мероприятия.', 'Покажите референсы по стилю.', 'Напишите, объект нужен для сцены, съёмки, подарка или экспозиции.'],
+        prefill: 'Объект для события / сцены',
+        service: 'cases/'
+      },
+      series: {
+        category: 'Прототипирование и серия',
+        title: 'Сначала делаем тестовый образец',
+        text: 'Для серии лучше начать с прототипа: проверить форму, материал, посадки и только потом считать партию.',
+        items: ['Укажите желаемое количество.', 'Опишите нагрузку и условия использования.', 'Если есть файл — лучше прислать STL/STEP/3MF.'],
+        prefill: 'Малая серия',
+        service: '3d-printing/'
+      },
+      education: {
+        category: 'Образовательные проекты',
+        title: 'Нужны возраст, формат и результат занятия',
+        text: 'Можем собрать мастер-класс, интенсив или проектное занятие по 3D-печати, CAD, сканированию и реверсивному инжинирингу.',
+        items: ['Укажите возраст и количество участников.', 'Напишите длительность занятия.', 'Опишите, какой итог нужен: изделие, демонстрация, проект или методический материал.'],
+        prefill: 'Мастер-класс / обучение',
+        service: 'workshops/'
+      }
+    };
+
+    function applyQuiz(key) {
+      const data = quizData[key];
+      if (!data) return;
+      document.querySelectorAll('[data-quiz]').forEach((button) => button.classList.toggle('is-active', button.dataset.quiz === key));
+      document.getElementById('quizCategory').textContent = data.category;
+      document.getElementById('quizResultTitle').textContent = data.title;
+      document.getElementById('quizResultText').textContent = data.text;
+      document.getElementById('quizResultList').innerHTML = data.items.map((item) => `<li>${item}</li>`).join('');
+      const briefLink = document.getElementById('quizBriefLink');
+      briefLink.dataset.prefill = data.prefill;
+      const serviceLink = document.getElementById('quizServiceLink');
+      serviceLink.href = data.service;
+      serviceLink.textContent = 'Подробнее об услуге';
+    }
+
+    document.querySelectorAll('[data-quiz]').forEach((button) => {
+      button.addEventListener('click', () => applyQuiz(button.dataset.quiz));
     });
 
     // Подстановка типа проекта из кнопок сценариев.
