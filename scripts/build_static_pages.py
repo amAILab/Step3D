@@ -97,6 +97,14 @@ def render_page(data):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{data['title']}</title>
 <meta name="description" content="{data['description']}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{data['title']}">
+<meta property="og:description" content="{data['description']}">
+<meta property="og:url" content="https://amailab.github.io/Step3D/{data.get('canonical','')}">
+<meta property="og:image" content="https://amailab.github.io/Step3D/assets/img/og-step3d.webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://amailab.github.io/Step3D/{data.get('canonical','')}">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
