@@ -172,6 +172,8 @@
       height: 40px;
       display: grid;
       place-items: center;
+      transform-origin: 50% 72%;
+      animation: logo-soft-wobble 4.8s ease-in-out infinite;
     }
     .brand-logo-steel img {
       width: 100%;
@@ -181,24 +183,11 @@
       transform: scaleX(-1);
       filter: drop-shadow(0 5px 8px rgba(18,18,18,.16));
     }
-    .brand-logo-steel::before,
-    .brand-logo-steel::after {
-      content: "";
-      position: absolute;
-      top: 41%;
-      width: 5px;
-      height: 5px;
-      border-radius: 999px;
-      background: #e8f7ff;
-      opacity: .2;
-      box-shadow: 0 0 0 rgba(80, 210, 255, 0);
-      animation: invader-eye-glow 3.2s ease-in-out infinite;
-    }
-    .brand-logo-steel::before { left: 29%; }
-    .brand-logo-steel::after { right: 29%; animation-delay: .12s; }
-    @keyframes invader-eye-glow {
-      0%, 38%, 100% { opacity: .18; box-shadow: 0 0 0 rgba(80, 210, 255, 0); }
-      55%, 72% { opacity: .95; box-shadow: 0 0 10px rgba(80, 210, 255, .72), 0 0 18px rgba(129, 92, 255, .38); }
+    @keyframes logo-soft-wobble {
+      0%, 100% { transform: rotate(0deg) translateY(0); }
+      22% { transform: rotate(-2.2deg) translateY(-1px); }
+      48% { transform: rotate(1.8deg) translateY(0); }
+      72% { transform: rotate(-.8deg) translateY(-.5px); }
     }
 
     .nav {
@@ -1969,8 +1958,6 @@
       .brand-mark { flex: 0 0 auto; width: 44px; height: 38px; }
       .brand-mark svg { width: 28px; height: 28px; }
       .brand-logo-steel { width: 43px; height: 34px; }
-      .brand-logo-steel::before,
-      .brand-logo-steel::after { width: 4px; height: 4px; }
       .hero-copy, .hero-subtitle, .hero-note, h1, h2, h3, p { overflow-wrap: anywhere; }
       .hero-proof-row, .routes-grid, .why-grid, .limits-grid, .materials-grid, .service-grid, .scenario-grid, .timeline-grid, .faq-grid, .article-teaser-grid { width: 100%; max-width: 100%; }
       .route-card, .why-card, .limits-card, .service-card, .scenario-card, .micro-calc-panel, .micro-calc-result, .brief-panel, .form-panel { min-width: 0; max-width: 100%; }
