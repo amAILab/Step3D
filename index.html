@@ -163,6 +163,7 @@
     }
 
     .brand-mark svg { width: 31px; height: 31px; display: block; }
+    .brand-mark--image img { width: 34px; height: 30px; object-fit: contain; display: block; }
 
     .nav {
       display: none;
@@ -1893,6 +1894,7 @@
       .brand { min-width: 0; max-width: none; }
       .brand-mark { flex: 0 0 auto; width: 42px; height: 42px; }
       .brand-mark svg { width: 28px; height: 28px; }
+      .brand-mark--image img { width: 31px; height: 27px; }
       .hero-copy, .hero-subtitle, .hero-note, h1, h2, h3, p { overflow-wrap: anywhere; }
       .hero-proof-row, .routes-grid, .why-grid, .limits-grid, .materials-grid, .service-grid, .scenario-grid, .timeline-grid, .faq-grid, .article-teaser-grid { width: 100%; max-width: 100%; }
       .route-card, .why-card, .limits-card, .service-card, .scenario-card, .micro-calc-panel, .micro-calc-result, .brief-panel, .form-panel { min-width: 0; max-width: 100%; }
@@ -2042,12 +2044,8 @@
 <header aria-label="Верхнее меню сайта" class="site-header">
 <div class="container header-inner">
 <a aria-label="Step3D на начало страницы" class="brand" href="#top">
-<span aria-hidden="true" class="brand-mark">
-<svg fill="none" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Step3D">
-<path d="M10 17h44v10H41v6h9v9h-9v5H23v-5h-9v-9h9v-6H10V17Z" fill="#111"></path>
-<path d="M18 28h8v6h-8v-6Zm20 0h8v6h-8v-6Z" fill="#fff"></path>
-<path d="M24 47h5v5h-5v-5Zm11 0h5v5h-5v-5Z" fill="#111"></path>
-</svg>
+<span aria-hidden="true" class="brand-mark brand-mark--image">
+<img src="assets/step3d-logo-mark.webp" alt="" width="96" height="82" decoding="async"/>
 </span>
         Step3D
       </a>
