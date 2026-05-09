@@ -1102,6 +1102,9 @@
     .quick-lead-box { margin-bottom: 18px; background: var(--surface-soft); }
     .quick-lead-box h3 { margin: 0 0 8px; }
     .quick-lead-box p { color: var(--muted); }
+    .quick-lead-presets { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 14px; }
+    .quick-lead-preset { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 8px 11px; cursor: pointer; font: inherit; font-size: .9rem; font-weight: 800; color: var(--muted); }
+    .quick-lead-preset:hover, .quick-lead-preset:focus-visible { color: var(--ink); border-color: var(--ink); }
     .quick-lead-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
     .calc-template-box { margin-top: 16px; background: #fff; }
     .calc-template-box textarea { width: 100%; min-height: 150px; border: 1px solid var(--line); border-radius: 16px; padding: 14px; font: inherit; resize: vertical; }
@@ -2478,6 +2481,12 @@
 <div class="lead-mode-panel quick-lead-box" data-lead-panel="quick">
 <h3>Быстрая заявка в Telegram</h3>
 <p>Напишите телефон/Telegram и коротко опишите задачу. Файлы — фото, STL, STEP, чертёж или эскиз — отправьте менеджеру в Telegram.</p>
+<div class="quick-lead-presets" aria-label="Быстрые шаблоны заявки">
+<button class="quick-lead-preset" type="button" data-quick-task="Нужно восстановить сломанную пластиковую деталь по фото/образцу. Есть фото с 2–3 сторон, размеры и место установки.">Сломалась деталь</button>
+<button class="quick-lead-preset" type="button" data-quick-task="Нужен прототип по эскизу или референсу. Важно проверить форму, размер и материал перед финальной версией.">Прототип</button>
+<button class="quick-lead-preset" type="button" data-quick-task="Нужно сделать малую серию одинаковых деталей. Укажу количество, срок, материал и есть ли файл STL/STEP.">Малая серия</button>
+<button class="quick-lead-preset" type="button" data-quick-task="Нужен объект для события/сцены/подарка к конкретной дате. Есть референсы, примерный размер и требования к внешнему виду.">Объект к дате</button>
+</div>
 <div class="form-grid">
 <div class="field"><label for="quickContact">Telegram или телефон</label><input id="quickContact" placeholder="@username или телефон"></div>
 <div class="field full"><label for="quickTask">Описание задачи</label><textarea id="quickTask" placeholder="Что нужно сделать, размер, срок, что уже есть"></textarea></div>
@@ -3243,6 +3252,17 @@
       if (!link) return;
       link.href = `${managerTelegram}?text=${encodeURIComponent(getQuickLeadText())}`;
     }
+
+    document.querySelectorAll('[data-quick-task]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const taskField = document.getElementById('quickTask');
+        if (!taskField) return;
+        taskField.value = button.dataset.quickTask || '';
+        taskField.focus();
+        updateQuickLeadLink();
+        trackStep3DGoal('quick_lead_preset', { preset: button.textContent.trim() });
+      });
+    });
 
     document.getElementById('quickContact')?.addEventListener('input', updateQuickLeadLink);
     document.getElementById('quickTask')?.addEventListener('input', updateQuickLeadLink);
