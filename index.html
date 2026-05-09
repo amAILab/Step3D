@@ -375,6 +375,26 @@
     .btn:hover { transform: translateY(-1px); }
     .btn:active { transform: translateY(0); }
 
+    .link-avatar {
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      object-fit: cover;
+      flex: 0 0 auto;
+      box-shadow: 0 0 0 1px rgba(18,18,18,.08);
+    }
+
+    .btn .link-avatar {
+      margin-left: -5px;
+    }
+
+    footer a .link-avatar {
+      width: 20px;
+      height: 20px;
+      margin-right: 7px;
+      vertical-align: middle;
+    }
+
     .btn-primary,
     .btn-dark {
       background: var(--accent);
@@ -2098,7 +2118,7 @@
 <a href="#brief">Заявка</a>
 </nav>
 <div class="header-actions">
-<a class="btn btn-secondary" href="https://t.me/STEP_3D_Lab" rel="noopener" target="_blank" data-metric="telegram_click">Канал</a>
+<a class="btn btn-secondary" href="https://t.me/STEP_3D_Lab" rel="noopener" target="_blank" data-metric="telegram_click"><img class="link-avatar" src="assets/avatar-channel-step3d.webp" alt="" width="24" height="24" loading="lazy" decoding="async"><span>Канал</span></a>
 <a class="btn btn-primary" href="#brief" data-metric="brief_click">Рассчитать</a>
 </div>
 <button class="menu-toggle" type="button" aria-label="Открыть меню сайта" aria-controls="mobileMenu" aria-expanded="false">
@@ -2114,12 +2134,12 @@
 <a href="articles/"><span>Статьи<small>гайды и полезные материалы</small></span></a>
 </div>
 <div class="mobile-menu-cta">
-<a class="btn btn-secondary" href="https://t.me/STEP_3D_Lab" rel="noopener" target="_blank" data-metric="telegram_click">Канал</a>
+<a class="btn btn-secondary" href="https://t.me/STEP_3D_Lab" rel="noopener" target="_blank" data-metric="telegram_click"><img class="link-avatar" src="assets/avatar-channel-step3d.webp" alt="" width="24" height="24" loading="lazy" decoding="async"><span>Канал</span></a>
 <a class="btn btn-primary" href="#brief" data-metric="brief_click">Заявка</a>
 </div>
 </div>
 </header>
-<nav class="mobile-action-bar" aria-label="Быстрые действия"><a class="btn btn-secondary" href="https://t.me/step_3d_mngr" rel="noopener" target="_blank" data-metric="telegram_click">Написать</a><a class="btn btn-primary" href="#brief" data-metric="brief_click">Расчёт</a></nav>
+<nav class="mobile-action-bar" aria-label="Быстрые действия"><a class="btn btn-secondary" href="https://t.me/step_3d_mngr" rel="noopener" target="_blank" data-metric="telegram_click"><img class="link-avatar" src="assets/avatar-ai-agent-step3d.webp" alt="" width="24" height="24" loading="lazy" decoding="async"><span>Написать</span></a><a class="btn btn-primary" href="#brief" data-metric="brief_click">Расчёт</a></nav>
 <main id="main">
 <section class="hero" id="top">
 <div class="container hero-grid">
@@ -2357,7 +2377,7 @@
 <div class="case-row case-row--accent"><dt>Результат</dt><dd>Готовые элементы декораций для спектакля.</dd></div>
 </dl>
 <div class="case-links">
-<a class="btn btn-ghost" href="https://t.me/STEP_3D_Lab/530" rel="noopener" target="_blank">Пост в канале</a>
+<a class="btn btn-ghost" href="https://t.me/STEP_3D_Lab/530" rel="noopener" target="_blank"><img class="link-avatar" src="assets/avatar-channel-step3d.webp" alt="" width="24" height="24" loading="lazy" decoding="async"><span>Пост в канале</span></a>
 <a class="btn btn-secondary" href="#brief">Рассчитать объект</a>
 </div>
 </div>
@@ -2379,7 +2399,7 @@
 <div class="case-row case-row--accent"><dt>Результат</dt><dd>Готовый прототип для демонстрации и дальнейшей серии.</dd></div>
 </dl>
 <div class="case-links">
-<a class="btn btn-ghost" href="https://t.me/STEP_3D_Lab" rel="noopener" target="_blank" data-metric="telegram_click">Канал Step3D</a>
+<a class="btn btn-ghost" href="https://t.me/STEP_3D_Lab" rel="noopener" target="_blank" data-metric="telegram_click"><img class="link-avatar" src="assets/avatar-channel-step3d.webp" alt="" width="24" height="24" loading="lazy" decoding="async"><span>Канал Step3D</span></a>
 <a class="btn btn-ghost" href="comics/ai-version/reverse-engineering-part2-ai-illustrated.pdf" target="_blank">Образовательный комикс</a>
 <a class="btn btn-secondary" href="#brief">Обсудить объект</a>
 </div>
@@ -2694,7 +2714,7 @@
 <div class="service-links-row">
 <a class="btn btn-primary" href="#brief" id="microCalcBrief" data-metric="brief_click">Перейти к заявке</a>
 <button class="btn btn-secondary" id="copyCalcTemplate" type="button">Скопировать шаблон</button>
-<a class="btn btn-ghost" href="https://t.me/step_3d_mngr" rel="noopener" target="_blank" data-metric="telegram_click">Telegram</a>
+<a class="btn btn-ghost" href="https://t.me/step_3d_mngr" rel="noopener" target="_blank" data-metric="telegram_click"><img class="link-avatar" src="assets/avatar-ai-agent-step3d.webp" alt="" width="24" height="24" loading="lazy" decoding="async"><span>AI-агент</span></a>
 </div>
 </aside>
 </div>
@@ -2717,7 +2737,7 @@
 <span>STL</span><span>STEP</span><span>OBJ</span><span>3MF</span><span>DXF</span><span>PDF</span><span>JPG/PNG</span>
 </div>
 <div class="contact-links">
-<a class="btn btn-dark" href="https://t.me/step_3d_mngr" rel="noopener" target="_blank" data-metric="telegram_click">Написать в Telegram</a>
+<a class="btn btn-dark" href="https://t.me/step_3d_mngr" rel="noopener" target="_blank" data-metric="telegram_click"><img class="link-avatar" src="assets/avatar-ai-agent-step3d.webp" alt="" width="24" height="24" loading="lazy" decoding="async"><span>Написать AI-агенту</span></a>
 <button class="btn btn-secondary" id="copyTemplateButton" type="button">Скопировать шаблон</button>
 </div>
 </aside>
@@ -2748,7 +2768,7 @@
 <div class="field"><label for="quickContact">Telegram или телефон</label><input id="quickContact" placeholder="@username или телефон"></div>
 <div class="field full"><label for="quickTask">Описание задачи</label><textarea id="quickTask" placeholder="Что нужно сделать, размер, срок, что уже есть"></textarea></div>
 </div>
-<div class="quick-lead-actions"><a class="btn btn-primary" id="quickTelegramLink" href="https://t.me/step_3d_mngr" rel="noopener" target="_blank" data-metric="telegram_click">Отправить в Telegram</a><button class="btn btn-secondary" type="button" id="copyQuickLead">Скопировать текст</button></div>
+<div class="quick-lead-actions"><a class="btn btn-primary" id="quickTelegramLink" href="https://t.me/step_3d_mngr" rel="noopener" target="_blank" data-metric="telegram_click"><img class="link-avatar" src="assets/avatar-ai-agent-step3d.webp" alt="" width="24" height="24" loading="lazy" decoding="async"><span>Отправить AI-агенту</span></a><button class="btn btn-secondary" type="button" id="copyQuickLead">Скопировать текст</button></div>
 </div>
 <div class="lead-mode-panel" data-lead-panel="full" hidden>
 <form action="https://formsubmit.co/26b4f038fb3a1a0c655bdd1f674b6299" class="lead-form" id="leadForm" method="POST" novalidate="">
@@ -2821,7 +2841,7 @@
 <p aria-live="polite" class="form-error" id="formError"></p>
 <div class="form-actions">
 <button class="btn btn-primary" type="submit">Рассчитать стоимость по фото</button>
-<a class="btn btn-secondary" href="https://t.me/step_3d_mngr" rel="noopener" target="_blank" data-metric="telegram_click">Прикрепить файл в Telegram</a>
+<a class="btn btn-secondary" href="https://t.me/step_3d_mngr" rel="noopener" target="_blank" data-metric="telegram_click"><img class="link-avatar" src="assets/avatar-ai-agent-step3d.webp" alt="" width="24" height="24" loading="lazy" decoding="async"><span>Прикрепить файл в Telegram</span></a>
 </div>
 <p class="form-hint">Заявка сохраняется через бесплатную форму и приходит на почту Step3D. Предварительный ответ отправляется на указанный email. Файлы сайт не загружает — их лучше прислать в Telegram.</p>
 <p class="privacy-note">Нажимая кнопку, вы передаёте данные для расчёта задачи и ответа по проекту. Подробнее: <a href="privacy/">политика обработки данных</a>.</p>
@@ -2897,9 +2917,9 @@
 <h2 id="contacts-title">Пришлите задачу — подскажем следующий шаг</h2>
 <p>Лучше сразу указать размеры, срок, количество, назначение изделия и приложить фото, эскиз или файл.</p>
 <div class="contact-links">
-<a class="btn btn-primary" href="https://t.me/step_3d_mngr" rel="noopener" target="_blank" data-metric="telegram_click">Написать менеджеру</a>
+<a class="btn btn-primary" href="https://t.me/step_3d_mngr" rel="noopener" target="_blank" data-metric="telegram_click"><img class="link-avatar" src="assets/avatar-ai-agent-step3d.webp" alt="" width="24" height="24" loading="lazy" decoding="async"><span>Написать AI-агенту</span></a>
 <a class="btn btn-ghost" href="mailto:stepgptai@gmail.com">stepgptai@gmail.com</a>
-<a class="btn btn-ghost" href="https://t.me/STEP_3D_Lab" rel="noopener" target="_blank" data-metric="telegram_click">Канал Step3D</a>
+<a class="btn btn-ghost" href="https://t.me/STEP_3D_Lab" rel="noopener" target="_blank" data-metric="telegram_click"><img class="link-avatar" src="assets/avatar-channel-step3d.webp" alt="" width="24" height="24" loading="lazy" decoding="async"><span>Канал Step3D</span></a>
 </div>
 </div>
 <a class="btn btn-secondary" href="#brief">Оставить заявку</a>
@@ -2951,8 +2971,8 @@
 <h3>Контакты</h3>
 <ul>
 <li><a href="#brief">Оставить заявку</a></li>
-<li><a href="https://t.me/step_3d_mngr" rel="noopener" target="_blank" data-metric="telegram_click">Telegram-менеджер</a></li>
-<li><a href="https://t.me/STEP_3D_Lab" rel="noopener" target="_blank" data-metric="telegram_click">Канал Step3D</a></li>
+<li><a href="https://t.me/step_3d_mngr" rel="noopener" target="_blank" data-metric="telegram_click"><img class="link-avatar" src="assets/avatar-ai-agent-step3d.webp" alt="" width="24" height="24" loading="lazy" decoding="async">AI-агент</a></li>
+<li><a href="https://t.me/STEP_3D_Lab" rel="noopener" target="_blank" data-metric="telegram_click"><img class="link-avatar" src="assets/avatar-channel-step3d.webp" alt="" width="24" height="24" loading="lazy" decoding="async">Канал Step3D</a></li>
 <li><a href="mailto:stepgptai@gmail.com">stepgptai@gmail.com</a></li><li>Москва · ответ обычно в рабочий день</li><li>Формат: оценка по фото, STL/STEP, эскизу или описанию</li>
 <li><a href="privacy/">Политика данных</a></li>
 </ul>
