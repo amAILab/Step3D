@@ -624,6 +624,180 @@
       line-height: 1.45;
     }
 
+
+    .nano-process {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(22px, 4vw, 36px);
+      border: 1px solid rgba(255, 128, 47, .22);
+      border-radius: 32px;
+      background:
+        radial-gradient(circle at 50% 42%, rgba(255, 128, 47, .18), transparent 32%),
+        linear-gradient(135deg, rgba(17,17,17,.96), rgba(36,34,31,.94));
+      color: #fff;
+      box-shadow: 0 24px 80px rgba(17,17,17,.18);
+      isolation: isolate;
+    }
+
+    .nano-process::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+      background-size: 34px 34px;
+      mask-image: radial-gradient(circle at 50% 45%, #000, transparent 78%);
+      opacity: .74;
+      pointer-events: none;
+      animation: nanoGrid 18s linear infinite;
+    }
+
+    .nano-process::after {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 24px;
+      pointer-events: none;
+    }
+
+    .nano-flow {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(180px, .82fr) minmax(220px, .9fr) minmax(260px, 1.25fr);
+      gap: clamp(18px, 4vw, 36px);
+      align-items: center;
+      min-height: 360px;
+    }
+
+    .flow-inputs, .flow-outputs { display: grid; gap: 12px; }
+
+    .flow-node {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 74px;
+      padding: 14px;
+      border-radius: 20px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.14);
+      backdrop-filter: blur(14px);
+    }
+
+    .flow-node::after {
+      content: "";
+      position: absolute;
+      right: -20px;
+      top: 50%;
+      width: 20px;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(255,128,47,.2), rgba(255,128,47,.9));
+      box-shadow: 0 0 18px rgba(255,128,47,.75);
+      animation: nanoPulse 1.9s ease-in-out infinite;
+    }
+
+    .flow-outputs .flow-node::after { left: -20px; right: auto; }
+
+    .flow-icon {
+      display: grid;
+      place-items: center;
+      flex: 0 0 48px;
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      color: #fff;
+      font-weight: 800;
+      font-size: 22px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.18);
+    }
+
+    .flow-icon svg { width: 27px; height: 27px; fill: currentColor; }
+    .flow-icon.telegram { background: linear-gradient(135deg, #2aa8e8, #168acd); }
+    .flow-icon.mail { background: linear-gradient(135deg, #ff8a2f, #ff4e1f); }
+    .flow-icon.site { background: linear-gradient(135deg, #111, #4b5563); }
+    .flow-icon.cad { color: #111; background: #f8fafc; }
+    .flow-icon.scan { background: linear-gradient(135deg, #00c2a8, #006b62); }
+    .flow-icon.print { background: linear-gradient(135deg, #ff8a2f, #d84a12); }
+    .flow-icon.series { background: linear-gradient(135deg, #7c3aed, #312e81); }
+
+    .flow-node strong { display: block; font-size: 16px; letter-spacing: -.02em; }
+    .flow-node span { display: block; margin-top: 3px; color: rgba(255,255,255,.66); font-size: 13px; line-height: 1.35; }
+
+    .orange-grabber {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-height: 300px;
+    }
+
+    .grabber-orbit {
+      position: absolute;
+      width: 245px;
+      height: 245px;
+      border-radius: 999px;
+      border: 1px dashed rgba(255,128,47,.34);
+      animation: nanoSpin 12s linear infinite;
+    }
+
+    .grabber-core {
+      position: relative;
+      width: 154px;
+      height: 154px;
+      border-radius: 32px;
+      background: linear-gradient(145deg, #ff9a3d, #ff5a1f 58%, #c5350e);
+      box-shadow: 0 0 0 16px rgba(255,128,47,.08), 0 24px 70px rgba(255,93,31,.42);
+      transform: rotate(45deg);
+      animation: grabberFloat 3s ease-in-out infinite;
+    }
+
+    .grabber-core::before, .grabber-core::after {
+      content: "";
+      position: absolute;
+      background: #16120f;
+      border-radius: 999px;
+      box-shadow: inset 0 0 0 2px rgba(255,255,255,.12);
+    }
+
+    .grabber-core::before { width: 86px; height: 24px; left: 34px; top: 65px; }
+    .grabber-core::after { width: 24px; height: 86px; left: 65px; top: 34px; }
+
+    .grabber-label {
+      position: absolute;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: max-content;
+      padding: 9px 13px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.34);
+      border: 1px solid rgba(255,255,255,.14);
+      color: rgba(255,255,255,.82);
+      font-size: 13px;
+      backdrop-filter: blur(12px);
+    }
+
+    .flow-output-title {
+      margin: 0 0 12px;
+      color: rgba(255,255,255,.62);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+
+    @keyframes nanoGrid { from { background-position: 0 0; } to { background-position: 68px 34px; } }
+    @keyframes nanoPulse { 0%,100% { opacity: .36; transform: translateY(-50%) scaleX(.72); } 50% { opacity: 1; transform: translateY(-50%) scaleX(1); } }
+    @keyframes nanoSpin { to { transform: rotate(360deg); } }
+    @keyframes grabberFloat { 0%,100% { transform: rotate(45deg) translate3d(0,0,0); } 50% { transform: rotate(45deg) translate3d(0,-7px,0); } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .nano-process::before, .flow-node::after, .grabber-orbit, .grabber-core { animation: none; }
+    }
+
+
     .trust-grid,
     .scenario-grid,
     .service-grid,
@@ -1366,6 +1540,10 @@
       .education-grid,
       .micro-calc-grid { grid-template-columns: 1fr 1fr; }
       .micro-calc-panel { grid-column: 1 / -1; }
+      .nano-flow { grid-template-columns: 1fr; min-height: 0; }
+      .orange-grabber { min-height: 220px; }
+      .flow-node::after { left: 50%; right: auto; top: auto; bottom: -18px; width: 2px; height: 18px; transform: translateX(-50%); background: linear-gradient(180deg, rgba(255,128,47,.25), rgba(255,128,47,.92)); }
+      .flow-outputs .flow-node::after { left: 50%; right: auto; }
     }
 
     @media (max-width: 680px) {
@@ -1375,6 +1553,14 @@
       .micro-calc-form,
       .b2b-scenarios { grid-template-columns: 1fr; }
       .micro-calc-panel { grid-column: auto; }
+      .nano-process { padding: 18px; border-radius: 24px; }
+      .flow-node { min-height: 66px; padding: 12px; border-radius: 18px; }
+      .flow-icon { flex-basis: 42px; width: 42px; height: 42px; border-radius: 14px; font-size: 18px; }
+      .grabber-core { width: 122px; height: 122px; border-radius: 26px; }
+      .grabber-core::before { width: 68px; height: 20px; left: 27px; top: 51px; }
+      .grabber-core::after { width: 20px; height: 68px; left: 51px; top: 27px; }
+      .grabber-orbit { width: 190px; height: 190px; }
+      .grabber-label { bottom: 0; white-space: normal; width: min(230px, 90%); text-align: center; }
     }
 
 
@@ -2191,16 +2377,31 @@
 <div class="container">
 <div class="section-head">
 <div>
-<p class="eyebrow">4 направления работы</p>
-<h2 class="section-title" id="audit-directions-title">Закрываем путь клиента от вопроса до готового изделия</h2>
+<p class="eyebrow">Процесс Step3D</p>
+<h2 class="section-title" id="audit-directions-title">Как заявка превращается в производственный маршрут</h2>
 </div>
-<p class="section-lead">Сайт теперь ведёт не к абстрактной 3D-печати, а к понятной коммерческой логике: оценка → маршрут → производство → результат.</p>
+<p class="section-lead">Вместо длинного описания — схема: заявки приходят из разных каналов, оранжевый распределитель собирает вводные и направляет задачу в нужный технологический поток.</p>
 </div>
-<div class="send-receive-grid">
-<article class="send-receive-card"><strong>1. Коммерческое ядро</strong><p>Фокус: единое производство 3D-услуг, а не портфолио или набор внутренних проектов.</p></article>
-<article class="send-receive-card"><strong>2. Быстрая заявка</strong><p>Клиент сразу понимает, что прислать: фото, размеры, файл, срок, количество и назначение детали.</p></article>
-<article class="send-receive-card"><strong>3. Производственный маршрут</strong><p>CAD, сканирование, печать, реверс, прототип и серия собраны в один понятный процесс.</p></article>
-<article class="send-receive-card"><strong>4. Доверие и риски</strong><p>Показываем ограничения заранее: где нужен тест, замер, усиление или другой способ производства.</p></article>
+<div class="nano-process" aria-label="Анимированная схема обработки заявок Step3D">
+<div class="nano-flow">
+<div class="flow-inputs" aria-label="Каналы входящих заявок">
+<div class="flow-node"><span class="flow-icon telegram" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21.7 4.4 18.4 20c-.25 1.1-.9 1.35-1.83.84l-5.05-3.73-2.44 2.35c-.27.27-.5.5-1.03.5l.37-5.15 9.38-8.47c.41-.36-.09-.57-.63-.2L5.58 13.43.59 11.87c-1.08-.34-1.1-1.08.23-1.6L20.33 2.75c.9-.33 1.69.2 1.37 1.65Z"/></svg></span><div><strong>Telegram</strong><span>быстрые заявки, фото детали, срочные вопросы</span></div></div>
+<div class="flow-node"><span class="flow-icon mail" aria-hidden="true">@</span><div><strong>Почта</strong><span>ТЗ, файлы, коммерческие запросы, документы</span></div></div>
+<div class="flow-node"><span class="flow-icon site" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm6.93 6h-3.06a15.7 15.7 0 0 0-1.2-3.05A8.04 8.04 0 0 1 18.93 8ZM12 4.04c.83 1.2 1.48 2.52 1.92 3.96h-3.84A13.5 13.5 0 0 1 12 4.04ZM4.26 14a8.18 8.18 0 0 1 0-4h3.46a16.9 16.9 0 0 0 0 4H4.26Zm.8 2h3.06c.3 1.08.7 2.1 1.2 3.05A8.04 8.04 0 0 1 5.07 16Zm3.06-8H5.07a8.04 8.04 0 0 1 4.26-3.05A15.7 15.7 0 0 0 8.13 8ZM12 19.96A13.5 13.5 0 0 1 10.08 16h3.84A13.5 13.5 0 0 1 12 19.96ZM14.35 14h-4.7a14.74 14.74 0 0 1 0-4h4.7a14.74 14.74 0 0 1 0 4Zm.32 5.05c.5-.95.9-1.97 1.2-3.05h3.06a8.04 8.04 0 0 1-4.26 3.05ZM16.28 14a16.9 16.9 0 0 0 0-4h3.46a8.18 8.18 0 0 1 0 4h-3.46Z"/></svg></span><div><strong>Сайт</strong><span>форма, квиз, страницы услуг и кейсы</span></div></div>
+</div>
+<div class="orange-grabber" aria-label="Оранжевый распределитель Step3D">
+<div class="grabber-orbit" aria-hidden="true"></div>
+<div class="grabber-core" aria-hidden="true"></div>
+<div class="grabber-label">AI + менеджер распределяют задачу</div>
+</div>
+<div class="flow-outputs" aria-label="Производственные маршруты">
+<p class="flow-output-title">Маршрут дальше</p>
+<div class="flow-node"><span class="flow-icon cad" aria-hidden="true">CAD</span><div><strong>Модель / доработка</strong><span>геометрия, посадки, подготовка файла</span></div></div>
+<div class="flow-node"><span class="flow-icon scan" aria-hidden="true">3D</span><div><strong>Скан / реверс</strong><span>замеры, восстановление формы, проверка рисков</span></div></div>
+<div class="flow-node"><span class="flow-icon print" aria-hidden="true">↧</span><div><strong>Печать / прототип</strong><span>материал, тест, постобработка, выдача</span></div></div>
+<div class="flow-node"><span class="flow-icon series" aria-hidden="true">×N</span><div><strong>Малая серия</strong><span>тестовый образец, повторяемость, партия</span></div></div>
+</div>
+</div>
 </div>
 </div>
 </section>
