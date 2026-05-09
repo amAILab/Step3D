@@ -5,16 +5,16 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="telephone=no" name="format-detection"/>
-<title>Step3D — 3D-печать, 3D-моделирование и прототипирование в Москве</title>
-<meta content="Step3D помогает изготовить детали, прототипы, макеты, награды, сценические объекты и малые серии. 3D-печать, моделирование, 3D-сканирование и реверс-инжиниринг от идеи до готового изделия." name="description"/>
+<title>Step3D — 3D-печать, моделирование и реверс-инжиниринг в Москве</title>
+<meta content="3D-печать, 3D-моделирование, 3D-сканирование, реверс-инжиниринг, прототипы и малые серии в Москве. Оценка по фото, STL, STEP или эскизу за 1 рабочий день." name="description"/>
 <meta content="#f5f5f2" name="theme-color"/>
 <meta content="index, follow" name="robots"/>
 <link href="https://amailab.github.io/Step3D/" rel="canonical"/>
 <meta content="website" property="og:type"/>
 <meta content="ru_RU" property="og:locale"/>
-<meta content="Step3D — 3D-печать, моделирование и прототипы под задачу" property="og:title"/>
+<meta content="Step3D — производственная 3D-лаборатория в Москве" property="og:title"/>
 <meta content="Step3D" property="og:site_name"/>
-<meta content="Изготовим деталь, макет, награду, сценический объект или малую серию от эскиза, фото, STL/STEP или идеи." property="og:description"/>
+<meta content="Оценим задачу по фото, STL, STEP или эскизу за 1 рабочий день: печать, моделирование, сканирование, прототип или малая серия." property="og:description"/>
 <meta content="https://amailab.github.io/Step3D/" property="og:url"/>
 <meta content="https://amailab.github.io/Step3D/assets/img/og-step3d.webp" property="og:image"/>
 <meta content="1200" property="og:image:width"/>
@@ -1041,6 +1041,71 @@
       margin-top: 26px;
     }
 
+
+
+    /* Коммерческие блоки главной: быстрые маршруты, честные ограничения и усиленная заявка. */
+    .hero-proof-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin: 22px 0 0;
+    }
+
+    .hero-proof-row span,
+    .route-card,
+    .why-card,
+    .limits-card,
+    .calc-template-box,
+    .quick-lead-box {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: var(--surface);
+      padding: 18px;
+    }
+
+    .hero-proof-row span { background: rgba(255,255,255,.88); }
+    .hero-proof-row b { display: block; font-size: 1rem; letter-spacing: -.03em; }
+    .hero-proof-row small { display: block; margin-top: 4px; color: var(--muted); line-height: 1.35; }
+
+    .routes-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    .route-card { display: grid; gap: 12px; align-content: start; }
+    .route-card h3 { margin: 0; font-size: 1.35rem; letter-spacing: -.04em; }
+    .route-card p { margin: 0; color: var(--muted); }
+    .route-meta { display: grid; gap: 8px; font-size: .95rem; }
+    .route-meta span { display: block; color: var(--muted); }
+    .route-meta b { color: var(--ink); }
+
+    .why-grid,
+    .limits-grid,
+    .materials-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+    .why-card,
+    .limits-card,
+    .materials-card { border: 1px solid var(--line); border-radius: 22px; background: var(--surface); padding: 18px; }
+    .why-card svg,
+    .materials-card svg { width: 34px; height: 34px; margin-bottom: 12px; stroke: var(--ink); }
+    .why-card strong,
+    .limits-card strong,
+    .materials-card strong { display: block; margin-bottom: 7px; letter-spacing: -.03em; }
+    .why-card p,
+    .limits-card p,
+    .materials-card p { margin: 0; color: var(--muted); font-size: .95rem; }
+
+    .limits-card { background: #111; color: #fff; border-color: #111; }
+    .limits-card p { color: #d9d9d5; }
+
+    .mobile-action-bar { display: none; }
+
+    .lead-mode-tabs { display: flex; gap: 10px; flex-wrap: wrap; margin: 18px 0; }
+    .lead-mode-tab { border: 1px solid var(--line); background: var(--surface-soft); border-radius: 999px; padding: 11px 15px; cursor: pointer; font: inherit; font-weight: 800; }
+    .lead-mode-tab.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .lead-mode-panel[hidden] { display: none; }
+    .quick-lead-box { margin-bottom: 18px; background: var(--surface-soft); }
+    .quick-lead-box h3 { margin: 0 0 8px; }
+    .quick-lead-box p { color: var(--muted); }
+    .quick-lead-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+    .calc-template-box { margin-top: 16px; background: #fff; }
+    .calc-template-box textarea { width: 100%; min-height: 150px; border: 1px solid var(--line); border-radius: 16px; padding: 14px; font: inherit; resize: vertical; }
+
     .brief-section { padding-top: 0; }
 
     .send-receive-grid,
@@ -1614,6 +1679,10 @@
     }
 
     @media (max-width: 720px) {
+      .routes-grid, .why-grid, .limits-grid, .materials-grid, .hero-proof-row { grid-template-columns: 1fr; }
+      .mobile-cta { display: none; }
+      .mobile-action-bar { position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 95; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 8px; border: 1px solid var(--line); border-radius: 22px; background: rgba(255,255,255,.94); backdrop-filter: blur(16px); }
+      .mobile-action-bar .btn { min-height: 46px; justify-content: center; }
       .container { width: min(100% - 28px, var(--container)); }
       .site-header { position: static; }
       .header-inner { min-height: 64px; }
@@ -1670,6 +1739,24 @@
       }
       body { padding-bottom: 96px; }
       .site-footer { padding-bottom: 90px; }
+    }
+
+
+
+    /* Жёсткие мобильные ограничения: не даём шапке, карточкам и sticky CTA расширять viewport. */
+    @media (max-width: 720px) {
+      html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
+      .container, .hero-grid, .hero-copy, .hero-visual, main, section { max-width: 100%; min-width: 0; }
+      .header-inner { gap: 10px; overflow: hidden; }
+      .header-actions { display: none; }
+      .brand { min-width: 0; max-width: 150px; }
+      .brand-mark { flex: 0 0 auto; }
+      .hero-copy, .hero-subtitle, .hero-note, h1, h2, h3, p { overflow-wrap: anywhere; }
+      .hero-proof-row, .routes-grid, .why-grid, .limits-grid, .materials-grid, .service-grid, .scenario-grid, .timeline-grid, .faq-grid, .article-teaser-grid { width: 100%; max-width: 100%; }
+      .route-card, .why-card, .limits-card, .service-card, .scenario-card, .micro-calc-panel, .micro-calc-result, .brief-panel, .form-panel { min-width: 0; max-width: 100%; }
+      .mobile-action-bar { left: 10px; right: 10px; width: auto; max-width: calc(100vw - 20px); box-sizing: border-box; }
+      .mobile-action-bar .btn { min-width: 0; padding-left: 10px; padding-right: 10px; }
+      img, svg { max-width: 100%; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1733,6 +1820,33 @@
     ]
   }
   </script>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Step3D",
+        "url": "https://amailab.github.io/Step3D/",
+        "logo": "https://amailab.github.io/Step3D/assets/favicon.svg",
+        "sameAs": ["https://t.me/STEP_3D_Lab", "https://t.me/step_3d_mngr"]
+      },
+      {
+        "@type": "LocalBusiness",
+        "name": "Step3D",
+        "areaServed": "Москва",
+        "url": "https://amailab.github.io/Step3D/",
+        "email": "stepgptai@gmail.com",
+        "description": "3D-печать, моделирование, сканирование, реверс-инжиниринг, прототипы и малые серии в Москве."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [{"@type":"ListItem","position":1,"name":"Главная","item":"https://amailab.github.io/Step3D/"}]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 <a class="skip-link" href="#main">Перейти к содержанию</a>
@@ -1748,39 +1862,38 @@
         Step3D
       </a>
 <nav aria-label="Основная навигация" class="nav">
-<a href="#process">Процесс</a>
-<a href="#cases">Кейсы</a>
-<a href="#b2b">B2B</a>
-<a href="#education">Образование</a>
-<a href="#micro-calc">Калькулятор</a>
-<a href="#scenarios">Задачи</a>
 <a href="#services">Услуги</a>
+<a href="#cases">Кейсы</a>
 <a href="#prices">Стоимость</a>
 <a href="#project-quiz">Квиз</a>
-<a href="articles/">Статьи</a>
 <a href="#brief">Заявка</a>
-<a href="#contacts">Контакты</a>
 </nav>
 <div class="header-actions">
 <a class="btn btn-secondary" href="https://t.me/STEP_3D_Lab" rel="noopener" target="_blank" data-metric="telegram_click">Канал</a>
-<a class="btn btn-primary" href="#brief">Рассчитать</a>
+<a class="btn btn-primary" href="#brief" data-metric="brief_click">Рассчитать</a>
 </div>
 </div>
 </header>
-<a aria-label="Быстро перейти к заявке на расчёт" class="btn btn-primary mobile-cta" href="#brief">Рассчитать задачу</a>
+<nav class="mobile-action-bar" aria-label="Быстрые действия"><a class="btn btn-secondary" href="https://t.me/step_3d_mngr" rel="noopener" target="_blank" data-metric="telegram_click">Telegram</a><a class="btn btn-primary" href="#brief" data-metric="brief_click">Рассчитать</a></nav>
 <main id="main">
 <section class="hero" id="top">
 <div class="container hero-grid">
 <div class="hero-copy">
-<div class="hero-kicker"><span class="pulse-dot"></span> Производственная 3D-лаборатория</div>
-<h1>3D-печать, моделирование и прототипы под задачу</h1>
-<p class="hero-subtitle">Изготовим деталь, макет, награду, сценический объект или малую серию от эскиза, фото, STL/STEP или идеи. Подскажем технологию, срок, риски и стоимость до запуска в работу.</p>
+<div class="hero-kicker"><span class="pulse-dot"></span> Москва · оценка за 1 рабочий день</div>
+<h1>3D-лаборатория для деталей, прототипов и малых серий</h1>
+<p class="hero-subtitle">Оценим задачу по фото, STL, STEP или эскизу за 1 рабочий день: печать, моделирование, сканирование, прототип или малая серия. Подскажем технологию, срок, риски и стоимость до запуска в работу.</p>
 <div class="hero-actions">
-<a class="btn btn-primary" href="#brief">Рассчитать стоимость по фото</a>
+<a class="btn btn-primary" href="#brief" data-metric="brief_click">Получить оценку по фото за 1 день</a>
 <a class="btn btn-secondary" href="#cases">Смотреть кейсы</a>
-<a class="btn btn-ghost" href="services/">Страницы услуг</a>
+
 </div>
-<p class="hero-note">Не знаете, подойдёт ли 3D-печать? Пришлите фото, размеры или STL/STEP — за 1 рабочий день дадим предварительный диапазон стоимости и честный следующий шаг. Для срочной замены сломанной детали укажите «срочно» и срок — сразу проверим, реально ли напечатать или лучше восстановить модель.</p>
+<div class="hero-proof-row" aria-label="Короткие доказательства Step3D">
+<span><b>Москва</b><small>Работаем с локальными задачами, самовывозом и быстрыми согласованиями.</small></span>
+<span><b>Старт без 3D-модели</b><small>Можно прислать фото, эскиз, размеры, STL или STEP.</small></span>
+<span><b>Оценка за 1 день</b><small>Даём предварительный диапазон и список уточнений.</small></span>
+<span><b>Риски до печати</b><small>Сразу говорим, где нужна проверка, тест или другой способ производства.</small></span>
+</div>
+<p class="hero-note">Для срочной замены сломанной детали укажите «срочно» и срок — проверим, реально ли напечатать, восстановить модель или лучше выбрать другой маршрут.</p>
 </div>
 <div aria-label="Примеры работ Step3D" class="hero-visual">
 <div class="hero-card-main">
@@ -1795,26 +1908,25 @@
 </div>
 </div>
 </section>
-<section aria-labelledby="trust-title" class="section-tight">
+<section aria-labelledby="routes-title" class="section-tight" id="routes">
 <div class="container">
-<p class="eyebrow" id="trust-title">Почему удобно начать</p>
-<div class="trust-grid">
-<article class="trust-card">
-<strong>Оценка по фото</strong>
-<p>Можно начать с эскиза, описания, размеров или готового STL/STEP-файла.</p>
-</article>
-<article class="trust-card">
-<strong>Модель + печать</strong>
-<p>Проектируем, печатаем, проверяем посадки и предупреждаем о рисках.</p>
-</article>
-<article class="trust-card">
-<strong>Прототипы и серии</strong>
-<p>Сначала тестовый образец, затем материал, настройки и повторяемый процесс.</p>
-</article>
+<div class="section-head">
+<div>
+<p class="eyebrow">Быстрые маршруты</p>
+<h2 class="section-title" id="routes-title">С какой задачей пришли?</h2>
+</div>
+<p class="section-lead">Выберите ближайший сценарий — карточка подскажет, что прислать и какой результат ждать.</p>
+</div>
+<div class="routes-grid">
+<article class="route-card"><h3>Сломалась деталь</h3><p>Нужно заменить редкий пластиковый элемент, крепёж или корпус.</p><div class="route-meta"><span><b>Прислать:</b> фото с 2–3 сторон, размер, место установки.</span><span><b>Получите:</b> маршрут восстановления и риски.</span></div><a class="btn btn-secondary" data-prefill="Срочная замена сломанной детали" href="#brief">Рассчитать деталь</a></article>
+<article class="route-card"><h3>Нужен прототип</h3><p>Есть идея, эскиз или первая модель, нужно проверить форму.</p><div class="route-meta"><span><b>Прислать:</b> эскиз, референс, размеры, назначение.</span><span><b>Получите:</b> CAD/печать/тест и список доработок.</span></div><a class="btn btn-secondary" data-prefill="Прототип продукта" href="#brief">Оценить прототип</a></article>
+<article class="route-card"><h3>Объект для события</h3><p>Награда, декорация, макет, бутафория или арт-объект к дате.</p><div class="route-meta"><span><b>Прислать:</b> дату, размер, фото стиля, требования к виду.</span><span><b>Получите:</b> производственный план к сроку.</span></div><a class="btn btn-secondary" data-prefill="Объект для события / сцены" href="#brief">Обсудить объект</a></article>
+<article class="route-card"><h3>Реверс-инжиниринг</h3><p>Есть физическая деталь, но нет чертежа или 3D-модели.</p><div class="route-meta"><span><b>Прислать:</b> фото, размеры, зоны посадок, условия работы.</span><span><b>Получите:</b> скан/модель/печать или рекомендации.</span></div><a class="btn btn-secondary" data-prefill="Реверсивный инжиниринг / сканирование" href="#brief">Рассчитать реверс</a></article>
+<article class="route-card"><h3>Малая серия</h3><p>Нужно несколько одинаковых деталей после проверки прототипа.</p><div class="route-meta"><span><b>Прислать:</b> файл/фото, количество, материал, срок.</span><span><b>Получите:</b> тестовый образец и расчёт партии.</span></div><a class="btn btn-secondary" data-prefill="Малая серия" href="#brief">Посчитать серию</a></article>
+<article class="route-card"><h3>Мастер-класс</h3><p>Нужен практикум по CAD, 3D-печати или цифровому производству.</p><div class="route-meta"><span><b>Прислать:</b> возраст, формат, длительность, результат занятия.</span><span><b>Получите:</b> программу и сценарий занятия.</span></div><a class="btn btn-secondary" data-prefill="Мастер-класс / обучение" href="#brief">Запросить программу</a></article>
 </div>
 </div>
 </section>
-
 <section aria-labelledby="process-title" class="section-tight" id="process">
 <div class="container">
 <div class="section-head">
@@ -1853,6 +1965,30 @@
 </div>
 </section>
 
+<section aria-labelledby="why-title" class="section-tight" id="why-step3d">
+<div class="container">
+<div class="section-head"><div><p class="eyebrow">Почему Step3D</p><h2 class="section-title" id="why-title">Инженерный подход до запуска в печать</h2></div><p class="section-lead">Мы продаём не просто часы принтера, а понятный путь от вводных до физического результата.</p></div>
+<div class="why-grid">
+<article class="why-card"><svg viewBox="0 0 32 32" fill="none"><path d="M5 17l7 7L27 8" stroke-width="2"/></svg><strong>Оценка до печати</strong><p>Сначала проверяем задачу, назначение и риски.</p></article>
+<article class="why-card"><svg viewBox="0 0 32 32" fill="none"><path d="M6 8h20v16H6zM10 12h12M10 17h8" stroke-width="2"/></svg><strong>Один цикл</strong><p>Моделирование, сканирование и печать можно связать в одном проекте.</p></article>
+<article class="why-card"><svg viewBox="0 0 32 32" fill="none"><path d="M16 4l12 22H4L16 4zM16 12v6M16 22v2" stroke-width="2"/></svg><strong>Предупреждаем о рисках</strong><p>Говорим, где нужен тест, усиление или другой материал.</p></article>
+<article class="why-card"><svg viewBox="0 0 32 32" fill="none"><path d="M8 6h16v20H8zM12 10h8M12 15h6M12 20h10" stroke-width="2"/></svg><strong>Можно без модели</strong><p>Стартуем с фото, эскиза, размеров или описания.</p></article>
+<article class="why-card"><svg viewBox="0 0 32 32" fill="none"><path d="M6 22l10-16 10 16M10 22h12" stroke-width="2"/></svg><strong>Разные задачи</strong><p>Детали, прототипы, сцена, образование и малые серии.</p></article>
+</div>
+</div>
+</section>
+<section aria-labelledby="limits-title" class="section-tight" id="limits">
+<div class="container">
+<div class="section-head"><div><p class="eyebrow">Честные ограничения</p><h2 class="section-title" id="limits-title">Что мы не делаем</h2></div><p class="section-lead">Так заявки становятся точнее, а результат — безопаснее.</p></div>
+<div class="limits-grid">
+<article class="limits-card"><strong>Не обещаем прочность без тестов</strong><p>Функциональные детали нужно проверять в реальных условиях.</p></article>
+<article class="limits-card"><strong>Не берём силовые детали вслепую</strong><p>Ответственные узлы требуют проверки нагрузки и материала.</p></article>
+<article class="limits-card"><strong>Не называем финальную цену без вводных</strong><p>Нужны размеры, файл/фото, срок, количество и назначение.</p></article>
+<article class="limits-card"><strong>Не навязываем 3D-печать</strong><p>Если лучше литьё, фрезеровка или покупная деталь — скажем прямо.</p></article>
+<article class="limits-card"><strong>Не печатаем без понимания задачи</strong><p>Назначение детали важнее красивой 3D-модели.</p></article>
+</div>
+</div>
+</section>
 <section aria-labelledby="b2b-title" class="section-tight" id="b2b">
 <div class="container b2b-card b2b-card--expanded">
 <div>
@@ -1922,7 +2058,7 @@
 <div class="case-row case-row--accent"><dt>Результат</dt><dd>Готовая награда к дате мероприятия.</dd></div>
 </dl>
 <div class="case-links">
-<a class="btn btn-ghost" href="https://t.me/STEP_3D_Lab/539" rel="noopener" target="_blank">Пост в канале</a>
+<a class="btn btn-ghost" href="cases/award-std.html">Расширенный кейс</a>
 <a class="btn btn-secondary" href="#brief">Похожая задача</a>
 </div>
 </div>
@@ -1944,7 +2080,7 @@
 <div class="case-row case-row--accent"><dt>Результат</dt><dd>Цифровая геометрия для дальнейшего производства.</dd></div>
 </dl>
 <div class="case-links">
-<a class="btn btn-ghost" href="https://rangevision.com/application/cases/879/" rel="noopener" target="_blank">Кейс RangeVision</a>
+<a class="btn btn-ghost" href="cases/kawasaki-puccetti-racing.html">Расширенный кейс</a>
 <a class="btn btn-secondary" href="#brief">Рассчитать сканирование</a>
 </div>
 </div>
@@ -2249,9 +2385,14 @@
 <aside class="micro-calc-result" aria-live="polite">
 <h3 id="microCalcTitle">Предварительно: стандартная оценка</h3>
 <p id="microCalcText">Заполните поля — подскажем, что прислать для расчёта и какой следующий шаг лучше.</p>
+<div class="calc-template-box">
+<label for="microCalcTemplate"><strong>Готовый текст для Telegram</strong></label>
+<textarea id="microCalcTemplate" readonly>Задача для Step3D: 3D-печать детали. Файл есть: STL/STEP. Срок: не срочно.</textarea>
+</div>
 <div class="service-links-row">
-<a class="btn btn-primary" href="#brief" id="microCalcBrief">Перейти к заявке</a>
-<a class="btn btn-secondary" href="https://t.me/step_3d_mngr" rel="noopener" target="_blank" data-metric="telegram_click">Telegram</a>
+<a class="btn btn-primary" href="#brief" id="microCalcBrief" data-metric="brief_click">Перейти к заявке</a>
+<button class="btn btn-secondary" id="copyCalcTemplate" type="button">Скопировать шаблон</button>
+<a class="btn btn-ghost" href="https://t.me/step_3d_mngr" rel="noopener" target="_blank" data-metric="telegram_click">Telegram</a>
 </div>
 </aside>
 </div>
@@ -2288,6 +2429,20 @@
 <div class="lead-trust-item"><strong>Без лишней рассылки</strong>Контакты нужны только для расчёта и уточнений по проекту.</div>
 <div class="lead-trust-item"><strong>Файлы отдельно</strong>Сайт не грузит вложения: STL/STEP/фото безопаснее отправить менеджеру в Telegram.</div>
 </div>
+<div class="lead-mode-tabs" role="tablist" aria-label="Режим заявки">
+<button class="lead-mode-tab is-active" type="button" data-lead-mode="quick">Быстрая заявка</button>
+<button class="lead-mode-tab" type="button" data-lead-mode="full">Подробная заявка</button>
+</div>
+<div class="lead-mode-panel quick-lead-box" data-lead-panel="quick">
+<h3>Быстрая заявка в Telegram</h3>
+<p>Напишите телефон/Telegram и коротко опишите задачу. Файлы — фото, STL, STEP, чертёж или эскиз — отправьте менеджеру в Telegram.</p>
+<div class="form-grid">
+<div class="field"><label for="quickContact">Telegram или телефон</label><input id="quickContact" placeholder="@username или телефон"></div>
+<div class="field full"><label for="quickTask">Описание задачи</label><textarea id="quickTask" placeholder="Что нужно сделать, размер, срок, что уже есть"></textarea></div>
+</div>
+<div class="quick-lead-actions"><a class="btn btn-primary" id="quickTelegramLink" href="https://t.me/step_3d_mngr" rel="noopener" target="_blank" data-metric="telegram_click">Отправить в Telegram</a><button class="btn btn-secondary" type="button" id="copyQuickLead">Скопировать текст</button></div>
+</div>
+<div class="lead-mode-panel" data-lead-panel="full" hidden>
 <form action="https://formsubmit.co/26b4f038fb3a1a0c655bdd1f674b6299" class="lead-form" id="leadForm" method="POST" novalidate="">
 <input name="_subject" type="hidden" value="Новая заявка Step3D"/>
 <input name="_template" type="hidden" value="table"/>
@@ -2363,6 +2518,7 @@
 <p class="form-hint">Заявка сохраняется через бесплатную форму и приходит на почту Step3D. Предварительный ответ отправляется на указанный email. Файлы сайт не загружает — их лучше прислать в Telegram.</p>
 <p class="privacy-note">Нажимая кнопку, вы передаёте данные для расчёта задачи и ответа по проекту. Подробнее: <a href="privacy/">политика обработки данных</a>.</p>
 </form>
+</div>
 </section>
 </div>
 </section>
@@ -2445,7 +2601,7 @@
 <div class="footer-map">
 <div class="footer-brand">
 <strong>Step3D</strong>
-<p>3D-печать, моделирование, сканирование, прототипирование и образовательные проекты. Все ключевые разделы сайта — в одном месте.</p>
+<p>Производственная 3D-лаборатория в Москве: печать, CAD, сканирование, реверс-инжиниринг, прототипы, малые серии и образовательные проекты.</p>
 </div>
 <nav class="footer-col" aria-label="Услуги">
 <h3>Услуги</h3>
@@ -2471,7 +2627,7 @@
 <nav class="footer-col" aria-label="Материалы">
 <h3>Материалы</h3>
 <ul>
-<li><a href="cases/">Страница кейсов</a></li>
+<li><a href="cases/">Страница кейсов</a></li><li><a href="cases/urgent-part-by-photo.html">Срочная деталь по фото</a></li>
 <li><a href="articles/">Статьи и гайды</a></li>
 <li><a href="guide/">Как подготовить задачу</a></li>
 <li><a href="comics/reverse-engineering-part2-egor.pdf">Комикс про реверс</a></li>
@@ -2485,7 +2641,7 @@
 <li><a href="#brief">Оставить заявку</a></li>
 <li><a href="https://t.me/step_3d_mngr" rel="noopener" target="_blank" data-metric="telegram_click">Telegram-менеджер</a></li>
 <li><a href="https://t.me/STEP_3D_Lab" rel="noopener" target="_blank" data-metric="telegram_click">Канал Step3D</a></li>
-<li><a href="mailto:stepgptai@gmail.com">stepgptai@gmail.com</a></li>
+<li><a href="mailto:stepgptai@gmail.com">stepgptai@gmail.com</a></li><li>Москва · ответ обычно в рабочий день</li><li>Формат: оценка по фото, STL/STEP, эскизу или описанию</li>
 <li><a href="privacy/">Политика данных</a></li>
 </ul>
 </nav>
@@ -2974,8 +3130,8 @@
       showToast.timer = window.setTimeout(() => toast.classList.remove('is-visible'), 2600);
     }
 
-    document.querySelectorAll('[data-metric="telegram_click"]').forEach((link) => {
-      link.addEventListener('click', () => trackStep3DGoal('telegram_click', { href: link.href, text: link.textContent.trim() }));
+    document.querySelectorAll('[data-metric]').forEach((element) => {
+      element.addEventListener('click', () => trackStep3DGoal(element.dataset.metric, { href: element.href || '', text: element.textContent.trim() }));
     });
 
     const microCalcForm = document.getElementById('microCalcForm');
@@ -3000,6 +3156,9 @@
       }
       document.getElementById('microCalcTitle').textContent = `Предварительно: ${level}`;
       document.getElementById('microCalcText').textContent = `${text}${size ? ' Размер указан — это ускорит оценку.' : ' Добавьте габариты, если они известны.'}`;
+      const template = buildCalcTemplate(task, file, deadline, size, qty, level);
+      const templateField = document.getElementById('microCalcTemplate');
+      if (templateField) templateField.value = template;
       const brief = document.getElementById('microCalcBrief');
       brief.dataset.prefill = task;
       trackStep3DGoal('micro_calc_change', { task, file, deadline });
@@ -3008,10 +3167,69 @@
     if (microCalcForm) {
       microCalcForm.addEventListener('input', updateMicroCalc);
       microCalcForm.addEventListener('change', updateMicroCalc);
+      document.getElementById('copyCalcTemplate')?.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(document.getElementById('microCalcTemplate')?.value || '');
+          trackStep3DGoal('brief_template_copy', { type: 'micro_calc' });
+          showToast('Шаблон для Telegram скопирован');
+        } catch (error) {
+          showToast('Не удалось скопировать шаблон');
+        }
+      });
       updateMicroCalc();
     }
 
 
+    // Переключает быстрый и подробный режимы заявки без перезагрузки страницы.
+    document.querySelectorAll('[data-lead-mode]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const mode = button.dataset.leadMode;
+        document.querySelectorAll('[data-lead-mode]').forEach((item) => item.classList.toggle('is-active', item === button));
+        document.querySelectorAll('[data-lead-panel]').forEach((panel) => { panel.hidden = panel.dataset.leadPanel !== mode; });
+        trackStep3DGoal('lead_mode_switch', { mode });
+      });
+    });
+
+    function getQuickLeadText() {
+      const contact = document.getElementById('quickContact')?.value.trim() || '';
+      const task = document.getElementById('quickTask')?.value.trim() || '';
+      return ['Быстрая заявка Step3D', '', `Контакт: ${contact || 'не указан'}`, `Задача: ${task || 'не описана'}`, '', 'Файлы/фото/STL/STEP отправлю отдельно в Telegram.'].join('\n');
+    }
+
+    function updateQuickLeadLink() {
+      const link = document.getElementById('quickTelegramLink');
+      if (!link) return;
+      link.href = `${managerTelegram}?text=${encodeURIComponent(getQuickLeadText())}`;
+    }
+
+    document.getElementById('quickContact')?.addEventListener('input', updateQuickLeadLink);
+    document.getElementById('quickTask')?.addEventListener('input', updateQuickLeadLink);
+    document.getElementById('copyQuickLead')?.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(getQuickLeadText());
+        trackStep3DGoal('brief_template_copy', { type: 'quick_lead' });
+        showToast('Быстрая заявка скопирована');
+      } catch (error) {
+        showToast('Не удалось скопировать. Отправьте текст в Telegram вручную.');
+      }
+    });
+
+    function buildCalcTemplate(task, file, deadline, size, qty, level) {
+      return [
+        'Задача для Step3D:',
+        `Тип: ${task}`,
+        `Файл/исходники: ${file}`,
+        `Срок: ${deadline}`,
+        `Размер: ${size || 'пока не указан'}`,
+        `Количество: ${qty || 'пока не указано'}`,
+        `Предварительная сложность: ${level}`,
+        '',
+        'Нужно понять технологию, материал, срок и ориентир стоимости.'
+      ].join('\n');
+    }
+
+
+    updateQuickLeadLink();
     applyProjectFromUrl();
     updateFormReadiness();
   </script>
