@@ -1759,6 +1759,48 @@
       img, svg { max-width: 100%; }
     }
 
+
+    /* Mobile release hardening: the commercial landing has many grids/cards, so every
+       interactive block must shrink inside the viewport and leave room for bottom CTA. */
+    @media (max-width: 720px) {
+      *, *::before, *::after { box-sizing: border-box; min-width: 0; }
+      html, body { width: 100%; max-width: 100%; overflow-x: clip; }
+      body { padding-bottom: 132px; }
+      .page-shell, main, section, .container { width: 100%; max-width: 100%; overflow-x: clip; }
+      .container { padding-left: 14px; padding-right: 14px; }
+      .hero, .section, .site-footer { max-width: 100%; overflow-x: clip; }
+      .hero-grid, .hero-copy, .hero-visual, .hero-proof-row, .hero-cta,
+      .routes-grid, .why-grid, .limits-grid, .materials-grid, .service-grid,
+      .scenario-grid, .timeline-grid, .case-grid, .faq-grid, .article-teaser-grid,
+      .price-wrap, .quiz-wrap, .brief-wrap, .footer-map { width: 100%; max-width: 100%; }
+      .hero-title { font-size: clamp(2.45rem, 13vw, 3.55rem); line-height: .92; letter-spacing: -.075em; }
+      .hero-cta, .hero-proof-row { grid-template-columns: 1fr; }
+      .hero-cta .btn, .mobile-action-bar .btn { white-space: normal; text-align: center; }
+      .route-card, .why-card, .limits-card, .materials-card, .service-card,
+      .scenario-card, .case-card, .micro-calc-panel, .micro-calc-result,
+      .brief-panel, .form-panel, .footer-col { width: 100%; max-width: 100%; overflow: hidden; }
+      .mobile-action-bar { left: 10px; right: 10px; bottom: calc(10px + env(safe-area-inset-bottom, 0px)); width: auto; max-width: calc(100vw - 20px); }
+      .site-footer { padding-bottom: 132px; }
+    }
+
+
+    /* Final mobile clamp: keep all CTA/buttons/cards inside 320–390px viewports. */
+    @media (max-width: 720px) {
+      html, body { margin: 0 !important; width: 100% !important; max-width: 100% !important; overflow-x: hidden !important; }
+      body { padding-bottom: 150px !important; }
+      .container { width: 100% !important; max-width: 100% !important; padding-left: 14px !important; padding-right: 14px !important; margin-left: 0 !important; margin-right: 0 !important; }
+      .hero-grid, .hero-copy, .hero-visual, .hero-proof-row, .hero-cta, .routes-grid, .why-grid, .limits-grid, .materials-grid, .service-grid, .scenario-grid, .timeline-grid, .case-grid, .faq-grid, .article-teaser-grid { grid-template-columns: 1fr !important; width: 100% !important; max-width: 100% !important; min-width: 0 !important; }
+      .hero-title, h1, h2, h3, p, a, span, strong, small, li { max-width: 100% !important; overflow-wrap: anywhere !important; word-break: normal !important; }
+      .hero-title { font-size: clamp(2.25rem, 11.5vw, 3.1rem) !important; line-height: .94 !important; }
+      .btn { max-width: 100% !important; min-width: 0 !important; white-space: normal !important; }
+      .hero-actions, .form-actions { width: 100% !important; display: grid !important; grid-template-columns: 1fr !important; }
+      .hero-actions .btn, .form-actions .btn { width: 100% !important; }
+      .mobile-action-bar { display: grid !important; grid-template-columns: minmax(0,1fr) minmax(0,1fr) !important; left: 10px !important; right: 10px !important; bottom: calc(10px + env(safe-area-inset-bottom, 0px)) !important; width: auto !important; max-width: none !important; padding: 8px !important; overflow: hidden !important; }
+      .mobile-action-bar .btn { width: 100% !important; padding: 10px 8px !important; font-size: 14px !important; }
+      .route-card, .why-card, .limits-card, .materials-card, .service-card, .scenario-card, .case-card, .micro-calc-panel, .micro-calc-result, .brief-panel, .form-panel, .hero-mini, .hero-card-main { width: 100% !important; max-width: 100% !important; min-width: 0 !important; }
+      .site-footer { padding-bottom: 150px !important; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: .01ms !important;
