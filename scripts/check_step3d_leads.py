@@ -6,6 +6,7 @@ OpenClaw can run it periodically without duplicate notifications.
 """
 from __future__ import annotations
 
+import argparse
 import html as html_lib
 import json
 import re
@@ -169,13 +170,15 @@ https://amailab.github.io/Step3D/
     return subject, body
 
 
-def send_auto_reply(lead: dict[str, str]) -> str:
+def send_auto_reply(lead: dict[str, str], *, dry_run: bool = False) -> str:
     email = (lead.get("email") or "").strip()
     if not email:
         return "автоответ не отправлен: email не указан"
     if not EMAIL_RE.match(email):
         return f"автоответ не отправлен: некорректный email `{email}`"
     subject, body = build_reply(lead)
+    if dry_run:
+        return f"dry-run: автоответ НЕ отправлен на {email}; тема черновика: {subject}"
     call_tool("gmail.send", to=email, subject=subject, body=body)
     return f"автоответ отправлен на {email}"
 
@@ -204,9 +207,24 @@ def format_summary(lead: dict[str, str]) -> str:
     return "\n".join(useful[:12])
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Check Step3D Gmail leads and print alerts.")
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="do not send auto-replies and do not mark new leads as seen",
+    )
+    return parser.parse_args()
+
+
 def main() -> int:
+    args = parse_args()
     seen = load_seen()
-    result = call_tool("gmail.search", query=QUERY, maxResults=10)
+    try:
+        result = call_tool("gmail.search", query=QUERY, maxResults=10)
+    except subprocess.CalledProcessError as exc:
+        print(f"LEAD_MONITOR_UNAVAILABLE: google-workspace/mcporter недоступен (exit {exc.returncode}).")
+        return 2
     messages = result.get("messages", []) or []
     ids = [m["id"] for m in messages if m.get("id")]
 
@@ -225,8 +243,9 @@ def main() -> int:
         msg = call_tool("gmail.get", messageId=mid)
         body = (msg.get("body") or msg.get("snippet") or "").strip()
         lead = extract_lead(body, msg.get("snippet") or "")
-        reply_status = send_auto_reply(lead)
-        seen.add(mid)
+        reply_status = send_auto_reply(lead, dry_run=args.dry_run)
+        if not args.dry_run:
+            seen.add(mid)
         alerts.append(
             "🦞 Новая заявка Step3D\n"
             f"Тема: {msg.get('subject', 'без темы')}\n"
@@ -236,7 +255,8 @@ def main() -> int:
             f"✉️ {reply_status}"
         )
 
-    save_seen(seen)
+    if not args.dry_run:
+        save_seen(seen)
     print("\n\n---\n\n".join(alerts))
     return 0
 
