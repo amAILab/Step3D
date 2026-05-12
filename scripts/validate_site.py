@@ -120,8 +120,30 @@ def validate_index_js() -> list[str]:
     return []
 
 
+def validate_lead_capture() -> list[str]:
+    """Guard the conversion path: lead form, thank-you page and contact CTAs."""
+    errors: list[str] = []
+    index = ROOT / "index.html"
+    text = index.read_text(encoding="utf-8") if index.exists() else ""
+    required_snippets = {
+        "FormSubmit endpoint": "https://formsubmit.co/26b4f038fb3a1a0c655bdd1f674b6299",
+        "lead form id": 'id="leadForm"',
+        "thank-you redirect": 'name="_next"',
+        "email subject": 'name="_subject"',
+        "Telegram CTA": "https://t.me/step_3d_mngr",
+        "manager phone": "tel:+79959009141",
+        "contact email": "mailto:info@step3d.tech",
+    }
+    for label, snippet in required_snippets.items():
+        if snippet not in text:
+            errors.append(f"Lead capture missing {label}: {snippet}")
+    if not (ROOT / "thanks" / "index.html").exists():
+        errors.append("Lead capture thank-you page missing: thanks/index.html")
+    return errors
+
+
 def main() -> int:
-    errors = validate_html_and_links() + validate_canonical_urls() + validate_index_js()
+    errors = validate_html_and_links() + validate_canonical_urls() + validate_index_js() + validate_lead_capture()
     if errors:
         print("Step3D validation failed:\n")
         for error in errors:
