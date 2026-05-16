@@ -230,6 +230,21 @@ section, [id] { scroll-margin-top: 132px; }
 
 
 .pwa-install-card{position:fixed;left:16px;right:16px;bottom:16px;z-index:180;display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;max-width:760px;margin:0 auto;padding:14px 14px 14px 18px;border:1px solid rgba(148,163,184,.36);border-radius:24px;background:rgba(255,255,255,.94);backdrop-filter:blur(18px);box-shadow:0 22px 70px rgba(15,23,42,.22);color:#111827}.pwa-install-card strong{display:block;font-weight:900;letter-spacing:-.03em}.pwa-install-card span{display:block;color:#475569;font-size:14px;line-height:1.35}.pwa-install-button{border:0;border-radius:999px;background:linear-gradient(135deg,#111827,#1d4ed8);color:#fff;font-weight:900;padding:11px 14px}.pwa-dismiss{width:34px;height:34px;border:0;border-radius:999px;background:#eef2f7;color:#334155;font-size:22px;line-height:1}.pwa-install-card--hint{grid-template-columns:1fr auto}@media(max-width:640px){.pwa-install-card{grid-template-columns:1fr;bottom:calc(86px + env(safe-area-inset-bottom,0px));left:10px;right:10px}.pwa-dismiss{position:absolute;right:8px;top:8px}.pwa-install-button{width:100%}}
+
+
+/* Step3D readability pass 2026-05-17: stronger contrast on light UI */
+:root{--muted:#334155!important;--line:#b8c5d6!important;}
+body{color:#07111f!important;}
+p,li,.lead,.muted,.note,.card p,.section-head p,.quick span,.trust span,.status-item,.timeline span,.field label,.metric span,.state span,.flow-step span{color:#334155!important;}
+.card,.hero-shell,.hero-card-main,.hero-card,.quick,.trust,.proof-card,.expert-proof-card,.local-seo-panel,.answer-proof-grid>div,.work-roadmap-card,.sector-pack-card,.automation-loop-card,.metric,.state,.flow-step,.status-item,.project-row,.file,.process,.step,.trust-card{background:rgba(255,255,255,.96)!important;border-color:#b8c5d6!important;}
+.card h2,.card h3,.quick strong,.trust b,.metric b,.state b,.flow-step b,.status-item b,.project-row h3,.file b,.process strong,.step strong{color:#07111f!important;}
+.badge,.status,.chip,.hero-chip,.pill,.hero-proof-row span{color:#0f3ea8!important;background:#dbeafe!important;border-color:#93c5fd!important;}
+.btn-soft,.btn-secondary,.btn.ghost,.btn.secondary{color:#0f172a!important;background:#fff!important;border-color:#94a3b8!important;}
+.proof-strip,.proof-row,.proof-grid{background:linear-gradient(135deg,#0f172a,#1d4ed8)!important;color:#fff!important;}
+.proof-strip *,.proof-row *,.proof-grid *{color:#fff!important;}
+.visual-card,.cta,.dark-section,.dark-card,.footer-dark{color:#fff!important;}
+.visual-card p,.visual-card span,.cta p,.dark-section p,.dark-section span,.dark-card p,.dark-card span,.footer-dark p,.footer-dark span{color:rgba(255,255,255,.86)!important;}
+@media(max-width:900px){p,li,.lead,.muted,.note{color:#243244!important}.card,.quick,.trust,.metric,.state,.flow-step{background:#fff!important}}
 </style><link rel="manifest" href="../assets/site.webmanifest">
 <meta name="theme-color" content="#111827">
 <meta name="apple-mobile-web-app-capable" content="yes">

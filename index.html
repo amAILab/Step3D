@@ -3312,6 +3312,21 @@ section, [id] { scroll-margin-top: 132px; }
 .automation-loop-card code { display:block; margin-top:10px; padding:10px 12px; border-radius:14px; background:#0b1220; color:#dbeafe; white-space:normal; font-size:.86rem; }
 @media (max-width: 900px) { .work-roadmap-grid, .sector-pack-grid, .automation-loop-grid { grid-template-columns:1fr !important; } }
 
+
+
+/* Step3D readability pass 2026-05-17: stronger contrast on light UI */
+:root{--muted:#334155!important;--line:#b8c5d6!important;}
+body{color:#07111f!important;}
+p,li,.lead,.muted,.note,.card p,.section-head p,.quick span,.trust span,.status-item,.timeline span,.field label,.metric span,.state span,.flow-step span{color:#334155!important;}
+.card,.hero-shell,.hero-card-main,.hero-card,.quick,.trust,.proof-card,.expert-proof-card,.local-seo-panel,.answer-proof-grid>div,.work-roadmap-card,.sector-pack-card,.automation-loop-card,.metric,.state,.flow-step,.status-item,.project-row,.file,.process,.step,.trust-card{background:rgba(255,255,255,.96)!important;border-color:#b8c5d6!important;}
+.card h2,.card h3,.quick strong,.trust b,.metric b,.state b,.flow-step b,.status-item b,.project-row h3,.file b,.process strong,.step strong{color:#07111f!important;}
+.badge,.status,.chip,.hero-chip,.pill,.hero-proof-row span{color:#0f3ea8!important;background:#dbeafe!important;border-color:#93c5fd!important;}
+.btn-soft,.btn-secondary,.btn.ghost,.btn.secondary{color:#0f172a!important;background:#fff!important;border-color:#94a3b8!important;}
+.proof-strip,.proof-row,.proof-grid{background:linear-gradient(135deg,#0f172a,#1d4ed8)!important;color:#fff!important;}
+.proof-strip *,.proof-row *,.proof-grid *{color:#fff!important;}
+.visual-card,.cta,.dark-section,.dark-card,.footer-dark{color:#fff!important;}
+.visual-card p,.visual-card span,.cta p,.dark-section p,.dark-section span,.dark-card p,.dark-card span,.footer-dark p,.footer-dark span{color:rgba(255,255,255,.86)!important;}
+@media(max-width:900px){p,li,.lead,.muted,.note{color:#243244!important}.card,.quick,.trust,.metric,.state,.flow-step{background:#fff!important}}
 </style>
 <script type="application/ld+json">
   {
