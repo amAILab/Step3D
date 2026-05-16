@@ -1,0 +1,47 @@
+/* Step3D minimal UI layer — Ollama-like calm surfaces */
+:root{
+  --ui-bg:#f7f7f4;
+  --ui-surface:#ffffff;
+  --ui-ink:#111111;
+  --ui-muted:#5f6368;
+  --ui-line:#e5e5e0;
+  --ui-line-strong:#d4d4cc;
+  --ui-radius:22px;
+  --ui-radius-lg:30px;
+  --ui-shadow:0 10px 28px rgba(17,17,17,.055);
+}
+html{background:var(--ui-bg)!important;}
+body{background:var(--ui-bg)!important;color:var(--ui-ink)!important;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+body::before,body::after{filter:none!important;opacity:.18!important;}
+.container,.app-shell{max-width:1120px;}
+.topbar,.site-header,.header{background:rgba(247,247,244,.86)!important;border-bottom:1px solid var(--ui-line)!important;box-shadow:none!important;}
+.brand,.brand strong{letter-spacing:-.045em;}
+.nav a,.mobile-menu-item,.bottom-nav a{font-weight:760!important;}
+h1,h2,h3{color:var(--ui-ink)!important;text-wrap:balance;}
+p,.lead,.muted,.note,.section-lead,li{color:var(--ui-muted)!important;}
+.card,.quick,.trust,.metric,.state,.flow-step,.status-item,.project-row,.file,.process,.mini-project,.hero-device,.hero-shell,.hero-card,.next-box,.project-next-step,.thanks-project,.sketch-phone,.dropzone,.first-reply-card{background:var(--ui-surface)!important;border:1px solid var(--ui-line)!important;box-shadow:var(--ui-shadow)!important;border-radius:var(--ui-radius)!important;}
+.card:hover,.quick:hover,.project-row:hover{transform:none!important;box-shadow:var(--ui-shadow)!important;}
+.btn,a.btn,button.btn{min-height:46px;border-radius:999px!important;font-weight:820!important;letter-spacing:-.01em;box-shadow:none!important;transition:background .16s ease,border-color .16s ease,transform .16s ease!important;}
+.btn:hover,a.btn:hover,button.btn:hover{transform:translateY(-1px)!important;box-shadow:none!important;}
+.btn-primary,.btn-dark,.btn.primary,.bottom-nav a.accent,.mobile-menu-item--accent,.pwa-install-button{background:#111!important;color:#fff!important;border-color:#111!important;text-shadow:none!important;}
+.btn-secondary,.btn-soft,.btn-ghost,.btn.ghost,.btn.secondary,.side a,.bottom-nav a{background:#fff!important;color:#111!important;border-color:var(--ui-line-strong)!important;}
+.btn-secondary:hover,.btn-soft:hover,.btn-ghost:hover,.side a:hover{background:#f1f1ee!important;border-color:#c7c7bf!important;}
+.pill,.badge,.status,.chip,.hero-chip,.meta span,.hero-kicker,.eyebrow span{background:#f1f1ee!important;color:#3f3f3a!important;border:1px solid var(--ui-line)!important;}
+input,textarea,select,.input{background:#fff!important;color:#111!important;border:1px solid var(--ui-line-strong)!important;border-radius:16px!important;box-shadow:none!important;}
+input:focus,textarea:focus,select:focus,.input:focus{outline:0!important;border-color:#111!important;box-shadow:0 0 0 4px rgba(17,17,17,.08)!important;}
+input::placeholder,textarea::placeholder{color:#8a8a82!important;opacity:1;}
+.hero,.section{scroll-margin-top:86px;}
+.hero-flow-step b,.flow-step b,.process b,.status-item b{color:#111!important;}
+.visual-card,.cta,.proof-strip,.dark-section,.dark-card{background:#111!important;color:#fff!important;}
+.visual-card *,.cta *,.proof-strip *,.dark-section *,.dark-card *{color:#fff!important;}
+.mobile-fixed-menu,.mobile-action-bar,.bottom-nav{background:rgba(255,255,255,.94)!important;border:1px solid var(--ui-line)!important;box-shadow:0 14px 34px rgba(17,17,17,.12)!important;backdrop-filter:blur(18px)!important;}
+.site-footer,.footer{background:#eeeeea!important;border-top:1px solid var(--ui-line)!important;}
+@media(max-width:760px){
+  .container,.app-shell{width:calc(100% - 24px)!important;}
+  .hero,.section{padding-block:22px!important;}
+  h1{font-size:clamp(34px,10vw,48px)!important;line-height:.98!important;letter-spacing:-.06em!important;}
+  h2{font-size:clamp(25px,7vw,34px)!important;line-height:1.06!important;letter-spacing:-.045em!important;}
+  .card,.quick,.trust,.project-row,.file,.process,.status-item,.mini-project,.metric,.state,.flow-step,.next-box,.sketch-phone{border-radius:20px!important;padding:16px!important;}
+  .btn,a.btn,button.btn{width:100%;min-height:48px!important;justify-content:center!important;}
+  .mobile-fixed-menu .mobile-menu-item,.bottom-nav a{width:auto;min-height:42px!important;font-size:12.5px!important;}
+}
