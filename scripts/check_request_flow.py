@@ -44,6 +44,11 @@ CHECKS = {
         "update banner": "Доступна свежая версия Step3D",
         "controller reload": "controllerchange",
     },
+    "assets/lead-config.js": {
+        "lead endpoint config": "STEP3D_LEAD_CONFIG",
+        "formsubmit fallback": "formSubmitEndpoint",
+        "telegram manager": "managerTelegram",
+    },
 }
 
 

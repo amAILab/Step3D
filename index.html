@@ -4565,8 +4565,9 @@ section, [id] { scroll-margin-top: 132px; }
       Здесь собраны story-галерея, форма заявки, прогресс готовности и копирование шаблона.
     */
 
-    const managerEmail = 'projects.step3d@gmail.com';
-    const managerTelegram = 'https://t.me/step_3d_mngr';
+    const leadConfig = window.STEP3D_LEAD_CONFIG || {};
+    const managerEmail = leadConfig.supportEmail || 'projects.step3d@gmail.com';
+    const managerTelegram = leadConfig.managerTelegram || 'https://t.me/step_3d_mngr';
     const step3dMetrikaId = window.STEP3D_YANDEX_METRIKA_ID || null;
 
     function trackStep3DGoal(goal, params = {}) {
@@ -4979,7 +4980,8 @@ section, [id] { scroll-margin-top: 132px; }
       formData.set('referrer', leadData.attribution.referrer);
       formData.set('submittedAt', new Date().toISOString());
 
-      const response = await fetch(leadForm.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
+      const endpoint = leadConfig.primaryEndpoint || leadConfig.formSubmitEndpoint || leadForm.action.replace('formsubmit.co/', 'formsubmit.co/ajax/');
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Accept': 'application/json' },
         body: formData
@@ -5228,5 +5230,6 @@ section, [id] { scroll-margin-top: 132px; }
     updateFormReadiness();
   </script>
 <script src="assets/pwa-install.js" defer></script>
+<script src="assets/lead-config.js" defer></script>
 </body>
 </html>
