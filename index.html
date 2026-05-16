@@ -2976,6 +2976,90 @@ section, [id] { scroll-margin-top: 132px; }
 .quiz-action-panel .btn::before,
 .quiz-action-panel .btn::after { display: none !important; }
 
+
+
+/* One-hour UX sprint: compact mobile process timeline + softer honest limits. */
+.process-card strong {
+  width: fit-content !important;
+  min-width: 50px !important;
+  padding: 7px 10px !important;
+  border-radius: 14px !important;
+  background: #eaf2ff !important;
+  color: #1d4ed8 !important;
+  border: 1px solid rgba(37,99,235,.16) !important;
+  font-size: 1.05rem !important;
+  line-height: 1 !important;
+  letter-spacing: -.035em !important;
+  margin-bottom: 14px !important;
+}
+.limits-card {
+  position: relative !important;
+  background: linear-gradient(180deg, #ffffff, #f8fbff) !important;
+  color: #0f172a !important;
+  border-color: rgba(198,210,223,.86) !important;
+  box-shadow: 0 14px 44px rgba(15,23,42,.06) !important;
+  padding-left: 50px !important;
+}
+.limits-card::before {
+  content: "!";
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #eaf2ff;
+  color: #1d4ed8;
+  font-weight: 900;
+  font-size: 13px;
+}
+.limits-card strong { color: #0f172a !important; }
+.limits-card p { color: #475569 !important; }
+@media (max-width: 760px) {
+  .process-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    position: relative !important;
+  }
+  .process-card {
+    display: grid !important;
+    grid-template-columns: 54px minmax(0, 1fr) !important;
+    column-gap: 12px !important;
+    row-gap: 4px !important;
+    padding: 16px !important;
+    border-radius: 20px !important;
+    min-height: 0 !important;
+    align-items: start !important;
+  }
+  .process-card strong {
+    grid-row: 1 / span 2 !important;
+    width: 42px !important;
+    min-width: 42px !important;
+    height: 42px !important;
+    padding: 0 !important;
+    display: grid !important;
+    place-items: center !important;
+    margin: 0 !important;
+    border-radius: 14px !important;
+    font-size: .95rem !important;
+  }
+  .process-card h3 {
+    margin: 1px 0 0 !important;
+    font-size: 1.08rem !important;
+    line-height: 1.15 !important;
+  }
+  .process-card p {
+    font-size: .96rem !important;
+    line-height: 1.38 !important;
+  }
+  .limits-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
+  .limits-card { padding: 16px 16px 16px 48px !important; border-radius: 20px !important; }
+  .limits-card::before { left: 16px !important; top: 17px !important; }
+}
+
 </style>
 <script type="application/ld+json">
   {
