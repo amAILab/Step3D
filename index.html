@@ -3188,6 +3188,22 @@ section, [id] { scroll-margin-top: 132px; }
   #prices .price-wrap { padding-bottom: 24px !important; }
 }
 
+
+
+/* Conversion proof strip: immediately explains what the first reply contains. */
+.answer-proof-strip { padding: 14px 0 6px; }
+.answer-proof-grid { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; }
+.answer-proof-grid > div { padding: 16px 18px; border: 1px solid rgba(198,210,223,.82); border-radius: 22px; background: rgba(255,255,255,.82); box-shadow: 0 14px 34px rgba(15,23,42,.06); }
+.answer-proof-grid strong { display:block; margin-bottom: 5px; color:#0f172a; letter-spacing:-.03em; }
+.answer-proof-grid span { display:block; color:#475569; font-size:.94rem; line-height:1.35; }
+@media (max-width: 760px) {
+  .answer-proof-strip { padding-top: 8px; }
+  .answer-proof-grid { grid-template-columns: 1fr; gap: 8px; }
+  .answer-proof-grid > div { padding: 13px 14px; border-radius: 18px; }
+  .lead-mode-tabs { grid-template-columns: 1fr 1fr !important; }
+  .quick-lead-preset { white-space: normal !important; text-align: left !important; }
+}
+
 </style>
 <script type="application/ld+json">
   {
@@ -3205,7 +3221,7 @@ section, [id] { scroll-margin-top: 132px; }
       "addressCountry": "RU"
     },
     "email": "projects.step3d@gmail.com",
-    "telephone": "+7-925-272-78-04",
+    "telephone": "+7-995-900-91-41",
     "priceRange": "₽₽",
     "url": "https://amailab.github.io/Step3D/",
     "image": "https://amailab.github.io/Step3D/assets/img/og-step3d.webp",
@@ -3213,7 +3229,7 @@ section, [id] { scroll-margin-top: 132px; }
       "@type": "ContactPoint",
       "contactType": "customer support",
       "email": "projects.step3d@gmail.com",
-      "telephone": "+7-925-272-78-04",
+      "telephone": "+7-995-900-91-41",
       "availableLanguage": ["ru"]
     },
     "hasOfferCatalog": {
@@ -3265,7 +3281,7 @@ section, [id] { scroll-margin-top: 132px; }
         "areaServed": ["Москва", "Московская область"],
         "url": "https://amailab.github.io/Step3D/",
         "email": "projects.step3d@gmail.com",
-        "telephone": "+7-925-272-78-04",
+        "telephone": "+7-995-900-91-41",
         "priceRange": "₽₽",
         "description": "3D-печать, моделирование, сканирование, реверс-инжиниринг, прототипы и малые серии в Москве."
       },
@@ -3371,6 +3387,13 @@ section, [id] { scroll-margin-top: 132px; }
 <div class="conversion-strip-item"><strong>4 входа</strong><span>фото, эскиз, STL/STEP или физическая деталь</span></div>
 <div class="conversion-strip-item"><strong>Москва</strong><span>локальная 3D-лаборатория + удалённая оценка задач</span></div>
 <div class="conversion-strip-item"><strong>от 10 000 ₽</strong><span>STL-модель по фото или референсу для печати</span></div>
+</div>
+</section>
+<section class="answer-proof-strip" aria-label="Что вы получите в первом ответе Step3D">
+<div class="container answer-proof-grid">
+<div><strong>Технология</strong><span>печать, CAD, сканирование, реверс или другой маршрут</span></div>
+<div><strong>Вилка бюджета</strong><span>ориентир стоимости и что влияет на точную смету</span></div>
+<div><strong>Срок и риски</strong><span>что можно сделать быстро, а где нужен тест или замер</span></div>
 </div>
 </section>
 <section aria-labelledby="promise-title" class="section-tight" id="promise">
@@ -3546,7 +3569,7 @@ section, [id] { scroll-margin-top: 132px; }
 </dl>
 <div class="case-links">
 <a class="btn btn-ghost" href="cases/award-std.html">Расширенный кейс</a>
-<a class="btn btn-secondary" href="#brief">Хочу похожий результат</a>
+<a class="btn btn-secondary" href="#brief" data-prefill="Хочу похожий результат по кейсу Step3D">Хочу похожий результат</a>
 </div>
 </div>
 </article>
@@ -3568,7 +3591,7 @@ section, [id] { scroll-margin-top: 132px; }
 </dl>
 <div class="case-links">
 <a class="btn btn-ghost" href="cases/kawasaki-puccetti-racing.html">Расширенный кейс</a>
-<a class="btn btn-secondary" href="#brief">Хочу похожий результат</a>
+<a class="btn btn-secondary" href="#brief" data-prefill="Хочу похожий результат по кейсу Step3D">Хочу похожий результат</a>
 </div>
 </div>
 </article>
@@ -3590,7 +3613,7 @@ section, [id] { scroll-margin-top: 132px; }
 </dl>
 <div class="case-links">
 <a class="btn btn-ghost" href="https://t.me/Step3D_Lab/530" rel="noopener" target="_blank"><img class="link-avatar" src="assets/avatar-channel-step3d.webp" alt="" width="24" height="24" loading="lazy" decoding="async"><span>Пост в канале</span></a>
-<a class="btn btn-secondary" href="#brief">Хочу похожий результат</a>
+<a class="btn btn-secondary" href="#brief" data-prefill="Хочу похожий результат по кейсу Step3D">Хочу похожий результат</a>
 </div>
 </div>
 </article>
@@ -3613,7 +3636,7 @@ section, [id] { scroll-margin-top: 132px; }
 <div class="case-links">
 <a class="btn btn-ghost" href="https://t.me/Step3D_Lab" rel="noopener" target="_blank" data-metric="telegram_click"><img class="link-avatar" src="assets/avatar-channel-step3d.webp" alt="" width="24" height="24" loading="lazy" decoding="async"><span>Канал Step3D</span></a>
 <a class="btn btn-ghost" href="comics/ai-version/reverse-engineering-part2-ai-illustrated.pdf" target="_blank">Образовательный комикс</a>
-<a class="btn btn-secondary" href="#brief">Хочу похожий результат</a>
+<a class="btn btn-secondary" href="#brief" data-prefill="Хочу похожий результат по кейсу Step3D">Хочу похожий результат</a>
 </div>
 </div>
 </article>
@@ -3917,7 +3940,7 @@ section, [id] { scroll-margin-top: 132px; }
 <span class="scenario-number">03</span>
 <h3>STL по фото или референсу</h3>
 <p>Для декоративной рамы, макета, реквизита или детали без 3D-файла: делаем печатную модель и при необходимости делим её на части.</p>
-<a class="btn btn-secondary" href="stl-po-foto/">Оценить STL</a>
+<a class="btn btn-secondary" data-prefill="STL-модель по фото или референсу" href="#brief">Оценить STL</a>
 </article>
 <article class="scenario-card">
 <span class="scenario-number">04</span>
@@ -4038,7 +4061,7 @@ section, [id] { scroll-margin-top: 132px; }
 <div aria-label="Подходящие форматы файлов" class="file-tags">
 <span>STL</span><span>STEP</span><span>OBJ</span><span>3MF</span><span>DXF</span><span>PDF</span><span>JPG/PNG</span>
 </div>
-<div class="nap-card" aria-label="Реквизиты Step3D"><strong>Step3D · Москва</strong><span>ООО «СТЕП_3Д» · ИНН 9717166010</span><span>Телефон: <a href="tel:+79252727804">+7 925 272-78-04</a></span><span>Email: <a href="mailto:projects.step3d@gmail.com">projects.step3d@gmail.com</a></span><span>Telegram: <a href="https://t.me/step_3d_mngr" rel="noopener" target="_blank">@step_3d_mngr</a></span></div>
+<div class="nap-card" aria-label="Реквизиты Step3D"><strong>Step3D · Москва</strong><span>ООО «СТЕП_3Д» · ИНН 9725161467</span><span>Телефон: <a href="tel:+79959009141">+7 (995) 900-91-41</a></span><span>Email: <a href="mailto:projects.step3d@gmail.com">projects.step3d@gmail.com</a></span><span>Telegram: <a href="https://t.me/step_3d_mngr" rel="noopener" target="_blank">@step_3d_mngr</a></span></div>
 <div class="contact-links">
 <a class="btn btn-dark" href="https://t.me/step_3d_mngr" rel="noopener" target="_blank" data-metric="telegram_click"><img class="link-avatar" src="assets/avatar-ai-agent-step3d.webp" alt="" width="24" height="24" loading="lazy" decoding="async"><span>Написать AI-агенту</span></a>
 <button class="btn btn-secondary" id="copyTemplateButton" type="button">Скопировать шаблон</button>
@@ -4047,7 +4070,7 @@ section, [id] { scroll-margin-top: 132px; }
 <section aria-label="Форма заявки" class="form-panel">
 <h2>Получите предварительную оценку и понятный следующий шаг</h2>
 <p><strong>Нет чертежа?</strong> Пришлите фото, размеры и задачу детали — подскажем маршрут: моделирование, сканирование, прототип или малая серия.</p>
-<p>Заполните короткую форму за пару минут: по вводным мы подскажем технологию, примерный диапазон бюджета и что нужно прислать для точного расчёта. Email обязателен; если есть STL, STEP, фото, чертёж или эскиз — отправьте файл следом в Telegram.</p>
+<p>Заполните короткую форму за пару минут: по вводным мы подскажем технологию, примерный диапазон бюджета и что нужно прислать для точного расчёта. Обязателен только телефон или Telegram; email можно оставить, если удобнее получить ответ письмом. Файлы — STL, STEP, фото, чертёж или эскиз — отправьте следом в Telegram.</p>
 <div aria-label="Что будет после заявки" class="lead-trust-strip">
 <div class="lead-trust-item"><strong>Оценка за 1 день</strong>По фото, STL/STEP или эскизу даём предварительный диапазон и список уточнений.</div>
 <div class="lead-trust-item"><strong>Ответ по делу</strong>Сначала проверяем вводные, потом предлагаем технологию и следующий шаг.</div>
@@ -4254,7 +4277,7 @@ section, [id] { scroll-margin-top: 132px; }
 <a class="btn btn-ghost" href="https://t.me/Step3D_Lab" rel="noopener" target="_blank" data-metric="telegram_click"><img class="link-avatar" src="assets/avatar-channel-step3d.webp" alt="" width="24" height="24" loading="lazy" decoding="async"><span>Канал Step3D</span></a>
 </div>
 </div>
-<a class="btn btn-secondary" href="#brief">Оставить заявку</a>
+<a class="btn btn-secondary" href="#brief" data-prefill="Нужна консультация Step3D по задаче">Оставить заявку</a>
 </div>
 </div>
 </section>
