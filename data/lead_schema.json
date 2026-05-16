@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://amailab.github.io/Step3D/data/lead_schema.json",
+  "title": "Step3D Lead Payload",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["contact", "description"],
+  "properties": {
+    "name": {"type": "string", "maxLength": 120},
+    "email": {"type": "string", "maxLength": 180},
+    "contact": {"type": "string", "minLength": 3, "maxLength": 180},
+    "projectType": {"type": "string", "maxLength": 180},
+    "deadline": {"type": "string", "maxLength": 120},
+    "quantity": {"type": "string", "maxLength": 80},
+    "dimensions": {"type": "string", "maxLength": 180},
+    "hasFiles": {"type": "string", "maxLength": 160},
+    "description": {"type": "string", "minLength": 8, "maxLength": 5000},
+    "leadSource": {"type": "string", "maxLength": 240},
+    "leadIntent": {"type": "string", "maxLength": 240},
+    "page": {"type": "string", "maxLength": 500},
+    "utm_source": {"type": "string", "maxLength": 120},
+    "utm_medium": {"type": "string", "maxLength": 120},
+    "utm_campaign": {"type": "string", "maxLength": 160},
+    "submittedAt": {"type": "string", "maxLength": 80},
+    "botField": {"type": "string", "maxLength": 0}
+  }
+}

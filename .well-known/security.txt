@@ -1,0 +1,4 @@
+Contact: mailto:projects.step3d@gmail.com
+Preferred-Languages: ru, en
+Canonical: https://amailab.github.io/Step3D/.well-known/security.txt
+Policy: https://amailab.github.io/Step3D/privacy/

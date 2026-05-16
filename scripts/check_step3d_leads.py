@@ -19,6 +19,20 @@ STATE = ROOT / ".lead_monitor_seen.json"
 QUERY = 'newer_than:30d subject:"Новая заявка Step3D"'
 EMAIL_RE = re.compile(r"^[^\s@]+@[^\s@]+\.[^\s@]+$")
 
+SAMPLE_LEAD = {
+    "name": "Тест",
+    "email": "",
+    "contact": "@step_3d_mngr",
+    "projectType": "STL-модель по фото или референсу",
+    "deadline": "на этой неделе",
+    "quantity": "1",
+    "dimensions": "700 мм",
+    "hasFiles": "фото",
+    "description": "Нужно оценить STL-модель по фото и подготовку к 3D-печати.",
+    "source": "lead monitor smoke test",
+    "page": "https://amailab.github.io/Step3D/#brief",
+}
+
 
 LABELS = {
     "name": "Имя",
@@ -214,11 +228,25 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="do not send auto-replies and do not mark new leads as seen",
     )
+    parser.add_argument(
+        "--self-test",
+        action="store_true",
+        help="validate formatting and reply generation using a built-in sample without Gmail",
+    )
     return parser.parse_args()
 
 
 def main() -> int:
     args = parse_args()
+    if args.self_test:
+        subject, body = build_reply(SAMPLE_LEAD)
+        print("LEAD_MONITOR_SELF_TEST_OK")
+        print(format_summary(SAMPLE_LEAD))
+        print(f"\nЧерновик темы: {subject}")
+        print(f"Черновик ответа, символов: {len(body)}")
+        print(send_auto_reply(SAMPLE_LEAD, dry_run=True))
+        return 0
+
     seen = load_seen()
     try:
         result = call_tool("gmail.search", query=QUERY, maxResults=10)
