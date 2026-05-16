@@ -126,13 +126,13 @@ def validate_lead_capture() -> list[str]:
     index = ROOT / "index.html"
     text = index.read_text(encoding="utf-8") if index.exists() else ""
     required_snippets = {
-        "FormSubmit endpoint": "https://formsubmit.co/26b4f038fb3a1a0c655bdd1f674b6299",
+        "FormSubmit endpoint": "https://formsubmit.co/projects.step3d@gmail.com",
         "lead form id": 'id="leadForm"',
         "thank-you redirect": 'name="_next"',
         "email subject": 'name="_subject"',
         "Telegram CTA": "https://t.me/step_3d_mngr",
         "manager phone": "tel:+79959009141",
-        "contact email": "mailto:info@step3d.tech",
+        "contact email": "mailto:projects.step3d@gmail.com",
     }
     for label, snippet in required_snippets.items():
         if snippet not in text:
