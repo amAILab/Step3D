@@ -140,8 +140,25 @@ def validate_lead_capture() -> list[str]:
     for label, snippet in required_snippets.items():
         if snippet not in text:
             errors.append(f"Lead capture missing {label}: {snippet}")
-    if not (ROOT / "thanks" / "index.html").exists():
+    thanks = ROOT / "thanks" / "index.html"
+    if not thanks.exists():
         errors.append("Lead capture thank-you page missing: thanks/index.html")
+    else:
+        thanks_text = thanks.read_text(encoding="utf-8")
+        for label, snippet in {
+            "project card": 'id="thanksProjectCard"',
+            "Telegram file CTA": "Файлы к заявке",
+            "account status CTA": "Открыть статус проекта",
+        }.items():
+            if snippet not in thanks_text:
+                errors.append(f"Thank-you page missing {label}: {snippet}")
+    for label, snippet in {
+        "after-submit project next step": 'id="projectNextStep"',
+        "account project status link": "account/?projectId=",
+        "stored last lead": "step3d:lastLead",
+    }.items():
+        if snippet not in text:
+            errors.append(f"Request Flow missing {label}: {snippet}")
     return errors
 
 

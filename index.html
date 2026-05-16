@@ -3318,6 +3318,7 @@ section, [id] { scroll-margin-top: 132px; }
 
 
 .first-reply-card{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:16px;align-items:stretch}.first-reply-note{padding:22px;border-radius:28px;background:linear-gradient(135deg,#07111f,#12357c);color:#fff}.first-reply-note h3{margin:0 0 10px;color:#fff}.first-reply-note p{color:#dbeafe;margin:0}.first-reply-list{display:grid;gap:10px}.first-reply-list div{padding:14px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.92)}.first-reply-list strong{display:block;margin-bottom:4px}.first-reply-list span{color:var(--muted);font-size:14px}@media(max-width:900px){.first-reply-card{grid-template-columns:1fr}.first-reply-note{padding:18px;border-radius:22px}}
+.quick-lead-error{display:none;margin:8px 0 0;color:#b91c1c;font-size:13px;font-weight:700}.quick-lead-error.is-visible{display:block}.btn[aria-disabled="true"]{opacity:.55;cursor:not-allowed}
 .project-next-step{margin-top:16px;padding:16px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(135deg,#eaf2ff,#ecfeff);display:none;gap:10px}.project-next-step.is-visible{display:grid}.project-next-step strong{color:var(--ink)}.project-next-step p{margin:0;color:var(--muted)}.project-next-actions{display:flex;flex-wrap:wrap;gap:10px}@media(max-width:720px){.project-next-actions{display:grid}.project-next-actions .btn{width:100%}}
 /* Request Flow v1 polish: makes the first screen read as a service path, not only a lead form. */
 .hero-flow-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:18px 0 0}
@@ -4281,7 +4282,7 @@ section, [id] { scroll-margin-top: 132px; }
 <div class="field"><label for="quickContact">Telegram или телефон <span class="visually-hidden">обязательно</span></label><input id="quickContact" placeholder="@username или телефон" required aria-required="true"></div>
 <div class="field full"><label for="quickTask">Описание задачи</label><textarea id="quickTask" placeholder="Что нужно сделать, размер, срок, что уже есть"></textarea></div>
 </div>
-<div class="quick-lead-actions"><a class="btn btn-primary" id="quickTelegramLink" href="https://t.me/step_3d_mngr" rel="noopener" target="_blank" data-metric="telegram_click"><img class="link-avatar" src="assets/avatar-ai-agent-step3d.webp" alt="" width="24" height="24" loading="lazy" decoding="async"><span>Отправить задачу инженеру</span></a><button class="btn btn-secondary" type="button" id="copyQuickLead">Скопировать текст</button></div>
+<div class="quick-lead-actions"><a class="btn btn-primary" id="quickTelegramLink" href="https://t.me/step_3d_mngr" rel="noopener" target="_blank" data-metric="telegram_click"><img class="link-avatar" src="assets/avatar-ai-agent-step3d.webp" alt="" width="24" height="24" loading="lazy" decoding="async"><span>Отправить задачу инженеру</span></a><button class="btn btn-secondary" type="button" id="copyQuickLead">Скопировать текст</button></div><p class="quick-lead-error" id="quickLeadError" aria-live="polite">Заполните контакт и описание задачи хотя бы на 20 символов.</p>
 </div>
 <div class="lead-mode-panel" id="lead-panel-full" role="tabpanel" aria-labelledby="lead-tab-full" data-lead-panel="full" hidden>
 <div class="quick-lead-box first-answer-box">
@@ -5044,7 +5045,6 @@ section, [id] { scroll-margin-top: 132px; }
         localStorage.setItem('step3d:lastLead', JSON.stringify(leadData));
         showProjectNextStep(leadData, 'sent');
         showToast(`Заявка ${leadData.projectId} отправлена. Пришлите файлы в Telegram с этим номером.`);
-        window.setTimeout(() => window.open(`${managerTelegram}?text=${encodeURIComponent('Файлы к заявке ' + leadData.projectId)}`, '_blank', 'noopener'), 600);
       } catch (error) {
         trackStep3DGoal('lead_form_submit', { status: 'fallback', projectType: leadData.projectType || 'not_selected' });
         await copyLeadToClipboard(leadData);
@@ -5158,11 +5158,29 @@ section, [id] { scroll-margin-top: 132px; }
       return ['Быстрая заявка Step3D', `Номер проекта: ${id}`, '', `Контакт: ${contact || 'не указан'}`, `Задача: ${task || 'не описана'}`, '', 'Файлы/фото/STL/STEP отправлю отдельно в Telegram с номером заявки.'].join('\n');
     }
 
+    function quickLeadIsReady() {
+      const contact = document.getElementById('quickContact')?.value.trim() || '';
+      const task = document.getElementById('quickTask')?.value.trim() || '';
+      return contact.length >= 3 && task.length >= 20;
+    }
+
     function updateQuickLeadLink() {
       const link = document.getElementById('quickTelegramLink');
+      const error = document.getElementById('quickLeadError');
       if (!link) return;
-      link.href = `${managerTelegram}?text=${encodeURIComponent(getQuickLeadText())}`;
+      const ready = quickLeadIsReady();
+      link.href = ready ? `${managerTelegram}?text=${encodeURIComponent(getQuickLeadText())}` : '#quickTask';
+      link.setAttribute('aria-disabled', ready ? 'false' : 'true');
+      if (error) error.classList.toggle('is-visible', !ready);
     }
+
+    document.getElementById('quickTelegramLink')?.addEventListener('click', (event) => {
+      if (quickLeadIsReady()) return;
+      event.preventDefault();
+      document.getElementById('quickLeadError')?.classList.add('is-visible');
+      document.getElementById('quickTask')?.focus();
+      showToast('Добавьте контакт и короткое описание задачи');
+    });
 
     document.querySelectorAll('[data-quick-task]').forEach((button) => {
       button.addEventListener('click', () => {
