@@ -21,6 +21,8 @@ CHECKS = {
     "viewer/index.html": {
         "viewer brief storage": "step3d:viewerBrief",
         "app handoff": "../app/#app-brief",
+        "save and create CTA": "Сохранить и создать заявку",
+        "saved handoff notice": "viewerSaved",
         "cdn fallback": "cdnFallback",
     },
     "app/index.html": {
