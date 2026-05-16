@@ -3317,6 +3317,7 @@ section, [id] { scroll-margin-top: 132px; }
 
 
 
+.first-reply-card{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:16px;align-items:stretch}.first-reply-note{padding:22px;border-radius:28px;background:linear-gradient(135deg,#07111f,#12357c);color:#fff}.first-reply-note h3{margin:0 0 10px;color:#fff}.first-reply-note p{color:#dbeafe;margin:0}.first-reply-list{display:grid;gap:10px}.first-reply-list div{padding:14px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.92)}.first-reply-list strong{display:block;margin-bottom:4px}.first-reply-list span{color:var(--muted);font-size:14px}@media(max-width:900px){.first-reply-card{grid-template-columns:1fr}.first-reply-note{padding:18px;border-radius:22px}}
 .project-next-step{margin-top:16px;padding:16px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(135deg,#eaf2ff,#ecfeff);display:none;gap:10px}.project-next-step.is-visible{display:grid}.project-next-step strong{color:var(--ink)}.project-next-step p{margin:0;color:var(--muted)}.project-next-actions{display:flex;flex-wrap:wrap;gap:10px}@media(max-width:720px){.project-next-actions{display:grid}.project-next-actions .btn{width:100%}}
 /* Request Flow v1 polish: makes the first screen read as a service path, not only a lead form. */
 .hero-flow-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:18px 0 0}
@@ -4047,6 +4048,22 @@ section, [id] { scroll-margin-top: 132px; }
 <article class="scenario-card"><span class="scenario-number">06</span><h3>Срочность, количество, тесты</h3><p>Дедлайн, партия, риск брака и необходимость тестового образца.</p></article>
 </div>
 </div>
+<div class="container" style="margin-top:22px">
+<div class="first-reply-card" aria-label="Что Step3D пишет в первом ответе">
+<div class="first-reply-note">
+<p class="eyebrow">Первый ответ</p>
+<h3>Не просто цена, а решение: что делать дальше</h3>
+<p>По фото или STL мы сначала даём безопасный ориентир: можно ли сделать, какой маршрут выбрать и где цена может измениться после уточнений.</p>
+</div>
+<div class="first-reply-list">
+<div><strong>1. Маршрут</strong><span>печать сразу, CAD-модель, 3D-сканирование, тестовый образец или отказ от 3D-печати, если способ не подходит.</span></div>
+<div><strong>2. Цена-вилка</strong><span>ориентир бюджета с пояснением, какие факторы сильнее всего влияют на финальную смету.</span></div>
+<div><strong>3. Риски</strong><span>тонкие стенки, неизвестный масштаб, посадки, нагрузка, постобработка, деление крупной модели на части.</span></div>
+<div><strong>4. Следующий шаг</strong><span>что дослать: размеры, ракурсы, STL/STEP, назначение детали, срок, количество или требования к внешнему виду.</span></div>
+</div>
+</div>
+</div>
+
 </section>
 <section aria-labelledby="quote-checklist-title" class="section-tight" id="quote-checklist">
 <div class="container">
