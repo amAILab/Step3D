@@ -4,18 +4,20 @@ from urllib.parse import quote
 ROOT = Path(__file__).resolve().parents[1]
 
 BASE_CSS = """
-:root{--bg:#f5f5f2;--surface:#fff;--soft:#efefec;--ink:#101010;--muted:#5e5e59;--line:#ddd;--radius:28px;--max:1120px}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 12% 0%,rgba(37,99,235,.075),transparent 26%),linear-gradient(180deg,#f7f8f6 0%,var(--bg) 45%,#eef3fb 100%);color:var(--ink);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.55;letter-spacing:-.015em}a{color:inherit;text-decoration:none}.container{width:min(100% - 40px,var(--max));margin:0 auto}.header{position:sticky;top:0;background:rgba(245,245,242,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);z-index:10}.head{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{font-weight:900;font-size:1.25rem}.nav{display:flex;gap:10px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:12px 16px;border:1px solid var(--ink);font-weight:800}.btn.primary{background:linear-gradient(135deg,#111827,#0f172a 58%,#1d4ed8);color:white;box-shadow:0 14px 34px rgba(15,23,42,.16)}.btn.ghost{background:transparent}.btn:hover{transform:translateY(-1px)}.hero{padding:86px 0 52px}.eyebrow{text-transform:uppercase;font-weight:900;letter-spacing:.13em;font-size:.78rem;color:var(--muted);margin:0 0 10px}h1{font-size:clamp(2.4rem,6vw,5.6rem);line-height:.92;letter-spacing:-.075em;margin:0 0 22px;max-width:920px}h2{font-size:clamp(1.7rem,3vw,3.2rem);line-height:1;letter-spacing:-.055em;margin:0 0 16px}h3{font-size:1.25rem;margin:0 0 8px}.lead{font-size:clamp(1.08rem,2vw,1.35rem);color:var(--muted);max-width:790px;margin:0 0 28px}.section{padding:44px 0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:rgba(255,255,255,.84);border:1px solid rgba(148,163,184,.30);border-radius:var(--radius);padding:24px;box-shadow:0 18px 55px rgba(15,23,42,.08)}.card p,.muted{color:var(--muted);margin:0}.list{padding:0;margin:14px 0 0;list-style:none;display:grid;gap:10px}.list li{display:flex;gap:9px;color:var(--muted)}.list li:before{content:'→';font-weight:900;color:var(--ink)}.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.trust-card{background:var(--soft);border:1px solid var(--line);border-radius:22px;padding:18px}.trust-card strong{display:block;margin-bottom:6px}.trust-card p{color:var(--muted);margin:0}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.step{background:var(--soft);border:1px solid var(--line);border-radius:22px;padding:18px}.step strong{display:block;font-size:1.7rem;letter-spacing:-.06em;margin-bottom:8px}@media(max-width:860px){.steps,.trust-grid{grid-template-columns:1fr 1fr}}@media(max-width:560px){.steps,.trust-grid{grid-template-columns:1fr}}.split{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:start}.image{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:var(--soft)}.image img{width:100%;display:block}.cta{background:var(--ink);color:#fff;border-radius:34px;padding:32px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}.cta p{color:#ddd;margin:0}.footer{padding:52px 0 36px;color:var(--muted);background:#eeeeea;border-top:1px solid var(--line)}.footer-map{display:grid;grid-template-columns:1.35fr repeat(4,minmax(0,1fr));gap:26px;align-items:start}.footer-brand strong{display:block;color:var(--ink);font-size:1.18rem;margin-bottom:8px}.footer-brand p{margin:0;max-width:300px}.footer-col h3{margin:0 0 12px;color:var(--ink);font-size:.95rem}.footer-col ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}.footer-col a{color:var(--muted)}.footer-col a:hover{color:var(--ink);text-decoration:underline}.footer-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:32px;padding-top:20px}@media(max-width:860px){.grid,.split,.cta{grid-template-columns:1fr}.footer-map{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}.hero{padding-top:56px}.nav{display:none}h1{font-size:3rem}}@media(max-width:560px){.footer-map{grid-template-columns:1fr}.footer-brand{grid-column:auto}.footer-bottom{display:grid}}
+:root{--bg:#f5f5f2;--surface:#fff;--soft:#efefec;--ink:#101010;--muted:#5e5e59;--line:#ddd;--radius:28px;--max:1120px}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 12% 0%,rgba(37,99,235,.075),transparent 26%),linear-gradient(180deg,#f7f8f6 0%,var(--bg) 45%,#eef3fb 100%);color:var(--ink);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.55;letter-spacing:-.015em}a{color:inherit;text-decoration:none}.container{width:min(100% - 40px,var(--max));margin:0 auto}.header{position:sticky;top:0;background:rgba(245,245,242,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);z-index:10}.head{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{font-weight:900;font-size:1.25rem}.nav{display:flex;gap:10px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:12px 16px;border:1px solid var(--ink);font-weight:800}.btn.primary{background:linear-gradient(135deg,#111827,#0f172a 58%,#1d4ed8);color:white;box-shadow:0 14px 34px rgba(15,23,42,.16)}.btn.ghost{background:transparent}.btn:hover{transform:translateY(-1px)}.hero{padding:86px 0 52px}.eyebrow{text-transform:uppercase;font-weight:900;letter-spacing:.13em;font-size:.78rem;color:var(--muted);margin:0 0 10px}h1{font-size:clamp(2.4rem,6vw,5.6rem);line-height:.92;letter-spacing:-.075em;margin:0 0 22px;max-width:920px}h2{font-size:clamp(1.7rem,3vw,3.2rem);line-height:1;letter-spacing:-.055em;margin:0 0 16px}h3{font-size:1.25rem;margin:0 0 8px}.lead{font-size:clamp(1.08rem,2vw,1.35rem);color:var(--muted);max-width:790px;margin:0 0 28px}.section{padding:44px 0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:rgba(255,255,255,.84);border:1px solid rgba(148,163,184,.30);border-radius:var(--radius);padding:24px;box-shadow:0 18px 55px rgba(15,23,42,.08)}.card p,.muted{color:var(--muted);margin:0}.list{padding:0;margin:14px 0 0;list-style:none;display:grid;gap:10px}.list li{display:flex;gap:9px;color:var(--muted)}.list li:before{content:'→';font-weight:900;color:var(--ink)}.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.trust-card{background:var(--soft);border:1px solid var(--line);border-radius:22px;padding:18px}.trust-card strong{display:block;margin-bottom:6px}.trust-card p{color:var(--muted);margin:0}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.step{background:var(--soft);border:1px solid var(--line);border-radius:22px;padding:18px}.step strong{display:block;font-size:1.7rem;letter-spacing:-.06em;margin-bottom:8px}@media(max-width:860px){.steps,.trust-grid{grid-template-columns:1fr 1fr}}@media(max-width:560px){.steps,.trust-grid{grid-template-columns:1fr}}.split{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:start}.image{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:var(--soft)}.image img{width:100%;display:block}.cta{background:var(--ink);color:#fff;border-radius:34px;padding:32px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}.cta p{color:#ddd;margin:0}.footer{padding:52px 0 36px;color:var(--muted);background:#eeeeea;border-top:1px solid var(--line)}.footer-map{display:grid;grid-template-columns:1.35fr repeat(4,minmax(0,1fr));gap:26px;align-items:start}.footer-brand strong{display:block;color:var(--ink);font-size:1.18rem;margin-bottom:8px}.footer-brand p{margin:0;max-width:300px}.footer-col h3{margin:0 0 12px;color:var(--ink);font-size:.95rem}.footer-col ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}.footer-col a{color:var(--muted)}.footer-col a:hover{color:var(--ink);text-decoration:underline}.footer-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:32px;padding-top:20px}@media(max-width:860px){.grid,.split,.cta{grid-template-columns:1fr}.footer-map{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}.hero{padding-top:56px}.nav{display:none}h1{font-size:3rem}}@media(max-width:560px){.footer-map{grid-template-columns:1fr}.footer-brand{grid-column:auto}.footer-bottom{display:grid}}@media(max-width:900px){*,*::before,*::after{box-sizing:border-box}html,body{width:100%;max-width:100%;overflow-x:hidden}.container{width:calc(100vw - 28px);max-width:calc(100vw - 28px);padding:0;margin-left:auto;margin-right:auto}.head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px}.brand{min-width:0;overflow:hidden;white-space:nowrap}.nav{display:none}.btn{width:100%;max-width:100%;white-space:normal;text-align:center}.hero{padding:44px 0 34px}.grid,.split,.cta,.footer-map{grid-template-columns:1fr}.hero .split{display:block}h1{font-size:clamp(2rem,8.6vw,2.45rem);line-height:1.04;letter-spacing:-.045em;overflow-wrap:anywhere}h2{font-size:clamp(1.55rem,7vw,2.1rem);line-height:1.06;overflow-wrap:anywhere}.lead,p,li{overflow-wrap:anywhere}.image{margin-top:18px}.cta{padding:24px}.footer-map{gap:18px}.footer-brand{grid-column:auto}}
 """
 
 TRUST_SECTION = """<section class="section" aria-labelledby="trust-title"><div class="container"><p class="eyebrow">Почему можно доверять</p><h2 id="trust-title">Перед запуском предупреждаем о рисках</h2><div class="trust-grid"><div class="trust-card"><strong>Проверяем геометрию</strong><p>Смотрим толщины, посадки, масштаб и слабые места до печати.</p></div><div class="trust-card"><strong>Подбираем технологию</strong><p>Не обещаем одну кнопку: выбираем материал и метод под задачу.</p></div><div class="trust-card"><strong>Работаем с файлами</strong><p>Принимаем STL, STEP, 3MF, OBJ, фото, эскиз или физическую деталь.</p></div><div class="trust-card"><strong>Фиксируем вводные</strong><p>Срок, количество, внешний вид и прочность уточняем до запуска.</p></div></div></div></section>"""
 
-LOCAL_SECTION = """<section class="section" aria-labelledby="local-title"><div class="container"><p class="eyebrow">Локально</p><h2 id="local-title">3D-печать и прототипирование в Москве</h2><div class="grid"><article class="card"><h3>Москва и область</h3><p>Можно начать с онлайн-оценки по фото, эскизу, STL/STEP или описанию задачи. Для первичного расчёта достаточно размеров, срока и назначения детали.</p><ul class="list"><li><a href="../#brief">заявка на расчёт</a></li><li><a href="../3d-printing/">3D-печать деталей</a></li></ul></article><article class="card"><h3>Вузы, технопарки и команды</h3><p>Помогаем с прототипами, демонстрационными макетами, проектными занятиями и образовательными форматами по цифровому производству.</p><ul class="list"><li><a href="../workshops/">мастер-классы и обучение</a></li><li><a href="../services/">все услуги Step3D</a></li></ul></article><article class="card"><h3>События, сцена и кейсы</h3><p>Делаем награды, бутафорию, арт-объекты и презентационные модели к конкретной дате — с учётом веса, внешнего вида и сборки.</p><ul class="list"><li><a href="../cases/">посмотреть кейсы</a></li><li><a href="../reverse-engineering/">реверс-инжиниринг</a></li></ul></article></div></div></section>"""
+LOCAL_SECTION = """<section class="section" aria-labelledby="local-title"><div class="container"><p class="eyebrow">Локально</p><h2 id="local-title">{data.get('local_h2', '3D-печать и прототипирование в Москве')}</h2><div class="grid"><article class="card"><h3>Москва и область</h3><p>Можно начать с онлайн-оценки по фото, эскизу, STL/STEP или описанию задачи. Для первичного расчёта достаточно размеров, срока и назначения детали.</p><ul class="list"><li><a href="../#brief">заявка на расчёт</a></li><li><a href="../3d-printing/">3D-печать деталей</a></li></ul></article><article class="card"><h3>Вузы, технопарки и команды</h3><p>Помогаем с прототипами, демонстрационными макетами, проектными занятиями и образовательными форматами по цифровому производству.</p><ul class="list"><li><a href="../workshops/">мастер-классы и обучение</a></li><li><a href="../services/">все услуги Step3D</a></li></ul></article><article class="card"><h3>События, сцена и кейсы</h3><p>Делаем награды, бутафорию, арт-объекты и презентационные модели к конкретной дате — с учётом веса, внешнего вида и сборки.</p><ul class="list"><li><a href="../cases/">посмотреть кейсы</a></li><li><a href="../reverse-engineering/">реверс-инжиниринг</a></li></ul></article></div></div></section>"""
 
 PAGES = {
 
     'stl-po-foto/index.html': {
         'project_param': 'STL-модель по фото или референсу',
-        'title': 'STL-модель по фото или референсу — Step3D Москва',
+        'local_h2': 'STL-модель по фото в Москве',
+        'service_type': '3D-моделирование STL по фото',
+        'title': 'STL-модель по фото в Москве — 3D-моделирование под печать | Step3D',
         'description': 'Создание STL-модели по фото, эскизу, скрину или декоративному референсу: адаптация под 3D-печать, разбиение на части, подготовка файлов.',
         'h1': 'STL-модель по фото или референсу',
         'lead': 'Если есть картинка, эскиз, скрин или декоративный референс, но нет 3D-файла — подготовим печатную STL-модель, адаптируем мелкие детали и при необходимости разделим объект на части.',
@@ -31,7 +33,9 @@ PAGES = {
     },
     'services/index.html': {
         'project_param': '3D-модель / промышленный дизайн',
-        'title': 'Услуги Step3D — 3D-печать, моделирование, сканирование и обучение',
+        'local_h2': '3D-услуги Step3D в Москве',
+        'service_type': '3D-печать, CAD-моделирование, сканирование и прототипирование',
+        'title': '3D-услуги в Москве — печать, CAD, STL, сканирование | Step3D',
         'description': 'Основные услуги Step3D: 3D-печать, CAD-моделирование, 3D-сканирование, реверс-инжиниринг, прототипирование, малые серии и образовательные проекты.',
         'h1': 'Услуги Step3D',
         'lead': 'Помогаем пройти путь от идеи, фото или сломанной детали до готового объекта, прототипа, модели или малой серии.',
@@ -47,7 +51,9 @@ PAGES = {
     },
     'reverse-engineering/index.html': {
         'project_param': 'Реверсивный инжиниринг / сканирование',
-        'title': 'Реверс-инжиниринг и 3D-сканирование — Step3D',
+        'local_h2': 'Реверс-инжиниринг деталей в Москве',
+        'service_type': 'Реверс-инжиниринг и 3D-сканирование деталей',
+        'title': 'Реверс-инжиниринг деталей в Москве — 3D-сканирование и CAD | Step3D',
         'description': '3D-сканирование и реверс-инжиниринг деталей: восстановление геометрии, подготовка CAD-модели и файлов для печати или производства.',
         'h1': 'Реверс-инжиниринг и 3D-сканирование',
         'lead': 'Когда нет чертежа или 3D-модели, но есть физическая деталь, мы помогаем перевести её в цифровую геометрию и подготовить к производству.',
@@ -60,7 +66,9 @@ PAGES = {
     },
     '3d-printing/index.html': {
         'project_param': '3D-печать детали',
-        'title': '3D-печать и прототипирование — Step3D',
+        'local_h2': '3D-печать и прототипирование в Москве',
+        'service_type': '3D-печать деталей, прототипов и малых серий',
+        'title': '3D-печать в Москве — детали, прототипы и малые серии | Step3D',
         'description': '3D-печать деталей, макетов, корпусов, прототипов и малых серий. Подбор технологии, подготовка модели и базовая постобработка.',
         'h1': '3D-печать и прототипирование',
         'lead': 'Печатаем детали, макеты, корпуса, арт-объекты и прототипы. Если модели нет — поможем подготовить её под печать.',
@@ -74,7 +82,9 @@ PAGES = {
     },
     'urgent-spare-parts/index.html': {
         'project_param': 'Срочная 3D-печать запчасти по фото',
-        'title': 'Срочная 3D-печать запчастей по фото и размерам — Step3D Москва',
+        'local_h2': 'Срочная 3D-печать запчастей в Москве',
+        'service_type': 'Срочная 3D-печать запчастей по фото и размерам',
+        'title': 'Срочная 3D-печать запчастей в Москве по фото и размерам | Step3D',
         'description': 'Быстрая оценка и изготовление пластиковой запчасти по фото, размерам, сломанной детали или STL/STEP. 3D-печать, реверс-инжиниринг и прототипирование в Москве.',
         'h1': 'Срочная запчасть по фото, размерам или сломанной детали',
         'lead': 'Если пластиковая деталь сломалась, потерялась или снята с производства — начните с фото и габаритов. Быстро скажем, можно ли напечатать замену, нужен ли реверс-инжиниринг и какой будет порядок бюджета.',
@@ -90,6 +100,8 @@ PAGES = {
     },
     'workshops/index.html': {
         'project_param': 'Мастер-класс / обучение',
+        'local_h2': 'Мастер-классы по 3D-печати и CAD в Москве',
+        'service_type': 'Мастер-классы по 3D-печати, CAD и цифровому производству',
         'title': 'Мастер-классы и образовательные проекты — Step3D',
         'description': 'Практические занятия по 3D-печати, CAD, реверс-инжинирингу и цифровому производству для школ, вузов, технопарков и команд.',
         'h1': 'Мастер-классы и образовательные проекты',
@@ -103,6 +115,8 @@ PAGES = {
     },
     'cases/index.html': {
         'project_param': 'Объект для события / сцены',
+        'local_h2': 'Кейсы 3D-печати и реверс-инжиниринга в Москве',
+        'service_type': 'Кейсы 3D-печати, сканирования и прототипирования',
         'title': 'Кейсы Step3D — 3D-печать, сканирование, объекты и обучение',
         'description': 'Кейсы Step3D: награды, реверс-инжиниринг, сценические объекты, арт-прототипы, образовательные проекты и робототехника.',
         'h1': 'Кейсы Step3D',
@@ -114,7 +128,98 @@ PAGES = {
             ('Фальшсветильники для спектакля', 'Лёгкие сценические объекты для театральной постановки с контролем веса и внешнего вида.', ['задача: сценический эффект', 'решение: печать и подготовка', 'результат: готовые элементы декораций']),
             ('Морские шахматы', 'Предметный арт-объект: идея, 3D-модель, прототип и демонстрационный результат.', ['задача: выразительная форма', 'решение: моделирование и печать', 'результат: прототип для показа']),
         ]
-    }
+    },
+
+    'cad-modeling/index.html': {
+        'project_param': 'CAD-моделирование на заказ',
+        'local_h2': 'CAD-моделирование на заказ в Москве',
+        'service_type': 'CAD-моделирование деталей и изделий на заказ',
+        'title': 'CAD-моделирование на заказ в Москве — модель по эскизу | Step3D',
+        'description': 'CAD-моделирование деталей и изделий на заказ: модель по эскизу, размерам, фото или задаче, подготовка к 3D-печати и производству.',
+        'h1': 'CAD-моделирование на заказ',
+        'lead': 'Создаём инженерные 3D-модели по эскизу, размерам, фото, старой детали или техническому описанию. Сразу учитываем печать, сборку, посадки и ограничения материала.',
+        'image': '../assets/img/proof-engineering.webp',
+        'blocks': [
+            ('Когда нужно CAD-моделирование', 'Когда идеи, фото или детали недостаточно для производства: нужен аккуратный файл, который можно проверить, напечатать или доработать.', ['нет 3D-модели', 'есть только эскиз или фото', 'нужно подготовить STL/STEP', 'важны размеры и посадки']),
+            ('Что получаете', 'Рабочую цифровую модель, рекомендации по технологии и список рисков до запуска печати или серии.', ['CAD/STL/STEP по задаче', 'проверка толщин', 'подготовка под печать', 'правки после теста']),
+            ('Что прислать', 'Для оценки подойдут фото, габариты, назначение детали, пример материала, срок и количество.', ['фото/эскиз', 'размеры', 'где используется', 'нужный формат файла']),
+        ]
+    },
+    '3d-modeling/index.html': {
+        'project_param': '3D-моделирование для печати',
+        'local_h2': '3D-моделирование для печати в Москве',
+        'service_type': '3D-моделирование для печати по фото, эскизу и размерам',
+        'title': '3D-моделирование для печати по фото и эскизу | Step3D',
+        'description': '3D-моделирование для печати: модель по фото, эскизу, размерам или референсу, подготовка STL и проверка печатности.',
+        'h1': '3D-моделирование для печати',
+        'lead': 'Помогаем превратить фото, скрин, эскиз или идею в печатную 3D-модель. Проверяем толщины, масштаб, детализацию и разбиение объекта.',
+        'image': '../assets/img/hero-production.webp',
+        'blocks': [
+            ('Для каких задач', 'Декор, реквизит, макеты, корпуса, прототипы, сувениры, простые технические детали и объекты к событию.', ['модель по фото', 'модель по эскизу', 'STL под FDM/SLA', 'разбиение на части']),
+            ('Как снижаем риск', 'До финального экспорта проверяем мелкие элементы, тонкие места, масштаб и ограничения печати.', ['утолщение деталей', 'проверка масштаба', 'ориентация печати', 'рекомендации по сборке']),
+            ('Результат', 'STL/OBJ/STEP при необходимости, превью, комментарии по печати и список мест для согласования.', ['STL-файл', 'превью', 'печатаемая геометрия', 'следующий шаг']),
+        ]
+    },
+    '3d-scan/index.html': {
+        'project_param': '3D-сканирование детали',
+        'local_h2': '3D-сканирование деталей и объектов в Москве',
+        'service_type': '3D-сканирование деталей и объектов',
+        'title': '3D-сканирование деталей в Москве — объект в цифровую модель | Step3D',
+        'description': '3D-сканирование деталей и объектов в Москве: цифровая геометрия, подготовка к реверс-инжинирингу, печати или контролю формы.',
+        'h1': '3D-сканирование деталей и объектов',
+        'lead': 'Переводим физические детали и объекты в цифровую геометрию, когда нет исходной модели или нужно восстановить форму для реверса и производства.',
+        'image': '../assets/img/case-kawasaki.webp',
+        'blocks': [
+            ('Когда нужно сканирование', 'Если форма сложная, нет чертежа, нужно повторить поверхность или сравнить объект с моделью.', ['сложная поверхность', 'нет CAD-файла', 'нужен реверс', 'контроль формы']),
+            ('Что важно', 'Скан даёт геометрию поверхности, а для производства часто нужна инженерная доработка CAD-модели.', ['облако/mesh', 'очистка геометрии', 'CAD-восстановление', 'проверка размеров']),
+            ('Что прислать', 'Фото объекта, размеры, материал, назначение и зоны, где важна точность.', ['фото с разных сторон', 'габариты', 'критичные посадки', 'требования к точности']),
+        ]
+    },
+    'small-batch-production/index.html': {
+        'project_param': 'Малосерийное производство пластиковых деталей',
+        'local_h2': 'Малосерийное производство пластиковых деталей в Москве',
+        'service_type': 'Малосерийная 3D-печать пластиковых деталей',
+        'title': 'Малосерийная 3D-печать пластиковых деталей | Step3D Москва',
+        'description': 'Малосерийное производство пластиковых деталей: тестовый образец, подбор материала, расчёт партии и повторяемая 3D-печать.',
+        'h1': 'Малосерийное производство пластиковых деталей',
+        'lead': 'После проверки прототипа помогаем посчитать и изготовить небольшую партию деталей: корпуса, крепления, оснастку, макеты и функциональные элементы.',
+        'image': '../assets/img/hero-production.webp',
+        'blocks': [
+            ('Когда подходит малая серия', 'Если нужна партия до запуска литья, тест рынка, запасные элементы или ограниченное производство.', ['10–100+ деталей', 'тест партии', 'корпуса и крепления', 'оснастка и макеты']),
+            ('Как работаем', 'Сначала тестовый образец, затем корректировка модели, подбор материала и расчёт повторяемого процесса.', ['прототип', 'правки', 'материал', 'партия']),
+            ('Что влияет на цену', 'Размер, материал, время печати, количество, постобработка и требования к повторяемости.', ['габариты', 'материал', 'количество', 'срок']),
+        ]
+    },
+    'industrial-parts/index.html': {
+        'project_param': 'Изготовление пластиковых деталей для оборудования',
+        'local_h2': 'Изготовление пластиковых деталей для оборудования в Москве',
+        'service_type': 'Изготовление пластиковых деталей для оборудования',
+        'title': 'Изготовление пластиковых деталей для оборудования | Step3D Москва',
+        'description': 'Изготовление пластиковых деталей для оборудования: восстановление по фото или образцу, CAD, реверс-инжиниринг и 3D-печать.',
+        'h1': 'Пластиковые детали для оборудования по фото или образцу',
+        'lead': 'Помогаем восстановить редкие пластиковые элементы, крепления, крышки, корпуса и переходники, когда нет чертежа или деталь снята с производства.',
+        'image': '../assets/img/proof-engineering.webp',
+        'blocks': [
+            ('Типовые задачи', 'Корпуса, крышки, крепления, заглушки, держатели, переходники, элементы оснастки и вспомогательные детали.', ['деталь снята с производства', 'сломался пластиковый элемент', 'нужен аналог', 'нет чертежа']),
+            ('О чём предупреждаем', 'Для силовых, температурных и ответственных узлов заранее оцениваем риск и предлагаем тест.', ['нагрузка', 'температура', 'износ', 'посадки']),
+            ('Что нужно для старта', 'Фото, размеры, место установки, условия эксплуатации, количество и желаемый срок.', ['фото детали', 'габариты', 'назначение', 'срок']),
+        ]
+    },
+    'photo-to-cad/index.html': {
+        'project_param': 'CAD-модель по фото и размерам',
+        'local_h2': 'CAD-модель по фото и размерам в Москве',
+        'service_type': 'CAD-модель по фото и размерам',
+        'title': 'CAD-модель по фото и размерам — восстановление детали | Step3D',
+        'description': 'CAD-модель по фото и размерам: восстановление формы детали, подготовка STEP/STL, проверка посадок и печать прототипа.',
+        'h1': 'CAD-модель по фото и размерам',
+        'lead': 'Если есть фото детали и основные размеры, можно начать восстановление цифровой модели без чертежа. Для точных посадок подскажем, где нужны дополнительные замеры или сканирование.',
+        'image': '../assets/img/proof-engineering.webp',
+        'blocks': [
+            ('Что можно восстановить по фото', 'Простые корпуса, крепления, декоративные элементы, крышки, держатели и формы с понятной геометрией.', ['фото с 2–3 сторон', 'общие размеры', 'критичные отверстия', 'назначение детали']),
+            ('Когда нужен скан', 'Если форма сложная, есть криволинейные поверхности или точные сопряжения, фото лучше дополнить 3D-сканированием.', ['сложная поверхность', 'точные посадки', 'износ', 'много сопряжений']),
+            ('Результат', 'STEP/STL, рекомендации по печати, список рисков и план тестовой детали.', ['CAD-модель', 'STL/STEP', 'проверка печати', 'следующий шаг']),
+        ]
+    },
 }
 
 
@@ -146,6 +251,17 @@ def render_page(data):
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>{BASE_CSS}</style>
+<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "{data['h1']}",
+  "serviceType": "{data.get('service_type', data['h1'])}",
+  "provider": {{"@type": "LocalBusiness", "name": "Step3D", "areaServed": "Москва", "email": "info@step3d.tech"}},
+  "areaServed": [{{"@type": "City", "name": "Москва"}}, {{"@type": "AdministrativeArea", "name": "Московская область"}}],
+  "url": "https://amailab.github.io/Step3D/{data.get('canonical','')}"
+}}
+</script>
 </head>
 <body>
 <header class="header"><div class="container head"><a class="brand" href="../">Step3D</a><nav class="nav"><a href="../#cases">Кейсы</a><a href="../#services">Услуги</a><a href="../#project-quiz">Квиз</a><a href="../#brief">Заявка</a></nav><a class="btn primary" href="../?project={project_query}#brief">Рассчитать</a></div></header>

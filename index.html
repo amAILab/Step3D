@@ -2331,7 +2331,7 @@
 
     input:focus, textarea:focus, select:focus {
       border-color: rgba(37,99,235,.55) !important;
-      box-shadow: 0 0 0 4px rgba(37,99,235,.10) !important;
+      box-shadow: 0 0 0 4px rgba(37,99,235,.22) !important;
       outline: none;
     }
 
@@ -2406,6 +2406,95 @@
 
     @media (max-width: 900px) { .hero-visual, .hero-visual::before, .hero-visual::after { max-width: 100% !important; } .hero-card-main, .hero-mini-grid { max-width: calc(100% - 32px) !important; } }
 
+
+
+    /* UX/UI 10/10 sprint: clearer first-screen proof, stronger SEO blocks and conversion clarity. */
+    .conversion-strip {
+      margin-top: -28px;
+      position: relative;
+      z-index: 2;
+    }
+    .conversion-strip-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      overflow: hidden;
+      border: 1px solid rgba(148,163,184,.32);
+      border-radius: 28px;
+      background: rgba(148,163,184,.28);
+      box-shadow: 0 24px 80px rgba(15,23,42,.10);
+    }
+    .conversion-strip-item {
+      padding: 22px;
+      background: rgba(255,255,255,.90);
+      backdrop-filter: blur(14px);
+    }
+    .conversion-strip-item strong { display: block; font-size: clamp(1.25rem, 2vw, 1.75rem); letter-spacing: -.05em; color: #0f172a; }
+    .conversion-strip-item span { display: block; margin-top: 5px; color: var(--muted); font-size: .95rem; line-height: 1.35; }
+    .section-cta-row { display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; }
+    .seo-service-cloud { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+    .seo-service-cloud a { padding: 9px 12px; border-radius:999px; border:1px solid rgba(37,99,235,.16); background:rgba(234,242,255,.72); color:#0f172a; font-weight:800; font-size:.92rem; }
+    .seo-service-cloud a:hover { border-color:rgba(37,99,235,.38); transform:translateY(-1px); }
+    .expert-proof-grid { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:14px; }
+    .expert-proof-card { position:relative; overflow:hidden; border:1px solid rgba(148,163,184,.30); border-radius:26px; padding:24px; background:rgba(255,255,255,.86); box-shadow:var(--shadow-card); }
+    .expert-proof-card::before { content:""; position:absolute; inset:0 0 auto 0; height:4px; background:linear-gradient(90deg,var(--blue),var(--blue-2)); }
+    .expert-proof-card strong { display:block; margin-bottom:8px; font-size:1.18rem; letter-spacing:-.035em; }
+    .expert-proof-card p { margin:0; color:var(--muted); }
+    .expert-proof-card ul { margin:14px 0 0; padding:0; list-style:none; display:grid; gap:8px; color:var(--muted); }
+    .expert-proof-card li::before { content:"✓"; margin-right:8px; color:var(--blue); font-weight:900; }
+    .local-seo-panel { border:1px solid rgba(148,163,184,.30); border-radius:32px; padding:clamp(24px,4vw,38px); background:linear-gradient(135deg,rgba(255,255,255,.92),rgba(234,242,255,.74)); box-shadow:var(--shadow-card); }
+    .local-seo-panel h2 { margin-top:0; }
+    .local-seo-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin-top:20px; }
+    .local-seo-grid div { padding:18px; border-radius:22px; background:rgba(255,255,255,.72); border:1px solid rgba(148,163,184,.24); }
+    .local-seo-grid strong { display:block; margin-bottom:6px; }
+    .local-seo-grid p { margin:0; color:var(--muted); }
+    @media (max-width: 900px) {
+      .conversion-strip { margin-top: 10px; }
+      .conversion-strip-grid, .expert-proof-grid, .local-seo-grid { grid-template-columns: 1fr !important; }
+      .conversion-strip-item { padding: 18px; }
+    }
+
+
+
+    /* Final unified mobile layer: one source of truth for 360-900px layouts. */
+    @media (max-width: 900px) {
+      *, *::before, *::after { box-sizing: border-box; }
+      html, body { width: 100%; max-width: 100%; overflow-x: hidden !important; }
+      body { padding-bottom: calc(118px + env(safe-area-inset-bottom, 0px)) !important; }
+      .container { width: calc(100vw - 28px) !important; max-width: calc(100vw - 28px) !important; margin-left: auto !important; margin-right: auto !important; padding-left: 0 !important; padding-right: 0 !important; }
+      .site-header, main, section, .site-footer { max-width: 100vw !important; overflow-x: clip !important; }
+      .header-inner { display: grid !important; grid-template-columns: minmax(0,1fr) auto !important; gap: 8px !important; width: calc(100vw - 28px) !important; max-width: calc(100vw - 28px) !important; }
+      .brand { min-width: 0 !important; max-width: 100% !important; overflow: hidden !important; white-space: nowrap !important; font-size: 18px !important; }
+      .menu-toggle { min-width: 0 !important; max-width: 104px !important; padding: 0 11px !important; }
+      .hero { padding: 34px 0 28px !important; }
+      .hero-grid, .section-head, .price-wrap, .brief-wrap, .quiz-wrap, .contact-card, .b2b-card { display: block !important; width: 100% !important; max-width: 100% !important; }
+      h1, .hero-title { font-size: clamp(30px, 8.4vw, 38px) !important; line-height: 1.05 !important; letter-spacing: -.045em !important; max-width: 100% !important; overflow-wrap: anywhere !important; word-break: normal !important; }
+      .section-title, h2 { font-size: clamp(28px, 8vw, 40px) !important; line-height: 1.05 !important; max-width: 100% !important; overflow-wrap: anywhere !important; }
+      .hero-subtitle, .section-lead, .hero-note, p, li { max-width: 100% !important; overflow-wrap: anywhere !important; }
+      .hero-kicker { display: flex !important; flex-wrap: wrap !important; max-width: 100% !important; white-space: normal !important; }
+      .hero-actions, .form-actions, .quick-lead-actions, .section-cta-row { display: grid !important; grid-template-columns: 1fr !important; width: 100% !important; gap: 10px !important; }
+      .btn { width: 100% !important; max-width: 100% !important; min-width: 0 !important; white-space: normal !important; text-align: center !important; justify-content: center !important; }
+      .hero-proof-row, .routes-grid, .why-grid, .limits-grid, .materials-grid, .send-receive-grid, .education-grid, .micro-calc-grid, .service-grid, .scenario-grid, .timeline-grid, .faq-grid, .article-teaser-grid, .proof-grid, .cases-grid, .local-seo-grid, .expert-proof-grid, .conversion-strip-grid, .footer-map, .form-grid { grid-template-columns: 1fr !important; width: 100% !important; max-width: 100% !important; }
+      .hero-visual { width: 100% !important; max-width: 100% !important; min-height: 342px !important; margin-top: 22px !important; overflow: hidden !important; border-radius: 24px !important; }
+      .hero-visual::before, .hero-visual::after { max-width: 100% !important; }
+      .hero-card-main { left: 14px !important; right: 14px !important; top: 14px !important; width: auto !important; max-width: calc(100% - 28px) !important; height: 160px !important; }
+      .hero-chip { left: 12px !important; right: 12px !important; bottom: 12px !important; width: auto !important; justify-content: center !important; }
+      .hero-mini-grid { left: 14px !important; right: 14px !important; bottom: 14px !important; width: auto !important; max-width: calc(100% - 28px) !important; grid-template-columns: 1fr !important; }
+      .hero-mini { width: 100% !important; min-height: auto !important; }
+      .hero-mini:nth-child(n+2) { display: none !important; }
+      .route-card, .why-card, .limits-card, .materials-card, .service-card, .scenario-card, .case-card, .process-card, .brief-panel, .form-panel, .micro-calc-panel, .micro-calc-result, .article-teaser, .faq-item, .expert-proof-card, .conversion-strip-item, .local-seo-panel { width: 100% !important; max-width: 100% !important; min-width: 0 !important; overflow: hidden !important; }
+      .mobile-action-bar { display: grid !important; grid-template-columns: minmax(0,1fr) minmax(0,1fr) !important; left: 10px !important; right: 10px !important; bottom: calc(10px + env(safe-area-inset-bottom, 0px)) !important; width: auto !important; max-width: calc(100vw - 20px) !important; padding: 8px !important; overflow: hidden !important; }
+      .mobile-action-bar .btn { min-height: 44px !important; padding: 9px 6px !important; font-size: 13px !important; }
+      .mobile-action-bar .link-avatar { display: none !important; }
+      .site-footer { padding-bottom: calc(130px + env(safe-area-inset-bottom, 0px)) !important; }
+      img, svg, video, canvas { max-width: 100% !important; height: auto; }
+    }
+
+
+    .nap-card { display:grid; gap:6px; margin:18px 0; padding:18px; border:1px solid rgba(255,255,255,.18); border-radius:22px; background:rgba(255,255,255,.08); color:#fff; }
+    .nap-card strong { font-size:1.05rem; }
+    .nap-card span, .nap-card a { color:rgba(255,255,255,.82); }
+
   </style>
 <script type="application/ld+json">
   {
@@ -2423,12 +2512,15 @@
       "addressCountry": "RU"
     },
     "email": "info@step3d.tech",
+    "telephone": "+7-925-272-78-04",
+    "priceRange": "₽₽",
     "url": "https://amailab.github.io/Step3D/",
     "image": "https://amailab.github.io/Step3D/assets/img/og-step3d.webp",
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "customer support",
       "email": "info@step3d.tech",
+      "telephone": "+7-925-272-78-04",
       "availableLanguage": ["ru"]
     },
     "hasOfferCatalog": {
@@ -2477,9 +2569,11 @@
       {
         "@type": "LocalBusiness",
         "name": "Step3D",
-        "areaServed": "Москва",
+        "areaServed": ["Москва", "Московская область"],
         "url": "https://amailab.github.io/Step3D/",
         "email": "info@step3d.tech",
+        "telephone": "+7-925-272-78-04",
+        "priceRange": "₽₽",
         "description": "3D-печать, моделирование, сканирование, реверс-инжиниринг, прототипы и малые серии в Москве."
       },
       {
@@ -2533,17 +2627,17 @@
 </div>
 </div>
 </header>
-<nav class="mobile-action-bar" aria-label="Быстрые действия"><a class="btn btn-secondary" href="https://t.me/step_3d_mngr" rel="noopener" target="_blank" data-metric="telegram_click"><img class="link-avatar" src="assets/avatar-ai-agent-step3d.svg" alt="" width="24" height="24" loading="lazy" decoding="async"><span>Написать</span></a><a class="btn btn-primary" href="#brief" data-metric="brief_click">Оценить задачу</a></nav>
+<nav class="mobile-action-bar" aria-label="Быстрые действия"><a class="btn btn-secondary" href="https://t.me/step_3d_mngr" rel="noopener" target="_blank" data-metric="telegram_click"><img class="link-avatar" src="assets/avatar-ai-agent-step3d.svg" alt="" width="24" height="24" loading="lazy" decoding="async"><span>Написать</span></a><a class="btn btn-primary" href="#brief" data-metric="brief_click">Оценить по фото</a></nav>
 <main id="main">
 <section class="hero" id="top">
 <div class="container hero-grid">
 <div class="hero-copy">
 <div class="hero-kicker"><span class="pulse-dot"></span> 3D-печать, CAD и STL-модели по фото</div>
-<h1>Превращаем фото, эскизы и идеи в печатные 3D-модели</h1>
-<p class="hero-subtitle">Step3D помогает быстро пройти путь от картинки, сломанной детали или референса до STL, прототипа, объекта для события или малой серии. Сначала оцениваем задачу, потом предлагаем технологию, цену, срок и риски.</p>
+<h1>Оценим и изготовим 3D-деталь по фото, образцу или STL</h1>
+<p class="hero-subtitle">Step3D — московская 3D-лаборатория для печати, CAD-моделирования, STL по фото, 3D-сканирования и реверс-инжиниринга. Быстро оцениваем задачу по фото, эскизу или файлу и даём понятный маршрут: технология, цена, срок, риски и следующий шаг.</p>
 <div class="hero-actions">
-<a class="btn btn-primary" href="#brief" data-metric="brief_click">Оценить задачу</a>
-<a class="btn btn-secondary" href="#cases">Посмотреть кейсы</a>
+<a class="btn btn-primary" href="#brief" data-metric="brief_click">Оценить по фото</a>
+<a class="btn btn-secondary" href="https://t.me/step_3d_mngr" rel="noopener" target="_blank" data-metric="telegram_click">Фото в Telegram</a>
 
 </div>
 <div class="hero-proof-row" aria-label="Короткие доказательства Step3D">
@@ -2575,6 +2669,14 @@
 <div class="hero-mini"><span>Scan</span><p>3D-сканирование и реверс-инжиниринг</p></div>
 </div>
 </div>
+</div>
+</section>
+<section class="conversion-strip" aria-label="Почему Step3D удобно для быстрой заявки">
+<div class="container conversion-strip-grid">
+<div class="conversion-strip-item"><strong>1 ответ</strong><span>технология, цена, срок и риски вместо долгой переписки</span></div>
+<div class="conversion-strip-item"><strong>4 входа</strong><span>фото, эскиз, STL/STEP или физическая деталь</span></div>
+<div class="conversion-strip-item"><strong>Москва</strong><span>локальная 3D-лаборатория + удалённая оценка задач</span></div>
+<div class="conversion-strip-item"><strong>от 10 000 ₽</strong><span>STL-модель по фото или референсу для печати</span></div>
 </div>
 </section>
 <section aria-labelledby="promise-title" class="section-tight" id="promise">
@@ -3221,6 +3323,7 @@
 <div aria-label="Подходящие форматы файлов" class="file-tags">
 <span>STL</span><span>STEP</span><span>OBJ</span><span>3MF</span><span>DXF</span><span>PDF</span><span>JPG/PNG</span>
 </div>
+<div class="nap-card" aria-label="Реквизиты Step3D"><strong>Step3D · Москва</strong><span>ООО «СТЕП_3Д» · ИНН 9717166010</span><span>Телефон: <a href="tel:+79252727804">+7 925 272-78-04</a></span><span>Email: <a href="mailto:info@step3d.tech">info@step3d.tech</a></span><span>Telegram: <a href="https://t.me/step_3d_mngr" rel="noopener" target="_blank">@step_3d_mngr</a></span></div>
 <div class="contact-links">
 <a class="btn btn-dark" href="https://t.me/step_3d_mngr" rel="noopener" target="_blank" data-metric="telegram_click"><img class="link-avatar" src="assets/avatar-ai-agent-step3d.svg" alt="" width="24" height="24" loading="lazy" decoding="async"><span>Написать AI-агенту</span></a>
 <button class="btn btn-secondary" id="copyTemplateButton" type="button">Скопировать шаблон</button>
@@ -3236,7 +3339,7 @@
 <div class="lead-trust-item"><strong>Без предоплаты за вопрос</strong>Сначала оцениваем вводные и риски; оплату обсуждаем только перед запуском работ.</div>
 <div class="lead-trust-item"><strong>Файлы и NDA</strong>STL/STEP/фото отправляются менеджеру в Telegram; для корпоративных задач можно начать с NDA.</div>
 </div>
-<div class="lead-mode-tabs" role="tablist" aria-label="Режим заявки">
+<div class="lead-mode-tabs" aria-label="Режим заявки">
 <button class="lead-mode-tab is-active" type="button" data-lead-mode="quick">Быстрая заявка</button>
 <button class="lead-mode-tab" type="button" data-lead-mode="full">Подробная заявка</button>
 </div>
@@ -3257,6 +3360,16 @@
 <div class="quick-lead-actions"><a class="btn btn-primary" id="quickTelegramLink" href="https://t.me/step_3d_mngr" rel="noopener" target="_blank" data-metric="telegram_click"><img class="link-avatar" src="assets/avatar-ai-agent-step3d.svg" alt="" width="24" height="24" loading="lazy" decoding="async"><span>Отправить AI-агенту</span></a><button class="btn btn-secondary" type="button" id="copyQuickLead">Скопировать текст</button></div>
 </div>
 <div class="lead-mode-panel" data-lead-panel="full" hidden>
+<div class="quick-lead-box first-answer-box">
+<h3>Что вы получите в первом ответе</h3>
+<ul class="check-list">
+<li>Можно ли сделать по вашим вводным.</li>
+<li>Маршрут: печать, CAD-модель, 3D-сканирование, реверс или тест.</li>
+<li>Ориентир цены, срока и главные риски.</li>
+<li>Что дослать для точной сметы и запуска.</li>
+</ul>
+<p>Обычно для первичной оценки хватает фото, размера, срока и назначения детали.</p>
+</div>
 <form action="https://formsubmit.co/26b4f038fb3a1a0c655bdd1f674b6299" class="lead-form" id="leadForm" method="POST" novalidate="">
 <input name="_subject" type="hidden" value="Новая заявка Step3D"/>
 <input name="_template" type="hidden" value="table"/>
@@ -3264,19 +3377,19 @@
 <input name="_next" type="hidden" value="https://amailab.github.io/Step3D/thanks/"/>
 <input name="leadSource" type="hidden" value="Главная страница Step3D — форма расчёта"/>
 <input name="leadIntent" type="hidden" value="Предварительный расчёт стоимости и следующего шага"/>
-<input name="_honey" type="text" tabindex="-1" autocomplete="off" class="visually-hidden" aria-hidden="true"/>
+<input name="_honey" type="text" tabindex="-1" autocomplete="off" class="visually-hidden" aria-hidden="true" aria-label="Не заполнять"/>
 <div class="form-grid">
 <div class="field">
 <label for="name">Имя</label>
 <input autocomplete="name" id="name" name="name" placeholder="Как к вам обращаться"/>
 </div>
 <div class="field">
-<label for="email">Электронная почта <span aria-hidden="true">*</span></label>
-<input autocomplete="email" id="email" name="email" placeholder="name@example.com" required type="email"/>
+<label for="email">Электронная почта</label>
+<input autocomplete="email" id="email" name="email" placeholder="name@example.com" type="email"/>
 </div>
 <div class="field">
-<label for="contact">Телефон или Telegram</label>
-<input autocomplete="tel" id="contact" name="contact" placeholder="Телефон или @username"/>
+<label for="contact">Телефон или Telegram <span aria-hidden="true">*</span></label>
+<input autocomplete="tel" id="contact" name="contact" placeholder="Телефон или @username" required/>
 </div>
 <div class="field">
 <label for="projectType">Тип проекта</label>
@@ -3395,6 +3508,19 @@
 <article class="faq-item"><h3>Как получить более точную смету?</h3><p>Сразу пришлите габариты, назначение детали, фото или STL/STEP, количество, срок и требования к прочности/внешнему виду. Тогда предварительный расчёт обычно получается быстрее и точнее.</p></article>
 <article class="faq-item"><h3>Почему нельзя сразу назвать точную цену по одному фото?</h3><p>По фото можно быстро дать вилку и маршрут, но точность зависит от размеров, посадок, материала, количества и постобработки. Если пришлёте габарит и назначение, расчёт станет заметно точнее.</p></article>
 <article class="faq-item"><h3>Что делать, если нет чертежа и деталь сложная?</h3><p>Начинаем с фото, размеров и критичных зон. Если нужна точная посадка или повторяемость, предложим 3D-сканирование, инженерную модель или тестовую печать перед финальной партией.</p></article>
+</div>
+</div>
+</section>
+<section aria-labelledby="local-seo-title" class="section-tight" id="3d-pechat-moskva">
+<div class="container local-seo-panel">
+<p class="eyebrow">3D-печать Москва</p>
+<h2 class="section-title" id="local-seo-title">3D-печать, CAD-моделирование и реверс-инжиниринг в Москве</h2>
+<p class="section-lead">Step3D помогает частным клиентам, мастерским, технопаркам, вузам и компаниям быстро оценить задачу по фото, эскизу, STL/STEP или сломанной детали. Работаем с прототипами, корпусами, запчастями, сценическими объектами, наградами, образовательными макетами и малыми сериями.</p>
+<div class="seo-service-cloud" aria-label="Ключевые услуги Step3D"><a href="3d-printing/">3D-печать деталей</a><a href="stl-po-foto/">STL по фото</a><a href="reverse-engineering/">реверс-инжиниринг</a><a href="urgent-spare-parts/">запчасть по фото</a><a href="services/">CAD-моделирование</a><a href="workshops/">мастер-классы</a><a href="cad-modeling/">CAD-моделирование</a><a href="3d-scan/">3D-сканирование</a><a href="small-batch-production/">малые серии</a><a href="industrial-parts/">детали для оборудования</a></div>
+<div class="local-seo-grid">
+<div><strong>Для срочных задач</strong><p>Сломанная пластиковая деталь, корпус, крепление или объект к событию — начните с фото и размера.</p></div>
+<div><strong>Для бизнеса</strong><p>Прототипы, оснастка, малые серии, закрытые инженерные задачи и аккуратный расчёт рисков.</p></div>
+<div><strong>Для образования</strong><p>Практические занятия, демонстрационные макеты и проектная работа с цифровым производством.</p></div>
 </div>
 </div>
 </section>
@@ -3824,7 +3950,7 @@
     // Проверяет минимальную готовность заявки перед формированием письма.
     function validateLeadData(leadData) {
       const errors = [];
-      if (!leadData.email) errors.push('укажите электронную почту');
+      if (!leadData.contact) errors.push('укажите телефон или Telegram для ответа');
       if (leadData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(leadData.email)) errors.push('проверьте формат email');
       if (!leadData.projectType) errors.push('выберите тип проекта');
       if (leadData.description.length < 20) errors.push('добавьте описание задачи хотя бы в 1-2 предложения');
@@ -3896,7 +4022,7 @@
     function updateFormReadiness() {
       const leadData = collectLeadData();
       const checks = [
-        Boolean(leadData.email),
+        Boolean(leadData.contact),
         Boolean(leadData.projectType),
         leadData.description.length >= 20,
         Boolean(leadData.deadline),
