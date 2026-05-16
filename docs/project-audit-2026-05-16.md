@@ -83,3 +83,12 @@ git diff --check
 - На мобильных показывается мягкий install CTA; на iOS даётся подсказка «Поделиться → На экран Домой».
 - Manifest содержит shortcuts: заявка, кабинет, галерея.
 - Telegram Mini App пока не включён как production: следующий слой — backend/auth + Telegram WebApp entrypoint.
+
+
+## Полное заполнение таблиц
+
+- Google Sheet CRM/CMS заполнен рабочими данными: Settings, Content, Cases, FAQ, Pages, Backlog.
+- Pages содержит реестр 30 HTML-страниц сайта с title/H1/description/keyword/CTA/source.
+- Content содержит ключевые блоки сайта и операционные правила публикации.
+- Cases, FAQ и Backlog заполнены реальными рабочими строками для продаж, SEO и развития проекта.
+- Контроль: `python3 scripts/audit_content_sheet.py` включён в `project_healthcheck`.

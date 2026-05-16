@@ -26,6 +26,7 @@ REQUIRED_FILES = [
     "data/content_sheet_config.json",
     "docs/content-cms-sheet.md",
     "scripts/export_content_sheet.py",
+    "scripts/audit_content_sheet.py",
 ]
 
 
@@ -78,6 +79,7 @@ def main() -> int:
     run([sys.executable, "scripts/check_analytics_events.py"])
     run([sys.executable, "scripts/append_lead_to_sheet.py", "--sample", "--dry-run"])
     run([sys.executable, "scripts/export_content_sheet.py", "--dry-run"])
+    run([sys.executable, "scripts/audit_content_sheet.py"])
     print("STEP3D_PROJECT_HEALTHCHECK_OK")
     return 0
 

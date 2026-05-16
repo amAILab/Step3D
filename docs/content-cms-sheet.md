@@ -35,3 +35,14 @@ python3 scripts/export_content_sheet.py --out data/content_export.json
 1. Идеи, FAQ, кейсы, тексты и backlog можно заносить в Sheet.
 2. Для публикации на сайте: экспорт → review diff → правка HTML/генератора → `project_healthcheck` → commit/push/deploy.
 3. Не делать Google Sheet единственным источником правды для production без отдельного backend/generation review.
+
+## Контроль заполнения
+
+Таблица считается рабочей, если заполнены вкладки `Settings`, `Content`, `Cases`, `FAQ`, `Pages`, `Backlog` и проходит аудит:
+
+```bash
+python3 scripts/audit_content_sheet.py
+python3 scripts/export_content_sheet.py --out data/content_export.json
+```
+
+Минимальные пороги аудита: Content ≥ 8 строк, Cases ≥ 4, FAQ ≥ 8, Pages ≥ 25, Backlog ≥ 8.
