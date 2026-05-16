@@ -3204,6 +3204,43 @@ section, [id] { scroll-margin-top: 132px; }
   .quick-lead-preset { white-space: normal !important; text-align: left !important; }
 }
 
+
+
+/* Design pass: faster hero reading and recurring conversion points. */
+.hero h1 { max-width: 11.5ch !important; }
+.hero-subtitle { max-width: 720px !important; font-size: clamp(18px, 1.55vw, 22px) !important; line-height: 1.42 !important; }
+.hero-proof-row span:first-child { border-color: rgba(37,99,235,.32) !important; background: linear-gradient(135deg,#eff6ff,#ffffff) !important; }
+.hero-answer-card { border-color: rgba(37,99,235,.22) !important; }
+.hero-answer-list li { background: rgba(239,246,255,.86) !important; border-color: rgba(37,99,235,.16) !important; }
+.design-soft-cta { padding: 8px 0 24px; }
+.design-soft-cta-card { display:grid; grid-template-columns: auto minmax(0,1fr) auto; gap: 14px; align-items:center; padding: 16px 18px; border:1px solid rgba(37,99,235,.18); border-radius:24px; background:linear-gradient(135deg,#f8fbff,#fff); box-shadow:0 18px 48px rgba(15,23,42,.06); }
+.design-soft-cta-card span { color:#2563eb; font-weight:900; font-size:.88rem; text-transform:uppercase; letter-spacing:.09em; }
+.design-soft-cta-card strong { color:#0f172a; letter-spacing:-.03em; line-height:1.22; }
+@media (min-width: 1000px) {
+  .hero { padding-top: 58px !important; }
+  .hero-actions .btn-primary { font-size: 1.03rem !important; padding-inline: 24px !important; }
+}
+@media (max-width: 760px) {
+  .hero h1 { max-width: 12ch !important; font-size: clamp(42px, 12vw, 54px) !important; }
+  .hero-subtitle { font-size: 17px !important; line-height:1.42 !important; }
+  .hero-proof-row { gap:8px !important; }
+  .hero-proof-row span:nth-child(n+4) { display:none !important; }
+  .design-soft-cta { padding: 6px 0 18px; }
+  .design-soft-cta-card { grid-template-columns:1fr; gap:9px; padding:14px; border-radius:20px; }
+  .design-soft-cta-card .btn { width:100%; justify-content:center; }
+}
+
+
+
+/* Design QA fix: keep mobile hero content from colliding with the next section. */
+@media (max-width: 760px) {
+  .hero { padding-bottom: 46px !important; }
+  .hero-copy { padding-bottom: 18px !important; }
+  .hero-answer-card { margin-bottom: 14px !important; overflow: visible !important; }
+  .hero-note { margin-bottom: 0 !important; }
+  .conversion-strip { margin-top: 0 !important; }
+}
+
 </style>
 <script type="application/ld+json">
   {
@@ -3257,7 +3294,7 @@ section, [id] { scroll-margin-top: 132px; }
       {"@type": "Question", "name": "Какие файлы лучше прислать?", "acceptedAnswer": {"@type": "Answer", "text": "Для печати подойдут STL, 3MF или OBJ. Для инженерной доработки лучше STEP, PDF/DXF, фото детали и ключевые размеры."}},
       {"@type": "Question", "name": "Можно сделать малую серию?", "acceptedAnswer": {"@type": "Answer", "text": "Да. После прототипа можно подготовить повторяемый процесс: материал, настройки, постобработку и расчёт партии."}},
       {"@type": "Question", "name": "От чего зависит цена?", "acceptedAnswer": {"@type": "Answer", "text": "Цена зависит от размера, материала, сложности модели, количества, срочности, точности и уровня постобработки."}},
-      {"@type": "Question", "name": "Что будет в ответе на заявку?", "acceptedAnswer": {"@type": "Answer", "text": "В предварительном ответе Step3D даёт подходящую технологию, ориентир по сроку и бюджету, риски, список уточнений и следующий шаг: моделирование, сканирование, тестовая печать или партия."}},
+      {"@type": "Question", "name": "Что будет в ответе на заявку?", "acceptedAnswer": {"@type": "Answer", "text": "В предварительном ответе Step3D даёт подходящую технологию, нужен ли CAD/скан и бюджету, риски, список уточнений и что может не получиться: моделирование, сканирование, тестовая печать или партия."}},
       {"@type": "Question", "name": "Можно оценить деталь без чертежа?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Для первичной оценки можно прислать фото с разных сторон, габариты, назначение детали и критичные посадочные места. Step3D подскажет, достаточно ли этих данных или нужен 3D-скан и инженерная модель."}},
       {"@type": "Question", "name": "Как получить более точную смету?", "acceptedAnswer": {"@type": "Answer", "text": "Сразу пришлите габариты, назначение детали, фото или STL/STEP, количество, срок и требования к прочности или внешнему виду. Тогда предварительный расчёт обычно получается быстрее и точнее."}}
     ]
@@ -3343,11 +3380,11 @@ section, [id] { scroll-margin-top: 132px; }
 <div class="container hero-grid">
 <div class="hero-copy">
 <div class="hero-kicker"><span class="pulse-dot"></span> 3D-печать, CAD и STL-модели по фото</div>
-<h1>Оценим и изготовим 3D-деталь по фото, образцу или STL</h1>
-<p class="hero-subtitle">Step3D — московская 3D-лаборатория для печати, CAD-моделирования, STL по фото, 3D-сканирования и реверс-инжиниринга. Быстро оцениваем задачу по фото, эскизу или файлу и даём понятный маршрут: технология, цена, срок, риски и следующий шаг.</p>
+<h1>Рассчитаем и изготовим 3D-деталь по фото или STL</h1>
+<p class="hero-subtitle">Пришлите фото, эскиз, образец или STL/STEP — скажем, можно ли сделать, нужен ли CAD/сканирование, сколько это может стоить и где есть риск переделок.</p>
 <div class="hero-actions">
-<a class="btn btn-primary" href="#brief" data-metric="brief_click">Оценить по фото</a>
-<a class="btn btn-secondary" href="https://t.me/step_3d_mngr" rel="noopener" target="_blank" data-metric="telegram_click">Фото в Telegram</a>
+<a class="btn btn-primary" href="#brief" data-metric="brief_click">Получить оценку детали</a>
+<a class="btn btn-secondary" href="https://t.me/step_3d_mngr" rel="noopener" target="_blank" data-metric="telegram_click">Написать в Telegram</a>
 
 </div>
 <div class="hero-proof-row" aria-label="Короткие доказательства Step3D">
@@ -3358,15 +3395,15 @@ section, [id] { scroll-margin-top: 132px; }
 </div>
 <div class="hero-answer-card" aria-label="Что получите после заявки">
 <strong>В ответе на заявку: что реально сделать и за сколько</strong>
-<p>Без длинной переписки: технология, ориентир цены, срок, ограничения и следующий шаг для запуска.</p>
+<p>В одном сообщении: можно ли напечатать, нужна ли модель, порядок цены, срок и что дослать для точного запуска.</p>
 <ul class="hero-answer-list">
-<li>подходящая технология</li>
-<li>ориентир по сроку</li>
-<li>диапазон бюджета</li>
-<li>следующий шаг</li>
+<li>можно ли напечатать</li>
+<li>нужен ли CAD/скан</li>
+<li>сколько будет стоить</li>
+<li>что может не получиться</li>
 </ul>
 </div>
-<p class="hero-note">Для срочной замены сломанной детали укажите «срочно» и срок — проверим, реально ли напечатать, восстановить модель или лучше выбрать другой маршрут.</p>
+<p class="hero-note">Москва · работаем удалённо · оценка по фото · первый ответ обычно в рабочий день.</p>
 </div>
 <div aria-label="Примеры работ Step3D" class="hero-visual">
 <div class="hero-card-main">
@@ -3383,10 +3420,10 @@ section, [id] { scroll-margin-top: 132px; }
 </section>
 <section class="conversion-strip" aria-label="Почему Step3D удобно для быстрой заявки">
 <div class="container conversion-strip-grid">
-<div class="conversion-strip-item"><strong>1 ответ</strong><span>технология, цена, срок и риски вместо долгой переписки</span></div>
-<div class="conversion-strip-item"><strong>4 входа</strong><span>фото, эскиз, STL/STEP или физическая деталь</span></div>
-<div class="conversion-strip-item"><strong>Москва</strong><span>локальная 3D-лаборатория + удалённая оценка задач</span></div>
-<div class="conversion-strip-item"><strong>от 10 000 ₽</strong><span>STL-модель по фото или референсу для печати</span></div>
+<div class="conversion-strip-item"><strong>1-й ответ</strong><span>можно ли сделать, цена, срок и риски без длинной переписки</span></div>
+<div class="conversion-strip-item"><strong>4 старта</strong><span>фото, эскиз, STL/STEP или образец детали</span></div>
+<div class="conversion-strip-item"><strong>Москва</strong><span>локальная лаборатория + удалённая оценка по фото и файлам</span></div>
+<div class="conversion-strip-item"><strong>от 10 000 ₽</strong><span>печатная STL-модель по фото или референсу</span></div>
 </div>
 </section>
 <section class="answer-proof-strip" aria-label="Что вы получите в первом ответе Step3D">
@@ -3396,14 +3433,15 @@ section, [id] { scroll-margin-top: 132px; }
 <div><strong>Срок и риски</strong><span>что можно сделать быстро, а где нужен тест или замер</span></div>
 </div>
 </section>
+<section class="design-soft-cta design-soft-cta--top" aria-label="Быстрая заявка после первого экрана"><div class="container design-soft-cta-card"><span>Есть фото или STL?</span><strong>Проверим, можно ли сразу печатать или сначала нужна модель.</strong><a class="btn btn-primary" href="#brief" data-prefill="Нужно проверить фото или STL и получить маршрут производства">Проверить мою деталь</a></div></section>
 <section aria-labelledby="promise-title" class="section-tight" id="promise">
 <div class="container">
 <div class="section-head">
 <div>
 <p class="eyebrow">Коротко о работе</p>
-<h2 class="section-title" id="promise-title">Сначала проверяем задачу, потом запускаем производство</h2>
+<h2 class="section-title" id="promise-title">Сначала скажем, реально ли это сделать</h2>
 </div>
-<p class="section-lead">Не просим клиента разбираться в технологиях. Достаточно прислать фото, файл, размер и срок — дальше собираем понятный маршрут.</p>
+<p class="section-lead">Достаточно прислать фото, файл, размер и срок. Мы переведём это в понятный план: печать, CAD, сканирование, реверс или отказ от 3D-печати, если она не подходит.</p>
 </div>
 <div class="process-grid">
 <article class="process-card"><strong>01</strong><h3>Вводные</h3><p>Фото, STL/STEP, эскиз, размеры, количество и желаемый срок.</p></article>
@@ -3453,6 +3491,7 @@ section, [id] { scroll-margin-top: 132px; }
 </div>
 </div>
 </section>
+<section class="design-soft-cta design-soft-cta--route" aria-label="Переход к расчёту после сценариев"><div class="container design-soft-cta-card"><span>Не уверены, какой маршрут выбрать?</span><strong>Пришлите вводные — скажем, нужен ли CAD, сканирование или можно печатать сразу.</strong><a class="btn btn-secondary" href="#project-quiz">Подобрать маршрут</a></div></section>
 
 <section aria-labelledby="why-title" class="section-tight" id="why-step3d">
 <div class="container">
@@ -3981,7 +4020,7 @@ section, [id] { scroll-margin-top: 132px; }
 <aside class="quiz-panel">
 <p class="eyebrow">Быстрый подбор</p>
 <h2 id="quiz-title">Не знаете, с чего начать? Выберите ближайшую задачу</h2>
-<p>Квиз не заменяет расчёт, но помогает сразу сформулировать заявку: тип проекта, исходники и следующий шаг.</p>
+<p>Квиз не заменяет расчёт, но помогает сразу сформулировать заявку: тип проекта, исходники и что может не получиться.</p>
 <div aria-label="Варианты задач Step3D" class="quiz-options">
 <button class="quiz-option is-active" data-quiz="broken" type="button"><strong>Сломалась или потерялась деталь</strong><span>Нужно повторить форму, посадки или крепления.</span></button>
 <button class="quiz-option" data-quiz="idea" type="button"><strong>Есть идея, но нет 3D-модели</strong><span>Есть эскиз, фото, размеры или пример.</span></button>
@@ -4031,7 +4070,7 @@ section, [id] { scroll-margin-top: 132px; }
 </form>
 <aside class="micro-calc-result" aria-live="polite">
 <h3 id="microCalcTitle">Предварительно: стандартная оценка</h3>
-<p id="microCalcText">Заполните поля — подскажем, что прислать для расчёта и какой следующий шаг лучше.</p>
+<p id="microCalcText">Заполните поля — подскажем, что прислать для расчёта и какой что может не получиться лучше.</p>
 <div class="calc-template-box">
 <label for="microCalcTemplate"><strong>Готовый текст для Telegram</strong></label>
 <textarea id="microCalcTemplate" readonly>Задача для Step3D: 3D-печать детали. Файл есть: STL/STEP. Срок: не срочно.</textarea>
@@ -4068,12 +4107,12 @@ section, [id] { scroll-margin-top: 132px; }
 </div>
 </aside>
 <section aria-label="Форма заявки" class="form-panel">
-<h2>Получите предварительную оценку и понятный следующий шаг</h2>
+<h2>Получите предварительную оценку и понятный что может не получиться</h2>
 <p><strong>Нет чертежа?</strong> Пришлите фото, размеры и задачу детали — подскажем маршрут: моделирование, сканирование, прототип или малая серия.</p>
-<p>Заполните короткую форму за пару минут: по вводным мы подскажем технологию, примерный диапазон бюджета и что нужно прислать для точного расчёта. Обязателен только телефон или Telegram; email можно оставить, если удобнее получить ответ письмом. Файлы — STL, STEP, фото, чертёж или эскиз — отправьте следом в Telegram.</p>
+<p>Заполните короткую форму за пару минут: по вводным мы подскажем технологию, примерный сколько будет стоить и что нужно прислать для точного расчёта. Обязателен только телефон или Telegram; email можно оставить, если удобнее получить ответ письмом. Файлы — STL, STEP, фото, чертёж или эскиз — отправьте следом в Telegram.</p>
 <div aria-label="Что будет после заявки" class="lead-trust-strip">
 <div class="lead-trust-item"><strong>Оценка за 1 день</strong>По фото, STL/STEP или эскизу даём предварительный диапазон и список уточнений.</div>
-<div class="lead-trust-item"><strong>Ответ по делу</strong>Сначала проверяем вводные, потом предлагаем технологию и следующий шаг.</div>
+<div class="lead-trust-item"><strong>Ответ по делу</strong>Сначала проверяем вводные, потом предлагаем технологию и что может не получиться.</div>
 <div class="lead-trust-item"><strong>Без предоплаты за вопрос</strong>Сначала оцениваем вводные и риски; оплату обсуждаем только перед запуском работ.</div>
 <div class="lead-trust-item"><strong>Файлы и NDA</strong>STL/STEP/фото отправляются менеджеру в Telegram; для корпоративных задач можно начать с NDA.</div>
 </div>
@@ -4185,8 +4224,8 @@ section, [id] { scroll-margin-top: 132px; }
 </div>
 <p aria-live="polite" class="form-error" id="formError"></p>
 <div class="form-actions">
-<button class="btn btn-primary" type="submit">Рассчитать стоимость по фото</button>
-<a class="btn btn-secondary" href="https://t.me/step_3d_mngr" rel="noopener" target="_blank" data-metric="telegram_click"><img class="link-avatar" src="assets/avatar-ai-agent-step3d.webp" alt="" width="24" height="24" loading="lazy" decoding="async"><span>Прикрепить файл в Telegram</span></a>
+<button class="btn btn-primary" type="submit">Получить оценку детали</button>
+<a class="btn btn-secondary" href="https://t.me/step_3d_mngr" rel="noopener" target="_blank" data-metric="telegram_click"><img class="link-avatar" src="assets/avatar-ai-agent-step3d.webp" alt="" width="24" height="24" loading="lazy" decoding="async"><span>Отправить файл в Telegram</span></a>
 </div>
 <p class="form-hint">Минимум для быстрой оценки: фото/референс, примерный размер, срок и что должно получиться на выходе. Файлы сайт не загружает — STL/STEP/фото можно прислать ответом на письмо или в Telegram после заявки.</p>
 <p class="privacy-note">Нажимая кнопку, вы передаёте данные для расчёта задачи и ответа по проекту. Подробнее: <a href="privacy/">политика обработки данных</a>.</p>
@@ -4248,7 +4287,7 @@ section, [id] { scroll-margin-top: 132px; }
 <article class="faq-item"><h3>Какие файлы лучше прислать?</h3><p>Для печати подойдут STL, 3MF или OBJ. Для инженерной доработки лучше STEP, PDF/DXF, фото детали и ключевые размеры.</p></article>
 <article class="faq-item"><h3>Можно сделать малую серию?</h3><p>Да. После прототипа можно подготовить повторяемый процесс: материал, настройки, постобработку и расчёт партии.</p></article>
 <article class="faq-item"><h3>От чего зависит цена?</h3><p>От размера, материала, сложности модели, количества, срочности, точности и уровня постобработки.</p></article>
-<article class="faq-item"><h3>Что будет в ответе на заявку?</h3><p>Подскажем технологию, ориентир по сроку и бюджету, риски, список уточнений и следующий шаг: моделирование, сканирование, тестовая печать или партия.</p></article>
+<article class="faq-item"><h3>Что будет в ответе на заявку?</h3><p>Подскажем технологию, нужен ли CAD/скан и бюджету, риски, список уточнений и что может не получиться: моделирование, сканирование, тестовая печать или партия.</p></article>
 <article class="faq-item"><h3>Можно оценить деталь без чертежа?</h3><p>Да. Для первичной оценки можно прислать фото с разных сторон, габариты, назначение детали и критичные посадочные места. Мы подскажем, достаточно ли этих данных или нужен 3D-скан и инженерная модель.</p></article>
 <article class="faq-item"><h3>Как получить более точную смету?</h3><p>Сразу пришлите габариты, назначение детали, фото или STL/STEP, количество, срок и требования к прочности/внешнему виду. Тогда предварительный расчёт обычно получается быстрее и точнее.</p></article>
 <article class="faq-item"><h3>Почему нельзя сразу назвать точную цену по одному фото?</h3><p>По фото можно быстро дать вилку и маршрут, но точность зависит от размеров, посадок, материала, количества и постобработки. Если пришлёте габарит и назначение, расчёт станет заметно точнее.</p></article>
@@ -4274,7 +4313,7 @@ section, [id] { scroll-margin-top: 132px; }
 <div class="contact-card">
 <div>
 <p class="eyebrow">Контакты</p>
-<h2 id="contacts-title">Пришлите задачу — подскажем следующий шаг</h2>
+<h2 id="contacts-title">Пришлите задачу — подскажем что может не получиться</h2>
 <p>Лучше сразу указать размеры, срок, количество, назначение изделия и приложить фото, эскиз или файл.</p>
 <div class="contact-links">
 <a class="btn btn-primary" href="https://t.me/step_3d_mngr" rel="noopener" target="_blank" data-metric="telegram_click"><img class="link-avatar" src="assets/avatar-ai-agent-step3d.webp" alt="" width="24" height="24" loading="lazy" decoding="async"><span>Написать AI-агенту</span></a>
@@ -4823,7 +4862,7 @@ section, [id] { scroll-margin-top: 132px; }
         window.open(managerTelegram, '_blank', 'noopener');
       } finally {
         submitButton.disabled = false;
-        submitButton.textContent = 'Рассчитать стоимость по фото';
+        submitButton.textContent = 'Получить оценку детали';
       }
     });
 
@@ -4869,7 +4908,7 @@ section, [id] { scroll-margin-top: 132px; }
       const size = document.getElementById('calcSize').value.trim();
       const qty = document.getElementById('calcQty').value.trim();
       let level = 'стандартная оценка';
-      let text = 'Пришлите описание, размер, количество и файл/фото — дадим предварительный диапазон и следующий шаг.';
+      let text = 'Пришлите описание, размер, количество и файл/фото — дадим предварительный диапазон и что может не получиться.';
       if (deadline.includes('Срочно')) {
         level = 'срочная проверка реализуемости';
         text = 'Сначала проверим, реально ли успеть: нужен файл или фото, точные габариты, материал и крайний срок.';
