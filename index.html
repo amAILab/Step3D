@@ -3297,6 +3297,21 @@ section, [id] { scroll-margin-top: 132px; }
   .contact-action-panel .btn { min-height: 46px !important; }
 }
 
+
+
+/* Work roadmap sprint layer — series 1/2/3, lightweight and safe. */
+.work-roadmap-grid, .sector-pack-grid, .automation-loop-grid { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:14px; }
+.work-roadmap-card, .sector-pack-card, .automation-loop-card { padding:22px; border-radius:28px; border:1px solid rgba(198,210,223,.82); background:rgba(255,255,255,.92); box-shadow:0 18px 54px rgba(15,23,42,.075); }
+.work-roadmap-card strong, .sector-pack-card strong, .automation-loop-card strong { display:block; margin-bottom:8px; color:#1d4ed8 !important; font-size:.92rem; letter-spacing:.08em; text-transform:uppercase; }
+.work-roadmap-card h3, .sector-pack-card h3, .automation-loop-card h3 { margin:0 0 9px; font-size:1.35rem; line-height:1.08; letter-spacing:-.035em; }
+.work-roadmap-card p, .sector-pack-card p, .automation-loop-card p { margin:0; color:var(--muted); }
+.work-roadmap-list { margin:14px 0 0; padding:0; list-style:none; display:grid; gap:8px; color:var(--muted); }
+.work-roadmap-list li::before { content:"→"; margin-right:8px; color:#1d4ed8; font-weight:900; }
+.sector-pack-card { display:grid; gap:10px; }
+.sector-pack-card span { display:inline-flex; width:max-content; max-width:100%; padding:7px 10px; border-radius:999px; background:#eaf2ff; color:#12357c; font-weight:850; font-size:.86rem; }
+.automation-loop-card code { display:block; margin-top:10px; padding:10px 12px; border-radius:14px; background:#0b1220; color:#dbeafe; white-space:normal; font-size:.86rem; }
+@media (max-width: 900px) { .work-roadmap-grid, .sector-pack-grid, .automation-loop-grid { grid-template-columns:1fr !important; } }
+
 </style>
 <script type="application/ld+json">
   {
@@ -3491,6 +3506,20 @@ section, [id] { scroll-margin-top: 132px; }
 <div><strong>Срок и риски</strong><span>что можно сделать быстро, а где нужен тест или замер</span></div>
 </div>
 </section>
+
+<section aria-labelledby="work-roadmap-title" class="section-tight" id="work-roadmap">
+<div class="container">
+<div class="section-head">
+<div><p class="eyebrow">План развития</p><h2 class="section-title" id="work-roadmap-title">Step3D улучшается сериями: сайт, доверие, автоматизация</h2></div>
+<p class="section-lead">График работ собран так, чтобы каждая серия давала проверяемую ссылку и не ломала текущую форму заявок.</p>
+</div>
+<div class="work-roadmap-grid">
+<article class="work-roadmap-card"><strong>Серия 1</strong><h3>UX и конверсия</h3><p>Делаем путь клиента короче: фото/STL → маршрут → заявка или Telegram.</p><ul class="work-roadmap-list"><li>первый экран и CTA</li><li>карта сценариев</li><li>мобильный путь к форме</li></ul></article>
+<article class="work-roadmap-card"><strong>Серия 2</strong><h3>Контент и доверие</h3><p>Показываем, кому подходит Step3D и что клиент получит до оплаты.</p><ul class="work-roadmap-list"><li>отраслевые пакеты</li><li>кейсы и ограничения</li><li>SEO-подсказки</li></ul></article>
+<article class="work-roadmap-card"><strong>Серия 3</strong><h3>CRM и контроль</h3><p>Связываем форму, лиды, Google Sheet CRM, проверки и безопасный деплой.</p><ul class="work-roadmap-list"><li>lead pipeline</li><li>healthcheck</li><li>следующий цикл</li></ul></article>
+</div>
+</div>
+</section>
 <section class="design-soft-cta design-soft-cta--top" aria-label="Быстрая заявка после первого экрана"><div class="container design-soft-cta-card"><span>Есть фото или STL?</span><strong>Проверим, можно ли сразу печатать или сначала нужна модель.</strong><a class="btn btn-primary" href="#brief" data-prefill="Нужно проверить фото или STL и получить маршрут производства">Проверить мою деталь</a></div></section>
 <section aria-labelledby="promise-title" class="section-tight" id="promise">
 <div class="container">
@@ -3572,6 +3601,20 @@ section, [id] { scroll-margin-top: 132px; }
 <article class="limits-card"><strong>Не называем финальную цену по одному фото</strong><p>Сначала даём диапазон, риски и список вводных для точной сметы.</p></article>
 <article class="limits-card"><strong>Не запускаем серию без тестового образца</strong><p>Сначала проверяем геометрию, материал, посадки и повторяемость.</p></article>
 <article class="limits-card"><strong>Не предлагаем 3D-печать, если лучше другой способ</strong><p>Если выгоднее купить, фрезеровать, лить или изменить конструкцию — скажем прямо.</p></article>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="sector-packs-title" class="section-tight" id="sector-packs">
+<div class="container">
+<div class="section-head">
+<div><p class="eyebrow">Кому особенно полезно</p><h2 class="section-title" id="sector-packs-title">Готовые входы для разных клиентов</h2></div>
+<p class="section-lead">Если клиент узнаёт себя в карточке, ему проще прислать вводные и быстрее получить расчёт.</p>
+</div>
+<div class="sector-pack-grid">
+<article class="sector-pack-card"><span>Производство</span><h3>Сломалась или нужна редкая деталь</h3><p>Фото, размер, место установки, нагрузка. В ответ — печать, CAD, реверс или честный отказ от 3D-печати.</p><a class="btn btn-secondary" href="#brief" data-prefill="Производственная деталь / замена / оснастка">Оценить деталь</a></article>
+<article class="sector-pack-card"><span>Дизайн / R&D</span><h3>Прототип, корпус или мастер-модель</h3><p>Референс, габарит, назначение и желаемая фактура. В ответ — маршрут CAD → печать → тест.</p><a class="btn btn-secondary" href="#brief" data-prefill="Прототип / корпус / мастер-модель">Запустить прототип</a></article>
+<article class="sector-pack-card"><span>События и образование</span><h3>Объект к дате или мастер-класс</h3><p>Дедлайн, аудитория, размер и визуальный стиль. В ответ — программа или производственный план к событию.</p><a class="btn btn-secondary" href="#brief" data-prefill="Событие / мастер-класс / образовательный проект">Обсудить формат</a></article>
 </div>
 </div>
 </section>
@@ -4143,6 +4186,20 @@ section, [id] { scroll-margin-top: 132px; }
 </div>
 </section>
 
+
+<section aria-labelledby="automation-loop-title" class="section-tight" id="automation-loop">
+<div class="container">
+<div class="section-head">
+<div><p class="eyebrow">Автоматизация</p><h2 class="section-title" id="automation-loop-title">Заявка не должна теряться после формы</h2></div>
+<p class="section-lead">Контур Step3D уже ведём как мини-систему: сайт, форма, CRM, журнал лидов, проверки и публикация через GitHub Pages.</p>
+</div>
+<div class="automation-loop-grid">
+<article class="automation-loop-card"><strong>1. Вход</strong><h3>Форма и Telegram</h3><p>Клиент может оставить контакт, описание, срок, количество и наличие файлов.</p><code>FormSubmit → email + thanks page</code></article>
+<article class="automation-loop-card"><strong>2. Обработка</strong><h3>Lead router и CRM</h3><p>Заявка нормализуется, может попасть в локальный журнал, TASK_INBOX и Google Sheet CRM.</p><code>lead_router.py → leads_log.jsonl → Sheet</code></article>
+<article class="automation-loop-card"><strong>3. Контроль</strong><h3>Healthcheck перед публикацией</h3><p>Перед словами «готово» проверяются сайт, схема заявки, аналитика и техническое состояние проекта.</p><code>project_healthcheck.py + validate_site.py</code></article>
+</div>
+</div>
+</section>
 <section aria-labelledby="brief-title" class="section brief-section" id="brief">
 <div class="container brief-wrap">
 <aside class="brief-panel">
