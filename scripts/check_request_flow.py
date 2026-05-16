@@ -31,6 +31,7 @@ CHECKS = {
         "brief progress": "briefProgressText",
         "project next actions": "projectNextActions",
         "file intake cards": "file-intake-grid",
+        "minimal UI stylesheet": "minimal-ui.css",
     },
     "account/index.html": {
         "project id sanitizing": "replace(/[^A-Z0-9-]/gi,'')",
@@ -65,6 +66,9 @@ def main() -> int:
             if snippet not in text:
                 errors.append(f"{rel}: missing {label}: {snippet}")
     index = (ROOT / "index.html").read_text(encoding="utf-8")
+    for rel in ["index.html", "app/index.html", "account/index.html", "thanks/index.html", "viewer/index.html"]:
+        if "minimal-ui.css" not in (ROOT / rel).read_text(encoding="utf-8"):
+            errors.append(f"{rel}: missing minimal-ui.css")
     if "window.open(`${managerTelegram}" in index or "window.setTimeout(() => window.open" in index:
         errors.append("index.html: Telegram auto-open after submit/fallback is back")
     if errors:
