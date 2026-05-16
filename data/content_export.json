@@ -183,6 +183,45 @@
         "auth, file upload, Telegram Mini App",
         "Step3D",
         "2026-05-16"
+      ],
+      [
+        "content-miniapp-ux-spec",
+        "miniapp",
+        "published",
+        "UX спецификация Mini App",
+        "docs/mini-app-ux-spec.md",
+        "Использовать наши наброски как вдохновение.",
+        "Mini App проектируется как рабочий пульт клиента: заявка, файлы, мой проект, AI-агент, статус и следующий шаг.",
+        "Открыть spec",
+        "Telegram Mini App, UX, Step3D App",
+        "Step3D",
+        "2026-05-16"
+      ],
+      [
+        "content-miniapp-three-actions",
+        "miniapp",
+        "published",
+        "Первые 3 действия",
+        "Mini App home",
+        "Оставить заявку, дослать файлы, открыть мой проект.",
+        "Первое открытие Mini App должно показывать максимум 3 главных действия: заявка, файлы, мой проект.",
+        "Начать проект",
+        "mobile UX, Telegram WebApp",
+        "Step3D",
+        "2026-05-16"
+      ],
+      [
+        "content-tool-fit-rule",
+        "ops",
+        "published",
+        "Правило оптимального инструмента",
+        "project-wide",
+        "Для каждой задачи использовать оптимальный актуальный инструмент.",
+        "Коммуникация — Telegram Mini App; установка — PWA; лиды/контент — Sheet; приватные файлы — backend/auth; публикация — GitHub checks/deploy.",
+        "Выбрать инструмент",
+        "architecture, workflow",
+        "Step3D",
+        "2026-05-16"
       ]
     ],
     "cases": [
@@ -755,6 +794,18 @@
         "app/index.html",
         "2026-05-16",
         "Стартовая PWA/app страница"
+      ],
+      [
+        "https://amailab.github.io/Step3D/docs/mini-app-ux-spec.md",
+        "published",
+        "Step3D Telegram Mini App — UX spec from internal references",
+        "Step3D Telegram Mini App — UX spec from internal references",
+        "Спецификация UX для Telegram Mini App на основе внутренних референсов Step3D.",
+        "Telegram Mini App Step3D UX",
+        "Спроектировать MVP",
+        "docs/mini-app-ux-spec.md",
+        "2026-05-16",
+        "Документация/архитектура"
       ]
     ],
     "backlog": [
@@ -895,6 +946,36 @@
         "pwa/ux",
         "Добавить мягкое уведомление о новой версии приложения",
         "PWA обновляется через service worker, пользователю нужен понятный refresh",
+        "Step3D",
+        "2026-05-16"
+      ],
+      [
+        "miniapp-wireframe-from-spec",
+        "todo",
+        "high",
+        "miniapp/ux",
+        "Собрать кликабельный wireframe по docs/mini-app-ux-spec.md",
+        "Есть живые референсы, нужно превратить их в аккуратный прототип",
+        "Step3D",
+        "2026-05-16"
+      ],
+      [
+        "miniapp-service-cards",
+        "todo",
+        "medium",
+        "miniapp/ui",
+        "Сделать систему карточек услуг с маскотом и иконками",
+        "Референсы показывают сильный паттерн выбора услуги",
+        "Step3D",
+        "2026-05-16"
+      ],
+      [
+        "miniapp-confirmation-number",
+        "todo",
+        "medium",
+        "miniapp/flow",
+        "Добавить экран подтверждения с номером заявки",
+        "Это повышает доверие и делает коммуникацию управляемой",
         "Step3D",
         "2026-05-16"
       ]
