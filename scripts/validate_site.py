@@ -103,22 +103,25 @@ def validate_index_js() -> list[str]:
     if not index.exists():
         return ["index.html not found"]
     text = index.read_text(encoding="utf-8")
-    if "<script>" not in text or "</script>" not in text:
+    scripts = re.findall(r"<script(?![^>]+src=)(?![^>]+application/ld\+json)[^>]*>(.*?)</script>", text, flags=re.I | re.S)
+    if not scripts:
         return []
-    js = text[text.index("<script>") + len("<script>") : text.rindex("</script>")]
-    with tempfile.NamedTemporaryFile("w", suffix=".js", delete=False, encoding="utf-8") as tmp:
-        tmp.write(js)
-        tmp_path = Path(tmp.name)
     try:
-        result = subprocess.run(["node", "--check", str(tmp_path)], text=True, capture_output=True)
-        if result.returncode != 0:
-            return ["node --check failed for index.html inline script:\n" + result.stderr.strip()]
+        for idx, js in enumerate(scripts, start=1):
+            if not js.strip():
+                continue
+            with tempfile.NamedTemporaryFile("w", suffix=".js", delete=False, encoding="utf-8") as tmp:
+                tmp.write(js)
+                tmp_path = Path(tmp.name)
+            try:
+                result = subprocess.run(["node", "--check", str(tmp_path)], text=True, capture_output=True)
+                if result.returncode != 0:
+                    return [f"node --check failed for index.html inline script #{idx}:\n" + result.stderr.strip()]
+            finally:
+                tmp_path.unlink(missing_ok=True)
     except FileNotFoundError:
         return ["node not found; skipped JS syntax validation"]
-    finally:
-        tmp_path.unlink(missing_ok=True)
     return []
-
 
 def validate_lead_capture() -> list[str]:
     """Guard the conversion path: lead form, thank-you page and contact CTAs."""

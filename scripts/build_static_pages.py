@@ -451,7 +451,9 @@ def render_page(data):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<style>{BASE_CSS}{HEADER_FOOTER_CSS}{WORLD_CLASS_CSS}</style>
+<style>{BASE_CSS}{HEADER_FOOTER_CSS}{WORLD_CLASS_CSS}
+.pwa-install-card{{position:fixed;left:16px;right:16px;bottom:16px;z-index:180;display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;max-width:760px;margin:0 auto;padding:14px 14px 14px 18px;border:1px solid rgba(148,163,184,.36);border-radius:24px;background:rgba(255,255,255,.94);backdrop-filter:blur(18px);box-shadow:0 22px 70px rgba(15,23,42,.22);color:#111827}}.pwa-install-card strong{{display:block;font-weight:900;letter-spacing:-.03em}}.pwa-install-card span{{display:block;color:#475569;font-size:14px;line-height:1.35}}.pwa-install-button{{border:0;border-radius:999px;background:linear-gradient(135deg,#111827,#1d4ed8);color:#fff;font-weight:900;padding:11px 14px}}.pwa-dismiss{{width:34px;height:34px;border:0;border-radius:999px;background:#eef2f7;color:#334155;font-size:22px;line-height:1}}.pwa-install-card--hint{{grid-template-columns:1fr auto}}@media(max-width:640px){{.pwa-install-card{{grid-template-columns:1fr;bottom:calc(86px + env(safe-area-inset-bottom,0px));left:10px;right:10px}}.pwa-dismiss{{position:absolute;right:8px;top:8px}}.pwa-install-button{{width:100%}}}}
+</style>
 <script type="application/ld+json">
 {{
   "@context": "https://schema.org",
@@ -463,6 +465,11 @@ def render_page(data):
   "url": "https://amailab.github.io/Step3D/{data.get('canonical','')}"
 }}
 </script>
+<link rel="manifest" href="../assets/site.webmanifest">
+<meta name="theme-color" content="#111827">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Step3D">
+<link rel="apple-touch-icon" href="../assets/step3d-logo-192.png">
 </head>
 <body>
 <header aria-label="Верхнее меню сайта" class="site-header"><div class="container header-inner"><a aria-label="Step3D на начало страницы" class="brand" href="../"><span aria-hidden="true" class="brand-mark brand-mark--image"><span class="brand-logo-steel"><img src="../assets/step3d-logo-steel.webp" alt="" width="96" height="82" decoding="async"/></span></span>Step3D</a><nav aria-label="Основная навигация" class="nav"><a href="../#services">Услуги</a><a href="../stl-po-foto/">STL по фото</a><a href="../#cases">Кейсы</a><a href="../gallery/">Галерея</a><a href="../account/">Кабинет</a><a href="../#prices">Стоимость</a><a href="../#brief">Заявка</a></nav><div class="header-actions"><a class="btn btn-secondary" href="https://t.me/Step3D_Lab" rel="noopener" target="_blank" data-metric="telegram_click"><img class="link-avatar" src="../assets/avatar-channel-step3d.webp" alt="" width="24" height="24" loading="lazy" decoding="async"><span>Канал</span></a><a class="btn btn-primary" href="../?project={project_query}#brief" data-metric="brief_click">Рассчитать</a></div></div></header>
@@ -476,6 +483,7 @@ def render_page(data):
 <section class="section"><div class="container cta"><div><h2>Хотите оценить похожую задачу?</h2><p>Пришлите фото, размеры, срок и короткое описание — подскажем технологию, риски и порядок бюджета.</p></div><a class="btn primary" href="../?project={project_query}#brief">Заполнить заявку</a></div></section>
 </main>
 <footer class="site-footer" aria-label="Карта сайта Step3D"><div class="container"><div class="footer-map"><div class="footer-brand"><strong>Step3D</strong><p>Единое производство 3D-услуг в Москве: AI-оценка задачи, CAD, 3D-сканирование, печать, прототипы и малые серии.</p></div><nav class="footer-col" aria-label="Услуги"><h3>Услуги</h3><ul><li><a href="../services/">Все услуги</a></li><li><a href="../3d-printing/">3D-печать</a></li><li><a href="../reverse-engineering/">Реверс-инжиниринг</a></li><li><a href="../urgent-spare-parts/">Запчасть по фото</a></li><li><a href="../workshops/">Мастер-классы</a></li></ul></nav><nav class="footer-col" aria-label="Разделы сайта"><h3>Разделы</h3><ul><li><a href="../#promise">Как работаем</a></li><li><a href="../#cases">Кейсы</a></li><li><a href="../gallery/">Галерея</a></li><li><a href="../#project-quiz">Квиз подбора</a></li><li><a href="../#prices">Стоимость</a></li><li><a href="../#faq">FAQ</a></li></ul></nav><nav class="footer-col" aria-label="Материалы"><h3>Материалы</h3><ul><li><a href="../cases/">Страница кейсов</a></li><li><a href="../gallery/">Галерея работ</a></li><li><a href="../account/">Личный кабинет</a></li><li><a href="../articles/">Статьи и гайды</a></li><li><a href="../guide/">Как подготовить задачу</a></li><li><a href="../sitemap.xml">Sitemap.xml</a></li></ul></nav><nav class="footer-col" aria-label="Контакты"><h3>Контакты</h3><ul><li><a href="../#brief">Оставить заявку</a></li><li><a href="https://t.me/step_3d_mngr" rel="noopener" target="_blank" data-metric="telegram_click"><img class="link-avatar" src="../assets/avatar-ai-agent-step3d.webp" alt="" width="24" height="24" loading="lazy" decoding="async">AI-агент</a></li><li><a href="https://t.me/Step3D_Lab" rel="noopener" target="_blank" data-metric="telegram_click"><img class="link-avatar" src="../assets/avatar-channel-step3d.webp" alt="" width="24" height="24" loading="lazy" decoding="async">Канал Step3D</a></li><li><a href="mailto:projects.step3d@gmail.com">projects.step3d@gmail.com</a></li><li><a href="tel:+79959009141">+7 (995) 900-91-41</a></li><li>Москва · ответ обычно в рабочий день</li><li><a href="../privacy/">Политика данных</a></li></ul></nav></div><div class="footer-bottom"><span>© Step3D. 3D-печать · дизайн · прототипирование</span><span>Москва · AI-оценка 3D-задач по фото, эскизу или STL/STEP</span></div></div></footer>
+<script src="../assets/pwa-install.js" defer></script>
 </body>
 </html>'''
 

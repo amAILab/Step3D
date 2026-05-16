@@ -216,6 +216,8 @@ h1, h2, h3, .section-title, .brand, strong { color: var(--ink) !important; }
   .section-lead, .hero-subtitle, .lead, p { color: #475569 !important; }
 }
 
+
+.pwa-install-card{position:fixed;left:16px;right:16px;bottom:16px;z-index:180;display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;max-width:760px;margin:0 auto;padding:14px 14px 14px 18px;border:1px solid rgba(148,163,184,.36);border-radius:24px;background:rgba(255,255,255,.94);backdrop-filter:blur(18px);box-shadow:0 22px 70px rgba(15,23,42,.22);color:#111827}.pwa-install-card strong{display:block;font-weight:900;letter-spacing:-.03em}.pwa-install-card span{display:block;color:#475569;font-size:14px;line-height:1.35}.pwa-install-button{border:0;border-radius:999px;background:linear-gradient(135deg,#111827,#1d4ed8);color:#fff;font-weight:900;padding:11px 14px}.pwa-dismiss{width:34px;height:34px;border:0;border-radius:999px;background:#eef2f7;color:#334155;font-size:22px;line-height:1}.pwa-install-card--hint{grid-template-columns:1fr auto}@media(max-width:640px){.pwa-install-card{grid-template-columns:1fr;bottom:calc(86px + env(safe-area-inset-bottom,0px));left:10px;right:10px}.pwa-dismiss{position:absolute;right:8px;top:8px}.pwa-install-button{width:100%}}
 </style>
 <script type="application/ld+json">
 {
@@ -228,6 +230,11 @@ h1, h2, h3, .section-title, .brand, strong { color: var(--ink) !important; }
   "url": "https://amailab.github.io/Step3D/industrial-parts/"
 }
 </script>
+<link rel="manifest" href="../assets/site.webmanifest">
+<meta name="theme-color" content="#111827">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Step3D">
+<link rel="apple-touch-icon" href="../assets/step3d-logo-192.png">
 </head>
 <body>
 <header aria-label="Верхнее меню сайта" class="site-header">
@@ -254,5 +261,6 @@ h1, h2, h3, .section-title, .brand, strong { color: var(--ink) !important; }
 <nav class="footer-col" aria-label="Контакты"><h3>Контакты</h3><ul><li><a href="../#brief">Оставить заявку</a></li><li><a href="https://t.me/step_3d_mngr" rel="noopener" target="_blank" data-metric="telegram_click"><img class="link-avatar" src="../assets/avatar-ai-agent-step3d.webp" alt="" width="24" height="24" loading="lazy" decoding="async">AI-агент</a></li><li><a href="https://t.me/Step3D_Lab" rel="noopener" target="_blank" data-metric="telegram_click"><img class="link-avatar" src="../assets/avatar-channel-step3d.webp" alt="" width="24" height="24" loading="lazy" decoding="async">Канал Step3D</a></li><li><a href="mailto:projects.step3d@gmail.com">projects.step3d@gmail.com</a></li><li><a href="tel:+79959009141">+7 (995) 900-91-41</a></li><li>Москва · ответ обычно в рабочий день</li><li><a href="../privacy/">Политика данных</a></li></ul></nav>
 </div><div class="footer-bottom"><span>© Step3D. 3D-печать · дизайн · прототипирование</span><span>Москва · AI-оценка 3D-задач по фото, эскизу или STL/STEP</span></div></div>
 </footer>
+<script src="../assets/pwa-install.js" defer></script>
 </body>
 </html>

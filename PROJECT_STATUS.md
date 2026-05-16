@@ -80,3 +80,11 @@ gh run watch --exit-status $(gh run list --limit 1 --json databaseId -q '.[0].da
 - Документация: `docs/content-cms-sheet.md`.
 - Экспорт: `python3 scripts/export_content_sheet.py --dry-run` или `--out data/content_export.json`.
 - Production всё ещё контролируется GitHub/diff/review, чтобы случайная правка в таблице не ломала сайт.
+
+
+## PWA / installable app
+
+- Сайт стал устанавливаемым PWA: `assets/site.webmanifest`, `service-worker.js`, `assets/pwa-install.js`.
+- На мобильных показывается мягкий install CTA; на iOS даётся подсказка «Поделиться → На экран Домой».
+- Manifest содержит shortcuts: заявка, кабинет, галерея.
+- Telegram Mini App пока не включён как production: следующий слой — backend/auth + Telegram WebApp entrypoint.

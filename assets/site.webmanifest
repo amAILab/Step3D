@@ -1,13 +1,26 @@
 {
-  "name": "Step3D",
+  "name": "Step3D — 3D-печать и CAD",
   "short_name": "Step3D",
-  "description": "3D-печать, 3D-моделирование, сканирование и прототипирование в Москве.",
-  "start_url": "/Step3D/",
+  "description": "Оценка и изготовление 3D-деталей по фото, образцу или STL. Заявки, кабинет, контакты и Telegram под рукой.",
+  "id": "/Step3D/",
+  "start_url": "/Step3D/?source=pwa",
   "scope": "/Step3D/",
   "display": "standalone",
-  "background_color": "#f5f5f2",
-  "theme_color": "#f5f5f2",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "orientation": "portrait-primary",
+  "background_color": "#f7f9fc",
+  "theme_color": "#111827",
+  "categories": ["business", "productivity", "utilities"],
+  "lang": "ru-RU",
+  "dir": "ltr",
   "icons": [
-    { "src": "assets/favicon.svg", "sizes": "64x64", "type": "image/svg+xml" }
+    { "src": "/Step3D/assets/favicon.svg", "sizes": "64x64", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/Step3D/assets/step3d-logo-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/Step3D/assets/step3d-logo-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Оставить заявку", "short_name": "Заявка", "url": "/Step3D/#brief", "description": "Быстро отправить вводные по детали" },
+    { "name": "Личный кабинет", "short_name": "Кабинет", "url": "/Step3D/account/", "description": "Открыть кабинет клиента Step3D" },
+    { "name": "Галерея работ", "short_name": "Галерея", "url": "/Step3D/gallery/", "description": "Посмотреть примеры работ Step3D" }
   ]
 }
