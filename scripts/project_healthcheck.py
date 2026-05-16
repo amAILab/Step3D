@@ -83,6 +83,10 @@ def main() -> int:
     (ROOT / "data" / "leads_log.jsonl").write_text("", encoding="utf-8")
     run([sys.executable, "scripts/check_step3d_leads.py", "--self-test"])
     run([sys.executable, "scripts/check_analytics_events.py"])
+    assert (ROOT / "assets" / "mobile-readability.css").exists(), "mobile readability CSS missing"
+    home = (ROOT / "index.html").read_text(encoding="utf-8")
+    assert "Получить расчёт по фото/STL" in home, "unified request CTA missing"
+    assert 'role="tablist"' in home and "aria-selected" in home, "lead tabs accessibility missing"
     run([sys.executable, "scripts/append_lead_to_sheet.py", "--sample", "--dry-run"])
     run([sys.executable, "scripts/export_content_sheet.py", "--dry-run"])
     run([sys.executable, "scripts/audit_content_sheet.py"])
