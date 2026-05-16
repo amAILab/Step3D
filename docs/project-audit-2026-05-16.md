@@ -45,3 +45,10 @@ python3 scripts/lead_router.py --sample --json
 python3 scripts/check_step3d_leads.py --self-test
 git diff --check
 ```
+
+
+## Локальный журнал лидов
+
+- `scripts/lead_router.py --write-log` пишет нормализованную заявку в `data/leads_log.jsonl`.
+- `scripts/lead_router.py --write-task` создаёт карточку в `../TASK_INBOX.md`.
+- По умолчанию роутер работает в `dry-run` и не отправляет внешние сообщения.

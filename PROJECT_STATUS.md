@@ -50,3 +50,10 @@ gh run watch --exit-status $(gh run list --limit 1 --json databaseId -q '.[0].da
 - Файлы пока отправляются в Telegram: https://t.me/step_3d_mngr
 - Не отправлять внешние письма/сообщения клиентам без подтверждения.
 - Если `scripts/check_step3d_leads.py` выводит `NO_NEW_LEADS`, отвечать строго `NO_REPLY`.
+
+
+## Локальный журнал лидов
+
+- `scripts/lead_router.py --write-log` пишет нормализованную заявку в `data/leads_log.jsonl`.
+- `scripts/lead_router.py --write-task` создаёт карточку в `../TASK_INBOX.md`.
+- По умолчанию роутер работает в `dry-run` и не отправляет внешние сообщения.

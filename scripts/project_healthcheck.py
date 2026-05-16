@@ -64,7 +64,10 @@ def main() -> int:
     run([sys.executable, "scripts/validate_site.py"])
     run([sys.executable, "scripts/validate_lead_payload.py", "--sample"])
     run([sys.executable, "scripts/lead_router.py", "--sample", "--json"])
+    run([sys.executable, "scripts/lead_router.py", "--sample", "--write-log", "--json"])
+    (ROOT / "data" / "leads_log.jsonl").write_text("", encoding="utf-8")
     run([sys.executable, "scripts/check_step3d_leads.py", "--self-test"])
+    run([sys.executable, "scripts/check_analytics_events.py"])
     print("STEP3D_PROJECT_HEALTHCHECK_OK")
     return 0
 

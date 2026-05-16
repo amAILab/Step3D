@@ -60,3 +60,10 @@ git diff --check
 - Honeypot `_honey` / `botField` должен оставаться пустым.
 - Обязательный контакт: телефон или Telegram; email необязателен.
 - Для важных заявок фиксировать карточку в `TASK_INBOX.md` и готовить короткий ответ клиенту.
+
+
+## Локальный журнал лидов
+
+- `scripts/lead_router.py --write-log` пишет нормализованную заявку в `data/leads_log.jsonl`.
+- `scripts/lead_router.py --write-task` создаёт карточку в `../TASK_INBOX.md`.
+- По умолчанию роутер работает в `dry-run` и не отправляет внешние сообщения.
