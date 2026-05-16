@@ -2910,6 +2910,72 @@ section, [id] { scroll-margin-top: 132px; }
   .case-links { margin-top: 0 !important; }
 }
 
+
+
+/* Quiz action panel: replace oversized oval buttons with clear premium CTA hierarchy. */
+.quiz-action-panel.service-links-row {
+  display: grid !important;
+  grid-template-columns: minmax(220px, 1.15fr) repeat(2, minmax(170px, .85fr)) !important;
+  gap: 12px !important;
+  margin-top: 18px !important;
+  align-items: stretch !important;
+}
+.quiz-action-panel .btn {
+  width: 100% !important;
+  min-height: 64px !important;
+  border-radius: 18px !important;
+  padding: 14px 16px !important;
+  justify-content: center !important;
+  text-align: center !important;
+  box-shadow: none !important;
+}
+.quiz-action-main {
+  display: grid !important;
+  gap: 3px !important;
+  align-content: center !important;
+}
+.quiz-action-main span,
+.quiz-action-secondary span { font-size: 15px !important; line-height: 1.1 !important; }
+.quiz-action-main small {
+  color: rgba(255,255,255,.78) !important;
+  font-size: 12px !important;
+  font-weight: 750 !important;
+  letter-spacing: .02em !important;
+}
+.quiz-action-secondary {
+  background: #f8fbff !important;
+  border-color: rgba(198,210,223,.95) !important;
+  color: #0f172a !important;
+}
+.quiz-action-secondary:hover {
+  background: #eaf2ff !important;
+  border-color: rgba(37,99,235,.30) !important;
+  color: #12357c !important;
+}
+@media (max-width: 760px) {
+  .quiz-action-panel.service-links-row { grid-template-columns: 1fr !important; }
+  .quiz-action-panel .btn { min-height: 52px !important; border-radius: 16px !important; }
+}
+
+
+
+/* Quiz action panel final: prevent grid stretching into tall blobs. */
+.quiz-result { align-content: start !important; align-items: start !important; }
+.quiz-action-panel.service-links-row {
+  align-self: start !important;
+  height: auto !important;
+  min-height: 0 !important;
+  align-items: start !important;
+}
+.quiz-action-panel .btn {
+  height: auto !important;
+  max-height: 72px !important;
+  align-self: start !important;
+  flex: 0 0 auto !important;
+}
+.quiz-action-panel .btn::before,
+.quiz-action-panel .btn::after { display: none !important; }
+
 </style>
 <script type="application/ld+json">
   {
@@ -3701,10 +3767,10 @@ section, [id] { scroll-margin-top: 132px; }
 <li>Если важны посадки — отметьте критичные размеры.</li>
 </ul>
 </div>
-<div class="service-links-row">
-<a class="btn btn-primary" id="quizBriefLink" href="#brief" data-prefill="Реверсивный инжиниринг / сканирование">Заполнить заявку</a>
-<a class="btn btn-secondary" id="quizServiceLink" href="reverse-engineering/">Подробнее об услуге</a>
-<a class="btn btn-ghost" href="cases/">Смотреть кейсы</a>
+<div class="quiz-action-panel service-links-row" aria-label="Действия после подбора услуги">
+<a class="btn btn-primary quiz-action-main" id="quizBriefLink" href="#brief" data-prefill="Реверсивный инжиниринг / сканирование"><span>Заполнить заявку</span><small>получить расчёт</small></a>
+<a class="btn btn-secondary quiz-action-secondary" id="quizServiceLink" href="reverse-engineering/"><span>Подробнее об услуге</span></a>
+<a class="btn btn-ghost quiz-action-secondary" href="cases/"><span>Смотреть кейсы</span></a>
 </div>
 </div>
 </div>
