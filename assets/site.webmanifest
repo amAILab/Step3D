@@ -6,22 +6,71 @@
   "start_url": "/Step3D/app/?source=pwa",
   "scope": "/Step3D/",
   "display": "standalone",
-  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "display_override": [
+    "window-controls-overlay",
+    "standalone",
+    "minimal-ui"
+  ],
   "orientation": "portrait-primary",
   "background_color": "#f7f9fc",
   "theme_color": "#111827",
-  "categories": ["business", "productivity", "utilities"],
+  "categories": [
+    "business",
+    "productivity",
+    "utilities"
+  ],
   "lang": "ru-RU",
   "dir": "ltr",
   "icons": [
-    { "src": "/Step3D/assets/favicon.svg", "sizes": "64x64", "type": "image/svg+xml", "purpose": "any" },
-    { "src": "/Step3D/assets/step3d-logo-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
-    { "src": "/Step3D/assets/step3d-logo-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+    {
+      "src": "/Step3D/assets/favicon.svg",
+      "sizes": "64x64",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/Step3D/assets/step3d-logo-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/Step3D/assets/step3d-logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
   ],
   "shortcuts": [
-    { "name": "Открыть приложение", "short_name": "App", "url": "/Step3D/app/", "description": "Открыть коммуникационный центр Step3D" },
-    { "name": "Оставить заявку", "short_name": "Заявка", "url": "/Step3D/#brief", "description": "Быстро отправить вводные по детали" },
-    { "name": "Личный кабинет", "short_name": "Кабинет", "url": "/Step3D/account/", "description": "Открыть кабинет клиента Step3D" },
-    { "name": "Галерея работ", "short_name": "Галерея", "url": "/Step3D/gallery/", "description": "Посмотреть примеры работ Step3D" }
+    {
+      "name": "Открыть приложение",
+      "short_name": "App",
+      "url": "/Step3D/app/",
+      "description": "Открыть коммуникационный центр Step3D"
+    },
+    {
+      "name": "Оставить заявку",
+      "short_name": "Заявка",
+      "url": "/Step3D/#brief",
+      "description": "Быстро отправить вводные по детали"
+    },
+    {
+      "name": "3D Viewer и расчёт",
+      "short_name": "Viewer",
+      "url": "/Step3D/viewer/",
+      "description": "Открыть просмотр 3D-модели и калькулятор печати"
+    },
+    {
+      "name": "Личный кабинет",
+      "short_name": "Кабинет",
+      "url": "/Step3D/account/",
+      "description": "Открыть кабинет клиента Step3D"
+    },
+    {
+      "name": "Галерея работ",
+      "short_name": "Галерея",
+      "url": "/Step3D/gallery/",
+      "description": "Посмотреть примеры работ Step3D"
+    }
   ]
 }
