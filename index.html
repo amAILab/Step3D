@@ -2750,6 +2750,166 @@ section, [id] { scroll-margin-top: 132px; }
   .mobile-fixed-menu .mobile-menu-item { font-size: 11.5px !important; padding-left: 4px !important; padding-right: 4px !important; }
 }
 
+
+
+/* Desktop cases UX overhaul: wider editorial cards, calmer media, readable production logic. */
+@media (min-width: 1024px) {
+  #cases .section-head {
+    align-items: end !important;
+    margin-bottom: 28px !important;
+  }
+  #cases .section-title {
+    max-width: 680px !important;
+    font-size: clamp(46px, 5vw, 72px) !important;
+    line-height: .94 !important;
+    letter-spacing: -.065em !important;
+  }
+  #cases .section-lead {
+    max-width: 430px !important;
+    font-size: 17px !important;
+    line-height: 1.58 !important;
+  }
+  .cases-grid {
+    grid-template-columns: 1fr !important;
+    gap: 26px !important;
+  }
+  .case-card {
+    grid-template-columns: minmax(390px, .92fr) minmax(0, 1.08fr) !important;
+    min-height: 430px !important;
+    border-radius: 34px !important;
+    overflow: hidden !important;
+    background: rgba(255,255,255,.94) !important;
+  }
+  .case-card:nth-child(even) {
+    grid-template-columns: minmax(0, 1.08fr) minmax(390px, .92fr) !important;
+  }
+  .case-card:nth-child(even) .case-media { order: 2 !important; }
+  .case-card:nth-child(even) .case-content { order: 1 !important; }
+  .case-media {
+    min-height: 430px !important;
+    border-radius: 0 !important;
+    background: linear-gradient(135deg,#eaf2ff,#f8fafc) !important;
+  }
+  .case-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(7,17,31,.02), rgba(7,17,31,.08));
+    pointer-events: none;
+  }
+  .case-media img {
+    min-height: 430px !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    filter: saturate(1.04) contrast(1.02) !important;
+  }
+  .story-badge {
+    top: 18px !important;
+    left: 18px !important;
+    padding: 9px 12px !important;
+    background: rgba(7,17,31,.84) !important;
+    color: #fff !important;
+    border-color: rgba(255,255,255,.22) !important;
+    box-shadow: 0 12px 28px rgba(7,17,31,.18) !important;
+  }
+  .case-content {
+    padding: 34px 38px !important;
+    gap: 18px !important;
+    justify-content: center !important;
+  }
+  .meta {
+    gap: 10px !important;
+    color: #1d4ed8 !important;
+    font-size: 12px !important;
+    letter-spacing: .075em !important;
+  }
+  .meta span {
+    padding: 6px 9px !important;
+    border-radius: 999px !important;
+    background: #eaf2ff !important;
+    color: #12357c !important;
+  }
+  .case-content h3 {
+    max-width: 620px !important;
+    font-size: clamp(30px, 2.6vw, 42px) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -.055em !important;
+  }
+  .case-table {
+    gap: 0 !important;
+    font-size: 15px !important;
+    line-height: 1.46 !important;
+    color: #475569 !important;
+  }
+  .case-row {
+    grid-template-columns: 122px minmax(0,1fr) !important;
+    gap: 18px !important;
+    padding: 12px 0 !important;
+    border-top-color: rgba(198,210,223,.78) !important;
+  }
+  .case-row dt {
+    color: #0f172a !important;
+    font-weight: 800 !important;
+    letter-spacing: -.01em !important;
+  }
+  .case-row dd {
+    max-width: 520px !important;
+  }
+  .case-row--accent {
+    margin-top: 4px !important;
+    padding: 14px 16px !important;
+    border: 1px solid rgba(37,99,235,.18) !important;
+    border-radius: 18px !important;
+    background: linear-gradient(135deg, #eaf2ff, #f8fbff) !important;
+  }
+  .case-row--accent dt { color: #12357c !important; }
+  .case-row--accent dd { color: #0f172a !important; font-weight: 650 !important; }
+  .case-links {
+    margin-top: 4px !important;
+    gap: 12px !important;
+  }
+  .case-links .btn {
+    width: auto !important;
+    min-height: 44px !important;
+    padding: 12px 16px !important;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1220px) {
+  .case-card,
+  .case-card:nth-child(even) {
+    grid-template-columns: 360px minmax(0,1fr) !important;
+  }
+  .case-card:nth-child(even) .case-media { order: 1 !important; }
+  .case-card:nth-child(even) .case-content { order: 2 !important; }
+  .case-content { padding: 30px !important; }
+  .case-content h3 { font-size: 30px !important; }
+  .case-row { grid-template-columns: 108px minmax(0,1fr) !important; }
+}
+
+
+
+/* Desktop cases final tuning: faster entry, top-aligned content, better image crop and obvious CTA. */
+@media (min-width: 1024px) {
+  #cases { padding-top: 54px !important; }
+  #cases .section-head { margin-bottom: 22px !important; }
+  #cases .section-title { font-size: clamp(42px, 4.4vw, 62px) !important; line-height: .96 !important; }
+  .case-content { justify-content: start !important; padding-top: 38px !important; }
+  .case-media img { object-position: center 58% !important; }
+  .case-content::after {
+    content: "Смотреть логику проекта →";
+    display: inline-flex;
+    align-self: flex-start;
+    margin-top: 2px;
+    padding: 11px 14px;
+    border-radius: 999px;
+    background: #eef4fb;
+    color: #12357c;
+    font-weight: 850;
+    font-size: 14px;
+  }
+  .case-links { margin-top: 0 !important; }
+}
+
 </style>
 <script type="application/ld+json">
   {
