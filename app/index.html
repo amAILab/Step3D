@@ -21,42 +21,8 @@
 
 
 
-/* Step3D mobile UX/readability system 2026-05-17 */
-:root{--muted:#243244!important;--line:#94a3b8!important;--focus-blue:#1d4ed8!important;--safe-bg:#f7fafc!important;}
-html{background:var(--safe-bg)!important;scroll-behavior:smooth;}
-body{color:#07111f!important;font-size:16px!important;line-height:1.5!important;background:#f7fafc!important;}
-p,li,.lead,.muted,.note,.section-head p,.card p,.quick span,.trust span,.status-item span,.timeline span,.field label,.metric span,.state span,.flow-step span,.meta span,.file span,.process span{color:#243244!important;line-height:1.5!important;}
-h1,h2,h3,strong,b,.price,.card h2,.card h3,.quick strong,.trust b,.metric b,.state b,.flow-step b,.status-item b,.project-row h3,.file b{color:#07111f!important;}
-.card,.quick,.trust,.metric,.state,.flow-step,.status-item,.project-row,.file,.process,.step,.trust-card,.mini-project,.hero-device,.hero-shell,.hero-card,.hero-card-main,.expert-proof-card,.local-seo-panel,.answer-proof-grid>div,.work-roadmap-card,.sector-pack-card,.automation-loop-card{background:#fff!important;border:1px solid #b8c5d6!important;box-shadow:0 12px 30px rgba(15,23,42,.07)!important;}
-.btn,.button,a.btn,button{font-size:16px!important;}
-.btn-primary,.btn-dark,.bottom-nav a.accent,.pwa-install-button{color:#fff!important;text-shadow:0 1px 0 rgba(0,0,0,.18)!important;background:linear-gradient(135deg,#0f172a,#1d4ed8)!important;border-color:#1d4ed8!important;}
-.btn-soft,.btn-secondary,.btn-ghost,.btn.ghost,.btn.secondary,.side a,.mobile-bar .btn,.bottom-nav a{color:#0f172a!important;background:#fff!important;border-color:#94a3b8!important;}
-.badge,.status,.chip,.hero-chip,.pill,.hero-proof-row span,.meta span{color:#0f3ea8!important;background:#dbeafe!important;border-color:#93c5fd!important;}
-input,textarea,select,.input{color:#0f172a!important;background:#fff!important;border-color:#94a3b8!important;box-shadow:none!important;}
-input::placeholder,textarea::placeholder{color:#64748b!important;opacity:1!important;}
-.proof-strip,.proof-row,.proof-grid,.cta,.dark-section,.dark-card,.footer-dark{background:linear-gradient(135deg,#0f172a,#1d4ed8)!important;color:#fff!important;}
-.proof-strip *,.proof-row *,.proof-grid *,.cta *,.dark-section *,.dark-card *,.footer-dark *{color:#fff!important;}
-.visual-card{color:#fff!important;background:linear-gradient(145deg,#07111f,#102a56 58%,#08344b)!important;}
-.visual-card p,.visual-card span,.visual-card b,.visual-card strong,.visual-card .visual-stat,.visual-card .visual-stat *{color:#fff!important;}
-.visual-card .hotspot{color:#fff!important;background:rgba(15,23,42,.82)!important;border:1px solid rgba(255,255,255,.28)!important;box-shadow:0 14px 34px rgba(0,0,0,.26)!important;}
-.viewer .placeholder div{background:rgba(15,23,42,.82)!important;border-color:rgba(219,234,254,.42)!important;}
-.viewer .placeholder b,.viewer .placeholder span,.drop-hint span{color:#eff6ff!important;}
-@media(max-width:760px){
-  body{font-size:16px!important;background:#f7fafc!important;padding-bottom:calc(86px + env(safe-area-inset-bottom,0px));}
-  .container,.app-shell{width:calc(100% - 24px)!important;}
-  .hero,.section{padding-top:22px!important;padding-bottom:18px!important;}
-  h1{font-size:clamp(30px,8.8vw,42px)!important;line-height:1.04!important;letter-spacing:-.045em!important;text-wrap:balance;}
-  h2{font-size:clamp(24px,7vw,32px)!important;line-height:1.1!important;letter-spacing:-.04em!important;}
-  h3{font-size:20px!important;line-height:1.15!important;}
-  .lead{font-size:16px!important;line-height:1.45!important;}
-  .card,.quick,.trust,.project-row,.file,.process,.status-item,.mini-project,.metric,.state,.flow-step{border-radius:20px!important;padding:16px!important;}
-  .btn{min-height:48px!important;padding:12px 16px!important;border-radius:999px!important;}
-  .hero-actions .btn,.actions .btn,.hero-cta .btn{width:100%!important;}
-  .mobile-bar,.bottom-nav{left:10px!important;right:10px!important;bottom:calc(10px + env(safe-area-inset-bottom,0px))!important;background:rgba(255,255,255,.96)!important;border:1px solid #94a3b8!important;box-shadow:0 16px 42px rgba(15,23,42,.18)!important;}
-  .mobile-bar .btn,.bottom-nav a{min-height:42px!important;font-size:13px!important;padding:9px 8px!important;}
-  .hero-device,.hero-shell{background:#fff!important;}
-}
 </style>
+<link rel="stylesheet" href="../assets/mobile-readability.css">
 </head>
 <body>
 <header class="topbar"><div class="topbar-inner"><a class="brand" href="../"><img src="../assets/step3d-logo-192.png" alt="" width="38" height="38">Step3D App</a><div class="top-actions"><span class="pill"><i class="pill-dot"></i><span>основной хаб проекта</span></span></div></div></header>
@@ -66,7 +32,7 @@ input::placeholder,textarea::placeholder{color:#64748b!important;opacity:1!impor
 <div class="hero-copy reveal">
 <p class="eyebrow"><span>Всё основное — внутри приложения</span></p>
 <h1>Загрузите деталь.<br><span class="gradient-text">Получите расчёт.</span></h1>
-<p class="lead">Step3D App — рабочий пульт клиента: заявка, вводные, файлы, номер проекта и следующий шаг без ухода в мессенджер.</p>
+<p class="lead">Step3D App — единый путь: заявка → номер проекта → файлы в Telegram → расчёт и следующий шаг.</p>
 <div class="hero-cta"><a class="btn btn-primary" href="#app-brief" data-metric="brief_click">Отправить фото или STL</a><a class="btn btn-soft" href="../gallery/">Посмотреть примеры</a></div>
 <div class="trust-row" aria-label="Преимущества"><div class="trust"><b>1 день</b><span>первичная оценка</span></div><div class="trust"><b>Фото/STL</b><span>без чертежа</span></div><div class="trust"><b>Москва</b><span>и удалённо</span></div></div>
 </div>
@@ -93,7 +59,7 @@ input::placeholder,textarea::placeholder{color:#64748b!important;opacity:1!impor
 <textarea class="input textarea" name="task" placeholder="Что нужно сделать: деталь по фото, STL, прототип, серия, ремонт, макет..." required></textarea>
 <div class="field-grid full-fields hide"><input class="input" name="deadline" placeholder="Срок"><input class="input" name="quantity" placeholder="Количество"></div>
 <textarea class="input textarea full-fields hide" name="details" placeholder="Материал, размеры, условия работы, важные ограничения"></textarea>
-<label class="dropzone" id="files"><strong>Файлы / ссылки</strong><span>Вставьте ссылку на Drive/архив или укажите, что файлы нужно запросить отдельно. Приватная загрузка файлов появится после backend/auth.</span><textarea class="input textarea" name="files" placeholder="Ссылка на файлы, список вложений или пометка: файлы отправлю после заявки"></textarea></label>
+<label class="dropzone" id="files"><strong>Файлы / ссылки</strong><span>Если расчёт пришёл из Viewer — он подставится сюда. Файлы пришлите в Telegram с номером проекта S3D.</span><textarea class="input textarea" name="files" placeholder="Ссылка на файлы, список вложений или пометка: файлы отправлю после заявки"></textarea></label>
 <button class="btn btn-dark" type="submit">Создать заявку в приложении</button>
 </form><p class="note">Если автоотправка не сработает, приложение сохранит черновик и предложит email-fallback.</p></article>
 <article class="card project-card"><h2>Мой проект</h2><p class="lead" style="font-size:16px">После отправки здесь появится номер заявки, статус и следующий шаг.</p><div class="id" id="project-id">—</div><div class="timeline"><span>Заявка создана внутри приложения</span><span>Инженер проверяет вводные</span><span>Расчёт / запрос файлов / кабинет проекта</span></div><a class="btn btn-soft" href="../account/">Открыть кабинет проекта</a></article>
@@ -113,7 +79,8 @@ input::placeholder,textarea::placeholder{color:#64748b!important;opacity:1!impor
   tabs.forEach(tab=>tab.addEventListener('click',()=>{tabs.forEach(t=>t.setAttribute('aria-selected','false'));tab.setAttribute('aria-selected','true');const show=tab.dataset.mode==='full';full.forEach(el=>el.classList.toggle('hide',!show));}));
   const form=document.getElementById('appLeadForm'); const success=document.getElementById('app-success'); const projectId=document.getElementById('project-id'); const projectInput=document.getElementById('projectIdInput');
   const saved=localStorage.getItem('step3d:lastProjectId'); if(saved){projectId.textContent=saved; projectInput.value=saved;}
-  form.addEventListener('submit',async(event)=>{event.preventDefault(); if(!form.reportValidity()) return; const id='S3D-'+new Date().toISOString().slice(2,10).replaceAll('-','')+'-'+Math.random().toString(36).slice(2,6).toUpperCase(); projectId.textContent=id; projectInput.value=id; const data=new FormData(form); data.set('projectId',id); data.set('createdAt',new Date().toISOString()); localStorage.setItem('step3d:lastProjectId',id); localStorage.setItem('step3d:lastLead',JSON.stringify(Object.fromEntries(data.entries()))); success.classList.add('show'); success.textContent='Заявка '+id+' создана в приложении. Отправляю копию вводных в Step3D…'; try{const response=await fetch(form.action.replace('formsubmit.co/','formsubmit.co/ajax/'),{method:'POST',body:data,headers:{'Accept':'application/json'}}); if(!response.ok) throw new Error('send failed'); success.textContent='Заявка '+id+' создана и отправлена в Step3D. Следующий шаг — проверка вводных и запрос файлов, если их не хватит.'; form.reset();}catch(error){const mail='mailto:projects.step3d@gmail.com?subject='+encodeURIComponent('Заявка '+id+' из Step3D App')+'&body='+encodeURIComponent([...data.entries()].map(([k,v])=>k+': '+v).join('\n')); success.innerHTML='Заявка '+id+' создана локально. Автоотправка не прошла — <a href="'+mail+'">отправить копию на email</a>.';}});
+  const viewerBrief=localStorage.getItem('step3d:viewerBrief'); if(viewerBrief){const filesField=form?.querySelector('[name=files]'); if(filesField && !filesField.value.trim()) filesField.value=viewerBrief;}
+  form.addEventListener('submit',async(event)=>{event.preventDefault(); if(!form.reportValidity()) return; const id='S3D-'+new Date().toISOString().slice(2,10).replaceAll('-','')+'-'+Math.random().toString(36).slice(2,6).toUpperCase(); projectId.textContent=id; projectInput.value=id; const data=new FormData(form); data.set('projectId',id); data.set('createdAt',new Date().toISOString()); localStorage.setItem('step3d:lastProjectId',id); localStorage.setItem('step3d:lastLead',JSON.stringify(Object.fromEntries(data.entries()))); success.classList.add('show'); success.textContent='Заявка '+id+' создана в приложении. Отправляю копию вводных в Step3D…'; try{const response=await fetch(form.action.replace('formsubmit.co/','formsubmit.co/ajax/'),{method:'POST',body:data,headers:{'Accept':'application/json'}}); if(!response.ok) throw new Error('send failed'); success.textContent='Заявка '+id+' создана и отправлена в Step3D. Следующий шаг — пришлите файлы в Telegram с номером '+id+', если они ещё не приложены ссылкой.'; document.querySelector('a[href*="account"]')?.setAttribute('href','../account/?projectId='+encodeURIComponent(id)); form.reset();}catch(error){const mail='mailto:projects.step3d@gmail.com?subject='+encodeURIComponent('Заявка '+id+' из Step3D App')+'&body='+encodeURIComponent([...data.entries()].map(([k,v])=>k+': '+v).join('\n')); success.innerHTML='Заявка '+id+' создана локально. Автоотправка не прошла — <a href="'+mail+'">отправить копию на email</a>.';}});
   const items=[...document.querySelectorAll('.reveal')]; const io=new IntersectionObserver((entries)=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12}); items.forEach((el,i)=>{el.style.transitionDelay=(i%4)*70+'ms';io.observe(el);});
 })();
 </script>
