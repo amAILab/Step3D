@@ -144,6 +144,45 @@
         "Telegram Mini App, WebApp, auth",
         "Step3D",
         "2026-05-16"
+      ],
+      [
+        "content-app-hub",
+        "app",
+        "published",
+        "Step3D App как основной хаб",
+        "/app/",
+        "Приложение должно стать основным местом коммуникации.",
+        "Step3D App — основной вход для заявки, AI-агента, кабинета, файлов/вводных и статуса проекта.",
+        "Открыть приложение",
+        "PWA приложение, коммуникационный хаб, Step3D App",
+        "Step3D",
+        "2026-05-16"
+      ],
+      [
+        "content-app-update-model",
+        "ops",
+        "published",
+        "Оптимальное обновление приложения",
+        "docs/pwa-telegram-app.md",
+        "Sheet → GitHub → checks → deploy → service worker.",
+        "Обновления приложения идут через Google Sheet как редакционный слой, GitHub review/checks и новую версию service worker.",
+        "Проверить статус",
+        "PWA update, service worker, GitHub Pages",
+        "Step3D",
+        "2026-05-16"
+      ],
+      [
+        "content-app-backend-next",
+        "roadmap",
+        "todo",
+        "Backend/auth для настоящего кабинета",
+        "/app/",
+        "Приватные файлы нельзя хранить в статике.",
+        "Следующий обязательный слой — backend/auth и файловое хранилище для реальных статусов и коммуникации внутри кабинета.",
+        "Спланировать backend",
+        "auth, file upload, Telegram Mini App",
+        "Step3D",
+        "2026-05-16"
       ]
     ],
     "cases": [
@@ -704,6 +743,18 @@
         "workshops/index.html",
         "2026-05-16",
         "SEO/контент страница"
+      ],
+      [
+        "https://amailab.github.io/Step3D/app/",
+        "published",
+        "Step3D App — заявки, кабинет и связь",
+        "Заявка, AI‑агент и статус проекта — в одном приложении",
+        "Step3D App — основной коммуникационный центр: заявка, AI-агент, кабинет проекта, файлы, статус и быстрые контакты.",
+        "Step3D App PWA",
+        "Оставить заявку",
+        "app/index.html",
+        "2026-05-16",
+        "Стартовая PWA/app страница"
       ]
     ],
     "backlog": [
@@ -814,6 +865,36 @@
         "github/actions",
         "Обновить GitHub Actions с Node 20 warning",
         "Pages deploy успешен, но warning скоро станет актуальным",
+        "Step3D",
+        "2026-05-16"
+      ],
+      [
+        "app-real-inbox",
+        "todo",
+        "high",
+        "app/backend",
+        "Сделать реальный inbox/чат заявок внутри приложения",
+        "Приложение должно стать основным местом коммуникации, а не только набором ссылок",
+        "Step3D",
+        "2026-05-16"
+      ],
+      [
+        "app-file-upload",
+        "todo",
+        "high",
+        "app/files",
+        "Добавить безопасную загрузку файлов в Step3D App",
+        "Клиенты должны передавать фото/STL/STEP внутри основного сценария",
+        "Step3D",
+        "2026-05-16"
+      ],
+      [
+        "app-update-banner",
+        "todo",
+        "medium",
+        "pwa/ux",
+        "Добавить мягкое уведомление о новой версии приложения",
+        "PWA обновляется через service worker, пользователю нужен понятный refresh",
         "Step3D",
         "2026-05-16"
       ]

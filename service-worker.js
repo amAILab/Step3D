@@ -1,8 +1,9 @@
-const CACHE_NAME = 'step3d-pwa-v1';
+const CACHE_NAME = 'step3d-pwa-v2';
 const BASE = '/Step3D/';
 const PRECACHE = [
   BASE,
   `${BASE}index.html`,
+  `${BASE}app/`,
   `${BASE}account/`,
   `${BASE}account/demo/`,
   `${BASE}gallery/`,

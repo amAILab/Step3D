@@ -92,3 +92,12 @@ git diff --check
 - Content содержит ключевые блоки сайта и операционные правила публикации.
 - Cases, FAQ и Backlog заполнены реальными рабочими строками для продаж, SEO и развития проекта.
 - Контроль: `python3 scripts/audit_content_sheet.py` включён в `project_healthcheck`.
+
+
+## Step3D App основной коммуникационный центр
+
+- Добавлена стартовая app-страница: `https://amailab.github.io/Step3D/app/`.
+- Manifest PWA теперь стартует с `/Step3D/app/?source=pwa`, чтобы установленное приложение открывало коммуникационный хаб, а не обычную главную.
+- В app собраны: заявка, AI-агент, кабинет, демо проекта, галерея, email, телефон, канал, краткая архитектура обновлений.
+- Обновление остаётся безопасным: Sheet → GitHub diff/review → checks → deploy → service worker cache version.
+- Ограничение: приватные файлы и реальные статусы требуют backend/auth.
