@@ -55,8 +55,8 @@ def main() -> int:
             if snippet not in text:
                 errors.append(f"{rel}: missing {label}: {snippet}")
     index = (ROOT / "index.html").read_text(encoding="utf-8")
-    if "window.setTimeout(() => window.open" in index:
-        errors.append("index.html: Telegram auto-open after submit is back")
+    if "window.open(`${managerTelegram}" in index or "window.setTimeout(() => window.open" in index:
+        errors.append("index.html: Telegram auto-open after submit/fallback is back")
     if errors:
         raise SystemExit("REQUEST_FLOW_CHECK_FAILED\n" + "\n".join(errors))
     print("REQUEST_FLOW_CHECK_OK pages=5 checks=%d" % sum(len(v) for v in CHECKS.values()))

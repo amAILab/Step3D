@@ -4947,11 +4947,15 @@ section, [id] { scroll-margin-top: 132px; }
     function showProjectNextStep(leadData, mode = 'sent') {
       const box = document.getElementById('projectNextStep');
       if (!box || !leadData.projectId) return;
-      const statusText = mode === 'sent' ? 'заявка отправлена в Step3D' : 'заявка создана локально, отправьте её в Telegram';
+      const isSent = mode === 'sent';
+      const statusText = isSent ? 'заявка отправлена в Step3D' : 'заявка создана локально, нужен ручной дубль в Telegram';
+      const nextText = isSent ? 'Следующий шаг: дослать фото/STL/STEP в Telegram с номером проекта или открыть карточку статуса.' : 'FormSubmit сейчас не подтвердил отправку. Нажмите кнопку Telegram: полный текст заявки уже подготовлен, чтобы лид не потерялся.';
       const accountUrl = `account/?projectId=${encodeURIComponent(leadData.projectId)}`;
-      const tgUrl = `${managerTelegram}?text=${encodeURIComponent('Файлы к заявке ' + leadData.projectId)}`;
+      const telegramText = isSent ? 'Файлы к заявке ' + leadData.projectId : formatLeadMessage(leadData);
+      const tgUrl = `${managerTelegram}?text=${encodeURIComponent(telegramText)}`;
+      const primaryLabel = isSent ? 'Дослать файлы' : 'Отправить заявку в Telegram';
       box.classList.add('is-visible');
-      box.innerHTML = `<strong>Проект ${leadData.projectId}: ${statusText}</strong><p>Следующий шаг: дослать фото/STL/STEP в Telegram с номером проекта или открыть карточку статуса.</p><div class="project-next-actions"><a class="btn btn-primary" href="${tgUrl}" target="_blank" rel="noopener">Дослать файлы</a><a class="btn btn-secondary" href="${accountUrl}">Открыть статус проекта</a></div>`;
+      box.innerHTML = `<strong>Проект ${leadData.projectId}: ${statusText}</strong><p>${nextText}</p><div class="project-next-actions"><a class="btn btn-primary" href="${tgUrl}" target="_blank" rel="noopener">${primaryLabel}</a><a class="btn btn-secondary" href="${accountUrl}">Открыть статус проекта</a></div>`;
     }
 
     async function submitLeadToStorage(leadData) {
@@ -5051,7 +5055,6 @@ section, [id] { scroll-margin-top: 132px; }
         localStorage.setItem('step3d:lastLead', JSON.stringify(leadData));
         showProjectNextStep(leadData, 'fallback');
         showToast(`Заявка ${leadData.projectId} скопирована — отправьте её в Telegram.`);
-        window.open(`${managerTelegram}?text=${encodeURIComponent(formatLeadMessage(leadData))}`, '_blank', 'noopener');
       } finally {
         submitButton.disabled = false;
         submitButton.textContent = 'Получить расчёт по фото/STL';
