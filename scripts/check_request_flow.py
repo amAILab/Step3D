@@ -30,6 +30,7 @@ CHECKS = {
         "service prefill": "data-app-task",
         "brief progress": "briefProgressText",
         "project next actions": "projectNextActions",
+        "file intake cards": "file-intake-grid",
     },
     "account/index.html": {
         "project id sanitizing": "replace(/[^A-Z0-9-]/gi,'')",

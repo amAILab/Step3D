@@ -9,6 +9,7 @@ CHECKS = {
     "docs/backend_endpoint_contract.md": ["Step3D lead backend endpoint contract", "primaryEndpoint", "FormData"],
     "backend/google-apps-script/Code.gs": ["function doPost", "appendLead_", "notifyTelegram_", "SHEET_ID"],
     "backend/google-apps-script/README.md": ["Google Apps Script backend", "primaryEndpoint", "Web App URL"],
+    "docs/file_intake_contract.md": ["Step3D file intake contract", "S3D-", "Backend-upload MVP"],
 }
 
 def main() -> int:
