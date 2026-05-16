@@ -1,0 +1,13 @@
+{
+  "spreadsheetId": "1MfJmmxDq2WNpfAoUsiPQktpj7Y5N12Dc6fKYGvu6D2Y",
+  "spreadsheetUrl": "https://docs.google.com/spreadsheets/d/1MfJmmxDq2WNpfAoUsiPQktpj7Y5N12Dc6fKYGvu6D2Y/edit",
+  "tabs": {
+    "content": "Content!A:K",
+    "cases": "Cases!A:J",
+    "faq": "FAQ!A:H",
+    "pages": "Pages!A:J",
+    "backlog": "Backlog!A:H"
+  },
+  "mode": "registry-first",
+  "note": "Google Sheet stores editable content inventory. GitHub remains source of deployable site until explicit generation is enabled."
+}

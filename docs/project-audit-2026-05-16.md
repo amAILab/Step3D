@@ -67,3 +67,11 @@ git diff --check
 - Preview-страница: `https://amailab.github.io/Step3D/account/`.
 - Демо проекта: `https://amailab.github.io/Step3D/account/demo/`.
 - Сейчас это frontend-ready слой без настоящей авторизации; для реального кабинета нужен backend/auth и хранилище файлов.
+
+
+## Контент в Google Sheet
+
+- Таблица используется как CMS/реестр контента: `Content`, `Cases`, `FAQ`, `Pages`, `Backlog`.
+- Документация: `docs/content-cms-sheet.md`.
+- Экспорт: `python3 scripts/export_content_sheet.py --dry-run` или `--out data/content_export.json`.
+- Production всё ещё контролируется GitHub/diff/review, чтобы случайная правка в таблице не ломала сайт.
