@@ -60,3 +60,10 @@ git diff --check
 - Конфиг: `data/google_sheet_config.json`.
 - Dry-run проверки: `python3 scripts/append_lead_to_sheet.py --sample --dry-run`.
 - Реальная запись валидированной заявки: `python3 scripts/append_lead_to_sheet.py < lead.json`.
+
+
+## Личный кабинет
+
+- Preview-страница: `https://amailab.github.io/Step3D/account/`.
+- Демо проекта: `https://amailab.github.io/Step3D/account/demo/`.
+- Сейчас это frontend-ready слой без настоящей авторизации; для реального кабинета нужен backend/auth и хранилище файлов.

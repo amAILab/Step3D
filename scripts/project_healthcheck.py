@@ -12,6 +12,8 @@ from bs4 import BeautifulSoup
 ROOT = Path(__file__).resolve().parents[1]
 REQUIRED_FILES = [
     "index.html",
+    "account/index.html",
+    "account/demo/index.html",
     "sitemap.xml",
     "robots.txt",
     "data/lead_schema.json",
@@ -53,6 +55,7 @@ def check_sitemap() -> None:
     for url in [
         "https://amailab.github.io/Step3D/",
         "https://amailab.github.io/Step3D/gallery/",
+        "https://amailab.github.io/Step3D/account/",
         "https://amailab.github.io/Step3D/data/lead_schema.json",
         "https://amailab.github.io/Step3D/docs/server-lead-pipeline.md",
     ]:
