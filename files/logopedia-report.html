@@ -9,9 +9,16 @@
     .card{max-width:720px;margin:0 auto;background:white;border-radius:20px;padding:28px;box-shadow:0 12px 40px rgba(0,0,0,.08)}
     h1{font-size:26px;margin:0 0 12px}.btn{display:block;margin:14px 0;padding:16px 18px;border-radius:14px;text-decoration:none;font-weight:700;text-align:center}
     .docx{background:#1f5fbf;color:white}.zip{background:#eceff5;color:#111}.hint{color:#555;font-size:15px}
-  </style>
+
+@media (max-width: 760px) {
+  .mobile-fixed-menu { position: fixed !important; left: 10px !important; right: 10px !important; bottom: calc(10px + env(safe-area-inset-bottom, 0px)) !important; z-index: 120 !important; display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)) !important; gap: 6px !important; padding: 7px !important; border: 1px solid rgba(17,24,39,.13) !important; border-radius: 22px !important; background: rgba(255,255,255,.94) !important; backdrop-filter: blur(18px) !important; box-shadow: 0 16px 42px rgba(15,23,42,.18) !important; width: auto !important; max-width: calc(100vw - 20px) !important; box-sizing: border-box !important; }
+  .mobile-fixed-menu .mobile-menu-item { min-width: 0 !important; min-height: 42px !important; display: flex !important; align-items: center !important; justify-content: center !important; padding: 8px 6px !important; border-radius: 15px !important; color: #111827 !important; background: rgba(245,245,242,.9) !important; font-size: 12.5px !important; font-weight: 850 !important; line-height: 1.05 !important; text-align: center !important; white-space: normal !important; text-decoration: none !important; }
+  .mobile-fixed-menu .mobile-menu-item--accent { color: #fff !important; background: linear-gradient(135deg,#111827,#1d4ed8) !important; }
+  .site-footer, footer { padding-bottom: calc(110px + env(safe-area-inset-bottom, 0px)) !important; }
+}
+</style>
 </head>
-<body>
+<body><nav class="mobile-fixed-menu" aria-label="Закреплённое мобильное меню"><a class="mobile-menu-item" href="../">Главная</a><a class="mobile-menu-item" href="../services/">Услуги</a><a class="mobile-menu-item" href="../gallery/">Галерея</a><a class="mobile-menu-item mobile-menu-item--accent" href="../#brief" data-metric="brief_click">Заявка</a></nav>
   <div class="card">
     <h1>Лабораторная работа</h1>
     <p>Файл Word: «Лабораторная работа интернет ресурсы логопедия.docx»</p>

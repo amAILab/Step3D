@@ -2547,6 +2547,13 @@
       .case-table dt { overflow-wrap: anywhere !important; }
       .channel-strip { overflow-x: auto !important; overscroll-behavior-x: contain !important; }
     }
+
+    @media (max-width: 760px) {
+      .mobile-fixed-menu { position: fixed !important; left: 10px !important; right: 10px !important; bottom: calc(10px + env(safe-area-inset-bottom, 0px)) !important; z-index: 120 !important; display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)) !important; gap: 6px !important; padding: 7px !important; border: 1px solid rgba(17,24,39,.13) !important; border-radius: 22px !important; background: rgba(255,255,255,.94) !important; backdrop-filter: blur(18px) !important; box-shadow: 0 16px 42px rgba(15,23,42,.18) !important; width: auto !important; max-width: calc(100vw - 20px) !important; box-sizing: border-box !important; }
+      .mobile-fixed-menu .mobile-menu-item { min-width: 0 !important; min-height: 42px !important; display: flex !important; align-items: center !important; justify-content: center !important; padding: 8px 6px !important; border-radius: 15px !important; color: #111827 !important; background: rgba(245,245,242,.9) !important; font-size: 12.5px !important; font-weight: 850 !important; line-height: 1.05 !important; text-align: center !important; white-space: normal !important; text-decoration: none !important; }
+      .mobile-fixed-menu .mobile-menu-item--accent { color: #fff !important; background: linear-gradient(135deg,#111827,#1d4ed8) !important; }
+      .site-footer { padding-bottom: calc(110px + env(safe-area-inset-bottom, 0px)) !important; }
+    }
 </style>
 <script type="application/ld+json">
   {
@@ -2680,7 +2687,7 @@
 </div>
 </div>
 </header>
-<nav class="mobile-action-bar" aria-label="Быстрые действия"><a class="btn btn-secondary" href="https://t.me/step_3d_mngr" rel="noopener" target="_blank" data-metric="telegram_click"><img class="link-avatar" src="assets/avatar-ai-agent-step3d.webp" alt="" width="24" height="24" loading="lazy" decoding="async"><span>Написать</span></a><a class="btn btn-primary" href="#brief" data-metric="brief_click">Оценить по фото</a></nav>
+<nav class="mobile-action-bar mobile-fixed-menu" aria-label="Закреплённое мобильное меню"><a class="mobile-menu-item" href="./">Главная</a><a class="mobile-menu-item" href="services/">Услуги</a><a class="mobile-menu-item" href="gallery/">Галерея</a><a class="mobile-menu-item mobile-menu-item--accent" href="#brief" data-metric="brief_click">Заявка</a></nav>
 <main id="main">
 <section class="hero" id="top">
 <div class="container hero-grid">
