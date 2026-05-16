@@ -106,4 +106,9 @@
   <url><loc>https://amailab.github.io/Step3D/small-batch-production/</loc><lastmod>2026-05-16</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
   <url><loc>https://amailab.github.io/Step3D/industrial-parts/</loc><lastmod>2026-05-16</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
   <url><loc>https://amailab.github.io/Step3D/photo-to-cad/</loc><lastmod>2026-05-16</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url>
+    <loc>https://amailab.github.io/Step3D/gallery/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

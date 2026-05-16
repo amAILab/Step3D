@@ -2495,7 +2495,25 @@
     .nap-card strong { font-size:1.05rem; }
     .nap-card span, .nap-card a { color:rgba(255,255,255,.82); }
 
-  </style>
+
+    .channel-showcase-grid { display:grid; grid-template-columns: 1.15fr .85fr; gap: 18px; align-items: stretch; }
+    .channel-feature { position:relative; min-height: 520px; border-radius: var(--radius-2xl); overflow:hidden; border:1px solid var(--line); background:#111; box-shadow: var(--shadow-soft); }
+    .channel-feature img { width:100%; height:100%; object-fit:cover; }
+    .channel-feature-caption { position:absolute; left:18px; right:18px; bottom:18px; padding:18px; border-radius:24px; color:#fff; background:linear-gradient(180deg, rgba(15,23,42,.16), rgba(15,23,42,.82)); backdrop-filter: blur(10px); }
+    .channel-feature-caption small { display:block; margin-bottom:6px; text-transform:uppercase; letter-spacing:.12em; font-weight:900; opacity:.82; }
+    .channel-feature-caption h3 { margin:0 0 6px; font-size:clamp(1.45rem,3vw,2.5rem); line-height:1; letter-spacing:-.055em; }
+    .channel-feature-caption p { margin:0; color:rgba(255,255,255,.82); }
+    .channel-mini-grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:12px; }
+    .channel-mini-card { position:relative; min-height:254px; border-radius:26px; overflow:hidden; border:1px solid var(--line); background:var(--surface-soft); }
+    .channel-mini-card img { width:100%; height:100%; object-fit:cover; transition: transform .35s ease; }
+    .channel-mini-card:hover img { transform: scale(1.04); }
+    .channel-mini-card span { position:absolute; left:12px; right:12px; bottom:12px; padding:10px 12px; border-radius:18px; color:#fff; background:rgba(15,23,42,.72); font-weight:800; backdrop-filter:blur(8px); }
+    .channel-strip { display:flex; gap:10px; overflow:auto; padding:4px 0 10px; scrollbar-width:thin; }
+    .channel-strip img { width:180px; height:132px; object-fit:cover; flex:0 0 auto; border-radius:18px; border:1px solid var(--line); background:var(--surface-soft); }
+    @media(max-width:900px){ .channel-showcase-grid{grid-template-columns:1fr}.channel-feature{min-height:420px}.channel-mini-grid{grid-template-columns:1fr 1fr}.channel-mini-card{min-height:180px}.channel-strip img{width:150px;height:112px} }
+    @media(max-width:560px){ .channel-mini-grid{grid-template-columns:1fr}.channel-feature{min-height:360px}.channel-mini-card{min-height:220px} }
+
+</style>
 <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -2976,6 +2994,27 @@
 </div>
 </div>
 </section>
+
+<section aria-labelledby="channel-gallery-title" class="section-tight" id="channel-gallery">
+<div class="container">
+<div class="section-head">
+<div>
+<p class="eyebrow">Работы из канала X.Lab / Step3D</p>
+<h2 class="section-title" id="channel-gallery-title">Живая витрина проектов, процессов и мероприятий</h2>
+</div>
+<p class="section-lead">Выгрузили медиа из Telegram-канала и разложили по направлениям: печать, арт-объекты, обучение, события, оборудование и процесс работы.</p>
+</div>
+<div class="channel-showcase-grid">
+<a class="channel-feature" href="gallery/" aria-label="Открыть полную галерею Step3D"><img src="assets/channel/post_116_021.webp" alt="Пример 3D-печатной работы Step3D" loading="lazy" decoding="async"><span class="channel-feature-caption"><small>Галерея работ</small><h3>Не один кейс, а вся ширина лаборатории</h3><p>Фото и видео из канала: изделия, прототипы, сканирование, выставки, мастер-классы и производственный процесс.</p></span></a>
+<div class="channel-mini-grid">
+<a class="channel-mini-card" href="gallery/#дизайн-и-арт-объекты"><img src="assets/channel/post_134_039.webp" alt="Дизайн и арт-объекты Step3D" loading="lazy" decoding="async"><span>Дизайн и арт-объекты</span></a><a class="channel-mini-card" href="gallery/#мастер-классы"><img src="assets/channel/post_161_050.webp" alt="Мастер-классы Step3D" loading="lazy" decoding="async"><span>Мастер-классы</span></a><a class="channel-mini-card" href="gallery/#события"><img src="assets/channel/post_182_068.webp" alt="События Step3D" loading="lazy" decoding="async"><span>События</span></a><a class="channel-mini-card" href="gallery/#процесс"><img src="assets/channel/post_114_019.webp" alt="Процесс Step3D" loading="lazy" decoding="async"><span>Процесс</span></a>
+</div>
+</div>
+<div class="channel-strip" aria-label="Быстрый просмотр работ Step3D"><img src="assets/channel/post_116_021.webp" alt="Медиа из канала Step3D" loading="lazy" decoding="async"><img src="assets/channel/post_116_023.webp" alt="Медиа из канала Step3D" loading="lazy" decoding="async"><img src="assets/channel/post_116_025.webp" alt="Медиа из канала Step3D" loading="lazy" decoding="async"><img src="assets/channel/post_116_027.webp" alt="Медиа из канала Step3D" loading="lazy" decoding="async"><img src="assets/channel/post_134_039.webp" alt="Медиа из канала Step3D" loading="lazy" decoding="async"><img src="assets/channel/post_134_042.webp" alt="Медиа из канала Step3D" loading="lazy" decoding="async"><img src="assets/channel/post_157_049.webp" alt="Медиа из канала Step3D" loading="lazy" decoding="async"><img src="assets/channel/post_172_065.webp" alt="Медиа из канала Step3D" loading="lazy" decoding="async"><img src="assets/channel/post_161_050.webp" alt="Медиа из канала Step3D" loading="lazy" decoding="async"><img src="assets/channel/post_171_061.webp" alt="Медиа из канала Step3D" loading="lazy" decoding="async"><img src="assets/channel/post_99_014.webp" alt="Медиа из канала Step3D" loading="lazy" decoding="async"><img src="assets/channel/post_123_032.webp" alt="Медиа из канала Step3D" loading="lazy" decoding="async"><img src="assets/channel/post_182_068.webp" alt="Медиа из канала Step3D" loading="lazy" decoding="async"><img src="assets/channel/post_182_069.webp" alt="Медиа из канала Step3D" loading="lazy" decoding="async"><img src="assets/channel/post_182_072.webp" alt="Медиа из канала Step3D" loading="lazy" decoding="async"><img src="assets/channel/post_257_079.webp" alt="Медиа из канала Step3D" loading="lazy" decoding="async"><img src="assets/channel/post_114_019.webp" alt="Медиа из канала Step3D" loading="lazy" decoding="async"><img src="assets/channel/post_123_030.webp" alt="Медиа из канала Step3D" loading="lazy" decoding="async"></div>
+<div class="service-links-row" style="margin-top:14px"><a class="btn btn-primary" href="gallery/">Смотреть всю галерею</a><a class="btn btn-secondary" href="https://t.me/STEP_3D_Lab" rel="noopener" target="_blank">Открыть канал</a></div>
+</div>
+</section>
+
 <section aria-labelledby="scenarios-title" class="section" id="scenarios">
 <div class="container">
 <div class="section-head">
