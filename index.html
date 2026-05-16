@@ -3317,6 +3317,7 @@ section, [id] { scroll-margin-top: 132px; }
 
 
 
+.project-next-step{margin-top:16px;padding:16px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(135deg,#eaf2ff,#ecfeff);display:none;gap:10px}.project-next-step.is-visible{display:grid}.project-next-step strong{color:var(--ink)}.project-next-step p{margin:0;color:var(--muted)}.project-next-actions{display:flex;flex-wrap:wrap;gap:10px}@media(max-width:720px){.project-next-actions{display:grid}.project-next-actions .btn{width:100%}}
 /* Request Flow v1 polish: makes the first screen read as a service path, not only a lead form. */
 .hero-flow-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:18px 0 0}
 .hero-flow-step{padding:12px 13px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.82);box-shadow:0 12px 34px rgba(15,23,42,.05)}
@@ -4359,6 +4360,7 @@ section, [id] { scroll-margin-top: 132px; }
 </div>
 <p class="form-hint">После отправки: создадим номер проекта S3D, проверим вводные и попросим прислать файлы в Telegram с этим номером. Минимум для оценки: фото/референс, размер, количество, срок и назначение.</p>
 <p class="privacy-note">Нажимая кнопку, вы передаёте данные для расчёта задачи и ответа по проекту. Подробнее: <a href="privacy/">политика обработки данных</a>.</p>
+<div class="project-next-step" id="projectNextStep" aria-live="polite"></div>
 </form>
 </div>
 </section>
@@ -4923,6 +4925,17 @@ section, [id] { scroll-margin-top: 132px; }
       }
     }
 
+
+    function showProjectNextStep(leadData, mode = 'sent') {
+      const box = document.getElementById('projectNextStep');
+      if (!box || !leadData.projectId) return;
+      const statusText = mode === 'sent' ? 'заявка отправлена в Step3D' : 'заявка создана локально, отправьте её в Telegram';
+      const accountUrl = `account/?projectId=${encodeURIComponent(leadData.projectId)}`;
+      const tgUrl = `${managerTelegram}?text=${encodeURIComponent('Файлы к заявке ' + leadData.projectId)}`;
+      box.classList.add('is-visible');
+      box.innerHTML = `<strong>Проект ${leadData.projectId}: ${statusText}</strong><p>Следующий шаг: дослать фото/STL/STEP в Telegram с номером проекта или открыть карточку статуса.</p><div class="project-next-actions"><a class="btn btn-primary" href="${tgUrl}" target="_blank" rel="noopener">Дослать файлы</a><a class="btn btn-secondary" href="${accountUrl}">Открыть статус проекта</a></div>`;
+    }
+
     async function submitLeadToStorage(leadData) {
       const formData = new FormData(leadForm);
       formData.set('projectId', leadData.projectId);
@@ -5012,11 +5025,14 @@ section, [id] { scroll-margin-top: 132px; }
         leadForm.reset();
         updateFormReadiness();
         localStorage.setItem('step3d:lastLead', JSON.stringify(leadData));
+        showProjectNextStep(leadData, 'sent');
         showToast(`Заявка ${leadData.projectId} отправлена. Пришлите файлы в Telegram с этим номером.`);
         window.setTimeout(() => window.open(`${managerTelegram}?text=${encodeURIComponent('Файлы к заявке ' + leadData.projectId)}`, '_blank', 'noopener'), 600);
       } catch (error) {
         trackStep3DGoal('lead_form_submit', { status: 'fallback', projectType: leadData.projectType || 'not_selected' });
         await copyLeadToClipboard(leadData);
+        localStorage.setItem('step3d:lastLead', JSON.stringify(leadData));
+        showProjectNextStep(leadData, 'fallback');
         showToast(`Заявка ${leadData.projectId} скопирована — отправьте её в Telegram.`);
         window.open(`${managerTelegram}?text=${encodeURIComponent(formatLeadMessage(leadData))}`, '_blank', 'noopener');
       } finally {
