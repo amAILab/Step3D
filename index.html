@@ -3060,6 +3060,55 @@ section, [id] { scroll-margin-top: 132px; }
   .limits-card::before { left: 16px !important; top: 17px !important; }
 }
 
+
+
+/* Flow polish: tighten services-to-price transition so the page does not feel finished after service chips. */
+#services { padding-bottom: 42px !important; }
+#prices { padding-top: 46px !important; }
+#services .service-links-row { margin-top: 22px !important; margin-bottom: 0 !important; }
+@media (max-width: 760px) {
+  #services { padding-bottom: 28px !important; }
+  #prices { padding-top: 32px !important; }
+  #services .service-links-row { margin-top: 16px !important; }
+}
+
+
+
+/* B2B/team card repair: remove accidental light overlay impression and make dark expert blocks coherent. */
+.b2b-card {
+  position: relative !important;
+  overflow: hidden !important;
+  background:
+    radial-gradient(circle at 86% 12%, rgba(6,182,212,.20), transparent 34%),
+    linear-gradient(135deg, #07111f 0%, #0f1d31 68%, #12357c 100%) !important;
+  border-color: rgba(148,163,184,.22) !important;
+  box-shadow: 0 24px 76px rgba(7,17,31,.22) !important;
+}
+.b2b-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(255,255,255,.05), transparent 48%);
+  pointer-events: none;
+}
+.b2b-card > * { position: relative; z-index: 1; }
+.b2b-card h2, .b2b-card strong { color: #fff !important; }
+.b2b-card p, .b2b-card li, .b2b-scenario span { color: #dbeafe !important; }
+.b2b-scenarios { align-self: stretch !important; }
+.b2b-scenario {
+  background: rgba(255,255,255,.075) !important;
+  border-color: rgba(255,255,255,.18) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.08) !important;
+}
+.b2b-scenario strong { color: #ffffff !important; }
+@media (min-width: 1024px) {
+  .b2b-card--expanded { grid-template-columns: minmax(0,.92fr) minmax(0,1.08fr) !important; }
+}
+@media (max-width: 760px) {
+  .b2b-card { padding: 24px !important; border-radius: 28px !important; }
+  .b2b-scenarios { grid-template-columns: 1fr !important; }
+}
+
 </style>
 <script type="application/ld+json">
   {
