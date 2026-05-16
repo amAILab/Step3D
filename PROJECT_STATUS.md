@@ -120,3 +120,10 @@ gh run watch --exit-status $(gh run list --limit 1 --json databaseId -q '.[0].da
 - По присланным референсам и голосовому правилу добавлена спецификация Mini App: `docs/mini-app-ux-spec.md`.
 - Референсы используются как внутреннее вдохновение: структура экранов, карточки услуг, подтверждение заявки, загрузка файлов, маскот и mobile-first UX. Сами изображения не публикуются.
 - Принцип: для каждой задачи выбирать оптимальный актуальный инструмент; Mini App должен стать рабочим пультом клиента, а не копией сайта.
+
+
+## Backend/Auth MVP
+
+- Добавлен план безопасного backend-слоя для кабинета и Telegram Mini App: `docs/backend-auth-mvp.md`.
+- Добавлен verifier Telegram WebApp `initData`: `scripts/verify_telegram_init_data.py --self-test`.
+- Healthcheck теперь проверяет, что backend/auth документация и verifier не выпали из проекта.

@@ -19,8 +19,10 @@ REQUIRED_FILES = [
     "robots.txt",
     "data/lead_schema.json",
     "docs/server-lead-pipeline.md",
+    "docs/backend-auth-mvp.md",
     ".well-known/security.txt",
     "scripts/validate_lead_payload.py",
+    "scripts/verify_telegram_init_data.py",
     "scripts/lead_router.py",
     "scripts/append_lead_to_sheet.py",
     "data/google_sheet_config.json",
@@ -64,6 +66,7 @@ def check_sitemap() -> None:
         "https://amailab.github.io/Step3D/app/",
         "https://amailab.github.io/Step3D/data/lead_schema.json",
         "https://amailab.github.io/Step3D/docs/server-lead-pipeline.md",
+        "https://amailab.github.io/Step3D/docs/backend-auth-mvp.md",
     ]:
         assert url in urls, f"sitemap URL missing: {url}"
 
@@ -74,6 +77,7 @@ def main() -> int:
     check_sitemap()
     run([sys.executable, "scripts/validate_site.py"])
     run([sys.executable, "scripts/validate_lead_payload.py", "--sample"])
+    run([sys.executable, "scripts/verify_telegram_init_data.py", "--self-test"])
     run([sys.executable, "scripts/lead_router.py", "--sample", "--json"])
     run([sys.executable, "scripts/lead_router.py", "--sample", "--write-log", "--json"])
     (ROOT / "data" / "leads_log.jsonl").write_text("", encoding="utf-8")
