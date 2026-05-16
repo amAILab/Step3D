@@ -20,7 +20,7 @@
     banner.innerHTML = `
       <div>
         <strong>Step3D как приложение</strong>
-        <span>Добавьте сайт на экран телефона: заявки, кабинет, контакты и Telegram будут под рукой.</span>
+        <span>Добавьте Step3D App на экран телефона: заявка, файлы, кабинет и статус проекта будут под рукой.</span>
       </div>
       <button type="button" class="pwa-install-button">Установить</button>
       <button type="button" class="pwa-dismiss" aria-label="Скрыть">×</button>
