@@ -3329,6 +3329,9 @@ section, [id] { scroll-margin-top: 132px; }
 
 /* Minimal conversion path pass: calmer hero, fewer competing CTAs. */
 .hero-actions a[href="viewer/"],.hero-proof-row,.hero-answer-card,.hero-mini-grid{display:none!important}.hero-actions{display:flex;max-width:560px}.hero-actions .btn{flex:1}.hero-flow-strip{grid-template-columns:repeat(3,minmax(0,1fr));max-width:760px}.hero-flow-step:nth-child(3){display:none}.hero-flow-step{background:#fff;border-color:#e5e7eb}.hero-kicker{background:#fff;border:1px solid #e5e7eb;color:#525252}.hero-subtitle{max-width:720px}.hero-note{color:#6b7280}@media(max-width:760px){.hero-actions{display:grid;max-width:none}.hero-flow-strip{grid-template-columns:1fr}.hero-flow-step:nth-child(3){display:block}.hero-flow-step:nth-child(4){display:none}}
+
+/* Session 03 homepage funnel: App is the main entry, marketing stays below. */
+.site-header .header-actions .btn-secondary{display:none!important}.nav{gap:16px}.hero{padding-top:44px}.hero-grid{grid-template-columns:minmax(0,1fr) minmax(280px,430px);gap:28px}.hero-copy{align-self:center}.hero-actions{max-width:520px}.hero-actions .btn{flex:1}.hero-visual{opacity:.92}.hero-flow-strip{margin-top:20px}.conversion-strip,.answer-proof-strip,.design-soft-cta--top{display:none!important}@media(max-width:760px){.hero{padding-top:22px}.hero-actions{display:grid!important}.hero-flow-strip{margin-top:14px}.site-header .header-actions{display:none!important}}
 </style>
 <link rel="stylesheet" href="assets/mobile-readability.css">
 <link rel="stylesheet" href="assets/minimal-ui.css">
@@ -3433,15 +3436,10 @@ section, [id] { scroll-margin-top: 132px; }
         Step3D
       </a>
 <nav aria-label="Основная навигация" class="nav">
-<a href="#services">Услуги</a>
-<a href="stl-po-foto/">STL по фото</a>
-<a href="#cases">Кейсы</a>
-<a href="gallery/">Галерея</a>
 <a href="app/">App</a>
-<a href="account/">Кабинет</a>
+<a href="#services">Услуги</a>
+<a href="#cases">Кейсы</a>
 <a href="#prices">Стоимость</a>
-<a href="#project-quiz">Квиз</a>
-<a href="app/#app-brief">App</a>
 </nav>
 <div class="header-actions">
 <a class="btn btn-secondary" href="https://t.me/Step3D_Lab" rel="noopener" target="_blank" data-metric="telegram_click"><img class="link-avatar" src="assets/avatar-channel-step3d.webp" alt="" width="24" height="24" loading="lazy" decoding="async"><span>Канал</span></a>
@@ -3453,12 +3451,10 @@ section, [id] { scroll-margin-top: 132px; }
 </div>
 <div class="mobile-menu" id="mobileMenu" aria-label="Мобильная навигация">
 <div class="mobile-menu-grid">
-<a href="#services"><span>Услуги<small>печать, сканирование, CAD и реверс</small></span></a>
-<a href="stl-po-foto/"><span>STL по фото<small>модель по картинке или референсу</small></span></a>
-<a href="#cases"><span>Кейсы<small>реальные проекты и публичные примеры</small></span></a>
+<a href="app/"><span>Step3D App<small>заявка, файлы и статус</small></span></a>
+<a href="#services"><span>Услуги<small>печать, сканирование, CAD</small></span></a>
+<a href="#cases"><span>Кейсы<small>реальные примеры</small></span></a>
 <a href="#prices"><span>Стоимость<small>ориентиры по срокам и бюджету</small></span></a>
-<a href="#project-quiz"><span>Квиз<small>быстро понять формат задачи</small></span></a>
-<a href="articles/"><span>Статьи<small>гайды и полезные материалы</small></span></a>
 </div>
 <div class="mobile-menu-cta">
 <a class="btn btn-secondary" href="https://t.me/Step3D_Lab" rel="noopener" target="_blank" data-metric="telegram_click"><img class="link-avatar" src="assets/avatar-channel-step3d.webp" alt="" width="24" height="24" loading="lazy" decoding="async"><span>Канал</span></a>
@@ -3466,7 +3462,7 @@ section, [id] { scroll-margin-top: 132px; }
 </div>
 </div>
 </header>
-<nav class="mobile-action-bar mobile-fixed-menu" aria-label="Закреплённое мобильное меню"><a class="mobile-menu-item" href="./">Главная</a><a class="mobile-menu-item" href="services/">Услуги</a><a class="mobile-menu-item" href="gallery/">Галерея</a><a class="mobile-menu-item" href="app/">App</a><a class="mobile-menu-item" href="account/">Кабинет</a><a class="mobile-menu-item mobile-menu-item--accent" href="app/#app-brief" data-metric="app_click">App</a></nav>
+<nav class="mobile-action-bar mobile-fixed-menu" aria-label="Закреплённое мобильное меню"><a class="mobile-menu-item" href="./">Главная</a><a class="mobile-menu-item" href="#services">Услуги</a><a class="mobile-menu-item" href="#cases">Кейсы</a><a class="mobile-menu-item mobile-menu-item--accent" href="app/#app-brief" data-metric="app_click">Заявка</a></nav>
 <main id="main">
 <section class="hero" id="top">
 <div class="container hero-grid">
@@ -3476,10 +3472,8 @@ section, [id] { scroll-margin-top: 132px; }
 <p class="hero-subtitle">Пришлите фото, эскиз, STL/STEP или описание. Мы скажем, что реально сделать, какой маршрут выбрать и что нужно для точного расчёта.</p>
 <div class="hero-flow-strip" aria-label="Путь заявки Step3D"><div class="hero-flow-step"><b>1. Задача</b><span>фото, STL/STEP, эскиз или описание</span></div><div class="hero-flow-step"><b>2. Оценка</b><span>технология, срок, цена-вилка и риски</span></div><div class="hero-flow-step"><b>3. Проект</b><span>номер S3D, файлы и следующий шаг</span></div></div>
 <div class="hero-actions">
-<a class="btn btn-primary" href="app/" data-metric="app_click">Открыть Step3D App</a>
-<a class="btn btn-secondary" href="#brief" data-metric="brief_click">Быстрая заявка</a>
-<a class="btn btn-secondary" href="viewer/" data-metric="viewer_click">Открыть 3D Viewer</a>
-
+<a class="btn btn-primary" href="app/#app-brief" data-metric="app_click">Создать заявку в App</a>
+<a class="btn btn-secondary" href="#services">Посмотреть услуги</a>
 </div>
 <div class="hero-proof-row" aria-label="Короткие доказательства Step3D">
 <span><b>STL по фото</b><small>От 10 000 ₽ за рабочую печатную модель по картинке или референсу.</small></span>
