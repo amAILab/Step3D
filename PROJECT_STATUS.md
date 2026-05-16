@@ -106,3 +106,10 @@ gh run watch --exit-status $(gh run list --limit 1 --json databaseId -q '.[0].da
 - В app собраны: заявка, AI-агент, кабинет, демо проекта, галерея, email, телефон, канал, краткая архитектура обновлений.
 - Обновление остаётся безопасным: Sheet → GitHub diff/review → checks → deploy → service worker cache version.
 - Ограничение: приватные файлы и реальные статусы требуют backend/auth.
+
+
+## Telegram Mini App — направление UX
+
+- Mini App будет проектироваться на основе наших наработок, а не как чужой шаблон.
+- База: `Step3D/app/`, `Step3D/account/`, Google Sheet CRM/CMS, `projects/Telegram_Bots/README.md`, mobile UX из игровых прототипов и OpenClaw/AI-agent сценарии.
+- Цель: рабочий пульт клиента Step3D — заявка, файлы, статус, следующий шаг, связь с AI-агентом/менеджером.
