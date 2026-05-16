@@ -37,6 +37,9 @@ body{background:#f7f7f4}body::before,body::after{opacity:.28}.app-shell{max-widt
 
 /* Session 02 App UI final polish: one calm first screen, no duplicate CTAs. */
 .app-session-note{display:none}.hero-cta .btn-soft,.sketch-top,.sketch-go,.file-intake-actions,.minimal-secondary .section-head .btn,#accountFallbackLink{display:none!important}.hero-grid{grid-template-columns:minmax(0,1fr) minmax(280px,340px);gap:24px}.hero-copy{min-height:420px}.sketch-phone{align-self:center;padding:16px;gap:13px}.mascot-disc{width:min(50vw,148px)}.pixel-mascot{transform:scale(.68)}.sketch-services{gap:7px}.sketch-service{min-height:58px}.sketch-service i{width:34px;height:34px;border-radius:13px;font-size:12px}.sketch-service strong{font-size:14px}.section.split{grid-template-columns:minmax(0,1fr) minmax(260px,340px);align-items:start}.project-card{position:sticky;top:88px}.project-card .id{font-size:clamp(28px,4vw,38px)}.timeline span:nth-child(2){display:none}.minimal-secondary{margin-top:10px}.minimal-secondary .process-rail{grid-template-columns:repeat(2,1fr)!important}.minimal-secondary .process:nth-child(n+3){display:none}.minimal-secondary .process{padding:14px!important}.minimal-secondary .process h3{margin:0}.brief-progress-top span{color:#525252}.dropzone::after{display:none}@media(max-width:900px){.hero-copy{min-height:auto}.project-card{position:static}.section.split{grid-template-columns:1fr}.minimal-secondary .process-rail{grid-template-columns:1fr!important}}@media(max-width:560px){.hero-grid{gap:12px}.sketch-phone{padding:14px}.mascot-disc{width:min(48vw,132px)}.sketch-service{min-height:54px}.section.split{gap:10px}.minimal-secondary{display:none!important}}
+
+/* App avatar identity from Никита reference. */
+.app-avatar{width:min(66vw,220px);aspect-ratio:1;border-radius:50%;object-fit:cover;display:block;box-shadow:0 24px 64px rgba(249,115,22,.22),0 0 0 8px rgba(255,255,255,.76)}.mascot-disc{background:transparent!important;box-shadow:none!important}.mascot-disc::before,.mascot-disc::after,.pixel-mascot{display:none!important}@media(max-width:560px){.app-avatar{width:min(62vw,178px)}}
 </style>
 <link rel="stylesheet" href="../assets/mobile-readability.css">
 <link rel="stylesheet" href="../assets/minimal-ui.css">
@@ -47,14 +50,14 @@ body{background:#f7f7f4}body::before,body::after{opacity:.28}.app-shell{max-widt
 <section class="hero">
 <div class="hero-grid">
 <div class="hero-copy reveal">
-<p class="eyebrow"><span>Step3D App</span></p>
-<h1>Оценить деталь<br><span class="gradient-text">без лишней переписки.</span></h1>
+<p class="eyebrow"><span>AI-инженер Step3D</span></p>
+<h1>Покажите деталь.<br><span class="gradient-text">Получите маршрут.</span></h1>
 <p class="lead">Один короткий путь: услуга → описание → номер S3D → файлы и статус.</p>
 <div class="hero-cta"><a class="btn btn-primary" href="#app-brief" data-metric="brief_click">Создать заявку</a></div>
 <div class="trust-row" aria-label="Преимущества"><div class="trust"><b>1 день</b><span>первичная оценка</span></div><div class="trust"><b>Фото/STL</b><span>без чертежа</span></div><div class="trust"><b>Москва</b><span>и удалённо</span></div></div>
 </div>
 <div class="sketch-phone reveal" aria-label="Прототип мобильного экрана Step3D по скетчам">
-<div class="mascot-disc" aria-hidden="true"><div class="pixel-mascot"></div></div>
+<div class="mascot-disc" aria-label="AI-инженер Step3D"><img class="app-avatar" src="../assets/step3d-app-avatar.jpg" alt="AI-инженер Step3D — пиксельный знак и клешня" width="512" height="512" decoding="async"></div>
 <div class="sketch-services" aria-label="Выбор услуги"><a class="sketch-service" href="#app-brief" data-app-task="3D-печать: нужно оценить изготовление детали"><i>3D</i><strong>3D печать</strong><span>STL, серия, прототип</span></a><a class="sketch-service" href="#app-brief" data-app-task="3D-сканирование: нужно оцифровать объект"><i>SCAN</i><strong>3D скан</strong><span>обмер, реверс</span></a><a class="sketch-service" href="#app-brief" data-app-task="CAD / STL по фото: нужна модель по фото или эскизу"><i>CAD</i><strong>Моделинг</strong><span>фото → STL/STEP</span></a></div>
 <div class="sketch-dock" aria-label="Быстрые действия"><a href="#app-brief">✎</a><a href="#files">↥</a><a href="../viewer/">▣</a><a href="../account/">◎</a></div>
 <div class="sketch-note">Идея из скетчей: не лендинг, а экран запуска заказа — как mini app.</div>
