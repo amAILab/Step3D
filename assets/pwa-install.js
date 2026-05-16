@@ -4,7 +4,38 @@
 
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register(`${base}service-worker.js`, { scope: base }).catch(() => {});
+      navigator.serviceWorker.register(`${base}service-worker.js`, { scope: base }).then((registration) => {
+        const showUpdate = () => {
+          const worker = registration.waiting;
+          if (!worker || document.querySelector('[data-pwa-update]')) return;
+          const notice = document.createElement('aside');
+          notice.className = 'pwa-install-card pwa-install-card--update';
+          notice.setAttribute('data-pwa-update', '');
+          notice.innerHTML = `
+            <div>
+              <strong>Доступна свежая версия Step3D</strong>
+              <span>Обновим приложение, чтобы форма, кабинет и статус проекта были актуальными.</span>
+            </div>
+            <button type="button" class="pwa-install-button">Обновить</button>
+            <button type="button" class="pwa-dismiss" aria-label="Скрыть">×</button>
+          `;
+          document.body.appendChild(notice);
+          notice.querySelector('.pwa-dismiss')?.addEventListener('click', () => notice.remove());
+          notice.querySelector('.pwa-install-button')?.addEventListener('click', () => worker.postMessage({ type: 'SKIP_WAITING' }));
+        };
+        registration.addEventListener('updatefound', () => {
+          const worker = registration.installing;
+          worker?.addEventListener('statechange', () => {
+            if (worker.state === 'installed' && navigator.serviceWorker.controller) showUpdate();
+          });
+        });
+        if (registration.waiting) showUpdate();
+      }).catch(() => {});
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        if (window.__step3dReloadingForUpdate) return;
+        window.__step3dReloadingForUpdate = true;
+        window.location.reload();
+      });
     });
   }
 

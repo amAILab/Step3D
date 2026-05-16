@@ -32,6 +32,14 @@ CHECKS = {
         "escape html": "escapeHtml",
         "b2b next action": "B2B-следующий шаг",
     },
+    "service-worker.js": {
+        "cache version bump": "step3d-pwa-v3",
+        "skip waiting message": "SKIP_WAITING",
+    },
+    "assets/pwa-install.js": {
+        "update banner": "Доступна свежая версия Step3D",
+        "controller reload": "controllerchange",
+    },
 }
 
 

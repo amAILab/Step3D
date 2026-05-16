@@ -1,4 +1,4 @@
-const CACHE_NAME = 'step3d-pwa-v2';
+const CACHE_NAME = 'step3d-pwa-v3';
 const BASE = '/Step3D/';
 const PRECACHE = [
   BASE,
@@ -16,6 +16,10 @@ const PRECACHE = [
 
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(PRECACHE)).then(() => self.skipWaiting()));
+});
+
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SKIP_WAITING') self.skipWaiting();
 });
 
 self.addEventListener('activate', (event) => {

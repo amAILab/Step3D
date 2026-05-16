@@ -43,6 +43,13 @@ def fail(message: str) -> None:
     raise SystemExit(1)
 
 
+def print_usage_error() -> None:
+    print("INVALID: empty input")
+    print("Usage: echo '{\"contact\":\"@user\",\"description\":\"Need STL by photo\"}' | python3 scripts/validate_lead_payload.py")
+    print("Or:    python3 scripts/validate_lead_payload.py --sample")
+    raise SystemExit(2)
+
+
 def as_text(value: Any) -> str:
     if value is None:
         return ""
@@ -87,6 +94,8 @@ def main() -> int:
     parser.add_argument("--sample", action="store_true", help="validate built-in sample payload")
     args = parser.parse_args()
     raw = json.dumps(SAMPLE, ensure_ascii=False) if args.sample else sys.stdin.read()
+    if not raw.strip():
+        print_usage_error()
     try:
         payload = json.loads(raw)
     except json.JSONDecodeError as exc:
