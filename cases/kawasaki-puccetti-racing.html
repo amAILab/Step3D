@@ -21,6 +21,202 @@
   .mobile-fixed-menu .mobile-menu-item--accent { color: #fff !important; background: linear-gradient(135deg,#111827,#1d4ed8) !important; }
   .site-footer, footer { padding-bottom: calc(110px + env(safe-area-inset-bottom, 0px)) !important; }
 }
+
+
+/* World-class UX/UI color system audit — premium industrial palette, higher contrast, clearer CTA hierarchy. */
+:root {
+  --bg: #f7f9fc !important;
+  --surface: #ffffff !important;
+  --surface-soft: #eef4fb !important;
+  --surface-muted: #e8eef6 !important;
+  --ink: #0b1220 !important;
+  --muted: #475569 !important;
+  --muted-2: #64748b !important;
+  --line: #d8e0ea !important;
+  --line-strong: #c6d2df !important;
+  --accent: #2563eb !important;
+  --accent-2: #06b6d4 !important;
+  --accent-soft: #eaf2ff !important;
+  --premium-dark: #07111f !important;
+  --premium-dark-2: #0f1d31 !important;
+  --premium-glow: rgba(37, 99, 235, .22) !important;
+}
+
+html { background: #f7f9fc !important; }
+body {
+  color: var(--ink) !important;
+  background:
+    radial-gradient(circle at 8% -6%, rgba(37,99,235,.13), transparent 29%),
+    radial-gradient(circle at 90% 8%, rgba(6,182,212,.12), transparent 31%),
+    linear-gradient(180deg, #fbfdff 0%, #f7f9fc 38%, #edf3fa 100%) !important;
+}
+
+.site-header {
+  background: rgba(251,253,255,.86) !important;
+  border-bottom-color: rgba(198,210,223,.72) !important;
+  box-shadow: 0 10px 34px rgba(15,23,42,.045) !important;
+}
+.nav a:hover, .nav a:focus-visible { background: #eaf2ff !important; color: #0f3ea8 !important; }
+.hero-kicker, .eyebrow { color: #1d4ed8 !important; }
+.section-lead, .hero-subtitle, .lead, p, li, .muted { color: var(--muted) !important; }
+h1, h2, h3, .section-title, .brand, strong { color: var(--ink) !important; }
+
+.btn-primary, .btn.primary, .mobile-menu-item--accent {
+  color: #fff !important;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 52%, #06b6d4 120%) !important;
+  border-color: rgba(37,99,235,.78) !important;
+  box-shadow: 0 16px 42px rgba(37,99,235,.30), inset 0 1px 0 rgba(255,255,255,.22) !important;
+}
+.btn-primary:hover, .btn.primary:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 22px 56px rgba(37,99,235,.36), inset 0 1px 0 rgba(255,255,255,.25) !important;
+}
+.btn-secondary, .btn.ghost, .btn.secondary, .btn-ghost {
+  background: rgba(255,255,255,.88) !important;
+  color: #0f172a !important;
+  border-color: rgba(148,163,184,.55) !important;
+}
+.btn-secondary:hover, .btn.ghost:hover, .btn.secondary:hover, .btn-ghost:hover {
+  background: #eaf2ff !important;
+  border-color: rgba(37,99,235,.34) !important;
+  color: #0f3ea8 !important;
+}
+
+.card, .route-card, .process-card, .service-card, .scenario-card, .timeline-item,
+.price-card, .price-table, .case-card, .brief-panel, .form-panel, .micro-calc-panel,
+.micro-calc-result, .article-teaser, .faq-item, .proof-card, .trust-card, .step,
+.media-card, .video-card, .channel-feature, .channel-mini-card, .hero-answer-card {
+  background: rgba(255,255,255,.90) !important;
+  border-color: rgba(198,210,223,.82) !important;
+  box-shadow: 0 18px 54px rgba(15,23,42,.075) !important;
+}
+.card:hover, .route-card:hover, .process-card:hover, .service-card:hover, .scenario-card:hover,
+.timeline-item:hover, .case-card:hover, .article-teaser:hover, .proof-card:hover,
+.channel-feature:hover, .channel-mini-card:hover {
+  border-color: rgba(37,99,235,.34) !important;
+  box-shadow: 0 24px 70px rgba(15,23,42,.12) !important;
+}
+
+.hero-visual, .case-media, .image {
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.78), rgba(232,240,250,.96)),
+    radial-gradient(circle at 82% 8%, rgba(37,99,235,.20), transparent 44%) !important;
+  border-color: rgba(198,210,223,.82) !important;
+}
+.hero-card-main {
+  background: linear-gradient(145deg, #ffffff, #eff6ff) !important;
+  border-color: rgba(255,255,255,.88) !important;
+}
+.hero-chip, .price-row span, .lead-mode-tab.is-active, .quick-lead-preset:hover {
+  color: #12357c !important;
+  background: #eaf2ff !important;
+  border-color: rgba(37,99,235,.20) !important;
+}
+.process-card strong, .scenario-number, .service-icon, .timeline-item strong {
+  color: #1d4ed8 !important;
+  background: linear-gradient(135deg, rgba(37,99,235,.12), rgba(6,182,212,.10)) !important;
+  border-color: rgba(37,99,235,.20) !important;
+}
+
+.cta, .conversion-strip, .brief-cta, .final-cta, .cta-card {
+  color: #fff !important;
+  background:
+    radial-gradient(circle at 88% 12%, rgba(6,182,212,.24), transparent 34%),
+    linear-gradient(135deg, var(--premium-dark) 0%, var(--premium-dark-2) 68%, #12357c 100%) !important;
+  border: 1px solid rgba(148,163,184,.22) !important;
+  box-shadow: 0 24px 76px rgba(7,17,31,.26) !important;
+}
+.cta h2, .conversion-strip h2, .brief-cta h2, .final-cta h2, .cta-card h2,
+.cta strong, .conversion-strip strong { color: #fff !important; }
+.cta p, .conversion-strip p, .brief-cta p, .final-cta p, .cta-card p { color: #dbeafe !important; }
+.cta .btn-primary, .conversion-strip .btn-primary, .brief-cta .btn-primary, .final-cta .btn-primary {
+  background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%) !important;
+  border-color: rgba(255,255,255,.32) !important;
+  box-shadow: 0 18px 48px rgba(6,182,212,.30) !important;
+}
+
+.site-footer, .footer {
+  color: #475569 !important;
+  background: linear-gradient(180deg, #eef4fb, #e7eef7) !important;
+  border-top-color: rgba(198,210,223,.86) !important;
+}
+.footer-col a, .site-footer a { color: #334155 !important; }
+.footer-col a:hover, .site-footer a:hover { color: #1d4ed8 !important; }
+.mobile-fixed-menu {
+  background: rgba(255,255,255,.94) !important;
+  border-color: rgba(198,210,223,.90) !important;
+  box-shadow: 0 18px 50px rgba(15,23,42,.20) !important;
+}
+.mobile-fixed-menu .mobile-menu-item:not(.mobile-menu-item--accent) {
+  color: #0f172a !important;
+  background: #eef4fb !important;
+}
+
+@media (max-width: 720px) {
+  body { background: linear-gradient(180deg, #fbfdff 0%, #f7f9fc 48%, #edf3fa 100%) !important; }
+  .section { padding-top: 34px !important; padding-bottom: 34px !important; }
+  .cta, .conversion-strip, .brief-cta, .final-cta, .cta-card { padding: 24px !important; border-radius: 28px !important; }
+  .section-lead, .hero-subtitle, .lead, p { color: #475569 !important; }
+}
+
+
+
+/* Mobile fixed menu refinement: compact enough not to dominate content while staying always available. */
+@media (max-width: 760px) {
+  body { padding-bottom: calc(88px + env(safe-area-inset-bottom, 0px)) !important; }
+  main { padding-bottom: 18px !important; }
+  .mobile-fixed-menu { bottom: calc(8px + env(safe-area-inset-bottom, 0px)) !important; padding: 6px !important; gap: 5px !important; border-radius: 20px !important; }
+  .mobile-fixed-menu .mobile-menu-item { min-height: 38px !important; padding: 7px 5px !important; font-size: 12px !important; }
+  .site-footer, footer { padding-bottom: calc(118px + env(safe-area-inset-bottom, 0px)) !important; }
+}
+
+
+
+/* Mobile navigation final UX: visible without hamburger, sticky in document flow, no content overlay. */
+.mobile-fixed-menu { display: none !important; }
+@media (max-width: 760px) {
+  body { padding-bottom: 0 !important; }
+  main { padding-bottom: 0 !important; }
+  .mobile-fixed-menu {
+    position: sticky !important;
+    top: 66px !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    z-index: 90 !important;
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 5px !important;
+    width: auto !important;
+    max-width: none !important;
+    margin: 8px 10px 0 !important;
+    padding: 6px !important;
+    border-radius: 20px !important;
+    border: 1px solid rgba(198,210,223,.90) !important;
+    background: rgba(255,255,255,.94) !important;
+    backdrop-filter: blur(18px) !important;
+    box-shadow: 0 14px 38px rgba(15,23,42,.14) !important;
+    box-sizing: border-box !important;
+  }
+  .mobile-fixed-menu .mobile-menu-item { min-height: 38px !important; padding: 7px 5px !important; font-size: 12px !important; }
+  .site-footer, footer { padding-bottom: 36px !important; }
+}
+
+
+
+/* Sticky mobile navigation polish: no redundant hamburger, safe anchor offsets. */
+section, [id] { scroll-margin-top: 132px; }
+@media (max-width: 760px) {
+  .menu-toggle { display: none !important; }
+  .header-inner { justify-content: center !important; }
+  .brand { max-width: 100% !important; }
+  section, [id] { scroll-margin-top: 142px !important; }
+}
+@media (max-width: 375px) {
+  .mobile-fixed-menu { margin-left: 8px !important; margin-right: 8px !important; gap: 4px !important; padding: 5px !important; }
+  .mobile-fixed-menu .mobile-menu-item { font-size: 11.5px !important; padding-left: 4px !important; padding-right: 4px !important; }
+}
+
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Kawasaki Puccetti Racing","image":"https://amailab.github.io/Step3D/assets/img/case-kawasaki.webp","author":{"@type":"Organization","name":"Step3D"},"publisher":{"@type":"Organization","name":"Step3D"},"mainEntityOfPage":"https://amailab.github.io/Step3D/cases/kawasaki-puccetti-racing.html"}</script>
 </head>
