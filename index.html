@@ -3326,6 +3326,9 @@ section, [id] { scroll-margin-top: 132px; }
 .hero-flow-step b{display:block;color:var(--ink);font-size:13px}.hero-flow-step span{display:block;margin-top:4px;color:var(--muted);font-size:12px;line-height:1.32}
 @media(max-width:900px){.hero-flow-strip{grid-template-columns:1fr 1fr}.container{width:min(100% - 28px,680px);max-width:680px;margin-inline:auto;padding-inline:0}.hero-grid,.section-head,.price-wrap,.brief-wrap,.quiz-wrap{grid-template-columns:1fr}.hero-actions,.form-actions{display:grid;grid-template-columns:1fr;gap:10px}.hero-actions .btn,.form-actions .btn{width:100%}h1,.hero-title{font-size:clamp(32px,9vw,42px);line-height:1.04;letter-spacing:-.045em;overflow-wrap:normal;word-break:normal;text-wrap:balance}.hero-subtitle,.section-lead{font-size:16px;line-height:1.5;overflow-wrap:normal}}
 @media(max-width:480px){.hero-flow-strip{grid-template-columns:1fr}.container{width:calc(100% - 24px)}h1,.hero-title{font-size:clamp(30px,9vw,38px)}}
+
+/* Minimal conversion path pass: calmer hero, fewer competing CTAs. */
+.hero-actions a[href="viewer/"],.hero-proof-row,.hero-answer-card,.hero-mini-grid{display:none!important}.hero-actions{display:flex;max-width:560px}.hero-actions .btn{flex:1}.hero-flow-strip{grid-template-columns:repeat(3,minmax(0,1fr));max-width:760px}.hero-flow-step:nth-child(3){display:none}.hero-flow-step{background:#fff;border-color:#e5e7eb}.hero-kicker{background:#fff;border:1px solid #e5e7eb;color:#525252}.hero-subtitle{max-width:720px}.hero-note{color:#6b7280}@media(max-width:760px){.hero-actions{display:grid;max-width:none}.hero-flow-strip{grid-template-columns:1fr}.hero-flow-step:nth-child(3){display:block}.hero-flow-step:nth-child(4){display:none}}
 </style>
 <link rel="stylesheet" href="assets/mobile-readability.css">
 <script type="application/ld+json">
@@ -3468,12 +3471,12 @@ section, [id] { scroll-margin-top: 132px; }
 <div class="container hero-grid">
 <div class="hero-copy">
 <div class="hero-kicker"><span class="pulse-dot"></span> 3D-печать, CAD и STL-модели по фото</div>
-<h1>Рассчитаем и изготовим 3D-деталь по фото или STL</h1>
-<p class="hero-subtitle">Пришлите фото, эскиз, образец или STL/STEP — скажем, можно ли сделать, нужен ли CAD/сканирование, сколько это может стоить и где есть риск переделок.</p>
-<div class="hero-flow-strip" aria-label="Путь заявки Step3D"><div class="hero-flow-step"><b>1. Фото / STL</b><span>вы присылаете файл, фото или эскиз</span></div><div class="hero-flow-step"><b>2. Первичная оценка</b><span>проверяем технологию, размер и риски</span></div><div class="hero-flow-step"><b>3. Маршрут</b><span>CAD, скан, печать, тест или серия</span></div><div class="hero-flow-step"><b>4. Статус проекта</b><span>номер S3D и понятный следующий шаг</span></div></div>
+<h1>Оценим 3D-задачу по фото или STL</h1>
+<p class="hero-subtitle">Пришлите фото, эскиз, STL/STEP или описание. Мы скажем, что реально сделать, какой маршрут выбрать и что нужно для точного расчёта.</p>
+<div class="hero-flow-strip" aria-label="Путь заявки Step3D"><div class="hero-flow-step"><b>1. Задача</b><span>фото, STL/STEP, эскиз или описание</span></div><div class="hero-flow-step"><b>2. Оценка</b><span>технология, срок, цена-вилка и риски</span></div><div class="hero-flow-step"><b>3. Проект</b><span>номер S3D, файлы и следующий шаг</span></div></div>
 <div class="hero-actions">
-<a class="btn btn-primary" href="#brief" data-metric="brief_click">Получить расчёт по фото/STL</a>
-<a class="btn btn-secondary" href="https://t.me/step_3d_mngr" rel="noopener" target="_blank" data-metric="telegram_click">Написать в Telegram</a>
+<a class="btn btn-primary" href="app/" data-metric="app_click">Открыть Step3D App</a>
+<a class="btn btn-secondary" href="#brief" data-metric="brief_click">Быстрая заявка</a>
 <a class="btn btn-secondary" href="viewer/" data-metric="viewer_click">Открыть 3D Viewer</a>
 
 </div>
