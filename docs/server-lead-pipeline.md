@@ -67,3 +67,11 @@ git diff --check
 - `scripts/lead_router.py --write-log` пишет нормализованную заявку в `data/leads_log.jsonl`.
 - `scripts/lead_router.py --write-task` создаёт карточку в `../TASK_INBOX.md`.
 - По умолчанию роутер работает в `dry-run` и не отправляет внешние сообщения.
+
+
+## Google Sheet CRM
+
+- Таблица: Step3D Leads CRM — https://docs.google.com/spreadsheets/d/1MfJmmxDq2WNpfAoUsiPQktpj7Y5N12Dc6fKYGvu6D2Y/edit
+- Конфиг: `data/google_sheet_config.json`.
+- Dry-run проверки: `python3 scripts/append_lead_to_sheet.py --sample --dry-run`.
+- Реальная запись валидированной заявки: `python3 scripts/append_lead_to_sheet.py < lead.json`.

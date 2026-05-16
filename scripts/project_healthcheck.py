@@ -19,6 +19,8 @@ REQUIRED_FILES = [
     ".well-known/security.txt",
     "scripts/validate_lead_payload.py",
     "scripts/lead_router.py",
+    "scripts/append_lead_to_sheet.py",
+    "data/google_sheet_config.json",
 ]
 
 
@@ -68,6 +70,7 @@ def main() -> int:
     (ROOT / "data" / "leads_log.jsonl").write_text("", encoding="utf-8")
     run([sys.executable, "scripts/check_step3d_leads.py", "--self-test"])
     run([sys.executable, "scripts/check_analytics_events.py"])
+    run([sys.executable, "scripts/append_lead_to_sheet.py", "--sample", "--dry-run"])
     print("STEP3D_PROJECT_HEALTHCHECK_OK")
     return 0
 
