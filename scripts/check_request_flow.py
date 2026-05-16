@@ -26,6 +26,10 @@ CHECKS = {
     "app/index.html": {
         "viewer import banner": 'id="viewerImportBanner"',
         "viewer brief import": "step3d:viewerBrief",
+        "sketch launcher": "sketch-phone",
+        "service prefill": "data-app-task",
+        "brief progress": "briefProgressText",
+        "project next actions": "projectNextActions",
     },
     "account/index.html": {
         "project id sanitizing": "replace(/[^A-Z0-9-]/gi,'')",
