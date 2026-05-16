@@ -22,12 +22,15 @@
 </main>
 <div class="mobile-bar"><a class="btn" href="#viewer">Модель</a><a class="btn btn-primary" href="#estimate">Расчёт</a></div>
 <footer class="footer"><div class="container">Step3D Viewer — preview-модуль рабочего контура. Файлы просматриваются локально; для production-загрузки нужен backend/auth и приватное хранилище.</div></footer>
+<script type="importmap">
+{"imports":{"three":"https://unpkg.com/three@0.164.1/build/three.module.js","three/addons/":"https://unpkg.com/three@0.164.1/examples/jsm/"}}
+</script>
 <script type="module">
-import * as THREE from 'https://unpkg.com/three@0.164.1/build/three.module.js';
-import { OrbitControls } from 'https://unpkg.com/three@0.164.1/examples/jsm/controls/OrbitControls.js';
-import { STLLoader } from 'https://unpkg.com/three@0.164.1/examples/jsm/loaders/STLLoader.js';
-import { OBJLoader } from 'https://unpkg.com/three@0.164.1/examples/jsm/loaders/OBJLoader.js';
-import { ThreeMFLoader } from 'https://unpkg.com/three@0.164.1/examples/jsm/loaders/3MFLoader.js';
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { STLLoader } from 'three/addons/loaders/STLLoader.js';
+import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
+import { ThreeMFLoader } from 'three/addons/loaders/3MFLoader.js';
 const box=document.getElementById('viewerBox'), placeholder=document.getElementById('placeholder');
 const scene=new THREE.Scene(); scene.background=new THREE.Color(0x0b1220);
 const camera=new THREE.PerspectiveCamera(45,1,0.1,100000); camera.position.set(180,160,220);
