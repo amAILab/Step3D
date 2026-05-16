@@ -4947,12 +4947,12 @@ section, [id] { scroll-margin-top: 132px; }
       const box = document.getElementById('projectNextStep');
       if (!box || !leadData.projectId) return;
       const isSent = mode === 'sent';
-      const statusText = isSent ? 'заявка отправлена в Step3D' : 'заявка создана локально, нужен ручной дубль в Telegram';
-      const nextText = isSent ? 'Следующий шаг: дослать фото/STL/STEP в Telegram с номером проекта или открыть карточку статуса.' : 'FormSubmit сейчас не подтвердил отправку. Нажмите кнопку Telegram: полный текст заявки уже подготовлен, чтобы лид не потерялся.';
+      const statusText = isSent ? 'заявка подтверждена и отправлена в Step3D' : 'черновик сохранён локально, нужен ручной дубль в Telegram';
+      const nextText = isSent ? 'Следующий шаг: дослать фото/STL/STEP в Telegram с номером проекта или открыть карточку статуса.' : 'Сервер не подтвердил отправку. Нажмите кнопку Telegram: полный текст черновика уже подготовлен, чтобы лид не потерялся.';
       const accountUrl = `account/?projectId=${encodeURIComponent(leadData.projectId)}`;
       const telegramText = isSent ? 'Файлы к заявке ' + leadData.projectId : formatLeadMessage(leadData);
       const tgUrl = `${managerTelegram}?text=${encodeURIComponent(telegramText)}`;
-      const primaryLabel = isSent ? 'Дослать файлы' : 'Отправить заявку в Telegram';
+      const primaryLabel = isSent ? 'Дослать файлы' : 'Отправить черновик в Telegram';
       box.classList.add('is-visible');
       box.innerHTML = `<strong>Проект ${leadData.projectId}: ${statusText}</strong><p>${nextText}</p><div class="project-next-actions"><a class="btn btn-primary" href="${tgUrl}" target="_blank" rel="noopener">${primaryLabel}</a><a class="btn btn-secondary" href="${accountUrl}">Открыть статус проекта</a></div>`;
     }
@@ -5054,7 +5054,7 @@ section, [id] { scroll-margin-top: 132px; }
         await copyLeadToClipboard(leadData);
         localStorage.setItem('step3d:lastLead', JSON.stringify(leadData));
         showProjectNextStep(leadData, 'fallback');
-        showToast(`Заявка ${leadData.projectId} скопирована — отправьте её в Telegram.`);
+        showToast(`Черновик ${leadData.projectId} сохранён — отправьте его в Telegram.`);
       } finally {
         submitButton.disabled = false;
         submitButton.textContent = 'Получить расчёт по фото/STL';
