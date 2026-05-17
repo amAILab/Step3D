@@ -14,6 +14,7 @@ CHECKS = {
     "data/lead_schema.json": ["projectId", "task", "service", "files"],
     "data/crm_statuses.json": ["needs_files", "estimating", "firstReplyHours", "followupHours"],
     "scripts/check_seo_trust.py": ["SEO_TRUST_CHECK_OK", "trust-compact-title", "WebApplication"],
+    "scripts/check_release_readiness.py": ["RELEASE_READINESS_OK", "app → viewer", "data/crm_statuses.json"],
 }
 
 def main() -> int:
