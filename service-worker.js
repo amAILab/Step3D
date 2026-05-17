@@ -1,4 +1,4 @@
-const CACHE_NAME = 'step3d-pwa-v3';
+const CACHE_NAME = 'step3d-pwa-v4';
 const BASE = '/Step3D/';
 const PRECACHE = [
   BASE,
@@ -11,11 +11,21 @@ const PRECACHE = [
   `${BASE}assets/favicon.svg`,
   `${BASE}assets/step3d-logo-192.png`,
   `${BASE}assets/step3d-logo-512.png`,
-  `${BASE}assets/pwa-install.js`
+  `${BASE}assets/pwa-install.js`,
+  `${BASE}assets/mobile-readability.css`,
+  `${BASE}assets/minimal-ui.css`,
+  `${BASE}assets/ux-ui-100.css`,
+  `${BASE}assets/step3d-design-system.css`,
+  `${BASE}assets/ux-ui-10.css`,
+  `${BASE}assets/step3d-premium-system.css`
 ];
 
 self.addEventListener('install', (event) => {
-  event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(PRECACHE)).then(() => self.skipWaiting()));
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then((cache) => Promise.allSettled(PRECACHE.map((url) => cache.add(url))))
+      .then(() => self.skipWaiting())
+  );
 });
 
 self.addEventListener('message', (event) => {

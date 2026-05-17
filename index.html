@@ -4195,6 +4195,7 @@ section, [id] { scroll-margin-top: 132px; }
 <button class="quiz-option" data-quiz="series" type="button"><strong>Нужен прототип или малая серия</strong><span>Нужно проверить изделие и сделать несколько экземпляров.</span></button>
 <button class="quiz-option" data-quiz="estimate" type="button"><strong>Хочу понять цену и сроки</strong><span>Есть фото/идея, но непонятно, что влияет на расчёт.</span></button>
 <button class="quiz-option" data-quiz="education" type="button"><strong>Нужен мастер-класс или проектное занятие</strong><span>3D-печать, CAD, реверс-инжиниринг и цифровое производство.</span></button>
+<button class="quiz-option" data-quiz="b2b" type="button"><strong>B2B / команда / закупка</strong><span>Нужны документы, NDA, несколько деталей или повторяемый процесс.</span></button>
 </div>
 </aside>
 <div class="quiz-result">
@@ -4216,6 +4217,25 @@ section, [id] { scroll-margin-top: 132px; }
 </div>
 </div>
 </section>
+<section class="section-tight conversion-checkpoint" aria-labelledby="route-map-title">
+  <div class="container">
+    <div class="section-head"><div><p class="eyebrow">Маршруты заявки</p><h2 class="section-title" id="route-map-title">Шесть понятных сценариев вместо “разберёмся потом”</h2></div><p class="section-lead">Пользователь выбирает ближайшую ситуацию, а сайт сразу объясняет, что прислать, какой риск проверить и куда нажать дальше.</p></div>
+    <div class="scenario-route-map">
+      <article class="scenario-route-card"><strong>Сломалась деталь</strong><p>Фото, размер, место установки, нагрузка.</p><a href="urgent-spare-parts/">Запчасть по фото</a></article>
+      <article class="scenario-route-card"><strong>Нужен прототип</strong><p>Идея, эскиз, габарит, что проверяем.</p><a href="3d-modeling/">Модель под печать</a></article>
+      <article class="scenario-route-card"><strong>Реверс-инжиниринг</strong><p>Образец, посадки, точность, цель модели.</p><a href="reverse-engineering/">Сканирование/реверс</a></article>
+      <article class="scenario-route-card"><strong>Малая серия</strong><p>Количество, допуски, тестовый образец.</p><a href="small-batch-production/">Серия после прототипа</a></article>
+      <article class="scenario-route-card"><strong>Мастер-класс</strong><p>Возраст, группа, длительность, результат.</p><a href="workshops/">Обучение</a></article>
+      <article class="scenario-route-card"><strong>B2B</strong><p>NDA, счёт, договор, регулярные задачи.</p><a href="account/#b2b-actions">B2B-шаги</a></article>
+    </div>
+    <div class="trust-risk-strip" aria-label="Честная оценка Step3D">
+      <div><b>Сначала проверка</b>Не обещаем печать до оценки нагрузки, материала и геометрии.</div>
+      <div><b>Риски заранее</b>Сразу говорим, где нужен тест, сканирование или доработка CAD.</div>
+      <div><b>Понятный срок</b>Отделяем быстрый ответ от фактического изготовления.</div>
+      <div><b>Для B2B</b>Можно начать с NDA, счёта, этапов и списка файлов.</div>
+    </div>
+  </div>
+</section>
 
 <section aria-labelledby="micro-calc-title" class="section" id="micro-calc">
 <div class="container">
@@ -4228,12 +4248,12 @@ section, [id] { scroll-margin-top: 132px; }
 </div>
 <div class="micro-calc-grid">
 <form class="micro-calc-panel micro-calc-form" id="microCalcForm">
-<label>Тип задачи<select id="calcTask"><option>3D-печать детали</option><option>Моделирование по фото/эскизу</option><option>Реверс-инжиниринг / сканирование</option><option>Малая серия</option><option>Образовательный проект</option></select></label>
-<label>Файл есть?<select id="calcFile"><option>Есть STL/STEP/OBJ/3MF</option><option>Есть фото или эскиз</option><option>Есть чертёж PDF/DXF</option><option>Пока только описание</option></select></label>
-<label>Срок<select id="calcDeadline"><option>Не срочно</option><option>До недели</option><option>2–3 дня</option><option>Срочно / сегодня-завтра</option></select></label>
-<label>Размер<input id="calcSize" placeholder="например: 120×80×40 мм"></label>
-<label>Количество<input id="calcQty" inputmode="numeric" placeholder="1, 5, 20..."></label>
-<label>Куда отправить результат<select id="calcNext"><option>Заполнить форму ниже</option><option>Написать в Telegram</option><option>Скопировать шаблон</option></select></label>
+<label for="calcTask">Тип задачи<select id="calcTask"><option>3D-печать детали</option><option>Моделирование по фото/эскизу</option><option>Реверс-инжиниринг / сканирование</option><option>Малая серия</option><option>Образовательный проект</option></select></label>
+<label for="calcFile">Файл есть?<select id="calcFile"><option>Есть STL/STEP/OBJ/3MF</option><option>Есть фото или эскиз</option><option>Есть чертёж PDF/DXF</option><option>Пока только описание</option></select></label>
+<label for="calcDeadline">Срок<select id="calcDeadline"><option>Не срочно</option><option>До недели</option><option>2–3 дня</option><option>Срочно / сегодня-завтра</option></select></label>
+<label for="calcSize">Размер<input id="calcSize" placeholder="например: 120×80×40 мм"></label>
+<label for="calcQty">Количество<input id="calcQty" inputmode="numeric" placeholder="1, 5, 20..."></label>
+<label for="calcNext">Куда отправить результат<select id="calcNext"><option>Заполнить форму ниже</option><option>Написать в Telegram</option><option>Скопировать шаблон</option></select></label>
 </form>
 <aside class="micro-calc-result" aria-live="polite">
 <h3 id="microCalcTitle">Предварительно: стандартная оценка</h3>
@@ -4310,6 +4330,7 @@ section, [id] { scroll-margin-top: 132px; }
 <button class="quick-lead-preset" type="button" data-quick-task="Нужна STL-модель по фото или референсу. Есть картинка, примерный размер, желаемое разбиение на части и срок.">STL по картинке</button>
 <button class="quick-lead-preset" type="button" data-quick-task="Нужно сделать малую серию одинаковых деталей. Укажу количество, срок, материал и есть ли файл STL/STEP.">Малая серия</button>
 <button class="quick-lead-preset" type="button" data-quick-task="Нужен объект для события/сцены/подарка к конкретной дате. Есть референсы, примерный размер и требования к внешнему виду.">Объект к дате</button>
+<button class="quick-lead-preset" type="button" data-quick-task="B2B-задача: нужно оценить несколько деталей/прототипов, уточнить документы, NDA, сроки и порядок запуска. Есть описание, количество и контакт ответственного.">B2B / NDA</button>
 </div>
 <div class="form-grid">
 <div class="field"><label for="quickContact">Telegram или телефон <span class="visually-hidden">обязательно</span></label><input id="quickContact" placeholder="@username или телефон" required aria-required="true"></div>
@@ -4858,6 +4879,14 @@ section, [id] { scroll-margin-top: 132px; }
         items: ['Пришлите фото/эскиз/STL и один понятный габарит.', 'Укажите количество, срок и где изделие будет использоваться.', 'Напишите, что важнее: цена, скорость, прочность или внешний вид.'],
         prefill: 'Нужна оценка цены и сроков по фото/файлу',
         service: 'services/'
+      },
+      b2b: {
+        category: 'B2B / производственная задача',
+        title: 'Начните с цели, количества и требований к документам',
+        text: 'Для компании важны не только модель и печать, но и повторяемость, сроки, документы, риски, NDA и понятный ответ для закупки или команды.',
+        items: ['Укажите компанию, контакт и кто принимает решение.', 'Опишите количество, срок, требования к материалу и документам.', 'Если проект закрытый — напишите, нужен ли NDA до передачи файлов.'],
+        prefill: 'Корпоративная / NDA-задача',
+        service: 'account/#b2b-actions'
       },
       education: {
         category: 'Образовательные проекты',
