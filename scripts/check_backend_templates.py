@@ -17,6 +17,7 @@ CHECKS = {
     "scripts/check_release_readiness.py": ["RELEASE_READINESS_OK", "app → viewer", "data/crm_statuses.json"],
     "scripts/check_ux_ui_2.py": ["UX_UI_2_CHECK_OK", "trapStoryFocus", "prefers-reduced-motion"],
     "scripts/check_ux_ui_25.py": ["UX_UI_25_CHECK_OK", "step3d-design-system", "bottom-nav"],
+    "scripts/check_ux_ui_100.py": ["UX_UI_100_CHECK_OK", "Ollama", "NotebookLM"],
 }
 
 def main() -> int:

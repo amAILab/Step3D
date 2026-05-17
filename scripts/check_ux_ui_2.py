@@ -7,7 +7,7 @@ checks = {
         'trapStoryFocus',
         'mobileMenu.hidden = true',
         'Viewer не обязателен',
-        'Рассчитать по фото / STL',
+        'Оставить заявку',
     ],
     'app/index.html': [
         'function activateTab',
@@ -24,7 +24,7 @@ checks = {
     ],
     'account/index.html': [
         'Карточка заявки',
-        'Что дальше по проекту Step3D',
+        'Карточка заявки S3D',
         'Карточка пока preview',
     ],
     'assets/minimal-ui.css': [
