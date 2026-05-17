@@ -20,8 +20,8 @@ CHECKS = {
         "FAQPage",
     ],
     "app/index.html": [
-        "Не форма. Рабочее место для заявки",
-        "source-card",
+        "Куда везём задачу",
+        "service-tile",
         "step3d:viewerBrief",
         "STEP3D_LEAD_CONFIG",
         "WebApplication",
