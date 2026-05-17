@@ -20,7 +20,7 @@ CHECKS = {
         "FAQPage",
     ],
     "app/index.html": [
-        "Куда везём задачу",
+        "Что нужно изготовить",
         "service-tile",
         "step3d:viewerBrief",
         "STEP3D_LEAD_CONFIG",

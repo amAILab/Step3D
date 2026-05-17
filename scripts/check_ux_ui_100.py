@@ -5,7 +5,7 @@ checks={
  'docs/ux_ui_100_stages.md':['100 этапов','Stages 66–85','Stage 1–10 result'],
  'assets/ux-ui-10.css':['Ollama + NotebookLM','ux-source-board','Stages 66–85','content-visibility'],
  'index.html':['Оставить заявку','ollama-home-note','home-focus-strip'],
- 'app/index.html':['Куда везём задачу','Заказать расчёт','service-tile','Статус поездки'],
+ 'app/index.html':['Что нужно изготовить','Отправить инженеру','service-tile','Статус заявки'],
  'viewer/index.html':['Есть STL?','Передать расчёт в заявку','Источник готов'],
  'account/index.html':['Карточка заявки S3D','не личный кабинет'],
  'thanks/index.html':['Заявка принята. Дальше — файлы','Дослать файлы в Telegram'],
