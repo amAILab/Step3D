@@ -26,6 +26,10 @@ issues=[]; report={'html_files':len(HTML),'internal_links':0,'forms':0,'cta_link
 all_ids={}
 for p in HTML:
     q=parse(p); rel=p.relative_to(ROOT)
+
+    txt=p.read_text(errors='ignore')
+    if 'step3d-common.css' not in txt or 'step3d-common.js' not in txt:
+        issues.append(f'{rel}: common header/footer/search assets not connected')
     all_ids[str(rel)]=q.ids
     if q.h1!=1: issues.append(f'{rel}: expected exactly one h1, got {q.h1}')
     for img in q.imgs:
@@ -60,9 +64,10 @@ for p in HTML:
             if frag not in ids: issues.append(f'{rel}: broken anchor {href}')
 # SW sanity
 sw=(ROOT/'service-worker.js').read_text(errors='ignore')
-if 'step3d-pwa-v4' not in sw: issues.append('service-worker.js: cache version is not v4')
+if 'step3d-pwa-v5' not in sw: issues.append('service-worker.js: cache version is not v5')
 if 'Promise.allSettled' not in sw: issues.append('service-worker.js: install may fail on one missing asset')
 if 'step3d-premium-system.css' not in sw: issues.append('service-worker.js: premium CSS not precached')
+if 'step3d-common.js' not in sw or 'step3d-common.css' not in sw: issues.append('service-worker.js: common header/search assets not precached')
 # sitemap/robots
 sitemap=(ROOT/'sitemap.xml').read_text(errors='ignore')
 robots=(ROOT/'robots.txt').read_text(errors='ignore')
