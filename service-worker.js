@@ -1,4 +1,4 @@
-const CACHE_NAME = 'step3d-pwa-v5';
+const CACHE_NAME = 'step3d-pwa-v6';
 const BASE = '/Step3D/';
 const PRECACHE = [
   BASE,
@@ -19,7 +19,8 @@ const PRECACHE = [
   `${BASE}assets/ux-ui-10.css`,
   `${BASE}assets/step3d-premium-system.css`,
   `${BASE}assets/step3d-common.css`,
-  `${BASE}assets/step3d-common.js`
+  `${BASE}assets/step3d-common.js`,
+  `${BASE}assets/step3d-minimal.css`
 ];
 
 self.addEventListener('install', (event) => {

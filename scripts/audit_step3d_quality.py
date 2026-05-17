@@ -64,10 +64,11 @@ for p in HTML:
             if frag not in ids: issues.append(f'{rel}: broken anchor {href}')
 # SW sanity
 sw=(ROOT/'service-worker.js').read_text(errors='ignore')
-if 'step3d-pwa-v5' not in sw: issues.append('service-worker.js: cache version is not v5')
+if 'step3d-pwa-v6' not in sw: issues.append('service-worker.js: cache version is not v6')
 if 'Promise.allSettled' not in sw: issues.append('service-worker.js: install may fail on one missing asset')
 if 'step3d-premium-system.css' not in sw: issues.append('service-worker.js: premium CSS not precached')
 if 'step3d-common.js' not in sw or 'step3d-common.css' not in sw: issues.append('service-worker.js: common header/search assets not precached')
+if 'step3d-minimal.css' not in sw: issues.append('service-worker.js: minimal CSS not precached')
 # sitemap/robots
 sitemap=(ROOT/'sitemap.xml').read_text(errors='ignore')
 robots=(ROOT/'robots.txt').read_text(errors='ignore')
