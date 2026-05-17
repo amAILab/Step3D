@@ -34,3 +34,13 @@ body:not(.app-page) .hero{padding-top:32px!important}.hero-grid{gap:32px!importa
 
 /* Stage 7: bottom nav is exactly 3 actions */
 .bottom-nav{grid-template-columns:repeat(3,minmax(0,1fr))!important}.bottom-nav a{letter-spacing:-.01em}
+
+
+/* Stages 11–15: thanks, trust, CTA vocabulary, typography, contrast */
+:root{--s3d-readable-muted:#4f5358}
+body{font-kerning:normal;text-rendering:optimizeLegibility}.lead,.hero-subtitle,.section-lead,.note,.muted,p,li{color:var(--s3d-readable-muted)!important}h1,h2,h3{letter-spacing:-.035em!important}.hero-title,h1{max-width:980px}.btn{font-weight:850!important}.btn-primary,.btn-dark{background:#111!important;color:#fff!important}.trust-compact-grid,.lead-trust-strip{gap:8px!important}.trust-compact-item,.lead-trust-item{box-shadow:none!important}.lead-trust-item strong,.trust-compact-item strong{color:#111!important}.footer,.site-footer{color:#555!important}.thanks-next-focus{display:grid;gap:10px;padding:16px;border:1px solid var(--s3d-line,#e7e3dc);border-radius:22px;background:#fff;box-shadow:0 10px 28px rgba(17,17,17,.055)}
+@media(max-width:760px){h1,h2,h3{letter-spacing:-.025em!important}.lead,.hero-subtitle,.section-lead{font-size:16px!important}.trust-compact-item:nth-child(n+3),.lead-trust-item:nth-child(n+3){display:none!important}}
+
+
+/* Stages 16–20: accessibility 2, motion, mobile/tablet/desktop hardening */
+:where(a,button,input,select,textarea,[tabindex]):focus-visible{outline:3px solid #111!important;outline-offset:3px!important;box-shadow:0 0 0 6px rgba(17,17,17,.10)!important}input,textarea,select{font-size:16px!important}input::placeholder,textarea::placeholder{color:#777!important}.mobile-menu[hidden]{display:none!important}.story-modal[aria-hidden="true"]{display:none!important}@media (prefers-reduced-motion: reduce){html:focus-within{scroll-behavior:auto!important}*,*::before,*::after{animation:none!important;transition:none!important}}@media(max-width:430px){.container,.app-shell,.topbar-inner{width:calc(100vw - 20px)!important;max-width:calc(100vw - 20px)!important}.btn{min-height:50px!important}.card,.project-card,.form-panel,.brief-panel{padding:14px!important}.home-focus-strip div,.trust-compact-item{padding:12px!important}.bottom-nav a{font-size:12px!important}}@media(min-width:761px) and (max-width:1024px){.hero-grid,.app-shell .hero-grid,.split,.workspace{grid-template-columns:1fr!important}.project-card,.panel{position:static!important}.bottom-nav{max-width:680px!important}}@media(min-width:1200px){.hero,.section{scroll-margin-top:96px}.container,.app-shell{max-width:1120px!important}.hero-actions,.hero-cta{max-width:620px}}

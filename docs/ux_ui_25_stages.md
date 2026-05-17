@@ -127,3 +127,66 @@ Account wording усилен как честная карточка заявки
 - `Создать проект` → `Создать заявку`;
 - `frontend-preview` → `preview-карточка`;
 - footer объясняет, что приватные файлы и настоящий статус требуют backend/auth.
+
+
+## Stage 11 — Thanks page next step
+
+Thanks page переведена в следующий шаг: `Заявка принята. Дальше — файлы`, CTA `Дослать файлы в Telegram`, статус → `Карточка заявки`.
+
+## Stage 12 — Trust layer cleanup
+
+Trust blocks стали компактнее: меньше теней и лишней визуальной тяжести, на mobile скрываются вторичные trust-пункты.
+
+## Stage 13 — CTA vocabulary
+
+Унифицированы CTA: заявка, номер S3D, карточка заявки, файлы в Telegram. Убрана часть разнобоя `проект/статус/кабинет`.
+
+## Stage 14 — Typography
+
+Снижено агрессивное отрицательное расстояние букв для русских заголовков. Заголовки стали читабельнее на mobile.
+
+## Stage 15 — Contrast
+
+Усилен muted-текст до более читаемого `#4f5358`, сохранены белые поверхности и чёрный primary CTA.
+
+
+## Stage 16 — Accessibility pass 2
+
+Усилены focus-visible, placeholder contrast, hidden menu/modal states.
+
+## Stage 17 — Motion pass
+
+`prefers-reduced-motion` теперь выключает анимации и transition на системном уровне.
+
+## Stage 18 — Mobile hardening
+
+Добавлен отдельный слой для ширин до 430px: компактнее контейнеры, кнопки не меньше 50px, карточки плотнее.
+
+## Stage 19 — Tablet hardening
+
+На 761–1024px сложные split/workspace сетки переводятся в одну колонку, sticky project card отключается.
+
+## Stage 20 — Desktop spacing
+
+На desktop зафиксирован max-width и scroll-margin для крупных секций.
+
+
+## Stage 21 — SEO/schema guard
+
+SEO/schema проверки сохранены: UX-слой не ломает LocalBusiness/FAQ/WebApplication.
+
+## Stage 22 — Analytics/funnel consistency
+
+Сохранены существующие analytics hooks и request-flow checks.
+
+## Stage 23 — Release checks expansion
+
+Добавлен `scripts/check_ux_ui_25.py`, который проверяет новые UX/UI 25 решения.
+
+## Stage 24 — Design system docs
+
+Добавлен `docs/step3d_design_system.md` с принципами дизайн-системы и дальнейшим планом выноса inline CSS.
+
+## Stage 25 — Final deploy audit
+
+Финальный gate: healthcheck, validate site, analytics, request flow, backend templates, SEO/trust, release readiness, UX/UI 2.0, UX/UI 25.

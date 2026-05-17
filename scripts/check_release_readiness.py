@@ -29,13 +29,13 @@ CHECKS = {
     ],
     "viewer/index.html": [
         "step3d:viewerBrief",
-        "Сохранить расчёт и создать заявку",
+        "Сохранить расчёт в заявку",
         "cdnFallback",
         "href=\"../app/#app-brief\"",
     ],
     "thanks/index.html": [
         "thanksProjectCard",
-        "Открыть статус проекта",
+        "Открыть карточку заявки",
         "href=\"../app/#app-brief\"",
     ],
     "account/index.html": [

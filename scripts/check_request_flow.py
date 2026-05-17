@@ -16,12 +16,12 @@ CHECKS = {
     "thanks/index.html": {
         "project card": 'id="thanksProjectCard"',
         "four-step flow": "flow-next-grid",
-        "account CTA": "Открыть статус проекта",
+        "account CTA": "Открыть карточку заявки",
     },
     "viewer/index.html": {
         "viewer brief storage": "step3d:viewerBrief",
         "app handoff": "../app/#app-brief",
-        "save and create CTA": "Сохранить расчёт и создать заявку",
+        "save and create CTA": "Сохранить расчёт в заявку",
         "saved handoff notice": "viewerSaved",
         "cdn fallback": "cdnFallback",
     },

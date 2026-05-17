@@ -5003,7 +5003,7 @@ section, [id] { scroll-margin-top: 132px; }
       const tgUrl = `${managerTelegram}?text=${encodeURIComponent(telegramText)}`;
       const primaryLabel = isSent ? 'Дослать файлы' : 'Отправить черновик в Telegram';
       box.classList.add('is-visible');
-      box.innerHTML = `<strong>Проект ${leadData.projectId}: ${statusText}</strong><p>${nextText}</p><div class="project-next-actions"><a class="btn btn-primary" href="${tgUrl}" target="_blank" rel="noopener">${primaryLabel}</a><a class="btn btn-secondary" href="${accountUrl}">Открыть статус проекта</a></div>`;
+      box.innerHTML = `<strong>Проект ${leadData.projectId}: ${statusText}</strong><p>${nextText}</p><div class="project-next-actions"><a class="btn btn-primary" href="${tgUrl}" target="_blank" rel="noopener">${primaryLabel}</a><a class="btn btn-secondary" href="${accountUrl}">Карточка заявки проекта</a></div>`;
     }
 
     async function submitLeadToStorage(leadData) {

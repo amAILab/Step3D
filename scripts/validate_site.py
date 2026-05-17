@@ -148,7 +148,7 @@ def validate_lead_capture() -> list[str]:
         for label, snippet in {
             "project card": 'id="thanksProjectCard"',
             "Telegram file CTA": "Файлы к заявке",
-            "account status CTA": "Открыть статус проекта",
+            "account status CTA": "Открыть карточку заявки",
         }.items():
             if snippet not in thanks_text:
                 errors.append(f"Thank-you page missing {label}: {snippet}")
