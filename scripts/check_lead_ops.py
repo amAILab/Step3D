@@ -84,6 +84,9 @@ def main() -> int:
             "FormSubmit fallback": "https://formsubmit.co/projects.step3d@gmail.com",
             "Telegram из конфига": "leadConfig.managerTelegram",
             "карточка проекта": "../account/?projectId=",
+            "операционный маршрут": "ops-strip",
+            "минимум для инженера": "Минимум для ответа инженера",
+            "после отправки": "После отправки",
         },
         errors,
     )

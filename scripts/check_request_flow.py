@@ -14,6 +14,8 @@ CHECKS = {
         "quick lead guard": "quickLeadIsReady",
         "no telegram auto-open": "Дослать файлы",
         "stored lead": "step3d:lastLead",
+        "production handoff": "production-handoff",
+        "live case journey": "case-journey",
     },
     "thanks/index.html": {
         "project card": 'id="thanksProjectCard"',
@@ -38,6 +40,9 @@ CHECKS = {
         "lead config manager": "leadConfig.managerTelegram",
         "contact accepts telegram": "Телефон, email или @telegram",
         "account handoff": "../account/?projectId=",
+        "operations strip": "ops-strip",
+        "client minimum check": "Минимум для ответа инженера",
+        "after submit instruction": "После отправки",
     },
     "account/index.html": {
         "project id sanitizing": "replace(/[^A-Z0-9-]/gi,'')",

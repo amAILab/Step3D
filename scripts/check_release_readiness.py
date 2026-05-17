@@ -25,6 +25,8 @@ CHECKS = {
         "step3d:viewerBrief",
         "STEP3D_LEAD_CONFIG",
         "WebApplication",
+        "ops-strip",
+        "Минимум для ответа инженера",
     ],
     "viewer/index.html": [
         "step3d:viewerBrief",

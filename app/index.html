@@ -35,6 +35,14 @@
 @media(max-width:640px){.hero h1{font-size:clamp(26px,7.2vw,30px)!important;line-height:1.05!important;letter-spacing:-.05em;overflow-wrap:anywhere}.hero .lead{font-size:13.5px!important;line-height:1.42!important}.task-panel__top{flex-wrap:wrap}.task-panel h2{font-size:19px!important;line-height:1.08!important;overflow-wrap:anywhere;text-wrap:balance}.task-panel p{font-size:13px!important;overflow-wrap:anywhere}.mode-pill{max-width:100%;white-space:normal}.status-card span{font-size:12px;line-height:1.25}.progress-line{margin-top:10px}}
 
 @media(max-width:640px){.hero,.task-panel,.status-card,.main-card,.side-card{min-width:0}.hero h1,.hero .lead,.task-panel h2,.task-panel p,.status-card span{max-width:100%;white-space:normal;overflow-wrap:anywhere;word-break:normal}.hero .lead strong{display:inline}.task-panel__top{display:grid;grid-template-columns:1fr;align-items:start}.task-panel__top .mode-pill{width:max-content;max-width:100%}.delivery-options span,.trust-row span,.decision-note span{overflow-wrap:anywhere}}
+
+/* Joint Step3D pass: make App feel like an operations desk, not a long form. */
+.ops-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0 14px}
+.ops-strip div{padding:12px 13px;border:1px solid var(--line);border-radius:20px;background:rgba(255,253,248,.94);box-shadow:0 12px 34px rgba(20,23,26,.045)}
+.ops-strip b{display:block;color:var(--ink);font-size:14px;letter-spacing:-.025em}.ops-strip span{display:block;margin-top:4px;color:var(--muted);font-size:12.5px;line-height:1.35}
+.client-check{display:grid;gap:8px;padding:13px;border:1px solid #d9e7df;border-radius:22px;background:#f3fbf6;color:#25352d}.client-check b{font-size:15px}.client-check ul{margin:0;padding-left:18px;color:#4a5a51;font-size:13px;line-height:1.4}
+.after-submit{display:grid;gap:7px;margin-top:10px;padding:12px;border:1px solid var(--line);border-radius:18px;background:#fffdf8;color:#3b4146}.after-submit b{color:var(--ink)}.after-submit span{color:var(--muted);font-size:13px;line-height:1.35}
+@media(max-width:640px){.ops-strip{grid-template-columns:1fr}.ops-strip div{padding:10px 12px;border-radius:18px}.client-check{padding:11px;border-radius:18px}.field-row{grid-template-columns:1fr}.drop p{font-size:12.5px}.submit-row{margin-top:8px}.side-card.summary{order:-1}.go-map{display:none}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Step3D App","url":"https://amailab.github.io/Step3D/app/","applicationCategory":"BusinessApplication","operatingSystem":"Web","description":"AI-assisted заявка на 3D-печать, CAD, сканирование и малые серии."}</script>
 </head>
@@ -71,6 +79,11 @@
   </nav>
 
   <div class="mini-flow" aria-label="Маршрут заявки"><span>1. Исходник</span><span>2. Оценка</span><span>3. Файлы</span><span>4. Ответ инженера</span></div>
+  <section class="ops-strip" aria-label="Операционный маршрут Step3D">
+    <div><b>Что прислать</b><span>контакт, фото/STL/STEP, размер, количество и срок — остальное уточним.</span></div>
+    <div><b>Что проверим</b><span>масштаб, материал, нагрузку, посадки, риски печати и нужен ли CAD/скан.</span></div>
+    <div><b>Что получите</b><span>номер S3D, маршрут изготовления, что дослать и безопасный следующий шаг.</span></div>
+  </section>
 
   <section class="go-shell" aria-label="Оформление инженерной заявки Step3D">
     <article class="main-card" id="brief">
@@ -79,6 +92,7 @@
       <p class="success" id="successBox" aria-live="polite">Заявка подготовлена. Номер S3D появится в статусе.</p>
       <form class="form" id="leadForm" action="https://formsubmit.co/projects.step3d@gmail.com" method="POST" enctype="multipart/form-data" novalidate>
         <div class="decision-note"><b>Коротко · понятно · по делу</b><span>Нужны только контакт и суть задачи. Размер, фото, материал и срок ускорят ответ, но не обязательны на первом шаге.</span></div>
+        <div class="client-check" aria-label="Минимум для первого ответа Step3D"><b>Минимум для ответа инженера</b><ul><li>контакт для связи;</li><li>что сломалось или что нужно изготовить;</li><li>размер/фото/файл — если есть сейчас.</li></ul></div>
         <input type="hidden" name="_subject" value="Новая заявка из Step3D App">
         <input type="hidden" name="_cc" value="stepgptai@gmail.com">
         <input type="hidden" name="_captcha" value="false">
@@ -109,6 +123,7 @@
         <p class="hint" id="meterText">Добавьте контакт и описание задачи.</p>
         <div class="checklist"><div class="check" id="checkContact"><i>✓</i><div><b>Контакт</b><span>Куда ответить инженеру</span></div></div><div class="check" id="checkTask"><i>✓</i><div><b>Задача</b><span>Что нужно сделать</span></div></div><div class="check" id="checkFiles"><i>✓</i><div><b>Файлы</b><span>Можно дослать позже</span></div></div></div>
         <div class="next-box"><b>Следующий шаг</b><span id="nextText">Заполните контакт и задачу — App подготовит черновик S3D.</span></div>
+        <div class="after-submit" aria-label="Что делать после отправки заявки"><b>После отправки</b><span>Скопируйте ТЗ, сохраните номер S3D и досылайте тяжёлые файлы в Telegram с этим номером. Так заявка не потеряется.</span></div>
         <div class="actions" id="nextActions"><a class="btn btn-primary" id="sendFilesLink" href="https://t.me/step_3d_mngr" target="_blank" rel="noopener">Дослать файлы</a><button class="btn" type="button" id="copyBrief">Скопировать ТЗ</button><a class="btn" href="../account/" id="accountLink">Карточка проекта</a></div>
       </div>
       <p class="mini-note">Инженерный контур: сценарий → вводные → файлы → расчёт → следующий шаг.</p>

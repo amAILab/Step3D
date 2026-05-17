@@ -3348,6 +3348,19 @@ section, [id] { scroll-margin-top: 132px; }
 @media(max-width:900px){.trust-compact-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.trust-compact-grid{grid-template-columns:1fr}.trust-compact-item{padding:12px 14px;border-radius:18px}}
 
+/* Joint Step3D pass: visible production route and App handoff on the first screen. */
+.production-handoff{display:grid;grid-template-columns:1.05fr .95fr;gap:12px;margin-top:18px;max-width:760px}
+.production-handoff__card{padding:14px 15px;border:1px solid #e5e7eb;border-radius:22px;background:#fff;box-shadow:0 14px 38px rgba(15,23,42,.055)}
+.production-handoff__card strong{display:block;color:#111;font-size:15px;letter-spacing:-.025em;margin-bottom:7px}
+.production-handoff__card span{display:block;color:#5f6368;font-size:13px;line-height:1.38}
+.production-handoff__card ul{margin:8px 0 0;padding-left:18px;color:#525252;font-size:13px;line-height:1.42}
+.production-handoff__card li+li{margin-top:3px}
+.production-handoff__link{display:inline-flex;margin-top:10px;color:#111;font-weight:900;text-decoration:underline;text-underline-offset:4px}
+.case-journey{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:12px;max-width:760px}
+.case-journey article{padding:12px;border:1px solid #e5e7eb;border-radius:18px;background:#f8fafc;color:#525252}
+.case-journey b{display:block;color:#111;font-size:13px;margin-bottom:5px}.case-journey span{display:block;font-size:12px;line-height:1.35}
+@media(max-width:760px){.production-handoff{grid-template-columns:1fr;margin-top:14px}.production-handoff__card{padding:12px 13px;border-radius:18px}.production-handoff__card:nth-child(2){display:none}.case-journey{grid-template-columns:1fr}.case-journey article:nth-child(n+3){display:none}}
+
 </style>
 <link rel="stylesheet" href="assets/mobile-readability.css">
 <link rel="stylesheet" href="assets/minimal-ui.css">
@@ -3516,6 +3529,15 @@ section, [id] { scroll-margin-top: 132px; }
 </div>
 <p class="hero-note"><strong>Viewer не обязателен:</strong> если файла нет, начните с фото и описания. </p><p class="hero-note">Москва · работаем удалённо · оценка по фото · первый ответ обычно в рабочий день.</p>
 <p class="ollama-home-note">Минимальный путь: без регистрации, без сложного ТЗ, без обещания цены по одному фото.</p>
+<div class="production-handoff" aria-label="Как Step3D доводит заявку до производства">
+  <div class="production-handoff__card"><strong>Клиентский путь без потери файлов</strong><span>App создаёт номер S3D, собирает контакт и задачу, а тяжёлые файлы клиент досылает в Telegram с этим номером.</span><a class="production-handoff__link" href="app/#app-brief" data-metric="app_click">Открыть заявку Step3D</a></div>
+  <div class="production-handoff__card"><strong>Что проверяем до обещаний</strong><ul><li>масштаб, материал, нагрузку и посадки;</li><li>нужен ли CAD, скан или тестовая печать;</li><li>срок и цену-вилку только после вводных.</li></ul></div>
+</div>
+<div class="case-journey" aria-label="Живые сценарии Step3D: вход, работа, результат">
+  <article><b>Запчасть по фото</b><span>вход: фото + размер → работа: CAD/проверка посадок → результат: печатная замена.</span></article>
+  <article><b>Прототип корпуса</b><span>вход: эскиз/идея → работа: модель + тест печати → результат: образец для сборки.</span></article>
+  <article><b>Малая серия</b><span>вход: готовый образец → работа: материал/режимы → результат: повторяемая партия.</span></article>
+</div>
 <div class="home-focus-strip" aria-label="Главный сценарий Step3D"><div><b>1. Покажите деталь</b><span>Фото, эскиз, STL/STEP или описание.</span></div><div><b>2. Получите маршрут</b><span>CAD, скан, печать, серия или честный отказ.</span></div><div><b>3. Досылайте файлы</b><span>В Telegram с номером заявки S3D.</span></div></div>
 </div>
 <div aria-label="Примеры работ Step3D" class="hero-visual">
