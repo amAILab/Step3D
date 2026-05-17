@@ -54,9 +54,10 @@
 <script>
 (function(){
   const params=new URLSearchParams(location.search);
-  const rawId=params.get('projectId')||localStorage.getItem('step3d:lastProjectId');
+  const rawId=params.get('projectId')||localStorage.getItem('step3d:lastProjectId')||localStorage.getItem('step3d:lastDraftId');
   const id=(rawId||'').replace(/[^A-Z0-9-]/gi,'').slice(0,32);
-  const leadRaw=localStorage.getItem('step3d:lastLead');
+  const isDraft=!localStorage.getItem('step3d:lastProjectId') && id.startsWith('DRAFT-');
+  const leadRaw=localStorage.getItem('step3d:lastLead')||localStorage.getItem('step3d:lastDraftLead');
   const escapeHtml=(value)=>String(value||'').replace(/[&<>"']/g,(char)=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   if(!id) return;
   const hero=document.querySelector('.hero .container');
@@ -65,10 +66,10 @@
     card.className='status-card-live';
     let desc='', task='', files='';
     try{const lead=JSON.parse(leadRaw||'{}'); desc=lead.description||lead.task||lead.files||''; task=lead.task||lead.description||''; files=lead.files||'';}catch(e){}
-    card.innerHTML='<span class="status">проект</span><h2>'+id+'</h2><p class="muted">Статус: номер заявки сохранён на этом устройстве. Следующий шаг — дослать файлы или уточнения с номером проекта.</p><div class="status-steps"><div><b>Принято</b><span>'+(task?escapeHtml(task).slice(0,90):'номер проекта и контакт')+'</span></div><div><b>Не хватает</b><span>'+(files?'проверки инженера':'фото, STL/STEP или размеров')+'</span></div><div><b>Дальше</b><span>после проверки: маршрут, срок, цена-вилка</span></div></div>'+(desc?'<p class="muted"><strong>Вводные:</strong> '+escapeHtml(desc).slice(0,220)+'</p>':'')+'<div class="actions" style="margin-top:12px"><a class="btn btn-primary" href="https://t.me/step_3d_mngr?text='+encodeURIComponent('Файлы к проекту '+id)+'" target="_blank" rel="noopener">Дослать файлы</a><a class="btn btn-secondary" href="../app/#app-brief">Дополнить заявку</a></div>';
+    card.innerHTML='<span class="status">'+(isDraft?'черновик':'проект')+'</span><h2>'+id+'</h2><p class="muted">'+(isDraft?'Статус: это черновик на этом устройстве. Чтобы Step3D точно получил вводные, отправьте его в Telegram или создайте заявку ещё раз.':'Статус: номер заявки сохранён на этом устройстве. Следующий шаг — дослать файлы или уточнения с номером проекта.')+'</p><div class="status-steps"><div><b>Принято</b><span>'+(task?escapeHtml(task).slice(0,90):'номер проекта и контакт')+'</span></div><div><b>Не хватает</b><span>'+(files?'проверки инженера':'фото, STL/STEP или размеров')+'</span></div><div><b>Дальше</b><span>после проверки: маршрут, срок, цена-вилка</span></div></div>'+(desc?'<p class="muted"><strong>Вводные:</strong> '+escapeHtml(desc).slice(0,220)+'</p>':'')+'<div class="actions" style="margin-top:12px"><a class="btn btn-primary" href="https://t.me/step_3d_mngr?text='+encodeURIComponent((isDraft?'Черновик заявки ':'Файлы к проекту ')+id)+'" target="_blank" rel="noopener">'+(isDraft?'Отправить черновик':'Дослать файлы')+'</a><a class="btn btn-secondary" href="../app/#app-brief">Дополнить заявку</a></div>';
     hero.appendChild(card);
     const projects=document.getElementById('projects');
-    if(projects){projects.innerHTML='<span class="status status-green">номер сохранён</span><h2>'+id+'</h2><div class="project-row"><div><h3>Следующий шаг</h3><p class="muted">Дослать файлы/размеры или дождаться ответа после проверки Step3D.</p><div class="meta"><span>Статус: локальная карточка</span><span>Ответ: после проверки вводных</span></div></div></div>';}
+    if(projects){projects.innerHTML='<span class="status '+(isDraft?'status-amber':'status-green')+'">'+(isDraft?'черновик':'номер сохранён')+'</span><h2>'+id+'</h2><div class="project-row"><div><h3>Следующий шаг</h3><p class="muted">'+(isDraft?'Отправьте черновик менеджеру: на GitHub Pages он сохранён только локально.':'Дослать файлы/размеры или дождаться ответа после проверки Step3D.')+'</p><div class="meta"><span>Статус: локальная карточка</span><span>Ответ: после проверки вводных</span></div></div></div>';}
 
   }
 })();
