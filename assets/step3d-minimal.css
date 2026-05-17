@@ -12,3 +12,10 @@ html{background:var(--m-bg);scroll-padding-top:84px}body{margin:0!important;back
 
 /* Minimal decision: hide fixed mobile bar to keep pages clean and avoid CTA overlap */
 .s3d-common-mobile{display:none!important}body{padding-bottom:0!important}@media(max-width:760px){body{padding-bottom:0!important}.hero{padding-bottom:34px!important}}
+
+/* Request flow clarity: forms stay readable and predictable on small screens */
+.form-panel form,.brief-panel form,.quiz-wrap form{display:grid!important;gap:12px!important}
+.form-panel label,.brief-panel label,.quiz-wrap label{display:grid!important;gap:6px!important;color:var(--m-ink)!important;font-weight:760!important}
+.form-panel small,.brief-panel small,.form-note,.privacy-note{color:var(--m-muted)!important;font-size:13px!important;line-height:1.45!important}
+@media(max-width:760px){input,textarea,select,.input{width:100%!important;font-size:16px!important}.form-panel form,.brief-panel form,.quiz-wrap form{gap:10px!important}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}}
