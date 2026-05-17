@@ -13,6 +13,7 @@ CHECKS = {
     "scripts/mock_lead_api.py": ["Local mock Step3D lead API", "projectId", "mock-local"],
     "data/lead_schema.json": ["projectId", "task", "service", "files"],
     "data/crm_statuses.json": ["needs_files", "estimating", "firstReplyHours", "followupHours"],
+    "scripts/check_seo_trust.py": ["SEO_TRUST_CHECK_OK", "trust-compact-title", "WebApplication"],
 }
 
 def main() -> int:

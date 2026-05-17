@@ -3332,6 +3332,22 @@ section, [id] { scroll-margin-top: 132px; }
 
 /* Session 03 homepage funnel: App is the main entry, marketing stays below. */
 .site-header .header-actions .btn-secondary{display:none!important}.nav{gap:16px}.hero{padding-top:44px}.hero-grid{grid-template-columns:minmax(0,1fr) minmax(280px,430px);gap:28px}.hero-copy{align-self:center}.hero-actions{max-width:520px}.hero-actions .btn{flex:1}.hero-visual{opacity:.92}.hero-flow-strip{margin-top:20px}.conversion-strip,.answer-proof-strip,.design-soft-cta--top{display:none!important}@media(max-width:760px){.hero{padding-top:22px}.hero-actions{display:grid!important}.hero-flow-strip{margin-top:14px}.site-header .header-actions{display:none!important}}
+
+/* Session 9: compact trust/B2B layer without adding hero noise. */
+.trust-compact-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:18px}
+.trust-compact-item{padding:14px 16px;border:1px solid #e5e7eb;border-radius:20px;background:#fff;color:#525252;box-shadow:0 10px 28px rgba(15,23,42,.045)}
+.trust-compact-item strong{display:block;color:#111;margin-bottom:4px;letter-spacing:-.025em}
+.trust-compact-item span{display:block;font-size:.92rem;line-height:1.35}
+.b2b-card--quiet{background:#fff!important;color:#111!important;border:1px solid #e5e7eb!important;box-shadow:0 18px 54px rgba(15,23,42,.065)!important}
+.b2b-card--quiet::before{display:none!important}
+.b2b-card--quiet h2,.b2b-card--quiet strong{color:#111!important}
+.b2b-card--quiet p,.b2b-card--quiet li,.b2b-card--quiet .b2b-scenario span{color:#525252!important}
+.b2b-card--quiet .eyebrow{color:#2563eb!important;background:#eff6ff!important;border:1px solid #dbeafe!important}
+.b2b-card--quiet .check-list li::before{background:#111!important;color:#fff!important}
+.b2b-card--quiet .b2b-scenario{background:#f8fafc!important;border-color:#e5e7eb!important}
+@media(max-width:900px){.trust-compact-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.trust-compact-grid{grid-template-columns:1fr}.trust-compact-item{padding:12px 14px;border-radius:18px}}
+
 </style>
 <link rel="stylesheet" href="assets/mobile-readability.css">
 <link rel="stylesheet" href="assets/minimal-ui.css">
@@ -3620,6 +3636,19 @@ section, [id] { scroll-margin-top: 132px; }
 </div>
 </section>
 
+
+<section aria-labelledby="trust-compact-title" class="section-tight" id="trust-compact">
+<div class="container">
+<div class="section-head"><div><p class="eyebrow">Доверие без лишнего шума</p><h2 class="section-title" id="trust-compact-title">Что важно знать перед заявкой</h2></div><p class="section-lead">Коротко: работаем с инженерными вводными, честно называем ограничения и даём понятный следующий шаг.</p></div>
+<div class="trust-compact-grid" aria-label="Короткие сигналы доверия Step3D">
+<div class="trust-compact-item"><strong>Москва</strong><span>координация, встречи и выдача проектов по договорённости</span></div>
+<div class="trust-compact-item"><strong>Файлы и NDA</strong><span>для закрытых задач можно начать с NDA и аккуратного обмена файлами</span></div>
+<div class="trust-compact-item"><strong>B2B-документы</strong><span>счёт, договор и понятные этапы после первичной оценки</span></div>
+<div class="trust-compact-item"><strong>Честный маршрут</strong><span>CAD, скан, печать, серия — или отказ от 3D-печати, если так лучше</span></div>
+</div>
+</div>
+</section>
+
 <section aria-labelledby="sector-packs-title" class="section-tight" id="sector-packs">
 <div class="container">
 <div class="section-head">
@@ -3634,11 +3663,11 @@ section, [id] { scroll-margin-top: 132px; }
 </div>
 </section>
 <section aria-labelledby="b2b-title" class="section-tight" id="b2b">
-<div class="container b2b-card b2b-card--expanded">
+<div class="container b2b-card b2b-card--expanded b2b-card--quiet">
 <div>
 <p class="eyebrow">B2B</p>
 <h2 id="b2b-title">Для компаний, мастерских и проектных команд</h2>
-<p>Подключаемся как внешняя 3D-лаборатория: прототипы, оснастка, мастер-модели, восстановление деталей, малые серии и закрытые инженерные задачи.</p>
+<p>Подключаемся как внешняя 3D-лаборатория: прототипы, оснастка, мастер-модели, восстановление деталей и малые серии. Без громких обещаний — сначала вводные, риски и маршрут.</p>
 <ul class="check-list">
 <li>Можно начать с NDA/закрытого обсуждения задачи.</li>
 <li>Фиксируем вводные, ограничения, сроки и критерии результата.</li>
