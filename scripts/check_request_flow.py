@@ -28,17 +28,16 @@ CHECKS = {
         "cdn fallback": "cdnFallback",
     },
     "app/index.html": {
-        "viewer import banner": 'id="viewerImportBanner"',
+        "ai workspace title": "Не форма. Рабочее место для заявки",
         "viewer brief import": "step3d:viewerBrief",
-        "sketch launcher": "sketch-phone",
-        "service prefill": "data-app-task",
-        "brief progress": "briefProgressText",
-        "project next actions": "projectNextActions",
-        "file intake cards": "file-intake-grid",
-        "mobile bottom nav fits 3 items": "grid-template-columns:repeat(3,minmax(0,1fr))",
-        "minimal UI stylesheet": "minimal-ui.css",
-        "contact freeform keyboard": "Можно ввести телефон, email или @telegram",
-        "telegram handle autocorrect off": "autocapitalize=\"none\"",
+        "scenario cards": "source-card",
+        "service prefill": "data-preset",
+        "readiness meter": "meterFill",
+        "next actions": "nextActions",
+        "honest file handoff": "Файлы не хранятся на GitHub Pages",
+        "lead config manager": "leadConfig.managerTelegram",
+        "contact accepts telegram": "Телефон, email или @telegram",
+        "account handoff": "../account/?projectId=",
     },
     "account/index.html": {
         "project id sanitizing": "replace(/[^A-Z0-9-]/gi,'')",
@@ -77,9 +76,9 @@ def main() -> int:
         errors.append(f"service-worker.js: cache version must be step3d-pwa-v{MIN_CACHE_VERSION}+")
 
     index = (ROOT / "index.html").read_text(encoding="utf-8")
-    for rel in ["index.html", "app/index.html", "account/index.html", "thanks/index.html", "viewer/index.html"]:
-        if "minimal-ui.css" not in (ROOT / rel).read_text(encoding="utf-8"):
-            errors.append(f"{rel}: missing minimal-ui.css")
+    for rel in ["viewer/index.html", "thanks/index.html"]:
+        if "#app-brief" not in (ROOT / rel).read_text(encoding="utf-8"):
+            errors.append(f"{rel}: missing app brief handoff")
     if "window.open(`${managerTelegram}" in index or "window.setTimeout(() => window.open" in index:
         errors.append("index.html: Telegram auto-open after submit/fallback is back")
     if errors:

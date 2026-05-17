@@ -20,9 +20,8 @@ CHECKS = {
         "FAQPage",
     ],
     "app/index.html": [
-        "step3d-app-avatar.jpg",
-        "S3D-DRAFT",
-        "viewerImportBanner",
+        "Не форма. Рабочее место для заявки",
+        "source-card",
         "step3d:viewerBrief",
         "STEP3D_LEAD_CONFIG",
         "WebApplication",
