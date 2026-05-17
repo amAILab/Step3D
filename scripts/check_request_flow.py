@@ -2,9 +2,11 @@
 """Smoke-check the Step3D request flow across static pages."""
 from __future__ import annotations
 
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+MIN_CACHE_VERSION = 4
 CHECKS = {
     "index.html": {
         "hero flow": "hero-flow-strip",
@@ -44,7 +46,6 @@ CHECKS = {
         "b2b next action": "B2B-следующий шаг",
     },
     "service-worker.js": {
-        "cache version bump": "step3d-pwa-v3",
         "skip waiting message": "SKIP_WAITING",
     },
     "assets/pwa-install.js": {
@@ -70,6 +71,11 @@ def main() -> int:
         for label, snippet in snippets.items():
             if snippet not in text:
                 errors.append(f"{rel}: missing {label}: {snippet}")
+    service_worker = (ROOT / "service-worker.js").read_text(encoding="utf-8")
+    cache_match = re.search(r"step3d-pwa-v(\d+)", service_worker)
+    if not cache_match or int(cache_match.group(1)) < MIN_CACHE_VERSION:
+        errors.append(f"service-worker.js: cache version must be step3d-pwa-v{MIN_CACHE_VERSION}+")
+
     index = (ROOT / "index.html").read_text(encoding="utf-8")
     for rel in ["index.html", "app/index.html", "account/index.html", "thanks/index.html", "viewer/index.html"]:
         if "minimal-ui.css" not in (ROOT / rel).read_text(encoding="utf-8"):
