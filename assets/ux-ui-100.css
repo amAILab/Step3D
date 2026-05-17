@@ -48,4 +48,5 @@ body{font-kerning:normal;text-rendering:optimizeLegibility}.lead,.hero-subtitle,
 
 /* Stage 21: submit reassurance keeps request flow honest */
 .submit-reassurance{margin:0;padding:11px 13px;border:1px solid var(--s3d-line,#e7e3dc);border-radius:16px;background:#fafafa;color:#555;font-size:13px;line-height:1.38}
-@media(max-width:760px){.submit-reassurance{font-size:12px;padding:10px 12px}}
+.form-error{display:none;margin:0 0 2px;padding:11px 13px;border:1px solid #fed7aa;border-radius:16px;background:#fff7ed;color:#9a3412;font-size:13px;font-weight:850;line-height:1.38}.form-error.show{display:block}
+@media(max-width:760px){.submit-reassurance,.form-error{font-size:12px;padding:10px 12px}}
