@@ -29,7 +29,7 @@ CHECKS = {
     ],
     "viewer/index.html": [
         "step3d:viewerBrief",
-        "Сохранить и создать заявку",
+        "Сохранить расчёт и создать заявку",
         "cdnFallback",
         "href=\"../app/#app-brief\"",
     ],

@@ -45,3 +45,8 @@ input::placeholder,textarea::placeholder{color:#8a8a82!important;opacity:1;}
   .btn,a.btn,button.btn{width:100%;min-height:48px!important;justify-content:center!important;}
   .mobile-fixed-menu .mobile-menu-item,.bottom-nav a{width:auto;min-height:42px!important;font-size:12.5px!important;}
 }
+
+/* UX/UI 2.0 honesty banners */
+.ux-honesty-banner{max-width:1120px;margin:12px auto;padding:12px 16px;border:1px solid #e5e7eb;border-radius:18px;background:#fff;color:#374151;font-size:14px;line-height:1.45;box-shadow:0 10px 26px rgba(15,23,42,.045)}
+.soft-note{font-weight:600;color:#6b7280;font-size:.88em}
+@media(max-width:760px){.ux-honesty-banner{margin:8px 12px;padding:11px 13px;border-radius:16px;font-size:13px}}
