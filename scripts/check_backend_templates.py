@@ -15,6 +15,7 @@ CHECKS = {
     "data/crm_statuses.json": ["needs_files", "estimating", "firstReplyHours", "followupHours"],
     "scripts/check_seo_trust.py": ["SEO_TRUST_CHECK_OK", "trust-compact-title", "WebApplication"],
     "scripts/check_release_readiness.py": ["RELEASE_READINESS_OK", "app → viewer", "data/crm_statuses.json"],
+    "scripts/check_ux_ui_2.py": ["UX_UI_2_CHECK_OK", "trapStoryFocus", "prefers-reduced-motion"],
 }
 
 def main() -> int:

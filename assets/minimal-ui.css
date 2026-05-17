@@ -55,3 +55,12 @@ input::placeholder,textarea::placeholder{color:#8a8a82!important;opacity:1;}
 .file-intake-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
 .next-actions{gap:10px;flex-wrap:wrap}.next-actions .btn{min-height:44px}
 @media(max-width:760px){.file-intake-grid{grid-template-columns:1fr 1fr}.next-actions{display:grid}.next-actions .btn{width:100%}}
+
+
+/* UX/UI 2.0 stages 8–10: accessibility + visual system cleanup */
+:where(a,button,input,select,textarea,[tabindex]):focus-visible{outline:3px solid #111;outline-offset:3px;box-shadow:0 0 0 6px rgba(17,17,17,.10)}
+:where(.btn,.tab,.lead-mode-tab,.quick-lead-preset){touch-action:manipulation;min-height:44px}
+:where(.bottom-nav a,.mobile-bar .btn){min-height:48px;touch-action:manipulation}
+:where(input,select,textarea)[aria-invalid="true"]{border-color:#dc2626!important;box-shadow:0 0 0 4px rgba(220,38,38,.12)!important}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.001ms!important}}
+@media(max-width:760px){body{padding-bottom:max(86px,env(safe-area-inset-bottom) + 74px)}.bottom-nav,.mobile-bar{padding-bottom:env(safe-area-inset-bottom)}}

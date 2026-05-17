@@ -3465,7 +3465,7 @@ section, [id] { scroll-margin-top: 132px; }
 <span>Меню</span><span class="menu-toggle-lines" aria-hidden="true"><span></span><span></span><span></span></span>
 </button>
 </div>
-<div class="mobile-menu" id="mobileMenu" aria-label="Мобильная навигация">
+<div class="mobile-menu" id="mobileMenu" aria-label="Мобильная навигация" hidden aria-hidden="true">
 <div class="mobile-menu-grid">
 <a href="app/"><span>Заявка Step3D<small>заявка, файлы и статус</small></span></a>
 <a href="#services"><span>Услуги<small>печать, сканирование, CAD</small></span></a>
@@ -4703,12 +4703,18 @@ section, [id] { scroll-margin-top: 132px; }
     if (menuToggle && mobileMenu) {
       const closeMenu = () => {
         mobileMenu.classList.remove('is-open');
+        mobileMenu.hidden = true;
+        mobileMenu.setAttribute('aria-hidden', 'true');
         menuToggle.setAttribute('aria-expanded', 'false');
       };
 
       menuToggle.addEventListener('click', () => {
-        const isOpen = mobileMenu.classList.toggle('is-open');
+        const isOpen = !mobileMenu.classList.contains('is-open');
+        mobileMenu.classList.toggle('is-open', isOpen);
+        mobileMenu.hidden = !isOpen;
+        mobileMenu.setAttribute('aria-hidden', String(!isOpen));
         menuToggle.setAttribute('aria-expanded', String(isOpen));
+        if (isOpen) mobileMenu.querySelector('a')?.focus();
       });
 
       mobileMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
@@ -4740,6 +4746,16 @@ section, [id] { scroll-margin-top: 132px; }
       storyModal.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
       if (lastFocusedElement) lastFocusedElement.focus();
+    }
+
+    function trapStoryFocus(event) {
+      if (event.key !== 'Tab' || !storyModal.classList.contains('is-open')) return;
+      const focusable = [...storyModal.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')];
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
     }
 
     function renderStory() {
@@ -4791,6 +4807,7 @@ section, [id] { scroll-margin-top: 132px; }
       if (event.key === 'Escape') closeStory();
       if (event.key === 'ArrowRight') nextStorySlide();
       if (event.key === 'ArrowLeft') prevStorySlide();
+      trapStoryFocus(event);
     });
 
 
