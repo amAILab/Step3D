@@ -134,7 +134,7 @@
   if(viewerBrief && !files.value.trim()){files.value='Step3D Viewer расчёт:\n'+viewerBrief;}
   document.querySelectorAll('[data-preset]').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('[data-preset]').forEach(b=>b.classList.remove('is-active')); btn.classList.add('is-active'); task.value=btn.dataset.preset; service.value=btn.dataset.service||''; task.focus(); update();}));
   document.querySelectorAll('[data-add]').forEach(btn=>btn.addEventListener('click',()=>{task.value=(task.value.trim()?task.value.trim()+'\n':'')+btn.dataset.add; task.focus(); update();}));
-  form.addEventListener('input',update); update();
+  form.addEventListener('input',()=>{error.classList.remove('show'); update();}); update();
   form.addEventListener('submit',(e)=>{if(!contact.value.trim()||task.value.trim().length<20){e.preventDefault(); error.textContent='Добавьте контакт и коротко опишите задачу: что за деталь, размер/срок и что нужно получить.'; error.classList.add('show'); (!contact.value.trim()?contact:task).focus(); return;} const pid=id(); projectId.textContent=pid; projectInput.value=pid; localStorage.setItem('step3d:lastProjectId',pid); success.classList.add('show'); nextActions.classList.add('show'); account.href='../account/?projectId='+encodeURIComponent(pid); sendFiles.href=manager+'?text='+encodeURIComponent(brief());});
   $('#copyBrief').addEventListener('click',async()=>{await navigator.clipboard.writeText(brief()); $('#copyBrief').textContent='Скопировано'; setTimeout(()=>$('#copyBrief').textContent='Скопировать ТЗ',1400)});
   $('[data-focus-search]')?.addEventListener('click',()=>document.querySelector('[data-s3d-search-open]')?.click());
