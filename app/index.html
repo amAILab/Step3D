@@ -38,14 +38,14 @@
   <section class="hero" aria-labelledby="app-title">
     <span class="eyebrow">Step3D App · инженерная заявка</span>
     <h1 id="app-title">Что нужно изготовить?</h1>
-    <p class="lead">Опишите деталь, приложите STL/STEP/фото и получите понятный маршрут: CAD, сканирование, печать, серия или честный отказ от 3D-печати, если так лучше.</p>
+    <p class="lead"><strong>Не форма. Рабочее место для заявки.</strong> Опишите деталь, приложите STL/STEP/фото и получите понятный маршрут: CAD, сканирование, печать, серия или честный отказ от 3D-печати, если так лучше.</p>
   </section>
 
   <nav class="quick-services" aria-label="Быстрый выбор услуги">
-    <button class="service-tile is-active" type="button" data-preset="Сломалась пластиковая деталь. Нужно восстановить форму по фото/образцу, проверить посадки и напечатать замену." data-service="Ремонт / замена детали"><span class="icon">🔧</span><b>Ремонт детали</b></button>
-    <button class="service-tile" type="button" data-preset="Нужен прототип по эскизу или описанию. Нужно проверить форму, размер, материал и собрать первую версию." data-service="Прототип"><span class="icon">🧩</span><b>Прототип</b></button>
-    <button class="service-tile" type="button" data-preset="Нужно сделать реверс-инжиниринг: есть образец или фото, нужны 3D-сканирование, CAD/STL и повторение геометрии." data-service="Реверс / сканирование"><span class="icon">📐</span><b>Реверс</b></button>
-    <button class="service-tile" type="button" data-preset="Нужна малая серия одинаковых деталей. Нужно оценить прототип, материал, количество, срок и повторяемость." data-service="Малая серия"><span class="icon">⚙️</span><b>Серия</b></button>
+    <button class="service-tile source-card is-active" type="button" data-preset="Сломалась пластиковая деталь. Нужно восстановить форму по фото/образцу, проверить посадки и напечатать замену." data-service="Ремонт / замена детали"><span class="icon">🔧</span><b>Ремонт детали</b></button>
+    <button class="service-tile source-card" type="button" data-preset="Нужен прототип по эскизу или описанию. Нужно проверить форму, размер, материал и собрать первую версию." data-service="Прототип"><span class="icon">🧩</span><b>Прототип</b></button>
+    <button class="service-tile source-card" type="button" data-preset="Нужно сделать реверс-инжиниринг: есть образец или фото, нужны 3D-сканирование, CAD/STL и повторение геометрии." data-service="Реверс / сканирование"><span class="icon">📐</span><b>Реверс</b></button>
+    <button class="service-tile source-card" type="button" data-preset="Нужна малая серия одинаковых деталей. Нужно оценить прототип, материал, количество, срок и повторяемость." data-service="Малая серия"><span class="icon">⚙️</span><b>Серия</b></button>
   </nav>
 
   <section class="go-shell" aria-label="Оформление инженерной заявки Step3D">
@@ -66,7 +66,7 @@
         </div>
         <div class="prompt-tools" aria-label="Быстрые подсказки"><button class="chip" type="button" data-add="Есть фото с линейкой, размер примерно …">Фото + размер</button><button class="chip" type="button" data-add="Нужна прочность, деталь будет работать под нагрузкой …">Нагрузка</button><button class="chip" type="button" data-add="Срок желателен: …, количество: …">Срок</button><button class="chip" type="button" data-add="Для B2B: нужен счёт, документы или NDA …">B2B</button></div>
         <div class="field-row"><div class="field"><label for="name">Имя / компания</label><input class="input" id="name" name="name" autocomplete="name organization" placeholder="Можно не заполнять"></div><div class="field"><label for="quantity">Количество</label><input class="input" id="quantity" name="quantity" inputmode="numeric" placeholder="1, 5, 20…"></div></div>
-        <div class="drop"><strong>Файлы для расчёта</strong><p>Прикрепите STL, STEP, 3MF, фото, PDF или чертёж. Если файл тяжёлый — отправьте ссылку или досылайте в Telegram с номером S3D.</p><label class="btn btn-yellow file-button" for="attachments">Прикрепить файлы</label><input class="file-input" id="attachments" name="attachments" type="file" multiple accept=".stl,.step,.stp,.3mf,.obj,.ply,.zip,.rar,.7z,.pdf,.png,.jpg,.jpeg,.webp,.heic,.dxf,.dwg,image/*,application/pdf"><div class="file-list" id="fileList" aria-live="polite"></div><textarea class="input textarea" name="files" placeholder="Ссылка на файл, комментарий или что дослать позже"></textarea></div>
+        <div class="drop"><strong>Файлы для расчёта</strong><p>Прикрепите STL, STEP, 3MF, фото, PDF или чертёж. Файлы не хранятся на GitHub Pages: если файл тяжёлый — отправьте ссылку или досылайте в Telegram с номером S3D.</p><label class="btn btn-yellow file-button" for="attachments">Прикрепить файлы</label><input class="file-input" id="attachments" name="attachments" type="file" multiple accept=".stl,.step,.stp,.3mf,.obj,.ply,.zip,.rar,.7z,.pdf,.png,.jpg,.jpeg,.webp,.heic,.dxf,.dwg,image/*,application/pdf"><div class="file-list" id="fileList" aria-live="polite"></div><textarea class="input textarea" name="files" placeholder="Ссылка на файл, комментарий или что дослать позже"></textarea></div>
         <div class="field"><label for="deadline">Когда нужно</label><input class="input" id="deadline" name="deadline" placeholder="Не срочно / до пятницы / сегодня"></div>
         <div class="submit-row"><button class="btn btn-primary" type="submit" id="submitBtn">Отправить инженеру</button><a class="btn btn-yellow" href="https://t.me/step_3d_mngr" target="_blank" rel="noopener" id="telegramLink">Telegram</a></div>
         <p class="hint">Без оплаты на старте: инженер сначала проверит вводные, маршрут и риски.</p>
