@@ -40,6 +40,9 @@ body{background:#f7f7f4}body::before,body::after{opacity:.28}.app-shell{max-widt
 
 /* App avatar identity from Никита reference. */
 .app-avatar{width:min(66vw,220px);aspect-ratio:1;border-radius:50%;object-fit:cover;display:block;box-shadow:0 24px 64px rgba(249,115,22,.22),0 0 0 8px rgba(255,255,255,.76)}.mascot-disc{background:transparent!important;box-shadow:none!important}.mascot-disc::before,.mascot-disc::after,.pixel-mascot{display:none!important}@media(max-width:560px){.app-avatar{width:min(62vw,178px)}}
+
+/* Avatar mobile fit fix from screenshot: keep full emblem visible. */
+.app-avatar{object-fit:contain!important;background:#050505;padding:0!important;box-shadow:0 18px 44px rgba(249,115,22,.18),0 0 0 6px rgba(255,255,255,.82)!important}.mascot-disc{width:min(58vw,190px)!important;margin-inline:auto!important}.sketch-phone{place-items:center!important}.hero-copy{min-height:auto!important}.app-shell{padding-bottom:148px!important}@media(max-width:560px){.hero{padding-top:8px!important}.hero-grid{gap:10px!important}.mascot-disc{width:min(54vw,156px)!important}.app-avatar{width:100%!important}.sketch-phone{padding:12px!important;gap:10px!important}.sketch-services{width:100%}.hero-cta{margin-top:14px!important}.bottom-nav{bottom:10px!important}}@media(max-width:390px){.mascot-disc{width:142px!important}.sketch-service{min-height:50px!important;padding:8px 10px!important}.sketch-service i{width:30px!important;height:30px!important}.sketch-service strong{font-size:13px!important}}
 </style>
 <link rel="stylesheet" href="../assets/mobile-readability.css">
 <link rel="stylesheet" href="../assets/minimal-ui.css">
