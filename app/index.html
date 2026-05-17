@@ -58,6 +58,17 @@
   .app{padding-bottom:28px!important}
 }
 
+@media(max-width:640px){
+  .quick-services{grid-template-columns:1fr!important}
+  .service-tile{display:grid!important;grid-template-columns:40px 1fr!important;align-items:center!important;min-height:64px!important;align-content:center!important}
+  .service-tile b{margin-top:0!important}
+  .go-shell,.field-row,.route-row{grid-template-columns:1fr!important}
+  .route-dot{display:none!important}
+  .input,.textarea,.btn,.chip{max-width:100%!important;width:100%!important}
+  .prompt-tools{display:grid!important;grid-template-columns:1fr 1fr!important}
+  .prompt-tools .chip{font-size:12px!important;padding:8px 6px!important}
+}
+
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Step3D App","url":"https://amailab.github.io/Step3D/app/","applicationCategory":"BusinessApplication","operatingSystem":"Web","description":"AI-assisted заявка на 3D-печать, CAD, сканирование и малые серии."}</script>
 </head>
