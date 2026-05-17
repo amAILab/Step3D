@@ -44,3 +44,8 @@ body{font-kerning:normal;text-rendering:optimizeLegibility}.lead,.hero-subtitle,
 
 /* Stages 16–20: accessibility 2, motion, mobile/tablet/desktop hardening */
 :where(a,button,input,select,textarea,[tabindex]):focus-visible{outline:3px solid #111!important;outline-offset:3px!important;box-shadow:0 0 0 6px rgba(17,17,17,.10)!important}input,textarea,select{font-size:16px!important}input::placeholder,textarea::placeholder{color:#777!important}.mobile-menu[hidden]{display:none!important}.story-modal[aria-hidden="true"]{display:none!important}@media (prefers-reduced-motion: reduce){html:focus-within{scroll-behavior:auto!important}*,*::before,*::after{animation:none!important;transition:none!important}}@media(max-width:430px){.container,.app-shell,.topbar-inner{width:calc(100vw - 20px)!important;max-width:calc(100vw - 20px)!important}.btn{min-height:50px!important}.card,.project-card,.form-panel,.brief-panel{padding:14px!important}.home-focus-strip div,.trust-compact-item{padding:12px!important}.bottom-nav a{font-size:12px!important}}@media(min-width:761px) and (max-width:1024px){.hero-grid,.app-shell .hero-grid,.split,.workspace{grid-template-columns:1fr!important}.project-card,.panel{position:static!important}.bottom-nav{max-width:680px!important}}@media(min-width:1200px){.hero,.section{scroll-margin-top:96px}.container,.app-shell{max-width:1120px!important}.hero-actions,.hero-cta{max-width:620px}}
+
+
+/* Stage 21: submit reassurance keeps request flow honest */
+.submit-reassurance{margin:0;padding:11px 13px;border:1px solid var(--s3d-line,#e7e3dc);border-radius:16px;background:#fafafa;color:#555;font-size:13px;line-height:1.38}
+@media(max-width:760px){.submit-reassurance{font-size:12px;padding:10px 12px}}
