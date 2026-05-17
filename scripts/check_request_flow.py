@@ -33,6 +33,7 @@ CHECKS = {
         "brief progress": "briefProgressText",
         "project next actions": "projectNextActions",
         "file intake cards": "file-intake-grid",
+        "mobile bottom nav fits 3 items": "grid-template-columns:repeat(3,minmax(0,1fr))",
         "minimal UI stylesheet": "minimal-ui.css",
     },
     "account/index.html": {
