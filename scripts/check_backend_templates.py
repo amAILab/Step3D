@@ -12,6 +12,7 @@ CHECKS = {
     "docs/file_intake_contract.md": ["Step3D file intake contract", "S3D-", "Backend-upload MVP"],
     "scripts/mock_lead_api.py": ["Local mock Step3D lead API", "projectId", "mock-local"],
     "data/lead_schema.json": ["projectId", "task", "service", "files"],
+    "data/crm_statuses.json": ["needs_files", "estimating", "firstReplyHours", "followupHours"],
 }
 
 def main() -> int:

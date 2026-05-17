@@ -38,6 +38,8 @@ COLUMNS = [
     "page",
     "nextStep",
     "owner",
+    "priority",
+    "slaHours",
 ]
 
 
@@ -56,7 +58,7 @@ def build_row(result: dict[str, Any]) -> list[str]:
     return [
         result.get("projectId") or result.get("id", ""),
         lead.get("createdAt") or lead.get("submittedAt", ""),
-        "new",
+        result.get("status", "new"),
         lead.get("name", ""),
         lead.get("contact", ""),
         lead.get("email", ""),
@@ -69,8 +71,10 @@ def build_row(result: dict[str, Any]) -> list[str]:
         lead.get("leadSource", ""),
         lead.get("leadIntent", ""),
         lead.get("page", ""),
-        "проверить файлы/фото и подготовить ответ",
-        "Никита",
+        result.get("nextStep", "проверить файлы/фото и подготовить ответ"),
+        result.get("owner", "Никита"),
+        result.get("priority", "normal"),
+        result.get("slaHours", "24"),
     ]
 
 

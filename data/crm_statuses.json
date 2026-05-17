@@ -1,0 +1,17 @@
+{
+  "statuses": [
+    {"id": "new", "label": "Новая", "meaning": "лид получен, ещё не разобран", "defaultNextStep": "проверить контакт, задачу и файлы"},
+    {"id": "needs_files", "label": "Нужны файлы", "meaning": "не хватает фото/STL/STEP/размеров", "defaultNextStep": "попросить фото, STL/STEP или критичные размеры"},
+    {"id": "estimating", "label": "Оценка", "meaning": "инженер считает маршрут, срок и вилку", "defaultNextStep": "подготовить первый ответ: маршрут, срок, цена-вилка, риски"},
+    {"id": "quoted", "label": "Оценка отправлена", "meaning": "клиент получил предварительную оценку", "defaultNextStep": "ждать подтверждение или уточнение"},
+    {"id": "in_work", "label": "В работе", "meaning": "задача согласована и запущена", "defaultNextStep": "обновить статус производства"},
+    {"id": "done", "label": "Готово", "meaning": "работа завершена", "defaultNextStep": "закрыть проект и запросить отзыв"},
+    {"id": "lost", "label": "Неактуально", "meaning": "клиент отказался или задача не подходит", "defaultNextStep": "зафиксировать причину"}
+  ],
+  "priorities": ["normal", "high", "urgent"],
+  "sla": {
+    "firstReplyHours": 24,
+    "urgentFirstReplyHours": 4,
+    "followupHours": 48
+  }
+}

@@ -21,6 +21,7 @@ WORKSPACE = ROOT.parent
 VALIDATOR = ROOT / "scripts" / "validate_lead_payload.py"
 LOG_PATH = ROOT / "data" / "leads_log.jsonl"
 TASK_INBOX = WORKSPACE / "TASK_INBOX.md"
+CRM_STATUSES = json.loads((ROOT / "data" / "crm_statuses.json").read_text(encoding="utf-8"))
 
 LABELS = {
     "name": "Имя",
@@ -54,6 +55,23 @@ def lead_id(lead: dict[str, str]) -> str:
     digest = hashlib.sha1("|".join([lead.get("contact", ""), lead.get("description", ""), lead.get("task", ""), lead.get("submittedAt", "")]).encode("utf-8")).hexdigest()[:4].upper()
     return f"S3D-{now:%y%m%d}-{digest}"
 
+
+
+def classify_lead(lead: dict[str, str]) -> dict[str, str]:
+    text = " ".join([lead.get("projectType", ""), lead.get("service", ""), lead.get("description", ""), lead.get("task", ""), lead.get("deadline", ""), lead.get("hasFiles", ""), lead.get("files", "")]).lower()
+    has_files = any(token in text for token in ["stl", "step", "stp", "3mf", "obj", "фото", "ссылка", "viewer"])
+    urgent = any(token in text for token in ["срочно", "сегодня", "завтра", "urgent", "asap"])
+    b2b = any(token in text for token in ["счёт", "счет", "договор", "юр", "company", "b2b", "nda"])
+    status = "estimating" if has_files else "needs_files"
+    priority = "urgent" if urgent else ("high" if b2b else "normal")
+    if status == "needs_files":
+        next_step = "попросить фото, STL/STEP или критичные размеры"
+    else:
+        next_step = "подготовить первый ответ: маршрут, срок, цена-вилка, риски"
+    if b2b:
+        next_step += "; уточнить юрлицо/документы/NDA"
+    sla_hours = CRM_STATUSES["sla"]["urgentFirstReplyHours"] if urgent else CRM_STATUSES["sla"]["firstReplyHours"]
+    return {"status": status, "priority": priority, "nextStep": next_step, "slaHours": str(sla_hours), "owner": "Никита"}
 
 def build_summary(lead: dict[str, str]) -> str:
     lines = ["🦞 Новая заявка Step3D", ""]
@@ -113,12 +131,16 @@ def main() -> int:
 
     project_id = lead_id(lead)
     lead["projectId"] = project_id
+    crm = classify_lead(lead)
     result: dict[str, Any] = {
         "ok": True,
         "id": project_id,
         "projectId": project_id,
-        "status": "created",
-        "nextStep": "проверить файлы/фото и подготовить первый ответ",
+        "status": crm["status"],
+        "priority": crm["priority"],
+        "slaHours": crm["slaHours"],
+        "owner": crm["owner"],
+        "nextStep": crm["nextStep"],
         "transport": "dry-run",
         "to_email": "projects.step3d@gmail.com",
         "cc_email": "stepgptai@gmail.com",
