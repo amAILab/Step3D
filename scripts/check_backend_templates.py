@@ -10,6 +10,8 @@ CHECKS = {
     "backend/google-apps-script/Code.gs": ["function doPost", "appendLead_", "notifyTelegram_", "SHEET_ID"],
     "backend/google-apps-script/README.md": ["Google Apps Script backend", "primaryEndpoint", "Web App URL"],
     "docs/file_intake_contract.md": ["Step3D file intake contract", "S3D-", "Backend-upload MVP"],
+    "scripts/mock_lead_api.py": ["Local mock Step3D lead API", "projectId", "mock-local"],
+    "data/lead_schema.json": ["projectId", "task", "service", "files"],
 }
 
 def main() -> int:

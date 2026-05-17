@@ -54,18 +54,18 @@ def router_result(raw: str, sample: bool) -> dict[str, Any]:
 def build_row(result: dict[str, Any]) -> list[str]:
     lead = result["lead"]
     return [
-        result.get("id", ""),
-        lead.get("submittedAt", ""),
+        result.get("projectId") or result.get("id", ""),
+        lead.get("createdAt") or lead.get("submittedAt", ""),
         "new",
         lead.get("name", ""),
         lead.get("contact", ""),
         lead.get("email", ""),
-        lead.get("projectType", ""),
-        lead.get("description", ""),
+        lead.get("projectType") or lead.get("service", ""),
+        lead.get("description") or lead.get("task", ""),
         lead.get("deadline", ""),
         lead.get("quantity", ""),
         lead.get("dimensions", ""),
-        lead.get("hasFiles", ""),
+        lead.get("hasFiles") or lead.get("files", ""),
         lead.get("leadSource", ""),
         lead.get("leadIntent", ""),
         lead.get("page", ""),

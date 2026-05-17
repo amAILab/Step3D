@@ -59,6 +59,15 @@ def as_text(value: Any) -> str:
 
 
 def validate(payload: dict[str, Any]) -> dict[str, str]:
+    payload = dict(payload)
+    if not as_text(payload.get("description")) and as_text(payload.get("task")):
+        payload["description"] = as_text(payload.get("task"))
+    if not as_text(payload.get("task")) and as_text(payload.get("description")):
+        payload["task"] = as_text(payload.get("description"))
+    if not as_text(payload.get("projectType")) and as_text(payload.get("service")):
+        payload["projectType"] = as_text(payload.get("service"))
+    if not as_text(payload.get("hasFiles")) and as_text(payload.get("files")):
+        payload["hasFiles"] = "files/slinks provided"
     clean: dict[str, str] = {}
     if as_text(payload.get("botField") or payload.get("_honey")):
         fail("honeypot field is filled")
@@ -80,9 +89,14 @@ def validate(payload: dict[str, Any]) -> dict[str, str]:
     if email and not EMAIL_RE.match(email):
         fail("email has invalid format")
 
+    if not clean.get("description") and not clean.get("task"):
+        fail("required field `description` or `task` is empty or too short")
+    if len(clean.get("description") or clean.get("task") or "") < 8:
+        fail("description/task is too short")
+
     contact = clean.get("contact", "")
-    if not ("@" in contact or re.search(r"\d{6,}", contact)):
-        fail("contact should contain Telegram username or phone-like number")
+    if not ("@" in contact or re.search(r"\d{6,}", contact) or EMAIL_RE.match(contact)):
+        fail("contact should contain Telegram username, email, or phone-like number")
 
     if "submittedAt" not in clean:
         clean["submittedAt"] = datetime.now(timezone.utc).isoformat()

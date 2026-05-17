@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import random
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -46,8 +47,12 @@ def validate(raw: str) -> dict[str, Any]:
 
 
 def lead_id(lead: dict[str, str]) -> str:
-    raw = "|".join([lead.get("contact", ""), lead.get("description", ""), lead.get("submittedAt", "")])
-    return "step3d-" + hashlib.sha1(raw.encode("utf-8")).hexdigest()[:12]
+    existing = (lead.get("projectId") or "").strip().upper()
+    if existing.startswith("S3D-"):
+        return "".join(ch for ch in existing if ch.isalnum() or ch == "-")[:32]
+    now = datetime.now(timezone.utc)
+    digest = hashlib.sha1("|".join([lead.get("contact", ""), lead.get("description", ""), lead.get("task", ""), lead.get("submittedAt", "")]).encode("utf-8")).hexdigest()[:4].upper()
+    return f"S3D-{now:%y%m%d}-{digest}"
 
 
 def build_summary(lead: dict[str, str]) -> str:
@@ -106,9 +111,14 @@ def main() -> int:
     else:
         lead = validate(sys.stdin.read())
 
+    project_id = lead_id(lead)
+    lead["projectId"] = project_id
     result: dict[str, Any] = {
         "ok": True,
-        "id": lead_id(lead),
+        "id": project_id,
+        "projectId": project_id,
+        "status": "created",
+        "nextStep": "проверить файлы/фото и подготовить первый ответ",
         "transport": "dry-run",
         "to_email": "projects.step3d@gmail.com",
         "cc_email": "stepgptai@gmail.com",
