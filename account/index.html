@@ -56,7 +56,7 @@
   const params=new URLSearchParams(location.search);
   const rawId=params.get('projectId')||localStorage.getItem('step3d:lastProjectId')||localStorage.getItem('step3d:lastDraftId');
   const id=(rawId||'').replace(/[^A-Z0-9-]/gi,'').slice(0,32);
-  const isDraft=!localStorage.getItem('step3d:lastProjectId') && id.startsWith('DRAFT-');
+  const isDraft=id.includes('DRAFT') || (!localStorage.getItem('step3d:lastProjectId') && id.startsWith('DRAFT-'));
   const leadRaw=localStorage.getItem('step3d:lastLead')||localStorage.getItem('step3d:lastDraftLead');
   const escapeHtml=(value)=>String(value||'').replace(/[&<>"']/g,(char)=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   if(!id) return;
