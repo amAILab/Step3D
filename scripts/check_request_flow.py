@@ -35,6 +35,8 @@ CHECKS = {
         "file intake cards": "file-intake-grid",
         "mobile bottom nav fits 3 items": "grid-template-columns:repeat(3,minmax(0,1fr))",
         "minimal UI stylesheet": "minimal-ui.css",
+        "contact freeform keyboard": "Можно ввести телефон, email или @telegram",
+        "telegram handle autocorrect off": "autocapitalize=\"none\"",
     },
     "account/index.html": {
         "project id sanitizing": "replace(/[^A-Z0-9-]/gi,'')",
